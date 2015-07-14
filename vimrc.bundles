@@ -42,6 +42,7 @@ Plugin 'scrooloose/syntastic'            " Syntax checking hacks for vim
 "Plugin 'tomtom/tcomment_vim'             " An extensible & universal comment vim-plugin that also handles embedded filetypes
 Plugin 'tpope/vim-repeat'                " enable repeating supported plugin maps with .
 Plugin 'tpope/vim-surround'              " quoting/parenthesizing made simple
+Plugin 'tpope/vim-sleuth'                " Heuristically set buffer options
 "Plugin 'Raimondi/delimitMate'            " Vim plugin, provides insert mode auto-completion for quotes, parens, brackets, etc.
 Plugin 'alvan/vim-closetag'              " Auto close (X)HTML tags
 Plugin 'godlygeek/tabular'               " Vim script for text filtering and alignment
