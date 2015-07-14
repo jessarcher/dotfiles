@@ -3,4 +3,8 @@ vim/swaps/*
 vim/undo/*
 vim/bundle/*
 vim/.netrwhist
+
 tmux
+
+ncmpcpp
+!ncmpcpp/config

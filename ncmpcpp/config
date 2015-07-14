@@ -1,3 +1,5 @@
+# jessarchers basic ncmpcpp config
+
 visualizer_fifo_path     = "/tmp/mpd.fifo"
 visualizer_output_name   = "my_fifo"
 visualizer_sync_interval = "30"

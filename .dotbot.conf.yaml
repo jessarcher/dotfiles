@@ -3,6 +3,9 @@
 - link:
     ~/.bash_profile: bash_profile
     ~/.bashrc: bashrc
+    ~/.ncmpcpp/config:
+        create: true
+        path: ncmpcpp/config
     ~/.dircolors: dircolors
     ~/.gitconfig: gitconfig
     ~/.gitignore_global: gitignore_global
