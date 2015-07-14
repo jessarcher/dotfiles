@@ -3,12 +3,6 @@
 - link:
     ~/.bash_profile: bash_profile
     ~/.bashrc: bashrc
-    ~/.config/beets/config.yaml:
-        create: true
-        path: beets.yaml
-    ~/.config/mpd/mpd.conf
-        create: true
-        path: mpd.conf
     ~/.dircolors: dircolors
     ~/.gitconfig: gitconfig
     ~/.gitignore_global: gitignore_global
