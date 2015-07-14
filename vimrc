@@ -686,5 +686,14 @@ autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
 
 let php_minlines=500
 
+"===============================================================================
+" Local overrides
+"===============================================================================
+
+let $LOCALFILE=expand("~/.vimrc_local")
+if filereadable($LOCALFILE)
+    source $LOCALFILE
+endif
+
 " vim: set nospell:
 " EOF
