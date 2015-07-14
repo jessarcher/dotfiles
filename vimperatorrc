@@ -1,0 +1,27 @@
+" Settings
+
+" Enable animations for fun
+set animations=true
+
+" Autocomplete using Firefox awesomebar
+set complete=l
+
+" Set the hint chars to start at the home row
+set hintchars=hjklasdfgyuiopqwertnmzxcvb
+
+" Show all the goodies in the statusbar
+set status=input,location,bookmark,history,tabcount,position,ssl
+
+" Customise the gui
+set toolbars=addons,nobookmarks,nomenu,navigation,tabs
+
+" Use a visual bell instead of an auditory bell
+set visualbell=true
+
+" Increase how far we scroll on J/K 
+noremap j 3j
+noremap k 3k
+
+highlight Hint font-family: monospace; font-size: 13px; text-transform: uppercase; color: white; background-color: #333; border-width: 0px; border-style: solid; padding: 0px 1px 0px 1px; 
+highlight HintActive background-color: #88FF00; color: black;
+highlight HintElem background-color: #ccc;  color: #111;

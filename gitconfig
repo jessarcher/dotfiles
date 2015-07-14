@@ -1,0 +1,24 @@
+[user]
+	name = Jess
+	email = jess@jessarcher.com
+[core]
+	editor       = vim
+	excludesfile = /Users/jess/.gitignore_global
+[color]
+	ui = true
+[alias]
+	st   = status
+	co   = checkout
+	ci   = commit
+	br   = branch -a
+	df   = diff
+	dfs  = diff --staged
+	logg = log --graph --decorate --oneline --abbrev-commit --all
+[mergetool]
+	keepBackup = true
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

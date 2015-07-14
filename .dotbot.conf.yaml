@@ -1,0 +1,20 @@
+- clean: ['~']
+
+- link:
+    ~/.bash_profile: bash_profile
+    ~/.bashrc: bashrc
+    ~/.dircolors: dircolors
+    ~/.gitconfig: gitconfig
+    ~/.gitignore_global: gitignore_global
+    ~/.gvimrc: gvimrc
+    ~/.tmux: tmux
+    ~/.tmux.conf: tmux.conf
+    ~/.vim: vim/
+    ~/.vimperatorrc: vimperatorrc
+    ~/.vimrc: vimrc
+    ~/.vimrc.bundles: vimrc.bundles
+
+- shell:
+    - [git submodule update --init --recursive, Installing submodules]
+    - [vim +PluginClean! +PluginInstall +qall, Installing Vim plugins]
+    - [~/.tmux/plugins/tpm/scripts/install_plugins.sh >/dev/null 2>&1, Installing tmux plugins]
