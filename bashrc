@@ -33,10 +33,6 @@ bind 'set show-all-if-unmodified on'
 PATH=/usr/local/bin:$PATH
 PATH=$PATH:~/bin
 
-if [ -f ~/.path.local ]; then
-	source ~/.path.local
-fi
-
 ###########
 # History #
 ###########
@@ -63,12 +59,7 @@ export HISTFILESIZE=10000
 # Exports #
 ###########
 
-if [ -f ~/.exports.local ]; then
-	source ~/.exports.local
-fi
-
 export EDITOR="vim"
-
 
 ###########
 # Aliases #
@@ -125,10 +116,6 @@ alias pacmir='sudo pacman -Syy'                    # Force refresh of all packag
 
 alias pacunlock="sudo rm /var/lib/pacman/db.lck"   # Delete the lock file /var/lib/pacman/db.lck
 alias paclock="sudo touch /var/lib/pacman/db.lck"  # Create the lock file /var/lib/pacman/db.lck
-
-if [ -f ~/.aliases.local ]; then
-	source ~/.aliases.local
-fi
 
 
 ##############
