@@ -1,0 +1,59 @@
+visualizer_fifo_path     = "/tmp/mpd.fifo"
+visualizer_output_name   = "my_fifo"
+visualizer_sync_interval = "30"
+visualizer_in_stereo     = "yes"
+visualizer_type          = "spectrum" # wave/spectrum
+
+media_library_primary_tag = "album_artist"
+
+ignore_leading_the = "yes"
+
+use_console_editor = "yes"
+external_editor = "vim"
+
+#user_interface = "alternative"
+#alternative_header_first_line_format = "$b$1$aqqu$/a$9 $4{%t}|{%f}$9 $1$atqq$/a$9$/b"
+#alternative_header_second_line_format = "{{by $2$b%a$/b$9}{ from $2%b$9}}|{%D}"
+
+follow_now_playing_lyrics = "yes"
+
+discard_colors_if_item_is_selected = "yes"
+
+progressbar_boldness = "no"
+
+display_bitrate = "yes"
+
+
+progressbar_look = "=>-"
+progressbar_color = "blue"
+progressbar_elapsed_color = "green"
+
+
+#song_columns_list_format = "(7)[black]{l} (28)[red]{a} (28)[yellow]{t} (28)[black]{b}"
+
+
+playlist_display_mode = "columns"
+playlist_separate_albums = "yes"
+titles_visibility = "yes" # Column titles
+song_columns_list_format = "(7f)[blue]{N:#} (40)[white]{t|f} (6f)[blue]{lr} (20)[blue]{a} (20)[blue]{b} (6f)[blue]{y:Year}";
+
+
+#playlist_display_mode = "classic"
+
+# %l - length
+# %f - filename
+# %D - directory
+# %a - artist
+# %A - album artist
+# %t - title
+# %b - album
+# %y - date
+# %n - track number (01/12 -> 01)
+# %N - full track info (01/12 -> 01/12)
+# %g - genre
+# %c - composer
+# %p - performer
+# %d - disc
+# %C - comment
+# %P - priority
+# $R - begin right alignment
