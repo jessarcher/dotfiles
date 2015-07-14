@@ -133,10 +133,10 @@ set autoindent
 
 
 set smarttab
-set expandtab     " expand tabs to spaces
-set tabstop=4     " number of spaces that a <Tab> in the file counts for
-set shiftwidth=4  " number of spaces to use for each step of (auto)indent
-set softtabstop=0 " number of spaces that a <Tab> counts for while performing editing operations
+"set expandtab     " expand tabs to spaces
+"set tabstop=4     " number of spaces that a <Tab> in the file counts for
+"set shiftwidth=4  " number of spaces to use for each step of (auto)indent
+"set softtabstop=0 " number of spaces that a <Tab> counts for while performing editing operations
 
 set list          " display tabs, tailing spaces, and other chars visually
 "set listchars=tab:▸\ ,trail:·,eol:¬,extends:>,precedes:<,nbsp:_
