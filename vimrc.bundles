@@ -43,7 +43,7 @@ Plugin 'scrooloose/syntastic'            " Syntax checking hacks for vim
 Plugin 'tpope/vim-repeat'                " enable repeating supported plugin maps with .
 Plugin 'tpope/vim-surround'              " quoting/parenthesizing made simple
 Plugin 'tpope/vim-sleuth'                " Heuristically set buffer options
-"Plugin 'Raimondi/delimitMate'            " Vim plugin, provides insert mode auto-completion for quotes, parens, brackets, etc.
+Plugin 'Raimondi/delimitMate'            " Vim plugin, provides insert mode auto-completion for quotes, parens, brackets, etc.
 Plugin 'alvan/vim-closetag'              " Auto close (X)HTML tags
 Plugin 'godlygeek/tabular'               " Vim script for text filtering and alignment
 "Plugin 'jeetsukumaran/vim-buffergator'   " Vim plugin to list, select and switch between buffers
@@ -132,12 +132,12 @@ Plugin 'jnurmine/Zenburn'                " Zenburn is a low-contrast color schem
 
 " Plugin 'Shougo/neocomplcache.vim'        " Ultimate auto-completion system for Vim
 " Plugin 'chrisbra/csv.vim'                " A Filetype plugin for csv files
-" Plugin 'Lokaltog/vim-easymotion'         " hints like vimperator I think
+Plugin 'Lokaltog/vim-easymotion'         " hints like vimperator I think
 " Plugin 'nathanaelkane/vim-indent-guides' " A Vim plugin for visually displaying indent levels in code
-" Plugin 'terryma/vim-multiple-cursors'    " True Sublime Text style multiple selections for Vim
+Plugin 'terryma/vim-multiple-cursors'    " True Sublime Text style multiple selections for Vim
 " Plugin 'tpope/vim-commentary'            " tpopes commenting plugin
-" Plugin 'wellle/targets.vim'              " Add additional targets/text objects to Vim
-" Plugin 'justinmk/vim-sneak'              " The missing motion for Vim
+Plugin 'wellle/targets.vim'              " Add additional targets/text objects to Vim
+Plugin 'justinmk/vim-sneak'              " The missing motion for Vim
 " Plugin 'tommcdo/vim-lion'                " A simple alignment operator for Vim text editor (alternative to tabular)
 " unimpared
 " ZoomWin
