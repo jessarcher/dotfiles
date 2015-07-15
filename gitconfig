@@ -15,3 +15,5 @@
 	keepBackup = true
 [include]
 	path = ~/.gitconfig_local
+[push]
+	default = simple
