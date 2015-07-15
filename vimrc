@@ -600,6 +600,11 @@ if b:bundles_loaded == 1
         let g:php_manual_online_search_shortcut = "<s-P>"
     endif
 
+    " ZoomWin
+    if isdirectory(expand("~/.vim/bundle/ZoomWin"))
+        nmap <leader>z :ZoomWin<CR>
+    endif
+
 endif " bundles_loaded
 
 "===============================================================================

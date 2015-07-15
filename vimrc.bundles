@@ -130,14 +130,13 @@ Plugin 'jnurmine/Zenburn'                " Zenburn is a low-contrast color schem
 " To investigate further
 
 
-" Plugin 'Shougo/neocomplcache.vim'        " Ultimate auto-completion system for Vim
 " Plugin 'chrisbra/csv.vim'                " A Filetype plugin for csv files
 Plugin 'Lokaltog/vim-easymotion'         " hints like vimperator I think
 " Plugin 'nathanaelkane/vim-indent-guides' " A Vim plugin for visually displaying indent levels in code
 Plugin 'terryma/vim-multiple-cursors'    " True Sublime Text style multiple selections for Vim
-" Plugin 'tpope/vim-commentary'            " tpopes commenting plugin
 Plugin 'wellle/targets.vim'              " Add additional targets/text objects to Vim
 Plugin 'justinmk/vim-sneak'              " The missing motion for Vim
+Plugin 'vits/ZoomWin'                    " Zoom in/out of windows (toggle between one window and multi-window)
 " Plugin 'tommcdo/vim-lion'                " A simple alignment operator for Vim text editor (alternative to tabular)
 " unimpared
 " ZoomWin
