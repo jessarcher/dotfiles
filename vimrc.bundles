@@ -29,31 +29,15 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-" General plugins
 
+" Searching
+
+Plugin 'scrooloose/nerdtree'             " A tree explorer plugin for vim.
 Plugin 'kien/ctrlp.vim'                  " Fuzzy file, buffer, mru, tag, etc finder.
-Plugin 'AndrewRadev/splitjoin.vim'       " A vim plugin that simplifies the transition between multiline and single-line code
 Plugin 'mileszs/ack.vim'                 " Vim plugin for the Perl module / CLI script 'ack'
 Plugin 'rking/ag.vim'                    " Vim plugin for the_silver_searcher, 'ag', a replacement for the Perl module / CLI script 'ack'
-Plugin 'scrooloose/nerdtree'             " A tree explorer plugin for vim.
 
-Plugin 'scrooloose/nerdcommenter'        " commenting by Nerd Tree
-Plugin 'scrooloose/syntastic'            " Syntax checking hacks for vim
-"Plugin 'tomtom/tcomment_vim'             " An extensible & universal comment vim-plugin that also handles embedded filetypes
-Plugin 'tpope/vim-repeat'                " enable repeating supported plugin maps with .
-Plugin 'tpope/vim-surround'              " quoting/parenthesizing made simple
-Plugin 'tpope/vim-sleuth'                " Heuristically set buffer options
-Plugin 'Raimondi/delimitMate'            " Vim plugin, provides insert mode auto-completion for quotes, parens, brackets, etc.
-Plugin 'alvan/vim-closetag'              " Auto close (X)HTML tags
-Plugin 'godlygeek/tabular'               " Vim script for text filtering and alignment
-"Plugin 'jeetsukumaran/vim-buffergator'   " Vim plugin to list, select and switch between buffers
-"Plugin 'vim-scripts/Smart-Tabs'          " Uses tabs for indent, spaces for alignment
-Plugin 'terryma/vim-expand-region'       " Vim plugin that allows you to visually select increasingly larger regions of text using the same key combination
-Plugin 'mbbill/undotree'                 " Display your undo history in a graph
-"Plugin 'ervandew/supertab'               " Perform all your vim insert mode completions with Tab
-
-
-" Extra Motions and Text Objects
+" Motions and Text Objects
 
 Plugin 'bkad/CamelCaseMotion'            " A vim script to provide CamelCase motion through words
 Plugin 'kana/vim-textobj-user'           " Vim plugin: Create your own text objects
@@ -62,6 +46,9 @@ Plugin 'kana/vim-textobj-entire'         " Vim plugin: Text objects for entire b
 Plugin 'kana/vim-textobj-function'       " Vim plugin: Text objects for functions
 Plugin 'vim-scripts/argtextobj.vim'      " Text-object like motion for arguments
 Plugin 'michaeljsmith/vim-indent-object' " Vim plugin that defines a new text object representing lines of code at the same indent level.
+Plugin 'Lokaltog/vim-easymotion'         " hints like vimperator I think
+Plugin 'wellle/targets.vim'              " Add additional targets/text objects to Vim
+Plugin 'justinmk/vim-sneak'              " The missing motion for Vim
 
 " Statusbar
 
@@ -74,7 +61,7 @@ Plugin 'Valloric/YouCompleteMe'          " A code-completion engine for Vim
 "Plugin 'Shougo/neocomplete'              " Ultimate auto-completion system for Vim
 "Plugin 'Shougo/neosnippet'               " neo-snippet plugin contains neocomplcache snippets source
 "Plugin 'Shougo/neosnippet-snippets'      " The standard snippets repository for neosnippet
-
+"Plugin 'ervandew/supertab'               " Perform all your vim insert mode completions with Tab
 
 " Snippets
 
@@ -102,6 +89,13 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'     " A plugin of NERDTree showing git stat
 Plugin 'christoomey/vim-tmux-navigator'  " Seamless navigation between tmux panes and vim splits
 Plugin 'tmux-plugins/vim-tmux-focus-events' " Make terminal vim and tmux work better together.
 
+" Coding
+
+Plugin 'scrooloose/nerdcommenter'        " commenting by Nerd Tree
+Plugin 'scrooloose/syntastic'            " Syntax checking hacks for vim
+Plugin 'Raimondi/delimitMate'            " Vim plugin, provides insert mode auto-completion for quotes, parens, brackets, etc.
+Plugin 'alvan/vim-closetag'              " Auto close (X)HTML tags
+
 " PHP
 
 Plugin 'tobyS/vmustache'                 " Mustache template system for vim, required for pdv
@@ -127,19 +121,26 @@ Plugin 'sickill/vim-monokai'             " Monokai color scheme for Vim
 Plugin 'tomasr/molokai'                  " Molokai color scheme for Vim
 Plugin 'jnurmine/Zenburn'                " Zenburn is a low-contrast color scheme for Vim
 
+" Misc
+
+Plugin 'AndrewRadev/splitjoin.vim'       " A vim plugin that simplifies the transition between multiline and single-line code
+Plugin 'tpope/vim-repeat'                " enable repeating supported plugin maps with .
+Plugin 'tpope/vim-surround'              " quoting/parenthesizing made simple
+Plugin 'tpope/vim-sleuth'                " Heuristically set buffer options
+Plugin 'godlygeek/tabular'               " Vim script for text filtering and alignment
+Plugin 'terryma/vim-expand-region'       " Vim plugin that allows you to visually select increasingly larger regions of text using the same key combination
+Plugin 'mbbill/undotree'                 " Display your undo history in a graph
+Plugin 'terryma/vim-multiple-cursors'    " True Sublime Text style multiple selections for Vim
+Plugin 'vits/ZoomWin'                    " Zoom in/out of windows (toggle between one window and multi-window)
+"Plugin 'jeetsukumaran/vim-buffergator'   " Vim plugin to list, select and switch between buffers
+"Plugin 'vim-scripts/Smart-Tabs'          " Uses tabs for indent, spaces for alignment
+
 " To investigate further
 
-
 " Plugin 'chrisbra/csv.vim'                " A Filetype plugin for csv files
-Plugin 'Lokaltog/vim-easymotion'         " hints like vimperator I think
 " Plugin 'nathanaelkane/vim-indent-guides' " A Vim plugin for visually displaying indent levels in code
-Plugin 'terryma/vim-multiple-cursors'    " True Sublime Text style multiple selections for Vim
-Plugin 'wellle/targets.vim'              " Add additional targets/text objects to Vim
-Plugin 'justinmk/vim-sneak'              " The missing motion for Vim
-Plugin 'vits/ZoomWin'                    " Zoom in/out of windows (toggle between one window and multi-window)
 " Plugin 'tommcdo/vim-lion'                " A simple alignment operator for Vim text editor (alternative to tabular)
 " unimpared
-" ZoomWin
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
