@@ -1,0 +1,189 @@
+# -----------------------------------------------
+# Paths
+# -----------------------------------------------
+
+set folder       = ~/.mail
+set mailcap_path = ~/.mailcap
+set header_cache = ~/.cache/mutt/headers
+set tmpdir       = ~/.tmp/mutt
+
+
+# -----------------------------------------------
+# Basic Options
+# -----------------------------------------------
+
+set sleep_time   = 0  # Don't pause when doing certain actions
+set wait_key     = no # Stop asking us to continue after external commands have completed successfully
+set check_new         # Check maildir for new mail
+set timeout      = 30 # Reduce the time between checking for new mail while idle.
+set mail_check   = 0  # We don't need any minium time between checking for new mail waith our Maildir
+set beep_new          # Bell on new mail
+set delete
+set send_charset = "utf-8" # UTF-8 all the way
+set date_format  = "%Y-%m-%d %H:%M" # ISO dates!
+
+
+# -----------------------------------------------
+# Sidebar View Options
+# -----------------------------------------------
+
+set sidebar_delim   = '  '
+set sidebar_visible = yes
+set sidebar_width   = 25
+color sidebar_new color221 color233
+
+
+# -----------------------------------------------
+# Sidebar Key Bindings
+# -----------------------------------------------
+
+bind index,pager \CN sidebar-next;
+bind index,pager \CP sidebar-prev;
+bind index,pager <Right> sidebar-open;
+
+macro index b '<enter-command>toggle sidebar_visible<enter><refresh>'
+macro pager b '<enter-command>toggle sidebar_visible<enter><redraw-screen>'
+
+
+# -----------------------------------------------
+# Index View Options
+# -----------------------------------------------
+
+set sort     = threads # Sort messages by threads
+set sort_aux = last-date-received # Thread positions should be ordered by the most recent message
+
+# Show the recipient, not the sender, in the sent mailbox, and assign variable column widths
+folder-hook   .*[sS]ent.* 'set my_col_from = `echo $((30 * ($(tput cols)-35-24) / 100))`; set my_col_subject = `echo $((70 * ($(tput cols)-35-24) / 100))`; set index_format="%2C | %Z [%D] %-$my_col_from.${my_col_from}t (%-4.4c) %-$my_col_subject.${my_col_subject}s"'
+folder-hook ! .*[sS]ent.* 'set my_col_from = `echo $((30 * ($(tput cols)-35-24) / 100))`; set my_col_subject = `echo $((70 * ($(tput cols)-35-24) / 100))`; set index_format="%2C | %Z [%D] %-$my_col_from.${my_col_from}F (%-4.4c) %-$my_col_subject.${my_col_subject}s"'
+
+folder-hook .* push '<first-entry><last-entry>'
+
+# Default:
+# set status_format = "-%r-Mutt: %f [Msgs:%?M?%M/?%m%?n? New:%n?%?o? Old:%o?%?d? Del:%d?%?F? Flag:%F?%?t? Tag:%t?%?p? Post:%p?%?b? Inc:%b?%?l? %l?]---(%s/%S)-%>-(%P)---"
+set status_format = "───[ Folder: %f ]───[ Msgs:%?M?%M/?%m%?n? New:%n?%?o? Old:%o?%?d? Del:%d?%?F? Flag:%F?%?t? Tag:%t?%?p? Post:%p?%?b? Inc:%b?%?l? %l? ]───(%s/%S)─%>─(%P)───"
+
+
+# -----------------------------------------------
+# Index Key Bindings
+# -----------------------------------------------
+
+bind index k       previous-entry
+bind index j       next-entry
+
+bind index gg      first-entry
+bind index G       last-entry
+
+bind index R       group-reply
+
+bind index <tab>   sync-mailbox
+bind index <space> collapse-thread
+
+bind index N       search-opposite
+
+# Sync email
+#macro index O "<shell-escape>offlineimap<enter><last-entry>"                                   "run offlineimap to sync all mail"
+macro index O "<shell-escape>~/.mutt/fetchmail.sh<enter><last-entry>" "run fetchmail.sh to sync all mail and update databases"
+#macro index o "<shell-escape>offlineimap -q -k mbnames:enabled=no -f INBOX<enter><last-entry>" "run offlineimap to sync inbox"
+
+# Saner copy/move dialogs
+macro index s "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
+
+# Make the mailbox list contextual by showing current mailbox (= char)
+macro index c '<change-folder>?<change-dir><home>^K=<enter>'
+
+macro index a "<limit>all\n" "show all messages (undo limit)"
+
+# Ctrl-R to mark all as read
+macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
+
+# Notmuch searching
+macro index S "<enter-command>unset wait_key<enter><shell-escape>mutt-notmuch-py -G ~/.tmp/mutt/search<enter><change-folder>~/.tmp/mutt/search<enter>" "search mail (using notmuch)"
+
+
+# -----------------------------------------------
+# Pager View Options
+# -----------------------------------------------
+
+set pager_index_lines = 8 # number of index lines to show
+set pager_context = 5     # number of context lines to show
+set pager_stop            # don't go to next message automatically
+set menu_scroll           # scroll line by line in the message list (more redraws)
+set tilde                 # show tildes like in vim
+set smart_wrap            # wrap at word boundaries, not screen edge
+unset markers             # no ugly plus signs
+auto_view text/html       # automatically use w3m to show santised HTML
+auto_view application/pdf # automatically use pdftotext to show PDF files
+alternative_order text/plain text/html # Show the plain version first, if it exists
+
+
+# -----------------------------------------------
+# Pager Key Bindings
+# -----------------------------------------------
+
+bind pager k  previous-line
+bind pager j  next-line
+bind pager gg top
+bind pager G  bottom
+bind pager N  search-opposite
+
+bind pager K  previous-entry
+bind pager J  next-entry
+
+bind pager R  group-reply
+
+#macro pager \cu "<enter-command> unset pipe_decode<enter><pipe-message>~/.mutt/extract_url.pl | urlview<enter>" "get URLs"
+macro pager \cu <pipe-entry>'urlview'<enter> 'Follow links with urlview'
+macro pager \cw <pipe-entry>'w3m'<enter> 'Follow links in w3m'
+
+# Saner copy/move dialogs
+macro pager s "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
+
+# -----------------------------------------------
+# Compose Options
+# -----------------------------------------------
+
+set envelope_from                    # which from?
+set sig_dashes                       # dashes before sig
+set sig_on_top                       # include the signature above the quote
+set fast_reply                       # skip to compose when replying
+set askcc                            # ask for CC:
+set fcc_attach                       # save attachments with the body
+unset mime_forward                   # forward attachments as part of body
+set forward_format = "Fwd: %s"       # format of subject when forwarding
+set forward_decode                   # decode when forwarding
+set attribution = "On %d, %n wrote:" # format of quoting header
+set reply_to                         # reply to Reply to: field
+set reverse_name                     # reply as whomever it was to
+set include                          # include message in replies
+set forward_quote                    # include message in forwards
+set edit_headers                     # show headers when composing
+set editor = "vim +/^$ ++1 -c noh -c 'set spell'" # move the cursor under the headers
+
+
+# -----------------------------------------------
+# Contacts
+# -----------------------------------------------
+
+#set query_command = "contacts -Sf '%eTOKEN%n' '%s' | sed -e 's/TOKEN/\t/g'"
+set query_command = "lbdbq %s"
+bind editor <Tab> complete-query
+bind editor ^T    complete
+
+
+
+# -----------------------------------------------
+# Colors
+# -----------------------------------------------
+
+#source ~/.mutt/mutt-colors-solarized-dark-16.muttrc
+source ~/.mutt/colorscheme-jess.muttrc
+
+macro index,pager <f5> '<sync-mailbox><change-folder>~/.tmp/mutt/search<enter>'
+
+# -----------------------------------------------
+# Local Config
+# -----------------------------------------------
+
+source `FILE=$HOME/.muttrc_local; if [ ! -s "$FILE" ]; then FILE=/dev/null;fi;echo "$FILE"`
+
+# EOF

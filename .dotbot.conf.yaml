@@ -7,6 +7,7 @@
     ~/.gitconfig: gitconfig
     ~/.gitignore_global: gitignore_global
     ~/.gvimrc: gvimrc
+    ~/.muttrc: muttrc
     ~/.ncmpcpp/config:
         create: true
         path: ncmpcpp.conf
