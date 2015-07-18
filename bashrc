@@ -118,30 +118,7 @@ alias pacunlock="sudo rm /var/lib/pacman/db.lck"   # Delete the lock file /var/l
 alias paclock="sudo touch /var/lib/pacman/db.lck"  # Create the lock file /var/lib/pacman/db.lck
 
 
-##############
-# Completion #
-##############
 
-[ -r /usr/local/etc/bash_completion ] && /usr/local/etc/bash_completion
-
-if hash beet 2>/dev/null; then
-	eval "$(beet completion)"
-fi
-
-if [ -f /usr/share/git/completion/git-completion.sh ]; then
-	source /usr/share/git/completion/git-completion.bash
-elif [ -f /usr/local/git/contrib/completion/git-completion.bash ]; then
-	source /usr/local/git/contrib/completion/git-completion.bash
-fi
-
-if [ -f /usr/local/etc/bash_completion.d/password-store ]; then
-	source /usr/local/etc/bash_completion.d/password-store
-fi
-
-# SSH completion for known hosts
-if [[ -e ~/.ssh/known_hosts ]]; then
-	complete -o default -W "$(cat ~/.ssh/known_hosts | sed 's/[, ].*//' | sort | uniq )" ssh scp sftp
-fi
 
 ##########
 # Colors #
