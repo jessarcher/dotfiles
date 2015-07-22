@@ -48,7 +48,7 @@ set title                      " set term title
 set lazyredraw                 " seems to fix scrolling issues caused by relativenumber and cursorline"
 set mouse=a                    " enable use of mouse in all modes with a supported terminal"
 set nostartofline              " don't reset cursor to start of line when moving around
-set clipboard=unnamed          " use the system clipboard
+set clipboard^=unnamed,unnamedplus " use the system clipboard
 set showtabline=1              " tab bar display setting: 0: never, 1: only when >1 tabs, 2: always"
 set showcmd                    " show commands as they are being typed (e.g. 2dd), also the number of lines or the dimensions in Visual selection modes"
 set encoding=utf8 nobomb       " utf-8 of course
