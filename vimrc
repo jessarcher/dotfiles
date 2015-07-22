@@ -119,6 +119,8 @@ if has('persistent_undo')
     set undolevels=1000
     set undoreload=10000
 endif
+
+" Look for tags files in parent directories
 set tags+=tags;/
 
 "===============================================================================
