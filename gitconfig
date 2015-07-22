@@ -1,19 +1,25 @@
-[core]
-	editor       = vim
-	excludesfile = ~/.gitignore_global
-[color]
-	ui = true
 [alias]
-	st   = status
-	co   = checkout
-	ci   = commit
-	br   = branch -a
-	df   = diff
-	dfs  = diff --staged
+	st = status
+	co = checkout
+	ci = commit
+	br = branch -a
+	df = diff
+	dfs = diff --staged
 	logg = log --graph --decorate --oneline --abbrev-commit --all
-[mergetool]
-	keepBackup = true
+[color]
+	ui = auto
+[core]
+	editor = vim
+	excludesfile = ~/.gitignore_global
+[diff]
+	tool = vimdiff
+[help]
+	autocorrect = 10
 [include]
 	path = ~/.gitconfig_local
+[mergetool]
+	keepBackup = true
+[pull]
+	rebase = true
 [push]
 	default = simple
