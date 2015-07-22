@@ -96,7 +96,7 @@ set ignorecase                 " case insensitive searches
 set smartcase                  " unless specifically searching for something with uppercase characters
 
 "===============================================================================
-" Vim Directories
+" Paths
 "===============================================================================
 
 if !isdirectory($HOME . '/.vim/backups')
@@ -119,8 +119,7 @@ if has('persistent_undo')
     set undolevels=1000
     set undoreload=10000
 endif
-set tags=./tags
-
+set tags+=tags;/
 
 "===============================================================================
 " Indentation & Tabs
