@@ -13,6 +13,8 @@
         path: ncmpcpp.conf
     ~/.tmux: tmux
     ~/.tmux.conf: tmux.conf
+    ~/.tmux_darwin.conf: tmux_darwin.conf
+    ~/.tmux_linux.conf: tmux_linux.conf
     ~/.vim: vim/
     ~/.vimperatorrc: vimperatorrc
     ~/.vimrc: vimrc
