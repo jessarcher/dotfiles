@@ -208,11 +208,6 @@ else
 fi
 }
 
-if [ ! -f /usr/bin/open ]; then
-open() {
-    xdg-open "$@" >> /dev/null 2>&1
-}
-fi
 
 # Command Not Found
 [ -r /etc/profile.d/cnf.sh ] && . /etc/profile.d/cnf.sh
