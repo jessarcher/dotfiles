@@ -1,0 +1,68 @@
+*background:            #222222
+*foreground:            #c5c8c6
+*fading:                10
+*fadeColor:             #000000
+*cursorColor:           #56b4a4
+*pointerColorBackground:#a1b233
+*pointerColorForeground:#56b4a4
+
+!! black dark/light
+*color0:                #1d1d1d
+*color8:                #000000
+
+!! red dark/light
+*color1:                #cc6666
+*color9:                #be2831
+
+!! green dark/light
+*color2:                #b5bd68
+*color10:               #a1b233
+
+!! yellow dark/light
+*color3:                #f0c674
+*color11:               #eaa935
+
+!! blue dark/light
+*color4:                #81a2be
+*color12:               #4b7db2
+
+!! magenta dark/light
+*color5:                #b294bb
+*color13:               #9655ac
+
+!! cyan dark/light
+*color6:                #8abeb7
+*color14:               #56b4a4
+
+!! white dark/light
+*color7:                #c1c1c1
+*color15:               #ffffff
+
+
+
+
+URxvt.intensityStyles: false
+URxvt.font: xft:DejaVu Sans Mono for Powerline:size=10
+URxvt.scrollBar: false;
+
+! do not scroll with output
+URxvt*scrollTtyOutput: false
+
+! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
+URxvt*scrollWithBuffer: true
+
+! scroll back to the bottom on keypress
+URxvt*scrollTtyKeypress: true
+
+URxvt.secondaryScreen: 1
+URxvt.secondaryScroll: 0
+
+URxvt.letterSpace: -1
+
+URxvt.perl-ext-common: default,matcher
+URxvt.url-launcher: /usr/bin/firefox
+URxvt.matcher.button: 1
+
+URxvt.perl-ext: default,clipboard
+
+URxvt.internalBorder: 1

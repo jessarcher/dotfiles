@@ -19,6 +19,7 @@
     ~/.vimperatorrc: vimperatorrc
     ~/.vimrc: vimrc
     ~/.vimrc.bundles: vimrc.bundles
+    ~/.Xresources: Xresources
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
