@@ -34,8 +34,8 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'scrooloose/nerdtree'             " A tree explorer plugin for vim.
 Plugin 'kien/ctrlp.vim'                  " Fuzzy file, buffer, mru, tag, etc finder.
-Plugin 'mileszs/ack.vim'                 " Vim plugin for the Perl module / CLI script 'ack'
 Plugin 'rking/ag.vim'                    " Vim plugin for the_silver_searcher, 'ag', a replacement for the Perl module / CLI script 'ack'
+"Plugin 'mileszs/ack.vim'                 " Vim plugin for the Perl module / CLI script 'ack'
 
 " Motions and Text Objects
 
@@ -130,8 +130,8 @@ Plugin 'tpope/vim-sleuth'                " Heuristically set buffer options
 Plugin 'godlygeek/tabular'               " Vim script for text filtering and alignment
 Plugin 'terryma/vim-expand-region'       " Vim plugin that allows you to visually select increasingly larger regions of text using the same key combination
 Plugin 'mbbill/undotree'                 " Display your undo history in a graph
-"Plugin 'terryma/vim-multiple-cursors'    " True Sublime Text style multiple selections for Vim
 Plugin 'vits/ZoomWin'                    " Zoom in/out of windows (toggle between one window and multi-window)
+"Plugin 'terryma/vim-multiple-cursors'    " True Sublime Text style multiple selections for Vim
 "Plugin 'jeetsukumaran/vim-buffergator'   " Vim plugin to list, select and switch between buffers
 "Plugin 'vim-scripts/Smart-Tabs'          " Uses tabs for indent, spaces for alignment
 
