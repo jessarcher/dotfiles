@@ -14,8 +14,13 @@ fi
 ################################################################################
 
 # Brew bash completion
-if [ -f `brew --prefix`/etc/bash_completion ]; then
+if hash brew 2>/dev/null && -f `brew --prefix`/etc/bash_completion; then
     . `brew --prefix`/etc/bash_completion
+fi
+
+# Bash completion
+if [ -f /etc/bash_completion ]; then
+    source /etc/bash_completion
 fi
 
 # Beets bash completion
