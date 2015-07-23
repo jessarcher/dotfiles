@@ -84,6 +84,10 @@ alias clear="clear && printf '\e[3J'";
 alias df="df -h"
 alias du="du -h"
 
+if [ -f /usr/bin/xdg-open ]; then
+    alias open='/usr/bin/xdg-open'
+fi
+
 # Pacman aliases
 alias pacupg='sudo pacman -Syu'		# Synchronize with repositories and then upgrade packages that are out of date on the local system.
 alias pacin='sudo pacman -S'		# Install specific package(s) from the repositories
