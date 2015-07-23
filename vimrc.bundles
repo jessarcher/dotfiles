@@ -76,6 +76,7 @@ Plugin 'honza/vim-snippets'              " vim-snipmate default snippets (for Ul
 Plugin 'xolox/vim-misc'                  " Miscellaneous auto-load Vim scripts
 Plugin 'craigemery/vim-autotag'          " Automatically discover and 'properly' update ctags files on save
 Plugin 'majutsushi/tagbar'               " Vim plugin that displays tags in a window, ordered by scope
+"Plugin 'abudden/taghighlight-automirror' " Highlight known tags
 
 " Git
 
@@ -95,6 +96,7 @@ Plugin 'scrooloose/nerdcommenter'        " commenting by Nerd Tree
 Plugin 'scrooloose/syntastic'            " Syntax checking hacks for vim
 Plugin 'Raimondi/delimitMate'            " Vim plugin, provides insert mode auto-completion for quotes, parens, brackets, etc.
 Plugin 'alvan/vim-closetag'              " Auto close (X)HTML tags
+"Plugin 'luochen1990/rainbow'             " rainbow parentheses improved, shorter code, no level limit, smooth and fast, powerful configuration.
 
 " PHP
 
