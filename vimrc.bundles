@@ -97,6 +97,7 @@ Plugin 'scrooloose/syntastic'            " Syntax checking hacks for vim
 Plugin 'Raimondi/delimitMate'            " Vim plugin, provides insert mode auto-completion for quotes, parens, brackets, etc.
 Plugin 'alvan/vim-closetag'              " Auto close (X)HTML tags
 "Plugin 'luochen1990/rainbow'             " rainbow parentheses improved, shorter code, no level limit, smooth and fast, powerful configuration.
+Plugin 'joonty/vdebug'                   " Multi-language DBGP debugger client for Vim (PHP, Python, Perl, Ruby, etc.)
 
 " PHP
 

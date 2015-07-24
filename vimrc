@@ -607,6 +607,11 @@ if b:bundles_loaded == 1
         let g:php_manual_online_search_shortcut = "<s-P>"
     endif
 
+    " Vdebug
+    if isdirectory(expand("~/.vim/bundle/vdebug"))
+        let g:vdebug_options = { 'server' : "172.17.42.1", 'path_maps' : {'/app/srs' : '/home/dev4/Code/srs'}, 'watch_window_style' : 'compact' }
+    endif
+
     " ZoomWin
     if isdirectory(expand("~/.vim/bundle/ZoomWin"))
         nmap <leader>z :ZoomWin<CR>
