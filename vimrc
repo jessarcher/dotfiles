@@ -535,7 +535,7 @@ if b:bundles_loaded == 1
     " NERDTree
     if isdirectory(expand("~/.vim/bundle/nerdtree"))
 
-        nmap <leader>e :NERDTreeToggle<CR>
+        nmap <leader>n :NERDTreeToggle<CR>
 
         let NERDTreeShowBookmarks=1
         let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
@@ -578,6 +578,7 @@ if b:bundles_loaded == 1
     " tagbar
     if isdirectory(expand("~/.vim/bundle/tagbar"))
         autocmd FileType * nested :call tagbar#autoopen(0)
+        let g:tagbar_autoclose = 0
         nmap <leader>t :TagbarToggle<CR>
     endif
 
@@ -609,7 +610,7 @@ if b:bundles_loaded == 1
 
     " Vdebug
     if isdirectory(expand("~/.vim/bundle/vdebug"))
-        let g:vdebug_options = { 'server' : "172.17.42.1", 'path_maps' : {'/app/srs' : '/home/dev4/Code/srs'}, 'watch_window_style' : 'compact' }
+        let g:vdebug_options = { 'server' : '0.0.0.0' }
     endif
 
     " ZoomWin
