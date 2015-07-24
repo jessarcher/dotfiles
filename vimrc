@@ -319,6 +319,12 @@ nmap <Leader>ff [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<C
 
 if b:bundles_loaded == 1
 
+    "ag.vim
+    if isdirectory(expand("~/.vim/bundle/ag.vim"))
+        " Start searching from project root rather than cwd
+        let g:ag_working_path_mode="r"
+    endif
+
     " airline
     if isdirectory(expand("~/.vim/bundle/vim-airline"))
 
