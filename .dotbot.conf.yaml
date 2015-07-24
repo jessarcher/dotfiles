@@ -1,6 +1,7 @@
 - clean: ['~']
 
 - link:
+    ~/.agignore: agignore
     ~/.bash_profile: bash_profile
     ~/.bashrc: bashrc
     ~/.dircolors: dircolors
