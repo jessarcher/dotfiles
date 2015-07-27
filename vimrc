@@ -610,7 +610,10 @@ if b:bundles_loaded == 1
 
     " Vdebug
     if isdirectory(expand("~/.vim/bundle/vdebug"))
-        let g:vdebug_options = { 'server' : '0.0.0.0' }
+        let g:vdebug_options = {
+        \    'server' : '0.0.0.0',
+        \    'watch_window_style' : 'expanded',
+        \ }
     endif
 
     " ZoomWin
