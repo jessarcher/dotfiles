@@ -32,7 +32,7 @@ bind 'set show-all-if-unmodified on'
 
 PATH=/usr/local/bin:$PATH
 PATH=~/.composer/vendor/bin:$PATH
-PATH=$PATH:~/bin
+PATH=~/bin:$PATH
 
 ###########
 # History #
