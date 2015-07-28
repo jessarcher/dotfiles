@@ -2,7 +2,7 @@
 	st = status
 	co = checkout
 	ci = commit
-	br = branch -a
+	br = branch
 	df = diff
 	dfs = diff --staged
 	logg = log --graph --decorate --oneline --abbrev-commit --all
