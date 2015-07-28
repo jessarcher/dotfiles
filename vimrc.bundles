@@ -53,7 +53,7 @@ Plugin 'justinmk/vim-sneak'              " The missing motion for Vim
 " Statusbar
 
 Plugin 'bling/vim-airline'               " lean & mean status/tabline for vim that's light as air
-Plugin 'bling/vim-bufferline'            " super simple vim plugin to show the list of buffers in the command bar
+"Plugin 'bling/vim-bufferline'            " super simple vim plugin to show the list of buffers in the command bar
 
 " Completion
 
