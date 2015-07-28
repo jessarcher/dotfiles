@@ -169,8 +169,8 @@ fi
 
 PS1='\n\[$reset\]\[$prompt_col_1\]\u\[$reset\]@\[$prompt_col_2\]\h\[$prompt_col_1\]:\W'
 
-if [ -f /usr/share/git/completion/git-prompt.sh ]; then
-	source /usr/share/git/completion/git-prompt.sh
+if [ -f ~/.git-prompt.sh ]; then
+	source ~/.git-prompt.sh
 	export PS1+='\[$prompt_col_2\]$(__git_ps1 "(%s)")'
 fi
 
