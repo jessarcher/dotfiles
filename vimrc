@@ -73,6 +73,7 @@ set splitright                 " Open new vertical split to the right, rather th
 set switchbuf=useopen,usetab   " Look for buffers open in other windows and tabs
 set notimeout
 set ttimeout
+set viminfo='50,<1000,s100,h   " Modify what is remembered in the viminfo file
 
 "===============================================================================
 " Text Formatting
@@ -172,12 +173,12 @@ set wildignore+=*.png,*.jpg,*.gif
 
 set omnifunc=syntaxcomplete#Complete " Default Omnicompletion
 autocmd FileType php        setlocal omnifunc=phpcomplete#CompletePHP
-"autocmd FileType css        setlocal omnifunc=csscomplete#CompleteCSS
-"autocmd FileType html       setlocal omnifunc=htmlcomplete#CompleteTags
-"autocmd FileType markdown   setlocal omnifunc=htmlcomplete#CompleteTags
-"autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-"autocmd FileType python     setlocal omnifunc=pythoncomplete#Complete
-"autocmd FileType xml        setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType css        setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html       setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType markdown   setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python     setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml        setlocal omnifunc=xmlcomplete#CompleteTags
 
 set completeopt+=menu    " Popup menu
 set completeopt+=menuone " Popup menu even when only one match
@@ -192,20 +193,6 @@ set complete+=u      " unloaded buffers
 set complete+=t      " tags
 set complete+=i      " file includes
 set complete+=kspell " dictionary (when spell is on)
-
-"inoremap <expr> <Esc>      pumvisible() ? "\<C-e>" : "\<Esc>"
-"inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
-"inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
-"inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
-"inoremap <expr> <C-d>      pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<C-d>"
-"inoremap <expr> <C-u>      pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<C-u>"
-
-" Automatically open and close the popup menu / preview window
-"au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
-
-" Highlight all references to the keyword currently under the cursor
-"autocmd CursorMoved * exe printf('match NonText /\V\<%s\>/', escape(expand('<cword>'), '/\'))
-
 
 "===============================================================================
 " Keymapping
@@ -257,9 +244,6 @@ nmap <leader>l :setlocal number!<CR>:setlocal list!<CR>:silent! GitGutterToggle<
 
 " Toggle paste
 nmap <leader>o :set paste!<CR>
-
-" Leave paste mode when leaving insert mode
-autocmd InsertLeave * set nopaste
 
 " Move by terminal rows, not lines
 nmap j gj
@@ -340,7 +324,6 @@ if b:bundles_loaded == 1
 
         set laststatus=2 " Show status line for all windows
         set noshowmode   " Remove duplicate mode indicator
-        "set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ Col:\ %c
 
         let g:airline_powerline_fonts = 1
 
@@ -682,8 +665,6 @@ augroup resCur
     autocmd BufReadPost * call setpos(".", getpos("'\""))
 augroup END
 
-" Modify buffer settings
-set viminfo='50,<1000,s100,h,%
 
 " Delete trailing white space on save
 func! DeleteTrailingWS()
@@ -697,25 +678,18 @@ func! DeleteTrailingWS()
 endfunc
 autocmd BufWritePre * call DeleteTrailingWS()
 
-
 au BufRead,BufNewFile *.json set ft=json syntax=javascript
 
 " set up syntax highlighting for email
 au BufRead,BufNewFile *tmp/mutt* :set ft=mail
 
-
-" Returns true if paste mode is enabled
-function! HasPaste()
-    if &paste
-        return 'PASTE MODE  '
-    en
-    return ''
-endfunction
-
 " Always switch to the current file directory
 autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
 
-let php_minlines=500
+" Leave paste mode when leaving insert mode
+autocmd InsertLeave * set nopaste
+
+"let php_minlines=500
 
 "===============================================================================
 " Local overrides
