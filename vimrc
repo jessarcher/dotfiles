@@ -70,6 +70,9 @@ set sidescrolloff=3            " start horizontally scrolling when 3 lines from 
 set sidescroll=1               " how many columns to scroll at a time horizontally
 set splitbelow                 " Open new split below rather than above
 set splitright                 " Open new vertical split to the right, rather than left
+set switchbuf=useopen,usetab   " Look for buffers open in other windows and tabs
+set notimeout
+set ttimeout
 
 "===============================================================================
 " Text Formatting
@@ -223,6 +226,13 @@ set complete+=kspell " dictionary (when spell is on)
 " [nvsxoilc]unmap
 " [nvsxoilc]mapclea
 
+" Use the default leader
+let mapleader = "\\"
+let g:mapleader = "\\"
+
+" Map space to be a leader key as well (so that showcmd works for space)
+map <Space> <Leader>
+
 " Unbind arrow keys to develop better habits.
 noremap  <Up>     <NOP>
 noremap  <Down>   <NOP>
@@ -275,7 +285,7 @@ map <C-p> :bprev<CR>
 " nnoremap ; :
 
 " Switch between the last two files
-nnoremap <leader><leader> <c-^>
+nnoremap <Leader><Leader> <c-^>
 
 
 " Use xclip for copy/paste
@@ -551,8 +561,8 @@ if b:bundles_loaded == 1
         "autocmd vimenter * NERDTree
 
         " Only open NERDTree when Vim starts empty
-        autocmd StdinReadPre * let s:std_in=1
-        autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+        "autocmd StdinReadPre * let s:std_in=1
+        "autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
         " Close vim if the only window left open is a NERDTree
         autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
