@@ -97,7 +97,7 @@ macro index a "<limit>all\n" "show all messages (undo limit)"
 macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
 
 # Notmuch searching
-macro index S "<enter-command>unset wait_key<enter><shell-escape>mutt-notmuch-py -G ~/.tmp/mutt/search<enter><change-folder>~/.tmp/mutt/search<enter>" "search mail (using notmuch)"
+macro index S "<enter-command>unset wait_key<enter><shell-escape>notmuch-mutt -G ~/.tmp/mutt/search<enter><change-folder>~/.tmp/mutt/search<enter>" "search mail (using notmuch)"
 
 
 # -----------------------------------------------
