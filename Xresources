@@ -44,6 +44,7 @@
 URxvt.intensityStyles: false
 URxvt.font: xft:DejaVu Sans Mono for Powerline:size=10
 URxvt.scrollBar: false;
+URxvt.internalBorder: 1
 
 ! do not scroll with output
 URxvt*scrollTtyOutput: false
@@ -59,10 +60,14 @@ URxvt.secondaryScroll: 0
 
 URxvt.letterSpace: -1
 
-URxvt.perl-ext-common: default,matcher
-URxvt.url-launcher: /usr/bin/firefox
+URxvt.perl-ext-common: default,matcher,clipboard
+
+URxvt.url-launcher: firefox
 URxvt.matcher.button: 1
 
-URxvt.perl-ext: default,clipboard
+! This needs to be disabled so that ctrl+shift can be used for copy/paste
+URxvt.iso14755: false
 
-URxvt.internalBorder: 1
+! Bind standard copy/paste keys
+URxvt.keysym.Shift-Control-C: perl:clipboard:copy
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste
