@@ -8,6 +8,7 @@
     ~/.gitconfig: gitconfig
     ~/.gitignore_global: gitignore_global
     ~/.gvimrc: gvimrc
+    ~/.jshintrc: jshintrc
     ~/.muttrc: muttrc
     ~/.ncmpcpp/config:
         create: true
