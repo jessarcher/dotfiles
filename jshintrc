@@ -91,4 +91,4 @@
     // Custom Globals
     "globals"       : {}        // additional predefined global variables
 }
-# vim: filetype=javascript
+// vim: filetype=javascript
