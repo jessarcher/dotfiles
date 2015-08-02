@@ -666,7 +666,7 @@ augroup resCur
 augroup END
 
 
-" Delete trailing white space on save
+" Delete trailing whitespace on save
 func! DeleteTrailingWS()
     " Excluding Mardown
     if &ft =~ 'markdown'
@@ -676,7 +676,7 @@ func! DeleteTrailingWS()
     %s/\s\+$//ge
     exe "normal `z"
 endfunc
-autocmd BufWritePre * call DeleteTrailingWS()
+" autocmd BufWritePre * call DeleteTrailingWS()
 
 au BufRead,BufNewFile *.json set ft=json syntax=javascript
 
