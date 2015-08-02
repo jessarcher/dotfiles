@@ -35,6 +35,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/nerdtree'             " A tree explorer plugin for vim.
 Plugin 'kien/ctrlp.vim'                  " Fuzzy file, buffer, mru, tag, etc finder.
 Plugin 'rking/ag.vim'                    " Vim plugin for the_silver_searcher, 'ag', a replacement for the Perl module / CLI script 'ack'
+Plugin 'vim-scripts/IndexedSearch'       " shows 'Nth match out of M' at every search (index of match+total # matches)
 "Plugin 'mileszs/ack.vim'                 " Vim plugin for the Perl module / CLI script 'ack'
 
 " Motions and Text Objects
@@ -117,6 +118,7 @@ Plugin 'mattn/emmet-vim'                 " emmet for vim
 Plugin 'cakebaker/scss-syntax.vim'       " Vim syntax file for scss
 Plugin 'hail2u/vim-css3-syntax'          " Add CSS3 syntax support to vim's built-in `syntax/css.vim`.
 Plugin 'xsbeats/vim-blade'               " Vim syntax highlighting for Blade templates
+Plugin 'pangloss/vim-javascript'         " Vastly improved Javascript indentation and syntax support in Vim.
 " Plugin 'dsawardekar/wordpress.vim'       " WordPress development plugin (This needs to go last)
 
 " Themes
