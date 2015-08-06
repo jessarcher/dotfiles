@@ -25,5 +25,5 @@
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
-    - [vim +PluginClean! +PluginInstall +qall, Installing Vim plugins]
+    - [vim +PluginClean! +PluginUpdate +qall, Installing Vim plugins]
     - [~/.tmux/plugins/tpm/scripts/install_plugins.sh >/dev/null 2>&1, Installing tmux plugins]
