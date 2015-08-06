@@ -38,6 +38,7 @@ Plugin 'rking/ag.vim'                    " Vim plugin for the_silver_searcher, '
 Plugin 'vim-scripts/IndexedSearch'       " shows 'Nth match out of M' at every search (index of match+total # matches)
 "Plugin 'mileszs/ack.vim'                 " Vim plugin for the Perl module / CLI script 'ack'
 Plugin 'Shougo/unite.vim'                " Unite and create user interfaces
+Plugin 'Shougo/neomru.vim'               " MRU plugin includes unite.vim MRU sources
 
 " Motions and Text Objects
 

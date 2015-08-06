@@ -286,7 +286,7 @@ map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 cmap w!! w !sudo tee % >/dev/null
 
 " Map <Leader>ff to display all lines with keyword under cursor and ask which one to jump to
-nmap <Leader>f [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
+"nmap <Leader>f [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
 
 
 "===============================================================================

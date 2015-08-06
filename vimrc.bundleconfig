@@ -49,6 +49,27 @@ if isdirectory(expand("~/.vim/bundle/supertab"))
     let g:SuperTabClosePreviewOnPopupClose = 1
 endif
 
+" Unite.vim
+
+if isdirectory(expand("~/.vim/bundle/unite.vim"))
+
+    call unite#filters#matcher_default#use(['matcher_fuzzy'])
+    call unite#filters#sorter_default#use(['sorter_rank'])
+    call unite#custom#profile('default', 'context', {
+        \ 'direction': 'dynamicbottom'
+        \ })
+
+    if executable('ag')
+        let g:unite_source_grep_command='ag'
+        let g:unite_source_grep_default_opts='--nocolor --line-numbers --nogroup -S -C4'
+        let g:unite_source_grep_recursive_opt=''
+    endif
+
+    nnoremap <leader>f :Unite -start-insert -auto-resize buffer file_rec<CR>
+    nnoremap <leader>b :Unite -auto-resize buffer file_mru<CR>
+
+endif
+
 " CtrlP
 if isdirectory(expand("~/.vim/bundle/ctrlp.vim"))
 
