@@ -33,10 +33,11 @@ Plugin 'gmarik/Vundle.vim'
 " Searching
 
 Plugin 'scrooloose/nerdtree'             " A tree explorer plugin for vim.
-Plugin 'kien/ctrlp.vim'                  " Fuzzy file, buffer, mru, tag, etc finder.
+"Plugin 'kien/ctrlp.vim'                  " Fuzzy file, buffer, mru, tag, etc finder.
 Plugin 'rking/ag.vim'                    " Vim plugin for the_silver_searcher, 'ag', a replacement for the Perl module / CLI script 'ack'
 Plugin 'vim-scripts/IndexedSearch'       " shows 'Nth match out of M' at every search (index of match+total # matches)
 "Plugin 'mileszs/ack.vim'                 " Vim plugin for the Perl module / CLI script 'ack'
+Plugin 'Shougo/unite.vim'                " Unite and create user interfaces
 
 " Motions and Text Objects
 
