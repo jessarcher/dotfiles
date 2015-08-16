@@ -383,7 +383,7 @@ au BufRead,BufNewFile *.json set ft=json syntax=javascript
 au BufRead,BufNewFile *tmp/mutt* :set ft=mail
 
 " Always switch to the current file directory
-autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
+"autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
 
 " Leave paste mode when leaving insert mode
 autocmd InsertLeave * set nopaste
