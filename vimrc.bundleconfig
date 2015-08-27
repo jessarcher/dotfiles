@@ -36,6 +36,16 @@ if isdirectory(expand("~/.vim/bundle/vim-airline"))
 
 endif
 
+" indentLine
+if isdirectory(expand("~/.vim/bundle/indentLine"))
+    let g:indentLine_char = '┊'
+    let g:indentLine_first_char = '┊'
+    let g:indentLine_color_term = 237
+    let g:indentLine_leadingSpaceEnabled = 1
+    let g:indentLine_leadingSpaceChar = '·'
+    let g:indentLine_showFirstIndentLevel = 1
+endif
+
 " PDV
 if isdirectory(expand("~/.vim/bundle/pdv"))
     let g:pdv_template_dir = $HOME . "/.vim/bundle/pdv/templates_snip"
@@ -50,7 +60,6 @@ if isdirectory(expand("~/.vim/bundle/supertab"))
 endif
 
 " Unite.vim
-
 if isdirectory(expand("~/.vim/bundle/unite.vim"))
 
     call unite#filters#matcher_default#use(['matcher_fuzzy'])
@@ -59,14 +68,41 @@ if isdirectory(expand("~/.vim/bundle/unite.vim"))
         \ 'direction': 'dynamicbottom'
         \ })
 
+    let g:unite_source_history_yank_enable = 1
+
     if executable('ag')
         let g:unite_source_grep_command='ag'
         let g:unite_source_grep_default_opts='--nocolor --line-numbers --nogroup -S -C4'
         let g:unite_source_grep_recursive_opt=''
+    elseif executable('ack')
+        let g:unite_source_grep_command='ack'
+        let g:unite_source_grep_default_opts='--no-heading --no-color -C4'
+        let g:unite_source_grep_recursive_opt=''
+    elseif executable('ack-grep')
+        let g:unite_source_grep_command='ack-grep'
+        let g:unite_source_grep_default_opts='--no-heading --no-color -C4'
+        let g:unite_source_grep_recursive_opt=''
     endif
 
-    nnoremap <leader>f :Unite -start-insert -auto-resize buffer file_rec<CR>
-    nnoremap <leader>b :Unite -auto-resize buffer file_mru<CR>
+    " Files
+
+    nnoremap <leader>f :Unite -auto-resize -buffer-name=files -start-insert file_rec/git:--cached:--others:--exclude-standard<CR>
+    "nnoremap <leader>f :Unite -auto-resize -buffer-name=files -start-insert file_rec/async:!<CR>
+
+    " Buffers & MRU
+    nnoremap <leader>b :Unite -auto-resize -buffer-name=buffers -quick-match buffer<CR>
+
+    " Ag/Ack
+    nnoremap <leader>g :Unite -auto-resize -buffer-name=search -no-quit grep:.<CR>
+
+    " Yank history
+    nnoremap <leader>y :Unite -auto-resize -buffer-name=yanks history/yank<CR>
+
+    " Mappings
+    nnoremap <leader>m :Unite -auto-resize -buffer-name=mappings mapping<CR>
+
+    " Colorschemes
+    nnoremap <leader>c :Unite -auto-resize -buffer-name=colorschemes -auto-preview colorscheme<CR>
 
 endif
 
