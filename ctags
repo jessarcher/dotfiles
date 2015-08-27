@@ -1,0 +1,3 @@
+--languages=PHP,JavaScript
+--exclude=node_modules
+--recurse

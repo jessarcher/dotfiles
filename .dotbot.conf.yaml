@@ -4,6 +4,7 @@
     ~/.agignore: agignore
     ~/.bash_profile: bash_profile
     ~/.bashrc: bashrc
+    ~/.ctags: ctags
     ~/.dircolors: dircolors
     ~/.gitconfig: gitconfig
     ~/.gitignore_global: gitignore_global
