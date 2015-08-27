@@ -2,7 +2,7 @@
     // JSHint Default Configuration File (as on JSHint website)
     // See http://jshint.com/docs/ for more details
 
-    "maxerr"        : 50,       // {int} Maximum error before stopping
+    "maxerr"        : 5000,       // {int} Maximum error before stopping
 
     // Enforcing
     "bitwise"       : true,     // true: Prohibit bitwise operators (&, |, ^, etc.)
@@ -73,7 +73,7 @@
     "devel"         : true,     // Development/debugging (alert, confirm, etc)
     "dojo"          : false,    // Dojo Toolkit
     "jasmine"       : false,    // Jasmine
-    "jquery"        : false,    // jQuery
+    "jquery"        : true,     // jQuery
     "mocha"         : true,     // Mocha
     "mootools"      : false,    // MooTools
     "node"          : false,    // Node.js
