@@ -60,7 +60,7 @@ set spell                      " enable spell checking
 set spelllang=en_au            " self-explanatory
 set textwidth=80               " width of text before breaking
 if exists('+colorcolumn')
-    set colorcolumn=+1         " show a column at textwidth+1 chars as the boundary of textwidth
+    set colorcolumn=+1,81,131     " show a column at textwidth+1 chars as the boundary of textwidth
 endif
 set cursorline                 " highlight the line that the cursor is on
 set nocursorcolumn             " don't highlight the column the cursor is on
@@ -138,8 +138,8 @@ set autoindent
 
 
 set smarttab
+set tabstop=4     " number of spaces that a <Tab> in the file counts for
 "set expandtab     " expand tabs to spaces
-"set tabstop=4     " number of spaces that a <Tab> in the file counts for
 "set shiftwidth=4  " number of spaces to use for each step of (auto)indent
 "set softtabstop=0 " number of spaces that a <Tab> counts for while performing editing operations
 
