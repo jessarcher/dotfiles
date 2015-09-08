@@ -10,6 +10,9 @@
     ~/.gitignore_global: gitignore_global
     ~/.gvimrc: gvimrc
     ~/.jshintrc: jshintrc
+    ~/.mutt/colorscheme-jess.muttrc:
+        create: true
+        path: mutt/colorscheme-jess.muttrc
     ~/.muttrc: muttrc
     ~/.ncmpcpp/config:
         create: true
@@ -28,4 +31,6 @@
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
     - [vim +PluginClean! +PluginUpdate +qall, Installing Vim plugins]
+    - [~/.vim/bundle/YouCompleteMe/install.sh, Building YouCompleteMe binaries]
+    - [make --directory=~/.vim/bundle/tagbar-phpctags.vim/, Building tagbar-phpctags binaries]
     - [~/.tmux/plugins/tpm/scripts/install_plugins.sh >/dev/null 2>&1, Installing tmux plugins]

@@ -1,0 +1,87 @@
+# Valid colors include: white, black, green, magenta, blue, cyan, yellow, red, default, colorN.
+
+# General
+
+color normal      white       default # Main background and default text color
+color message     blue        default # Notifications above the statusbar
+color status      blue        black   # Header bar, status bar, sidebar gap
+color sidebar_new blue        default # Self explanatory
+
+# Index
+
+color tree        blue        default      # Threads
+color index       cyan        default "~N" # new messages
+color index       blue        default "~O" # old messages
+color index       green       default "~F" # flagged
+color index       red         default "~D" # deleted messages
+color index       black       cyan    "~T" # tagged messages
+color indicator   black blue         # the selected message/folder/etc
+
+# Message
+
+color hdrdefault  blue        default # Mail headers
+color attachment  blue        default # Attachment heading
+color signature   blue default # Self-explanatory
+color quoted      blue        default # Default quote
+color quoted0     blue        default # 1st quote
+color quoted1     green       default # 2nd quote
+color quoted2     yellow      default # 3rd quote
+color quoted3     red         default # 4th quote
+color quoted4     magenta     default # 5th quote
+color quoted5     cyan        default # 6th quote
+color quoted6     blue        default # 7th quote
+color quoted7     green       default # 8th quote
+color quoted8     yellow      default # 9th quote
+color quoted9     blue        default # 10th quote
+color tilde       brightblack default # Empty line vim-like tildes
+
+
+# Unknown
+
+
+color bold        red         blue    # ??
+color markers     red         blue    # ??
+color search      red         blue    # ??
+color underline   red         blue    # ??
+
+
+##color index         red             default         "~D(!~p|~p)"               # deleted
+##color index         black           default         ~F                         # flagged
+##color index         brightred       default         ~=                         # duplicate messages
+##color index         brightgreen     default         "~A!~N!~T!~p!~Q!~F!~D!~P"  # the rest
+##color index         J_base          default         "~A~N!~T!~p!~Q!~F!~D"      # the rest, new
+#color index         red             default         "~A"                        # all messages
+#color index         brightred       default         "~E"                        # expired messages
+#color index         brightmagenta   default         "~Q"                        # messages that have been replied to
+#color index         brightgreen     default         "~R"                        # read messages
+#color index         blue            default         "~U"                        # unread messages
+#color index         blue            default         "~U~$"                      # unread, unreferenced messages
+#color index         brightyellow    default         "~v"                        # messages part of a collapsed thread
+#color index         brightyellow    default         "~P"                        # messages from me
+#color index         cyan            default         "~p!~F"                     # messages to me
+#color index         cyan            default         "~N~p!~F"                   # new messages to me
+#color index         cyan            default         "~U~p!~F"                   # unread messages to me
+#color index         brightgreen     default         "~R~p!~F"                   # messages to me
+#color index         red             default         "~F"                        # flagged messages
+#color index         red             default         "~F~p"                      # flagged messages to me
+#color index         red             default         "~N~F"                      # new flagged messages
+#color index         red             default         "~N~F~p"                    # new flagged messages to me
+#color index         red             default         "~U~F~p"                    # new flagged messages to me
+#color index         brightcyan      default         "~v~(!~N)"                  # collapsed thread with no unread
+#color index         yellow          default         "~v~(~N)"                   # collapsed thread with some unread
+#color index         green           default         "~N~v~(~N)"                 # collapsed thread with unread parent
+## statusbg used to indicated flagged when foreground color shows other status
+## for collapsed thread
+#color index         red             black           "~v~(~F)!~N"                # collapsed thread with flagged, no unread
+#color index         yellow          black           "~v~(~F~N)"                 # collapsed thread with some unread & flagged
+#color index         green           black           "~N~v~(~F~N)"               # collapsed thread with unread parent & flagged
+#color index         green           black           "~N~v~(~F)"                 # collapsed thread with unread parent, no unread inside, but some flagged
+#color index         cyan            black           "~v~(~p)"                   # collapsed thread with unread parent, no unread inside, some to me directly
+#color index         yellow          red             "~v~(~D)"                   # thread with deleted (doesn't differentiate between all or partial)
+##color index         yellow          default         "~(~N)"                    # messages in threads with some unread
+##color index         green           default         "~S"                       # superseded messages
+##color index         red             default         "~T"                       # tagged messages
+##color index         brightred       red             "~="                       # duplicated messages
+
+
+# vim: filetype=muttrc
