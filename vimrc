@@ -60,7 +60,7 @@ set spell                      " enable spell checking
 set spelllang=en_au            " self-explanatory
 set textwidth=80               " width of text before breaking
 if exists('+colorcolumn')
-    set colorcolumn=+1,81,131     " show a column at textwidth+1 chars as the boundary of textwidth
+    set colorcolumn=+1,81,121     " show a column at textwidth+1 chars as the boundary of textwidth
 endif
 set cursorline                 " highlight the line that the cursor is on
 set nocursorcolumn             " don't highlight the column the cursor is on
