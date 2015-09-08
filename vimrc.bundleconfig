@@ -62,7 +62,7 @@ endif
 " Unite.vim
 if isdirectory(expand("~/.vim/bundle/unite.vim"))
 
-    call unite#filters#matcher_default#use(['matcher_fuzzy'])
+    call unite#filters#matcher_default#use(['matcher_fuzzy', 'matcher_project_ignore_files'])
     call unite#filters#sorter_default#use(['sorter_rank'])
     call unite#custom#profile('default', 'context', {
         \ 'direction': 'dynamicbottom'
@@ -86,8 +86,7 @@ if isdirectory(expand("~/.vim/bundle/unite.vim"))
 
     " Files
 
-    nnoremap <leader>f :Unite -auto-resize -buffer-name=files -start-insert file_rec/git:--cached:--others:--exclude-standard<CR>
-    "nnoremap <leader>f :Unite -auto-resize -buffer-name=files -start-insert file_rec/async:!<CR>
+    nnoremap <leader>f :Unite -auto-resize -buffer-name=files -start-insert file_rec/async:!<CR>
 
     " Buffers & MRU
     nnoremap <leader>b :Unite -auto-resize -buffer-name=buffers -quick-match buffer<CR>
