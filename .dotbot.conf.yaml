@@ -1,4 +1,7 @@
-- clean: ['~']
+- clean: [
+    '~',
+    '~/.mutt'
+]
 
 - link:
     ~/.agignore: agignore
