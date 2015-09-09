@@ -10,6 +10,7 @@
     ~/.gitignore_global: gitignore_global
     ~/.gvimrc: gvimrc
     ~/.jshintrc: jshintrc
+    ~/.mailcap: mailcap
     ~/.mutt/colorscheme-jess.muttrc:
         create: true
         path: mutt/colorscheme-jess.muttrc
