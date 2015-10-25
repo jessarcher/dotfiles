@@ -45,6 +45,7 @@ URxvt.intensityStyles: false
 URxvt.font: xft:DejaVu Sans Mono for Powerline:size=10
 URxvt.scrollBar: false;
 URxvt.internalBorder: 1
+URxvt.urgentOnBell: true
 
 ! do not scroll with output
 URxvt*scrollTtyOutput: false
@@ -57,8 +58,6 @@ URxvt*scrollTtyKeypress: true
 
 URxvt.secondaryScreen: 1
 URxvt.secondaryScroll: 0
-
-URxvt.letterSpace: -1
 
 URxvt.perl-ext-common: default,matcher,clipboard
 
