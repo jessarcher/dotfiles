@@ -62,8 +62,15 @@ endif
 " Unite.vim
 if isdirectory(expand("~/.vim/bundle/unite.vim"))
 
-    call unite#filters#matcher_default#use(['matcher_fuzzy', 'matcher_project_ignore_files'])
+    "call unite#filters#matcher_default#use(['matcher_fuzzy', 'matcher_project_ignore_files'])
+    call unite#filters#matcher_default#use(['matcher_fuzzy'])
     call unite#filters#sorter_default#use(['sorter_rank'])
+    "call unite#custom#source('file_rec,file_rec/async', 'ignore_pattern', join([
+                "\ '.git/',
+                "\ 'node_modules/',
+                "\ 'storage/',
+                "\ 'vendor/',
+                "\], '|'))
     call unite#custom#profile('default', 'context', {
         \ 'direction': 'dynamicbottom'
         \ })
@@ -72,8 +79,12 @@ if isdirectory(expand("~/.vim/bundle/unite.vim"))
 
     if executable('ag')
         let g:unite_source_grep_command='ag'
-        let g:unite_source_grep_default_opts='--nocolor --line-numbers --nogroup -S -C4'
+        "let g:unite_source_grep_default_opts='--nocolor --line-numbers --nogroup -S -C4'
+        "let g:unite_source_grep_default_opts = '-i --hidden --ignore ''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
+        let g:unite_source_grep_default_opts = '--vimgrep -S'
         let g:unite_source_grep_recursive_opt=''
+
+        let g:unite_source_rec_async_command = ['ag', '--follow', '--nocolor', '--nogroup', '--hidden', '-g', '']
     elseif executable('ack')
         let g:unite_source_grep_command='ack'
         let g:unite_source_grep_default_opts='--no-heading --no-color -C4'
@@ -85,7 +96,6 @@ if isdirectory(expand("~/.vim/bundle/unite.vim"))
     endif
 
     " Files
-
     nnoremap <leader>f :Unite -auto-resize -buffer-name=files -start-insert file_rec/async:!<CR>
 
     " Buffers & MRU
