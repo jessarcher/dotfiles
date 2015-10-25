@@ -1,2 +1,4 @@
 tags
 *.min.*
+node_modules/*
+vendor/*
