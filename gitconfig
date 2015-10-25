@@ -17,9 +17,3 @@
 	autocorrect = 10
 [include]
 	path = ~/.gitconfig_local
-[mergetool]
-	keepBackup = true
-[pull]
-	rebase = true
-[push]
-	default = simple
