@@ -111,7 +111,7 @@ Plugin 'StanAngeloff/php.vim'            " Up-to-date PHP syntax file
 Plugin 'shawncplus/phpcomplete.vim'      " Improved PHP omni-completion
 Plugin '2072/PHP-Indenting-for-VIm'      " The official VIm indent script for PHP
 Plugin 'alvan/vim-php-manual'            " PHP manual for Vim
-Plugin 'stephpy/vim-php-cs-fixer'        " Use fabpot/PHP-CS-Fixer
+"Plugin 'stephpy/vim-php-cs-fixer'        " Use fabpot/PHP-CS-Fixer
 
 " Other Languages
 
@@ -121,6 +121,7 @@ Plugin 'cakebaker/scss-syntax.vim'       " Vim syntax file for scss
 Plugin 'hail2u/vim-css3-syntax'          " Add CSS3 syntax support to vim's built-in `syntax/css.vim`.
 Plugin 'xsbeats/vim-blade'               " Vim syntax highlighting for Blade templates
 Plugin 'pangloss/vim-javascript'         " Vastly improved Javascript indentation and syntax support in Vim.
+Plugin 'mustache/vim-mustache-handlebars' " mustache and handlebars mode for vim
 " Plugin 'dsawardekar/wordpress.vim'       " WordPress development plugin (This needs to go last)
 
 " Themes
