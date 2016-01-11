@@ -59,6 +59,12 @@ if isdirectory(expand("~/.vim/bundle/supertab"))
     let g:SuperTabClosePreviewOnPopupClose = 1
 endif
 
+" Syntastic
+if isdirectory(expand("~/.vim/bundle/syntastic"))
+    let g:syntastic_php_checkers=['php', 'phpcs']
+    let g:syntastic_php_phpcs_args='--standard=PSR2 -n'
+endif
+
 " Unite.vim
 if isdirectory(expand("~/.vim/bundle/unite.vim"))
 
