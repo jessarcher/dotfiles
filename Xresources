@@ -46,6 +46,8 @@ URxvt.font: xft:DejaVu Sans Mono for Powerline:size=10
 URxvt.scrollBar: false;
 URxvt.internalBorder: 1
 URxvt.urgentOnBell: true
+URxvt.letterSpace: -1
+URxvt.iconFile: /usr/share/icons/Numix-Circle/48x48/apps/terminal.svg
 
 ! do not scroll with output
 URxvt*scrollTtyOutput: false
