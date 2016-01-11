@@ -17,3 +17,5 @@
 	autocorrect = 10
 [include]
 	path = ~/.gitconfig_local
+[push]
+	default = current
