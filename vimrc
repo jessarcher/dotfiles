@@ -140,9 +140,9 @@ set autoindent
 
 set smarttab
 set tabstop=4     " number of spaces that a <Tab> in the file counts for
-"set expandtab     " expand tabs to spaces
-"set shiftwidth=4  " number of spaces to use for each step of (auto)indent
-"set softtabstop=0 " number of spaces that a <Tab> counts for while performing editing operations
+set expandtab     " expand tabs to spaces
+set shiftwidth=4  " number of spaces to use for each step of (auto)indent
+set softtabstop=0 " number of spaces that a <Tab> counts for while performing editing operations
 
 set list          " display tabs, tailing spaces, and other chars visually
 "set listchars=tab:▸\ ,trail:·,eol:¬,extends:>,precedes:<,nbsp:_
@@ -244,7 +244,7 @@ vnoremap > >gv " Reselect visual selection after de-indenting
 nmap <leader>l :setlocal number!<CR>:setlocal list!<CR>:silent! GitGutterToggle<CR>:silent! setlocal relativenumber!<CR>
 
 " Toggle paste
-nmap <leader>o :set paste!<CR>
+"nmap <leader>o :set paste!<CR>
 
 " Move by terminal rows, not lines
 nmap j gj
@@ -272,7 +272,6 @@ map <C-p> :bprev<CR>
 " Switch between the last two files
 nnoremap <Leader><Leader> <c-^>
 
-
 " Use xclip for copy/paste
 vmap "+y :!xclip -f -sel clip
 map  "+p :r!xclip -o -sel clip
@@ -285,10 +284,12 @@ map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 
 " Use sudo to write the file
 cmap w!! w !sudo tee % >/dev/null
+cmap wq!! wq !sudo tee % >/dev/null
 
 " Map <Leader>ff to display all lines with keyword under cursor and ask which one to jump to
 "nmap <Leader>f [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
 
+nmap <leader>o :!xdg-open %<cr><cr>
 
 "===============================================================================
 " Whitespace
@@ -390,6 +391,17 @@ au BufRead,BufNewFile *tmp/mutt* :set ft=mail
 autocmd InsertLeave * set nopaste
 
 "let php_minlines=500
+
+" Automatically re-source the .vimrc on save
+augroup autosourcing
+    autocmd!
+    autocmd BufWritePost .vimrc source %
+augroup end
+
+set guioptions-=l
+set guioptions-=L
+set guioptions-=r
+set guioptions-=R
 
 "===============================================================================
 " Local overrides
