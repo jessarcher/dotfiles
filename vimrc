@@ -40,7 +40,8 @@ set history=1000               " store lots of :cmdline history
 set backspace=indent,eol,start " allow full backspace in insert mode
 set autoread                   " reload files changed outside of vim
 set noerrorbells               " disable annoying bell
-set novisualbell               " disable annoying visual bell
+set visualbell                 " disable annoying bell
+set t_vb=                      " Empty the variable that stores the visualbell character
 set ruler                      " show line and column numbers (only useful when statusbar not enabled)"
 set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
 let &titleold=''               " get rid of the pesky 'Thanks for flying Vim' title on exit
