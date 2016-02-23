@@ -27,7 +27,7 @@ set date_format  = "%Y-%m-%d %H:%M" # ISO dates!
 # Sidebar View Options
 # -----------------------------------------------
 
-set sidebar_delim   = '  '
+set sidebar_delim   = ' │ '
 set sidebar_visible = yes
 set sidebar_width   = 25
 color sidebar_new color221 color233
