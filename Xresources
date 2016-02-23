@@ -1,44 +1,46 @@
-*background:            #222222
-*foreground:            #c5c8c6
-*fading:                10
-*fadeColor:             #000000
-*cursorColor:           #56b4a4
-*pointerColorBackground:#a1b233
-*pointerColorForeground:#56b4a4
+! Colorscheme
+!
+! Base16 Tomorrow
+! Scheme: Chris Kempson (http://chriskempson.com)
 
-!! black dark/light
-*color0:                #1d1d1d
-*color8:                #000000
+#define base00 #1d1f21
+#define base01 #282a2e
+#define base02 #373b41
+#define base03 #969896
+#define base04 #b4b7b4
+#define base05 #c5c8c6
+#define base06 #e0e0e0
+#define base07 #ffffff
+#define base08 #cc6666
+#define base09 #de935f
+#define base0A #f0c674
+#define base0B #b5bd68
+#define base0C #8abeb7
+#define base0D #81a2be
+#define base0E #b294bb
+#define base0F #a3685a
 
-!! red dark/light
-*color1:                #cc6666
-*color9:                #be2831
+*.foreground:   base05
+*.background:   base00
+*.cursorColor:  base05
 
-!! green dark/light
-*color2:                #b5bd68
-*color10:               #a1b233
+*.color0:       base00
+*.color1:       base08
+*.color2:       base0B
+*.color3:       base0A
+*.color4:       base0D
+*.color5:       base0E
+*.color6:       base0C
+*.color7:       base05
 
-!! yellow dark/light
-*color3:                #f0c674
-*color11:               #eaa935
-
-!! blue dark/light
-*color4:                #81a2be
-*color12:               #4b7db2
-
-!! magenta dark/light
-*color5:                #b294bb
-*color13:               #9655ac
-
-!! cyan dark/light
-*color6:                #8abeb7
-*color14:               #56b4a4
-
-!! white dark/light
-*color7:                #c1c1c1
-*color15:               #ffffff
-
-
+*.color8:       base03
+*.color9:       base09
+*.color10:      base01
+*.color11:      base02
+*.color12:      base04
+*.color13:      base06
+*.color14:      base0F
+*.color15:      base07
 
 
 URxvt.intensityStyles: false
