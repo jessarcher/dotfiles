@@ -30,6 +30,7 @@
     ~/.vimrc: vimrc
     ~/.vimrc.bundles: vimrc.bundles
     ~/.vimrc.bundleconfig: vimrc.bundleconfig
+    ~/.xinitrc: xinitrc
     ~/.Xresources: Xresources
 
 - shell:
