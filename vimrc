@@ -348,13 +348,7 @@ autocmd ColorScheme * highlight SpaceIndent            ctermbg=red guibg=red
 autocmd ColorScheme * highlight DoubleSpaceAfterPeriod ctermbg=red guibg=red
 
 " Choose our colorscheme
-"let g:solarized_termcolors=256
-"let g:solarized_termcolors=16
-"silent! colorscheme solarized
-"silent! colorscheme monokai
-"silent! colorscheme molokai
-"silent! colorscheme zenburn
-silent! colorscheme Tomorrow-Night
+colorscheme base16-tomorrow
 
 "===============================================================================
 " Misc

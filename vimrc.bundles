@@ -119,16 +119,18 @@ Plugin 'othree/html5.vim'                " HTML5 omnicomplete and syntax
 Plugin 'mattn/emmet-vim'                 " emmet for vim
 Plugin 'cakebaker/scss-syntax.vim'       " Vim syntax file for scss
 Plugin 'hail2u/vim-css3-syntax'          " Add CSS3 syntax support to vim's built-in `syntax/css.vim`.
-Plugin 'xsbeats/vim-blade'               " Vim syntax highlighting for Blade templates
+Plugin 'jwalton512/vim-blade'            " Vim syntax highlighting for Blade templates
 Plugin 'pangloss/vim-javascript'         " Vastly improved Javascript indentation and syntax support in Vim.
 Plugin 'mustache/vim-mustache-handlebars' " mustache and handlebars mode for vim
 " Plugin 'dsawardekar/wordpress.vim'       " WordPress development plugin (This needs to go last)
 
 " Themes
 
-Plugin 'sickill/vim-monokai'             " Monokai color scheme for Vim
-Plugin 'tomasr/molokai'                  " Molokai color scheme for Vim
-Plugin 'jnurmine/Zenburn'                " Zenburn is a low-contrast color scheme for Vim
+Plugin 'vim-scripts/AfterColors.vim'     " Provides support for after/colors/ scripts
+Plugin 'chriskempson/base16-vim'         " Base16 for Vim
+"Plugin 'sickill/vim-monokai'             " Monokai color scheme for Vim
+"Plugin 'tomasr/molokai'                  " Molokai color scheme for Vim
+"Plugin 'jnurmine/Zenburn'                " Zenburn is a low-contrast color scheme for Vim
 
 " Misc
 
