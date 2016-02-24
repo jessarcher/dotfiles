@@ -29,6 +29,14 @@ if filereadable(expand("~/.vimrc.bundles"))
 endif
 
 "===============================================================================
+" Plugin Config
+"===============================================================================
+
+if b:bundles_loaded == 1 && filereadable(expand("~/.vimrc.bundleconfig"))
+    source ~/.vimrc.bundleconfig
+endif
+
+"===============================================================================
 " General Settings
 "===============================================================================
 
@@ -308,14 +316,6 @@ nmap <leader>o :!xdg-open %<cr><cr>
 "   execute '%s@^\(\ \{'.&ts.'\}\)\+@\=repeat("\t", len(submatch(0))/'.&ts.')@e'
 "   call winrestview(saved_view)
 "endfunc
-
-"===============================================================================
-" Plugin Config
-"===============================================================================
-
-if b:bundles_loaded == 1 && filereadable(expand("~/.vimrc.bundleconfig"))
-    source ~/.vimrc.bundleconfig
-endif
 
 "===============================================================================
 " Colors
