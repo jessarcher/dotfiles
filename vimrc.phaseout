@@ -44,10 +44,6 @@ endfunc
 "autocmd ColorScheme * highlight SignColumn   ctermbg=234
 "autocmd ColorScheme * highlight StatusLine   ctermbg=234
 "autocmd ColorScheme * highlight VertSplit    ctermbg=234 ctermfg=234
-"highlight SpellBad     ctermbg=none ctermfg=none cterm=underline
-"highlight SpellCap     ctermbg=none ctermfg=none cterm=underline
-"highlight SpellLocal   ctermbg=none ctermfg=none cterm=underline
-"highlight SpellRare    ctermbg=none ctermfg=none cterm=underline
 
 "" Highlight unwanted whitespace
 "autocmd ColorScheme * highlight TrailingWhitespace     ctermbg=red guibg=red
@@ -58,3 +54,36 @@ endfunc
 
 " https://stackoverflow.com/questions/1444322/how-can-i-close-a-buffer-without-closing-the-window
 "map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
+
+
+
+
+
+" Use sudo to write the file
+"cmap w!! w !sudo tee % >/dev/null
+"cmap wq!! wq !sudo tee % >/dev/null
+
+" Map <Leader>ff to display all lines with keyword under cursor and ask which one to jump to
+"nmap <Leader>f [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
+
+
+
+
+
+
+
+
+
+
+
+
+
+"set omnifunc=syntaxcomplete#Complete " Default Omnicompletion
+"autocmd FileType php        setlocal omnifunc=phpcomplete#CompletePHP
+"autocmd FileType css        setlocal omnifunc=csscomplete#CompleteCSS
+"autocmd FileType html       setlocal omnifunc=htmlcomplete#CompleteTags
+"autocmd FileType markdown   setlocal omnifunc=htmlcomplete#CompleteTags
+"autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+"autocmd FileType python     setlocal omnifunc=pythoncomplete#Complete
+"autocmd FileType xml        setlocal omnifunc=xmlcomplete#CompleteTags
+
