@@ -1,0 +1,60 @@
+" Delete trailing whitespace on save
+func! DeleteTrailingWS()
+    " Excluding Mardown
+    if &ft =~ 'markdown'
+        return
+    endif
+    exe "normal mz"
+    %s/\s\+$//ge
+    exe "normal `z"
+endfunc
+autocmd BufWritePre * call DeleteTrailingWS()
+
+" Always switch to the current file directory
+autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
+
+let php_minlines=500
+
+"===============================================================================
+" Whitespace
+"===============================================================================
+
+autocmd BufWinEnter *.php,*.js,*.html,*.css,*.scss let w:m1=matchadd('TabWhitespace',          '[^\t]\zs\t\+', -1)
+autocmd BufWinEnter *.php,*.js,*.html,*.css,*.scss let w:m2=matchadd('SpaceIndent',            '^\t*\zs \+',   -1)
+autocmd BufWinEnter *.php,*.js,*.html,*.css,*.scss let w:m4=matchadd('TrailingWhitespace',     '\s\+$',        -1)
+autocmd BufWinEnter *.php,*.js,*.html,*.css,*.scss let w:m3=matchadd('DoubleSpaceAfterPeriod', '\.\s\s\+',     -1)
+
+ autocmd BufWritePre * :RetabIndents
+command! RetabIndents call RetabIndents()
+
+func! RetabIndents()
+   let saved_view = winsaveview()
+   execute '%s@^\(\ \{'.&ts.'\}\)\+@\=repeat("\t", len(submatch(0))/'.&ts.')@e'
+   call winrestview(saved_view)
+endfunc
+
+"autocmd ColorScheme * highlight ColorColumn  ctermbg=236
+"autocmd ColorScheme * highlight CursorLine   ctermbg=236 ctermfg=none
+"autocmd ColorScheme * highlight CursorLineNr ctermbg=234 ctermfg=grey
+"autocmd ColorScheme * highlight FoldColumn   ctermbg=234
+"autocmd ColorScheme * highlight LineNr       ctermbg=234 ctermfg=darkgrey
+"autocmd ColorScheme * highlight Normal       ctermbg=none " Show the terminal background, alternatively: ctermbg=235
+"autocmd ColorScheme * highlight NonText      ctermbg=none
+"autocmd ColorScheme * highlight Search       ctermbg=yellow ctermfg=black
+"autocmd ColorScheme * highlight SignColumn   ctermbg=234
+"autocmd ColorScheme * highlight StatusLine   ctermbg=234
+"autocmd ColorScheme * highlight VertSplit    ctermbg=234 ctermfg=234
+"highlight SpellBad     ctermbg=none ctermfg=none cterm=underline
+"highlight SpellCap     ctermbg=none ctermfg=none cterm=underline
+"highlight SpellLocal   ctermbg=none ctermfg=none cterm=underline
+"highlight SpellRare    ctermbg=none ctermfg=none cterm=underline
+
+"" Highlight unwanted whitespace
+"autocmd ColorScheme * highlight TrailingWhitespace     ctermbg=red guibg=red
+"autocmd ColorScheme * highlight TabWhitespace          ctermbg=red guibg=red
+"autocmd ColorScheme * highlight SpaceIndent            ctermbg=red guibg=red
+"autocmd ColorScheme * highlight DoubleSpaceAfterPeriod ctermbg=red guibg=red
+
+
+" https://stackoverflow.com/questions/1444322/how-can-i-close-a-buffer-without-closing-the-window
+"map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
