@@ -251,7 +251,6 @@ highlight SpellRare    ctermbg=none ctermfg=none cterm=underline
 "===============================================================================
 
 set hidden                     " allow unwritten buffers in the background
-set switchbuf=useopen,usetab   " Look for buffers open in other windows and tabs
 
 " Move between buffers like tabs
 nmap <C-n> :bnext<CR>

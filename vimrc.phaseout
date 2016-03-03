@@ -87,3 +87,16 @@ endfunc
 "autocmd FileType python     setlocal omnifunc=pythoncomplete#Complete
 "autocmd FileType xml        setlocal omnifunc=xmlcomplete#CompleteTags
 
+
+
+
+
+
+
+
+
+
+
+
+
+set switchbuf=useopen,usetab   " Look for buffers open in other windows and tabs
