@@ -122,7 +122,7 @@ set magic                      " enable regex for searches
 set ignorecase                 " case insensitive searches
 set smartcase                  " unless specifically searching for something with uppercase characters
 
-" Clear search highlighting with <Esc>
+" Clear search highlighting with <Esc><Esc>
 nmap <Esc><Esc> :nohlsearch<CR>
 
 "===============================================================================
