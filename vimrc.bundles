@@ -53,12 +53,13 @@ Plugin 'skwp/greplace.vim'               " Global search and replace for VI
 
 " Statusbar
 
-Plugin 'bling/vim-airline'               " lean & mean status/tabline for vim that's light as air
+Plugin 'vim-airline/vim-airline'          " lean & mean status/tabline for vim that's light as air
+Plugin 'vim-airline/vim-airline-themes'   " themes are now separate
 "Plugin 'bling/vim-bufferline'            " super simple vim plugin to show the list of buffers in the command bar
 
 " Completion
 
-if exists('+python')
+if has('python')
     Plugin 'Valloric/YouCompleteMe'       " A code-completion engine for Vim
 endif
 "Plugin 'Shougo/neocomplete'              " Ultimate auto-completion system for Vim
@@ -68,7 +69,7 @@ endif
 
 " Snippets
 
-if exists('+python')
+if has('python')
     Plugin 'SirVer/ultisnips'             " The ultimate snippet solution for Vim
 endif
 Plugin 'honza/vim-snippets'              " vim-snipmate default snippets (for UltiSnips)
@@ -148,7 +149,7 @@ Plugin 'godlygeek/tabular'               " Vim script for text filtering and ali
 "Plugin 'terryma/vim-expand-region'       " Vim plugin that allows you to visually select increasingly larger regions of text using the same key combination
 "Plugin 'mbbill/undotree'                 " Display your undo history in a graph
 "Plugin 'vits/ZoomWin'                    " Zoom in/out of windows (toggle between one window and multi-window)
-"Plugin 'Shougo/vimproc.vim'              " Interactive command execution in Vim.
+Plugin 'Shougo/vimproc.vim'              " Interactive command execution in Vim.
 "Plugin 'terryma/vim-multiple-cursors'    " True Sublime Text style multiple selections for Vim
 "Plugin 'jeetsukumaran/vim-buffergator'   " Vim plugin to list, select and switch between buffers
 "Plugin 'vim-scripts/Smart-Tabs'          " Uses tabs for indent, spaces for alignment
