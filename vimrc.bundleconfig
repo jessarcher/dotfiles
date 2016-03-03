@@ -36,6 +36,12 @@ if isdirectory(expand("~/.vim/bundle/vim-airline"))
 
 endif
 
+" greplace.vim
+if isdirectory(expand("~/.vim/bundle/greplace.vim"))
+    set grepprg=ag
+    let g:grep_cmd_opts = '--line-numbers --noheading'
+endif
+
 " indentLine
 if isdirectory(expand("~/.vim/bundle/indentLine"))
     let g:indentLine_char = '┊'
@@ -50,6 +56,11 @@ endif
 if isdirectory(expand("~/.vim/bundle/pdv"))
     let g:pdv_template_dir = $HOME . "/.vim/bundle/pdv/templates_snip"
     nnoremap <leader>d :call pdv#DocumentWithSnip()<cr>
+endif
+
+" phpcomplete
+if isdirectory(expand("~/.vim/bundle/phpcomplete.vim"))
+    let g:phpcomplete_parse_docblock_comments = 0
 endif
 
 " SuperTab
@@ -184,7 +195,7 @@ endif
 
 " Undotree
 if isdirectory(expand("~/.vim/bundle/undotree"))
-    nnoremap <leader>u :UndotreeToggle<cr>
+    "nnoremap <leader>u :UndotreeToggle<cr>
 endif
 
 " neocomplete
@@ -309,7 +320,7 @@ if isdirectory(expand("~/.vim/bundle/nerdtree"))
     "autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
     " Close vim if the only window left open is a NERDTree
-    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+    "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 endif
 
@@ -327,6 +338,12 @@ endif
 " Vim-php-cs-fixer
 if isdirectory(expand("~/.vim/bundle/vim-php-cs-fixer"))
     let g:php_cs_fixer_level = "psr2"
+endif
+
+" Vim-php-cs-fixer
+if isdirectory(expand("~/.vim/bundle/vim-php-namespace"))
+    autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
+    autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
 endif
 
 " tagbar
@@ -368,6 +385,11 @@ if isdirectory(expand("~/.vim/bundle/vdebug"))
     \    'server' : '0.0.0.0',
     \    'watch_window_style' : 'expanded',
     \ }
+endif
+
+" YouCompleteMe
+if isdirectory(expand("~/.vim/bundle/YouCompleteMe"))
+
 endif
 
 " ZoomWin
