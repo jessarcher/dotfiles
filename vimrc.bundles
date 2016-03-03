@@ -39,6 +39,7 @@ Plugin 'vim-scripts/IndexedSearch'       " shows 'Nth match out of M' at every s
 "Plugin 'mileszs/ack.vim'                 " Vim plugin for the Perl module / CLI script 'ack'
 Plugin 'Shougo/unite.vim'                " Unite and create user interfaces
 Plugin 'Shougo/neomru.vim'               " MRU plugin includes unite.vim MRU sources
+Plugin 'skwp/greplace.vim'               " Global search and replace for VI
 
 " Motions and Text Objects
 
@@ -112,6 +113,7 @@ Plugin 'shawncplus/phpcomplete.vim'      " Improved PHP omni-completion
 Plugin '2072/PHP-Indenting-for-VIm'      " The official VIm indent script for PHP
 Plugin 'alvan/vim-php-manual'            " PHP manual for Vim
 "Plugin 'stephpy/vim-php-cs-fixer'        " Use fabpot/PHP-CS-Fixer
+Plugin 'arnaud-lb/vim-php-namespace'
 
 " Other Languages
 
