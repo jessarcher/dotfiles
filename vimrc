@@ -309,8 +309,6 @@ augroup end
 " Speed Improvements
 "===============================================================================
 
-set notimeout
-set ttimeout
 set lazyredraw                 " seems to fix scrolling issues caused by relativenumber and cursorline"
 
 "===============================================================================
