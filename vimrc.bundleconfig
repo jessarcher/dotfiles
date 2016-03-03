@@ -17,7 +17,7 @@ if isdirectory(expand("~/.vim/bundle/vim-airline"))
     let g:airline_powerline_fonts = 1
 
     "let g:airline_theme='jess'
-    let g:airline_theme='tomorrowjess'
+    "let g:airline_theme='tomorrowjess'
 
     " Enable the list of tabs
     " Automatically displays all buffers when there's only one tab open.

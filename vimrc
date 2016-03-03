@@ -82,6 +82,7 @@ nmap k gk
 set backspace=indent,eol,start " allow full backspace in insert mode
 set textwidth=80               " width of text before breaking
 set nojoinspaces               " only insert single space after '.', '?', and '!' when joining
+set formatoptions=             " reset formatoptions
 set formatoptions+=c           " format comments
 set formatoptions+=r           " continue comments onto next line
 set formatoptions+=q           " format comments with gq
@@ -93,16 +94,18 @@ silent! set formatoptions+=j   " delete comment character when joining commented
 autocmd FileType * setlocal formatoptions-=o " don't comment newline when using o or O from a commented line (needs autocmd otherwise it gets overwritten)
 
 "===============================================================================
-" Indentation & Tabs
+" Tabs & Indentation
 "===============================================================================
 
 set expandtab                  " Use spaces instead of tabs
 set tabstop=4                  " How many characters wide the tab character should be
 set shiftwidth=4               " How many spaces to use instead of a tab
 set smarttab                   " Intelligently backspace the right number of space characters set autoindent
-"set smartindent   " Smart indenting based on curly brackets and cinwords
-set copyindent     " Copy the previous line indentation on autoindentation
-set preserveindent
+
+set autoindent                 " Copy indent level from previous line when starting a new line
+set copyindent                 " Copy whatever characters were used to indent the previous line
+set preserveindent             " Preserve as much of the existing indentation characters when changing indentation level
+
 set list                       " display tabs, tailing spaces, and other chars visually
 set listchars=tab:▸\ ,trail:·,extends:>,precedes:<,nbsp:_
 
@@ -120,7 +123,7 @@ set ignorecase                 " case insensitive searches
 set smartcase                  " unless specifically searching for something with uppercase characters
 
 " Clear search highlighting with <Esc>
-"nmap <Esc> :nohlsearch<CR>
+nmap <Esc><Esc> :nohlsearch<CR>
 
 "===============================================================================
 " Copy and Paste
@@ -155,15 +158,6 @@ set wildignore+=*.gem
 set wildignore+=log/**
 set wildignore+=tmp/**
 set wildignore+=*.png,*.jpg,*.gif
-
-set omnifunc=syntaxcomplete#Complete " Default Omnicompletion
-autocmd FileType php        setlocal omnifunc=phpcomplete#CompletePHP
-autocmd FileType css        setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html       setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType markdown   setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python     setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml        setlocal omnifunc=xmlcomplete#CompleteTags
 
 set completeopt+=menu    " Popup menu
 set completeopt+=menuone " Popup menu even when only one match
@@ -227,13 +221,6 @@ nnoremap <Leader><Leader> <c-^>
 " Stop the annoying command history popup from typo
 map q: :q
 
-" Use sudo to write the file
-cmap w!! w !sudo tee % >/dev/null
-cmap wq!! wq !sudo tee % >/dev/null
-
-" Map <Leader>ff to display all lines with keyword under cursor and ask which one to jump to
-"nmap <Leader>f [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
-
 " Open the current file in the default X application
 nmap <leader>o :!xdg-open %<cr><cr>
 
@@ -249,7 +236,15 @@ set spelllang=en_au            " self-explanatory
 "===============================================================================
 
 syntax on
-colorscheme base16-tomorrow
+set background=dark
+
+"colorscheme base16-tomorrow
+"colorscheme Tomorrow-Night
+
+highlight SpellBad     ctermbg=none ctermfg=none cterm=underline
+highlight SpellCap     ctermbg=none ctermfg=none cterm=underline
+highlight SpellLocal   ctermbg=none ctermfg=none cterm=underline
+highlight SpellRare    ctermbg=none ctermfg=none cterm=underline
 
 "===============================================================================
 " Buffers
@@ -284,7 +279,7 @@ augroup filetypeoverrides
     au BufRead,BufNewFile *.json set ft=json syntax=javascript
 
     " Format Mutt temp files as email
-    au BufRead,BufNewFile *tmp/mutt* :set ft=mail
+    au BufRead,BufNewFile *tmp/mutt* set ft=mail
 augroup end
 
 "===============================================================================
@@ -317,7 +312,6 @@ augroup end
 set notimeout
 set ttimeout
 set lazyredraw                 " seems to fix scrolling issues caused by relativenumber and cursorline"
-
 
 "===============================================================================
 " Backups
