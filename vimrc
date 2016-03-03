@@ -238,13 +238,7 @@ set spelllang=en_au            " self-explanatory
 syntax on
 set background=dark
 
-"colorscheme base16-tomorrow
-"colorscheme Tomorrow-Night
-
-highlight SpellBad     ctermbg=none ctermfg=none cterm=underline
-highlight SpellCap     ctermbg=none ctermfg=none cterm=underline
-highlight SpellLocal   ctermbg=none ctermfg=none cterm=underline
-highlight SpellRare    ctermbg=none ctermfg=none cterm=underline
+colorscheme base16-tomorrow
 
 "===============================================================================
 " Buffers
