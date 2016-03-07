@@ -100,9 +100,10 @@ autocmd FileType * setlocal formatoptions-=o " don't comment newline when using 
 set expandtab                  " Use spaces instead of tabs
 set tabstop=4                  " How many characters wide the tab character should be
 set shiftwidth=4               " How many spaces to use instead of a tab
-set smarttab                   " Intelligently backspace the right number of space characters set autoindent
+set smarttab                   " Intelligently backspace the right number of space characters
 
 set autoindent                 " Copy indent level from previous line when starting a new line
+set smartindent                " Seems to automatically update the indentation when a closing paren is typed
 set copyindent                 " Copy whatever characters were used to indent the previous line
 set preserveindent             " Preserve as much of the existing indentation characters when changing indentation level
 
