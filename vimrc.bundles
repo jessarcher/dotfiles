@@ -115,7 +115,7 @@ Plugin 'tobyS/vmustache'                 " dependency of tobyS/pdv
 Plugin 'tobyS/pdv'                       " PHP Documentor for Vim - Generates PHP docblocks
 Plugin 'StanAngeloff/php.vim'            " Up-to-date PHP syntax file
 "Plugin 'shawncplus/phpcomplete.vim'      " Improved PHP omni-completion
-"Plugin '2072/PHP-Indenting-for-VIm'      " The official VIm indent script for PHP
+Plugin '2072/PHP-Indenting-for-VIm'      " Up-to-date version of the official Vim indent script for PHP
 "Plugin 'alvan/vim-php-manual'            " PHP manual for Vim
 "Plugin 'stephpy/vim-php-cs-fixer'        " Use fabpot/PHP-CS-Fixer
 Plugin 'arnaud-lb/vim-php-namespace'
