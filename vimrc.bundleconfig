@@ -76,6 +76,11 @@ if isdirectory(expand("~/.vim/bundle/phpcomplete.vim"))
     let g:phpcomplete_parse_docblock_comments = 0
 endif
 
+" rainbow
+if isdirectory(expand("~/.vim/bundle/rainbow"))
+    let g:rainbow_active = 1
+endif
+
 " SuperTab
 if isdirectory(expand("~/.vim/bundle/supertab"))
     let g:SuperTabDefaultCompletionType = "context"
