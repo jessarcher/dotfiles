@@ -36,6 +36,11 @@ if isdirectory(expand("~/.vim/bundle/vim-airline"))
 
 endif
 
+" easytags
+if isdirectory(expand("~/.vim/bundle/vim-easytags"))
+    let g:easytags_dynamic_files = 1
+endif
+
 " greplace.vim
 if isdirectory(expand("~/.vim/bundle/greplace.vim"))
     set grepprg=ag
