@@ -46,6 +46,7 @@
 
 URxvt.intensityStyles: false
 URxvt.font: xft:Roboto Mono for Powerline:size=11
+URxvt.letterSpace: -1
 URxvt.scrollBar: false;
 URxvt.internalBorder: 1
 URxvt.urgentOnBell: true
