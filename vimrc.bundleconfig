@@ -58,6 +58,19 @@ if isdirectory(expand("~/.vim/bundle/pdv"))
     nnoremap <leader>d :call pdv#DocumentWithSnip()<cr>
 endif
 
+" php.vim
+if isdirectory(expand("~/.vim/bundle/php.vim"))
+    function! PhpSyntaxOverride()
+        hi! def link phpDocTags  phpDefine
+        hi! def link phpDocParam phpType
+    endfunction
+
+    augroup phpSyntaxOverride
+        autocmd!
+        autocmd FileType php call PhpSyntaxOverride()
+    augroup END
+endif
+
 " phpcomplete
 if isdirectory(expand("~/.vim/bundle/phpcomplete.vim"))
     let g:phpcomplete_parse_docblock_comments = 0
