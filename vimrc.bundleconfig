@@ -2,7 +2,7 @@
 " Plugin Config
 "===============================================================================
 
-"ag.vim
+" ag.vim
 if isdirectory(expand("~/.vim/bundle/ag.vim"))
     " Start searching from project root rather than cwd
     let g:ag_working_path_mode="r"
@@ -36,126 +36,33 @@ if isdirectory(expand("~/.vim/bundle/vim-airline"))
 
 endif
 
-" easytags
-if isdirectory(expand("~/.vim/bundle/vim-easytags"))
-    let g:easytags_dynamic_files = 1
-endif
+" CamelCaseMotion
+if isdirectory(expand("~/.vim/bundle/CamelCaseMotion"))
 
-" greplace.vim
-if isdirectory(expand("~/.vim/bundle/greplace.vim"))
-    set grepprg=ag
-    let g:grep_cmd_opts = '--line-numbers --noheading'
-endif
+    " Replace the default 'w', 'b' and 'e' mappings instead of defining additional mappings ',w', ',b' and ',e'
+    "map <silent> w <Plug>CamelCaseMotion_w
+    "map <silent> b <Plug>CamelCaseMotion_b
+    "map <silent> e <Plug>CamelCaseMotion_e
+    "sunmap w
+    "sunmap b
+    "sunmap e
 
-" indentLine
-if isdirectory(expand("~/.vim/bundle/indentLine"))
-    let g:indentLine_char = '┊'
-    let g:indentLine_first_char = '┊'
-    let g:indentLine_color_term = 237
-    let g:indentLine_leadingSpaceEnabled = 1
-    let g:indentLine_leadingSpaceChar = '·'
-    let g:indentLine_showFirstIndentLevel = 1
-endif
-
-" PDV
-if isdirectory(expand("~/.vim/bundle/pdv"))
-    let g:pdv_template_dir = $HOME . "/.vim/bundle/pdv/templates_snip"
-    nnoremap <leader>d :call pdv#DocumentWithSnip()<cr>
-endif
-
-" php.vim
-if isdirectory(expand("~/.vim/bundle/php.vim"))
-    function! PhpSyntaxOverride()
-        hi! def link phpDocTags  phpDefine
-        hi! def link phpDocParam phpType
-    endfunction
-
-    augroup phpSyntaxOverride
-        autocmd!
-        autocmd FileType php call PhpSyntaxOverride()
-    augroup END
-endif
-
-" phpcomplete
-if isdirectory(expand("~/.vim/bundle/phpcomplete.vim"))
-    let g:phpcomplete_parse_docblock_comments = 0
-endif
-
-" rainbow
-if isdirectory(expand("~/.vim/bundle/rainbow"))
-    let g:rainbow_active = 1
-endif
-
-" SuperTab
-if isdirectory(expand("~/.vim/bundle/supertab"))
-    let g:SuperTabDefaultCompletionType = "context"
-    let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
-    let g:SuperTabClosePreviewOnPopupClose = 1
-endif
-
-" Syntastic
-if isdirectory(expand("~/.vim/bundle/syntastic"))
-    let g:syntastic_php_checkers=['php', 'phpcs']
-    let g:syntastic_php_phpcs_args='--standard=PSR2 -n'
-endif
-
-" Unite.vim
-if isdirectory(expand("~/.vim/bundle/unite.vim"))
-
-    "call unite#filters#matcher_default#use(['matcher_fuzzy', 'matcher_project_ignore_files'])
-    call unite#filters#matcher_default#use(['matcher_fuzzy'])
-    call unite#filters#sorter_default#use(['sorter_rank'])
-    "call unite#custom#source('file_rec,file_rec/async', 'ignore_pattern', join([
-                "\ '.git/',
-                "\ 'node_modules/',
-                "\ 'storage/',
-                "\ 'vendor/',
-                "\], '|'))
-    call unite#custom#profile('default', 'context', {
-        \ 'direction': 'dynamicbottom'
-        \ })
-
-    let g:unite_source_history_yank_enable = 1
-
-    if executable('ag')
-        let g:unite_source_grep_command='ag'
-        "let g:unite_source_grep_default_opts='--nocolor --line-numbers --nogroup -S -C4'
-        "let g:unite_source_grep_default_opts = '-i --hidden --ignore ''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
-        let g:unite_source_grep_default_opts = '--vimgrep -S'
-        let g:unite_source_grep_recursive_opt=''
-
-        let g:unite_source_rec_async_command = ['ag', '--follow', '--nocolor', '--nogroup', '--hidden', '-g', '']
-    elseif executable('ack')
-        let g:unite_source_grep_command='ack'
-        let g:unite_source_grep_default_opts='--no-heading --no-color -C4'
-        let g:unite_source_grep_recursive_opt=''
-    elseif executable('ack-grep')
-        let g:unite_source_grep_command='ack-grep'
-        let g:unite_source_grep_default_opts='--no-heading --no-color -C4'
-        let g:unite_source_grep_recursive_opt=''
-    endif
-
-    " Files
-    nnoremap <leader>f :Unite -auto-resize -buffer-name=files -start-insert file_rec/async:!<CR>
-
-    " Buffers & MRU
-    nnoremap <leader>b :Unite -auto-resize -buffer-name=buffers -quick-match buffer<CR>
-
-    " Ag/Ack
-    nnoremap <leader>g :Unite -auto-resize -buffer-name=search -no-quit grep:.<CR>
-
-    " Yank history
-    nnoremap <leader>y :Unite -auto-resize -buffer-name=yanks history/yank<CR>
-
-    " Mappings
-    nnoremap <leader>m :Unite -auto-resize -buffer-name=mappings mapping<CR>
-
-    " Colorschemes
-    nnoremap <leader>c :Unite -auto-resize -buffer-name=colorschemes -auto-preview colorscheme<CR>
+    " Replace default 'iw' text-object and define 'ib' and 'ie' motions
+    "omap <silent> iw <Plug>CamelCaseMotion_iw
+    "xmap <silent> iw <Plug>CamelCaseMotion_iw
+    "omap <silent> ib <Plug>CamelCaseMotion_ib
+    "xmap <silent> ib <Plug>CamelCaseMotion_ib
+    "omap <silent> ie <Plug>CamelCaseMotion_ie
+    "xmap <silent> ie <Plug>CamelCaseMotion_ie
 
 endif
 
-" CtrlP
+" closetag
+if isdirectory(expand("~/.vim/bundle/vim-closetag"))
+    let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.php"
+endif
+
+" ctrlp
 if isdirectory(expand("~/.vim/bundle/ctrlp.vim"))
 
     let g:ctrlp_custom_ignore = {
@@ -188,14 +95,9 @@ if isdirectory(expand("~/.vim/bundle/ctrlp.vim"))
 
 endif
 
-" Vim Indent Guides
-if isdirectory(expand("~/.vim/bundle/vim-indent-guides"))
-    let g:indent_guides_auto_colors = 0
-    let g:indent_guides_start_level = 2
-    let g:indent_guides_guide_size = 1
-    let g:indent_guides_enable_on_vim_startup = 1
-    highlight IndentGuidesOdd  ctermbg=0
-    highlight IndentGuidesEven ctermbg=234
+" easytags
+if isdirectory(expand("~/.vim/bundle/vim-easytags"))
+    let g:easytags_dynamic_files = 1
 endif
 
 " GitGutter
@@ -203,22 +105,20 @@ if isdirectory(expand("~/.vim/bundle/vim-gitgutter"))
     let g:gitgutter_max_signs=1000
 endif
 
-" Closetag
-if isdirectory(expand("~/.vim/bundle/vim-closetag"))
-    let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.php"
+" greplace.vim
+if isdirectory(expand("~/.vim/bundle/greplace.vim"))
+    set grepprg=ag
+    let g:grep_cmd_opts = '--line-numbers --noheading'
 endif
 
-" Ultisnips
-if isdirectory(expand("~/.vim/bundle/ultisnips"))
-    let g:UltiSnipsExpandTrigger       ="<leader>s"
-    let g:UltiSnipsJumpForwardTrigger  ="<leader>s"
-    let g:UltiSnipsJumpBackwardTrigger ="<leader>S"
-    let g:UltiSnipsListSnippets        ="<leader>l"
-endif
-
-" Undotree
-if isdirectory(expand("~/.vim/bundle/undotree"))
-    "nnoremap <leader>u :UndotreeToggle<cr>
+" indentLine
+if isdirectory(expand("~/.vim/bundle/indentLine"))
+    let g:indentLine_char = '┊'
+    let g:indentLine_first_char = '┊'
+    let g:indentLine_color_term = 237
+    let g:indentLine_leadingSpaceEnabled = 1
+    let g:indentLine_leadingSpaceChar = '·'
+    let g:indentLine_showFirstIndentLevel = 1
 endif
 
 " neocomplete
@@ -347,26 +247,46 @@ if isdirectory(expand("~/.vim/bundle/nerdtree"))
 
 endif
 
-" vim-tmux-navigator
-if isdirectory(expand("~/.vim/bundle/vim-tmux-navigator"))
-
-    " seemless moving around between tmux panes and vim splits
-    nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
-    nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
-    nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
-    nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
-
+" PDV
+if isdirectory(expand("~/.vim/bundle/pdv"))
+    let g:pdv_template_dir = $HOME . "/.vim/bundle/pdv/templates_snip"
+    nnoremap <leader>d :call pdv#DocumentWithSnip()<cr>
 endif
 
-" Vim-php-cs-fixer
-if isdirectory(expand("~/.vim/bundle/vim-php-cs-fixer"))
-    let g:php_cs_fixer_level = "psr2"
+" php.vim
+if isdirectory(expand("~/.vim/bundle/php.vim"))
+    function! PhpSyntaxOverride()
+        hi! def link phpDocTags  phpDefine
+        hi! def link phpDocParam phpType
+    endfunction
+
+    augroup phpSyntaxOverride
+        autocmd!
+        autocmd FileType php call PhpSyntaxOverride()
+    augroup END
 endif
 
-" Vim-php-cs-fixer
-if isdirectory(expand("~/.vim/bundle/vim-php-namespace"))
-    autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
-    autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
+" phpcomplete
+if isdirectory(expand("~/.vim/bundle/phpcomplete.vim"))
+    let g:phpcomplete_parse_docblock_comments = 0
+endif
+
+" rainbow
+if isdirectory(expand("~/.vim/bundle/rainbow"))
+    let g:rainbow_active = 1
+endif
+
+" SuperTab
+if isdirectory(expand("~/.vim/bundle/supertab"))
+    let g:SuperTabDefaultCompletionType = "context"
+    let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
+    let g:SuperTabClosePreviewOnPopupClose = 1
+endif
+
+" Syntastic
+if isdirectory(expand("~/.vim/bundle/syntastic"))
+    let g:syntastic_php_checkers=['php', 'phpcs']
+    let g:syntastic_php_phpcs_args='--standard=PSR2 -n'
 endif
 
 " tagbar
@@ -377,30 +297,73 @@ if isdirectory(expand("~/.vim/bundle/tagbar"))
     nmap <leader>t :TagbarToggle<CR>
 endif
 
-" CamelCaseMotion
-if isdirectory(expand("~/.vim/bundle/CamelCaseMotion"))
-
-    " Replace the default 'w', 'b' and 'e' mappings instead of defining additional mappings ',w', ',b' and ',e'
-    "map <silent> w <Plug>CamelCaseMotion_w
-    "map <silent> b <Plug>CamelCaseMotion_b
-    "map <silent> e <Plug>CamelCaseMotion_e
-    "sunmap w
-    "sunmap b
-    "sunmap e
-
-    " Replace default 'iw' text-object and define 'ib' and 'ie' motions
-    "omap <silent> iw <Plug>CamelCaseMotion_iw
-    "xmap <silent> iw <Plug>CamelCaseMotion_iw
-    "omap <silent> ib <Plug>CamelCaseMotion_ib
-    "xmap <silent> ib <Plug>CamelCaseMotion_ib
-    "omap <silent> ie <Plug>CamelCaseMotion_ie
-    "xmap <silent> ie <Plug>CamelCaseMotion_ie
-
+" Ultisnips
+if isdirectory(expand("~/.vim/bundle/ultisnips"))
+    let g:UltiSnipsExpandTrigger       ="<leader>s"
+    let g:UltiSnipsJumpForwardTrigger  ="<leader>s"
+    let g:UltiSnipsJumpBackwardTrigger ="<leader>S"
+    let g:UltiSnipsListSnippets        ="<leader>l"
 endif
 
-" vim-php-manual
-if isdirectory(expand("~/.vim/bundle/vim-php-manual"))
-    let g:php_manual_online_search_shortcut = "<s-P>"
+" Undotree
+if isdirectory(expand("~/.vim/bundle/undotree"))
+    "nnoremap <leader>u :UndotreeToggle<cr>
+endif
+
+" Unite.vim
+if isdirectory(expand("~/.vim/bundle/unite.vim"))
+
+    "call unite#filters#matcher_default#use(['matcher_fuzzy', 'matcher_project_ignore_files'])
+    call unite#filters#matcher_default#use(['matcher_fuzzy'])
+    call unite#filters#sorter_default#use(['sorter_rank'])
+    "call unite#custom#source('file_rec,file_rec/async', 'ignore_pattern', join([
+                "\ '.git/',
+                "\ 'node_modules/',
+                "\ 'storage/',
+                "\ 'vendor/',
+                "\], '|'))
+    call unite#custom#profile('default', 'context', {
+        \ 'direction': 'dynamicbottom'
+        \ })
+
+    let g:unite_source_history_yank_enable = 1
+
+    if executable('ag')
+        let g:unite_source_grep_command='ag'
+        "let g:unite_source_grep_default_opts='--nocolor --line-numbers --nogroup -S -C4'
+        "let g:unite_source_grep_default_opts = '-i --hidden --ignore ''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
+        let g:unite_source_grep_default_opts = '--vimgrep -S'
+        let g:unite_source_grep_recursive_opt=''
+
+        let g:unite_source_rec_async_command = ['ag', '--follow', '--nocolor', '--nogroup', '--hidden', '-g', '']
+    elseif executable('ack')
+        let g:unite_source_grep_command='ack'
+        let g:unite_source_grep_default_opts='--no-heading --no-color -C4'
+        let g:unite_source_grep_recursive_opt=''
+    elseif executable('ack-grep')
+        let g:unite_source_grep_command='ack-grep'
+        let g:unite_source_grep_default_opts='--no-heading --no-color -C4'
+        let g:unite_source_grep_recursive_opt=''
+    endif
+
+    " Files
+    nnoremap <leader>f :Unite -auto-resize -buffer-name=files -start-insert file_rec/async:!<CR>
+
+    " Buffers & MRU
+    nnoremap <leader>b :Unite -auto-resize -buffer-name=buffers -quick-match buffer<CR>
+
+    " Ag/Ack
+    nnoremap <leader>g :Unite -auto-resize -buffer-name=search -no-quit grep:.<CR>
+
+    " Yank history
+    nnoremap <leader>y :Unite -auto-resize -buffer-name=yanks history/yank<CR>
+
+    " Mappings
+    nnoremap <leader>m :Unite -auto-resize -buffer-name=mappings mapping<CR>
+
+    " Colorschemes
+    nnoremap <leader>c :Unite -auto-resize -buffer-name=colorschemes -auto-preview colorscheme<CR>
+
 endif
 
 " Vdebug
@@ -409,6 +372,43 @@ if isdirectory(expand("~/.vim/bundle/vdebug"))
     \    'server' : '0.0.0.0',
     \    'watch_window_style' : 'expanded',
     \ }
+endif
+
+" Vim Indent Guides
+if isdirectory(expand("~/.vim/bundle/vim-indent-guides"))
+    let g:indent_guides_auto_colors = 0
+    let g:indent_guides_start_level = 2
+    let g:indent_guides_guide_size = 1
+    let g:indent_guides_enable_on_vim_startup = 1
+    highlight IndentGuidesOdd  ctermbg=0
+    highlight IndentGuidesEven ctermbg=234
+endif
+
+" Vim-php-cs-fixer
+if isdirectory(expand("~/.vim/bundle/vim-php-cs-fixer"))
+    let g:php_cs_fixer_level = "psr2"
+endif
+
+" vim-php-manual
+if isdirectory(expand("~/.vim/bundle/vim-php-manual"))
+    let g:php_manual_online_search_shortcut = "<s-P>"
+endif
+
+" Vim-php-namespace
+if isdirectory(expand("~/.vim/bundle/vim-php-namespace"))
+    autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
+    autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
+endif
+
+" vim-tmux-navigator
+if isdirectory(expand("~/.vim/bundle/vim-tmux-navigator"))
+
+    " seemless moving around between tmux panes and vim splits
+    nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
+    nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
+    nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
+    nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
+
 endif
 
 " YouCompleteMe
