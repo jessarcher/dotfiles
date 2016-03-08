@@ -81,7 +81,7 @@ Plugin 'honza/vim-snippets'              " vim-snipmate default snippets (for Ul
 " Tags
 
 "Plugin 'xolox/vim-misc'                  " Miscellaneous auto-load Vim scripts
-"Plugin 'majutsushi/tagbar'               " Vim plugin that displays tags in a window, ordered by scope
+Plugin 'majutsushi/tagbar'               " Vim plugin that displays tags in a window, ordered by scope
 "Plugin 'vim-php/tagbar-phpctags.vim'     " Using phpctags to generate php ctags index for vim plugin tagbar.
 
 "Plugin 'craigemery/vim-autotag'          " Automatically discover and 'properly' update ctags files on save
