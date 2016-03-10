@@ -66,7 +66,7 @@ set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
 
 set mouse=a                    " enable use of mouse in all modes with a supported terminal"
 set cursorline                 " highlight the line that the cursor is on
-set scrolloff=7                " start vertically scrolling when 7 lines from the top or bottom
+set scrolloff=3                " start vertically scrolling when 3 lines from the top or bottom
 set sidescrolloff=3            " start horizontally scrolling when 3 lines from the edges
 set sidescroll=1               " how many columns to scroll at a time horizontally
 set nostartofline              " don't reset cursor to start of line when moving around
