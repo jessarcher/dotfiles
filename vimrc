@@ -242,7 +242,9 @@ set spelllang=en_au            " self-explanatory
 syntax on
 set background=dark
 
-colorscheme base16-tomorrow
+if !empty(glob('~/.vim/bundle/base16-vim/'))
+    colorscheme base16-tomorrow
+endif
 
 "===============================================================================
 " Buffers
