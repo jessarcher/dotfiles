@@ -100,6 +100,12 @@ if isdirectory(expand("~/.vim/bundle/vim-easytags"))
     let g:easytags_dynamic_files = 1
 endif
 
+" Hardtime
+if isdirectory(expand("~/.vim/bundle/vim-hardtime/"))
+    let g:hardtime_default_on = 1
+    let g:hardtime_showmsg = 1
+endif
+
 " GitGutter
 if isdirectory(expand("~/.vim/bundle/vim-gitgutter"))
     let g:gitgutter_max_signs=1000
