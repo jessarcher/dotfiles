@@ -44,7 +44,7 @@ set number                     " show line number(s)
 if exists('+relativenumber')
     set relativenumber         " show line numbers relative to the current line
 endif
-set history=100                " store lots of :cmdline history
+set history=1000               " store lots of :cmdline history
 set autoread                   " reload files changed outside of vim
 set visualbell                 " replace annoying error bell with annoying screen flash
 set t_vb=                      " make the visual bell do nothing (so it's not annoying)
@@ -82,6 +82,7 @@ nmap k gk
 set backspace=indent,eol,start " allow full backspace in insert mode
 set textwidth=80               " width of text before breaking
 set nojoinspaces               " only insert single space after '.', '?', and '!' when joining
+set nrformats-=octal           " Treat strings starting with '0' as numbers for the purposes of incrementing
 set formatoptions=             " reset formatoptions
 set formatoptions+=c           " format comments
 set formatoptions+=r           " continue comments onto next line
@@ -90,7 +91,9 @@ set formatoptions+=n           " recognize numbered lists
 set formatoptions+=2           " use indent from 2nd line of a paragraph
 set formatoptions+=l           " don't break lines that are already long
 set formatoptions+=1           " break before 1-letter words
-silent! set formatoptions+=j   " delete comment character when joining commented lines
+if v:version > 703 || v:version == 703 && has("patch541")
+    set formatoptions+=j       " delete comment character when joining commented lines
+endif
 autocmd FileType * setlocal formatoptions-=o " don't comment newline when using o or O from a commented line (needs autocmd otherwise it gets overwritten)
 
 "===============================================================================
@@ -100,9 +103,10 @@ autocmd FileType * setlocal formatoptions-=o " don't comment newline when using 
 set expandtab                  " Use spaces instead of tabs
 set tabstop=4                  " How many characters wide the tab character should be
 set shiftwidth=4               " How many spaces to use instead of a tab
-set smarttab                   " Intelligently backspace the right number of space characters set autoindent
+set smarttab                   " Intelligently backspace the right number of space characters
 
 set autoindent                 " Copy indent level from previous line when starting a new line
+set smartindent
 set copyindent                 " Copy whatever characters were used to indent the previous line
 set preserveindent             " Preserve as much of the existing indentation characters when changing indentation level
 
@@ -280,7 +284,9 @@ augroup end
 "===============================================================================
 
 " Look for tags files in parent directories
-set tags+=tags;/
+if has('path_extra')
+    setglobal tags-=./tags tags-=./tags; tags^=./tags;
+endif
 
 "===============================================================================
 " General Auto-commands
