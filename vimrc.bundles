@@ -19,7 +19,7 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'rking/ag.vim'                    " Vim plugin for the_silver_searcher, 'ag', a replacement for the Perl module / CLI script 'ack'
 Plug 'vim-scripts/IndexedSearch'       " shows 'Nth match out of M' at every search (index of match+total # matches)
 "Plug 'mileszs/ack.vim'                 " Vim plugin for the Perl module / CLI script 'ack'
-Plug 'Shougo/unite.vim' | Plug 'Shougo/vimproc.vim' " Unite and create user interfaces
+Plug 'Shougo/unite.vim' | Plug 'Shougo/vimproc.vim', { 'do' : 'make' } " Unite and create user interfaces
 Plug 'Shougo/neomru.vim'               " MRU plugin includes unite.vim MRU sources
 "Plug 'skwp/greplace.vim'               " Global search and replace for VI
 
