@@ -16,7 +16,7 @@ call plug#begin('~/.vim/bundle')
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 "Plug 'kien/ctrlp.vim'                  " Fuzzy file, buffer, mru, tag, etc finder.
-Plug 'rking/ag.vim'                    " Vim plugin for the_silver_searcher, 'ag', a replacement for the Perl module / CLI script 'ack'
+Plug 'rking/ag.vim'                    " Vim plugin for the_silver_searcher, 'ag'
 Plug 'vim-scripts/IndexedSearch'       " shows 'Nth match out of M' at every search (index of match+total # matches)
 "Plug 'mileszs/ack.vim'                 " Vim plugin for the Perl module / CLI script 'ack'
 Plug 'Shougo/unite.vim' | Plug 'Shougo/vimproc.vim', { 'do' : 'make' } " Unite and create user interfaces
@@ -117,12 +117,7 @@ Plug 'mustache/vim-mustache-handlebars' " mustache and handlebars mode for vim
 
 " Colorschemes
 
-"Plug 'vim-scripts/AfterColors.vim'     " Provides support for after/colors/ scripts
 Plug 'chriskempson/base16-vim'         " Base16 for Vim
-"Plug 'sickill/vim-monokai'             " Monokai color scheme for Vim
-"Plug 'tomasr/molokai'                  " Molokai color scheme for Vim
-"Plug 'jnurmine/Zenburn'                " Zenburn is a low-contrast color scheme for Vim
-Plug 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 
 " Misc
 
