@@ -1,3 +1,4 @@
+vim/autoload/plug.vim
 vim/backups/*
 vim/swaps/*
 vim/undo/*

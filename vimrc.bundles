@@ -1,176 +1,145 @@
-"========
-" Vundle
-"========
+"===============================================================================
+" Plugs 
+"===============================================================================
 
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
-" Install Vundle if it doesn't already exist
-let vundle_dir = $HOME . '/.vim/bundle/Vundle.vim'
-if !isdirectory(vundle_dir)
-	call mkdir(vundle_dir, 'p')
-	let install_cmds = []
-
-	call add(install_cmds, 'echo "Installing Vundle ..."')
-	call add(install_cmds, 'git clone https://github.com/gmarik/vundle.git ' . vundle_dir)
-
-	let install_cmd = ":silent !" . join(install_cmds, '  &&  ')
-	execute install_cmd
+" Automatically install vim-plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+call plug#begin('~/.vim/bundle')
 
 " Searching
 
-Plugin 'scrooloose/nerdtree'             " A tree explorer plugin for vim.
-"Plugin 'kien/ctrlp.vim'                  " Fuzzy file, buffer, mru, tag, etc finder.
-Plugin 'rking/ag.vim'                    " Vim plugin for the_silver_searcher, 'ag', a replacement for the Perl module / CLI script 'ack'
-Plugin 'vim-scripts/IndexedSearch'       " shows 'Nth match out of M' at every search (index of match+total # matches)
-"Plugin 'mileszs/ack.vim'                 " Vim plugin for the Perl module / CLI script 'ack'
-Plugin 'Shougo/vimproc.vim'              " Dependency of Shougo/unite.vim
-Plugin 'Shougo/unite.vim'                " Unite and create user interfaces
-Plugin 'Shougo/neomru.vim'               " MRU plugin includes unite.vim MRU sources
-"Plugin 'skwp/greplace.vim'               " Global search and replace for VI
+Plug 'scrooloose/nerdtree'             " A tree explorer plugin for vim.
+"Plug 'kien/ctrlp.vim'                  " Fuzzy file, buffer, mru, tag, etc finder.
+Plug 'rking/ag.vim'                    " Vim plugin for the_silver_searcher, 'ag', a replacement for the Perl module / CLI script 'ack'
+Plug 'vim-scripts/IndexedSearch'       " shows 'Nth match out of M' at every search (index of match+total # matches)
+"Plug 'mileszs/ack.vim'                 " Vim plugin for the Perl module / CLI script 'ack'
+Plug 'Shougo/unite.vim' | Plug 'Shougo/vimproc.vim' " Unite and create user interfaces
+Plug 'Shougo/neomru.vim'               " MRU plugin includes unite.vim MRU sources
+"Plug 'skwp/greplace.vim'               " Global search and replace for VI
 
 " Motions and Text Objects
 
-"Plugin 'bkad/CamelCaseMotion'            " A vim script to provide CamelCase motion through words
-"Plugin 'kana/vim-textobj-user'           " Vim plugin: Create your own text objects
-"Plugin 'kana/vim-textobj-line'           " Vim plugin: Text objects for the current line
-"Plugin 'kana/vim-textobj-entire'         " Vim plugin: Text objects for entire buffer
-"Plugin 'kana/vim-textobj-function'       " Vim plugin: Text objects for functions
-"Plugin 'vim-scripts/argtextobj.vim'      " Text-object like motion for arguments
-"Plugin 'michaeljsmith/vim-indent-object' " Vim plugin that defines a new text object representing lines of code at the same indent level.
-"Plugin 'Lokaltog/vim-easymotion'         " hints like vimperator I think
-"Plugin 'wellle/targets.vim'              " Add additional targets/text objects to Vim
-"Plugin 'justinmk/vim-sneak'              " The missing motion for Vim
+"Plug 'bkad/CamelCaseMotion'            " A vim script to provide CamelCase motion through words
+"Plug 'kana/vim-textobj-user'           " Vim plugin: Create your own text objects
+"Plug 'kana/vim-textobj-line'           " Vim plugin: Text objects for the current line
+"Plug 'kana/vim-textobj-entire'         " Vim plugin: Text objects for entire buffer
+"Plug 'kana/vim-textobj-function'       " Vim plugin: Text objects for functions
+"Plug 'vim-scripts/argtextobj.vim'      " Text-object like motion for arguments
+"Plug 'michaeljsmith/vim-indent-object' " Vim plugin that defines a new text object representing lines of code at the same indent level.
+"Plug 'Lokaltog/vim-easymotion'         " hints like vimperator I think
+"Plug 'wellle/targets.vim'              " Add additional targets/text objects to Vim
+"Plug 'justinmk/vim-sneak'              " The missing motion for Vim
 
 " Statusbar
 
-Plugin 'vim-airline/vim-airline'          " lean & mean status/tabline for vim that's light as air
-Plugin 'vim-airline/vim-airline-themes'   " themes are now separate
-"Plugin 'bling/vim-bufferline'            " super simple vim plugin to show the list of buffers in the command bar
+Plug 'vim-airline/vim-airline'          " lean & mean status/tabline for vim that's light as air
+Plug 'vim-airline/vim-airline-themes'   " themes are now separate
+"Plug 'bling/vim-bufferline'            " super simple vim plugin to show the list of buffers in the command bar
 
 " Completion
 
-if has('python')
-    Plugin 'Valloric/YouCompleteMe'       " A code-completion engine for Vim
-endif
-"Plugin 'Shougo/neocomplete'              " Ultimate auto-completion system for Vim
-"Plugin 'Shougo/neosnippet'               " neo-snippet plugin contains neocomplcache snippets source
-"Plugin 'Shougo/neosnippet-snippets'      " The standard snippets repository for neosnippet
-"Plugin 'ervandew/supertab'               " Perform all your vim insert mode completions with Tab
+"if has('python')
+"    Plug 'Valloric/YouCompleteMe'       " A code-completion engine for Vim
+"endif
+"Plug 'Shougo/neocomplete'              " Ultimate auto-completion system for Vim
+"Plug 'Shougo/neosnippet'               " neo-snippet plugin contains neocomplcache snippets source
+"Plug 'Shougo/neosnippet-snippets'      " The standard snippets repository for neosnippet
+Plug 'ervandew/supertab'               " Perform all your vim insert mode completions with Tab
 
 " Snippets
 
 if has('python')
-    Plugin 'SirVer/ultisnips'             " The ultimate snippet solution for Vim
+    Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets' " The ultimate snippet solution for Vim
 endif
-Plugin 'honza/vim-snippets'              " vim-snipmate default snippets (for UltiSnips)
-"Plugin 'MarcWeber/vim-addon-mw-utils'    " vim-snipmate dep
-"Plugin 'tomtom/tlib_vim'                 " vim-snipmate dep
-"Plugin 'garbas/vim-snipmate'             " snipMate.vim aims to be a concise vim script that implements some of TextMate's snippets features in Vim
+"Plug 'MarcWeber/vim-addon-mw-utils'    " vim-snipmate dep
+"Plug 'tomtom/tlib_vim'                 " vim-snipmate dep
+"Plug 'garbas/vim-snipmate'             " snipMate.vim aims to be a concise vim script that implements some of TextMate's snippets features in Vim
 
 " Tags
 
-Plugin 'majutsushi/tagbar'               " Vim plugin that displays tags in a window, ordered by scope
-"Plugin 'vim-php/tagbar-phpctags.vim'     " Using phpctags to generate php ctags index for vim plugin tagbar.
+Plug 'majutsushi/tagbar'               " Vim plugin that displays tags in a window, ordered by scope
+"Plug 'vim-php/tagbar-phpctags.vim'     " Using phpctags to generate php ctags index for vim plugin tagbar.
 
-"Plugin 'craigemery/vim-autotag'          " Automatically discover and 'properly' update ctags files on save
-"Plugin 'abudden/taghighlight-automirror' " Highlight known tags
+"Plug 'craigemery/vim-autotag'          " Automatically discover and 'properly' update ctags files on save
+"Plug 'abudden/taghighlight-automirror' " Highlight known tags
 
-Plugin 'xolox/vim-misc'     " Dependency of xolox/vim-easytag
-Plugin 'xolox/vim-easytags' " Might be better that the above two combined
+Plug 'xolox/vim-easytags' | Plug 'xolox/vim-misc' " Might be better that the above two combined
 
 " Git
 
 if v:version < 702
-	Plugin 'tpope/vim-git'               " Vim Git runtime files for Vim < 7.2
+    Plug 'tpope/vim-git'               " Vim Git runtime files for Vim < 7.2
 endif
-Plugin 'tpope/vim-fugitive'              " a Git wrapper so awesome, it should be illegal
-Plugin 'airblade/vim-gitgutter'          " A Vim plugin which shows a git diff in the gutter (sign column) and stages/reverts hunks.
-Plugin 'Xuyuanp/nerdtree-git-plugin'     " A plugin of NERDTree showing git status
+Plug 'tpope/vim-fugitive'              " a Git wrapper so awesome, it should be illegal
+Plug 'airblade/vim-gitgutter'          " A Vim plugin which shows a git diff in the gutter (sign column) and stages/reverts hunks.
+Plug 'Xuyuanp/nerdtree-git-plugin'     " A plugin of NERDTree showing git status
 
 " Tmux
 
-Plugin 'christoomey/vim-tmux-navigator'     " Seamless navigation between tmux panes and vim splits
-Plugin 'tmux-plugins/vim-tmux-focus-events' " Make terminal vim and tmux work better together.
+Plug 'christoomey/vim-tmux-navigator'     " Seamless navigation between tmux panes and vim splits
+Plug 'tmux-plugins/vim-tmux-focus-events' " Make terminal vim and tmux work better together.
 
 " General Coding
 
-Plugin 'scrooloose/nerdcommenter'        " commenting by Nerd Tree
-Plugin 'scrooloose/syntastic'            " Syntax checking hacks for vim
-"Plugin 'Raimondi/delimitMate'            " Vim plugin, provides insert mode auto-completion for quotes, parens, brackets, etc.
-"Plugin 'alvan/vim-closetag'              " Auto close (X)HTML tags
-"Plugin 'luochen1990/rainbow'             " rainbow parentheses improved, shorter code, no level limit, smooth and fast, powerful configuration.
-Plugin 'joonty/vdebug'                   " Multi-language DBGP debugger client for Vim (PHP, Python, Perl, Ruby, etc.)
+Plug 'scrooloose/nerdcommenter'        " commenting by Nerd Tree
+Plug 'scrooloose/syntastic'            " Syntax checking hacks for vim
+"Plug 'Raimondi/delimitMate'            " Vim plugin, provides insert mode auto-completion for quotes, parens, brackets, etc.
+"Plug 'alvan/vim-closetag'              " Auto close (X)HTML tags
+"Plug 'luochen1990/rainbow'             " rainbow parentheses improved, shorter code, no level limit, smooth and fast, powerful configuration.
+Plug 'joonty/vdebug'                   " Multi-language DBGP debugger client for Vim (PHP, Python, Perl, Ruby, etc.)
 
 " PHP-specific
 
-Plugin 'tobyS/vmustache'                 " dependency of tobyS/pdv
-Plugin 'tobyS/pdv'                       " PHP Documentor for Vim - Generates PHP docblocks
-Plugin 'StanAngeloff/php.vim'            " Up-to-date PHP syntax file
-Plugin 'shawncplus/phpcomplete.vim'      " Improved PHP omni-completion
-Plugin '2072/PHP-Indenting-for-VIm'      " The official VIm indent script for PHP
-"Plugin 'alvan/vim-php-manual'            " PHP manual for Vim
-"Plugin 'stephpy/vim-php-cs-fixer'        " Use fabpot/PHP-CS-Fixer
-Plugin 'arnaud-lb/vim-php-namespace'
+Plug 'tobyS/pdv' | Plug 'tobyS/vmustache' " PHP Documentor for Vim - Generates PHP docblocks
+Plug 'StanAngeloff/php.vim'            " Up-to-date PHP syntax file
+Plug 'shawncplus/phpcomplete.vim'      " Improved PHP omni-completion
+Plug '2072/PHP-Indenting-for-VIm'      " The official VIm indent script for PHP
+"Plug 'alvan/vim-php-manual'            " PHP manual for Vim
+"Plug 'stephpy/vim-php-cs-fixer'        " Use fabpot/PHP-CS-Fixer
+Plug 'arnaud-lb/vim-php-namespace'
 
 " Other Languages
 
-Plugin 'othree/html5.vim'                " HTML5 omnicomplete and syntax
-Plugin 'mattn/emmet-vim'                 " emmet for vim
-Plugin 'cakebaker/scss-syntax.vim'       " Vim syntax file for scss
-Plugin 'hail2u/vim-css3-syntax'          " Add CSS3 syntax support to vim's built-in `syntax/css.vim`.
-Plugin 'jwalton512/vim-blade'            " Vim syntax highlighting for Blade templates
-Plugin 'pangloss/vim-javascript'         " Vastly improved Javascript indentation and syntax support in Vim.
-Plugin 'mustache/vim-mustache-handlebars' " mustache and handlebars mode for vim
-" Plugin 'dsawardekar/wordpress.vim'       " WordPress development plugin (This needs to go last)
+Plug 'othree/html5.vim'                " HTML5 omnicomplete and syntax
+Plug 'mattn/emmet-vim'                 " emmet for vim
+Plug 'cakebaker/scss-syntax.vim'       " Vim syntax file for scss
+Plug 'hail2u/vim-css3-syntax'          " Add CSS3 syntax support to vim's built-in `syntax/css.vim`.
+Plug 'jwalton512/vim-blade'            " Vim syntax highlighting for Blade templates
+Plug 'pangloss/vim-javascript'         " Vastly improved Javascript indentation and syntax support in Vim.
+Plug 'mustache/vim-mustache-handlebars' " mustache and handlebars mode for vim
+" Plug 'dsawardekar/wordpress.vim'       " WordPress development plugin (This needs to go last)
 
 " Colorschemes
 
-"Plugin 'vim-scripts/AfterColors.vim'     " Provides support for after/colors/ scripts
-Plugin 'chriskempson/base16-vim'         " Base16 for Vim
-"Plugin 'sickill/vim-monokai'             " Monokai color scheme for Vim
-"Plugin 'tomasr/molokai'                  " Molokai color scheme for Vim
-"Plugin 'jnurmine/Zenburn'                " Zenburn is a low-contrast color scheme for Vim
-Plugin 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
+"Plug 'vim-scripts/AfterColors.vim'     " Provides support for after/colors/ scripts
+Plug 'chriskempson/base16-vim'         " Base16 for Vim
+"Plug 'sickill/vim-monokai'             " Monokai color scheme for Vim
+"Plug 'tomasr/molokai'                  " Molokai color scheme for Vim
+"Plug 'jnurmine/Zenburn'                " Zenburn is a low-contrast color scheme for Vim
+Plug 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 
 " Misc
 
-"Plugin 'AndrewRadev/splitjoin.vim'       " A vim plugin that simplifies the transition between multiline and single-line code
-Plugin 'tpope/vim-repeat'                " enable repeating supported plugin maps with .
-Plugin 'tpope/vim-surround'              " quoting/parenthesizing made simple
-"Plugin 'tpope/vim-sleuth'                " Heuristically set buffer options
-Plugin 'godlygeek/tabular'               " Vim script for text filtering and alignment
-"Plugin 'terryma/vim-expand-region'       " Vim plugin that allows you to visually select increasingly larger regions of text using the same key combination
-"Plugin 'mbbill/undotree'                 " Display your undo history in a graph
-"Plugin 'vits/ZoomWin'                    " Zoom in/out of windows (toggle between one window and multi-window)
-Plugin 'Yggdroot/indentLine'              "  A vim plugin to display the indention levels with thin vertical lines
-Plugin 'moll/vim-bbye'                    " Delete buffers and close files in Vim without closing your windows or messing up your layout.
+"Plug 'AndrewRadev/splitjoin.vim'       " A vim plugin that simplifies the transition between multiline and single-line code
+Plug 'tpope/vim-repeat'                " enable repeating supported plugin maps with .
+Plug 'tpope/vim-surround'              " quoting/parenthesizing made simple
+"Plug 'tpope/vim-sleuth'                " Heuristically set buffer options
+Plug 'godlygeek/tabular'               " Vim script for text filtering and alignment
+"Plug 'terryma/vim-expand-region'       " Vim plugin that allows you to visually select increasingly larger regions of text using the same key combination
+"Plug 'mbbill/undotree'                 " Display your undo history in a graph
+"Plug 'vits/ZoomWin'                    " Zoom in/out of windows (toggle between one window and multi-window)
+Plug 'Yggdroot/indentLine'              "  A vim plugin to display the indention levels with thin vertical lines
+Plug 'moll/vim-bbye'                    " Delete buffers and close files in Vim without closing your windows or messing up your layout.
 
 " To investigate further
 
-" Plugin 'chrisbra/csv.vim'                " A Filetype plugin for csv files
-" Plugin 'tommcdo/vim-lion'                " A simple alignment operator for Vim text editor (alternative to tabular)
+" Plug 'chrisbra/csv.vim'                " A Filetype plugin for csv files
+" Plug 'tommcdo/vim-lion'                " A simple alignment operator for Vim text editor (alternative to tabular)
 " unimpared
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+call plug#end()
