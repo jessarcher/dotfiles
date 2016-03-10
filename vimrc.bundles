@@ -14,7 +14,7 @@ call plug#begin('~/.vim/bundle')
 
 " Searching
 
-Plug 'scrooloose/nerdtree'             " A tree explorer plugin for vim.
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 "Plug 'kien/ctrlp.vim'                  " Fuzzy file, buffer, mru, tag, etc finder.
 Plug 'rking/ag.vim'                    " Vim plugin for the_silver_searcher, 'ag', a replacement for the Perl module / CLI script 'ack'
 Plug 'vim-scripts/IndexedSearch'       " shows 'Nth match out of M' at every search (index of match+total # matches)
