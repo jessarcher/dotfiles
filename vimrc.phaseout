@@ -100,3 +100,30 @@ endfunc
 
 
 set switchbuf=useopen,usetab   " Look for buffers open in other windows and tabs
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"Plugin 'terryma/vim-multiple-cursors'    " True Sublime Text style multiple selections for Vim
+"Plugin 'jeetsukumaran/vim-buffergator'   " Vim plugin to list, select and switch between buffers
+"Plugin 'vim-scripts/Smart-Tabs'          " Uses tabs for indent, spaces for alignment
+
+
+
+
+
+
+
+
+
+

@@ -106,7 +106,7 @@ set shiftwidth=4               " How many spaces to use instead of a tab
 set smarttab                   " Intelligently backspace the right number of space characters
 
 set autoindent                 " Copy indent level from previous line when starting a new line
-set smartindent
+set smartindent                " Seems to automatically update the indentation when a closing paren is typed
 set copyindent                 " Copy whatever characters were used to indent the previous line
 set preserveindent             " Preserve as much of the existing indentation characters when changing indentation level
 
@@ -127,7 +127,7 @@ set ignorecase                 " case insensitive searches
 set smartcase                  " unless specifically searching for something with uppercase characters
 
 " Clear search highlighting with <Esc><Esc>
-nmap <Esc><Esc> :nohlsearch<CR>
+nmap <Esc><Esc> :nohlsearch<Bar>echo<CR>
 
 "===============================================================================
 " Copy and Paste
