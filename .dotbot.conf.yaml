@@ -35,8 +35,4 @@
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
-    - [vim +PluginClean! +PluginUpdate +qall, Installing Vim plugins]
-    - [~/.vim/bundle/YouCompleteMe/install.sh, Building YouCompleteMe binaries]
-    - [make --directory=~/.vim/bundle/tagbar-phpctags.vim/, Building tagbar-phpctags binaries]
-    - [make --directory=~/.vim/bundle/vimproc.vim/, Building vimproc]
     - [~/.tmux/plugins/tpm/scripts/install_plugins.sh >/dev/null 2>&1, Installing tmux plugins]
