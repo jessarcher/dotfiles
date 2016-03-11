@@ -6,6 +6,7 @@ set folder       = ~/.mail
 set mailcap_path = ~/.mailcap
 set header_cache = ~/.cache/mutt/headers
 set tmpdir       = ~/.tmp/mutt
+set alias_file   = ~/.mutt/aliases
 
 
 # -----------------------------------------------
@@ -176,7 +177,9 @@ set query_command = "lbdbq %s"
 bind editor <Tab> complete-query
 bind editor ^T    complete
 
-
+set sort_alias = alias
+set reverse_alias = yes
+source $alias_file
 
 # -----------------------------------------------
 # Colors
