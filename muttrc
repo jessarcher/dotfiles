@@ -97,7 +97,14 @@ macro index a "<limit>all\n" "show all messages (undo limit)"
 macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
 
 # Notmuch searching
-macro index S "<enter-command>unset wait_key<enter><shell-escape>notmuch-mutt -G ~/.tmp/mutt/search<enter><change-folder>~/.tmp/mutt/search<enter>" "search mail (using notmuch)"
+macro index S \
+    "\
+        <enter-command>set my_old_pipe_decode=\$pipe_decode my_old_wait_key=\$wait_key nopipe_decode nowait_key<enter>\
+        <shell-escape>notmuch-mutt -r --prompt search<enter>\
+        <change-folder-readonly>`echo ${XDG_CACHE_HOME:-$HOME/.cache}/notmuch/mutt/results`<enter>\
+        <enter-command>set pipe_decode=\$my_old_pipe_decode wait_key=\$my_old_wait_key<enter>\
+    "\
+    "notmuch: search mail"
 
 
 # -----------------------------------------------
@@ -178,7 +185,7 @@ bind editor ^T    complete
 #source ~/.mutt/mutt-colors-solarized-dark-16.muttrc
 source ~/.mutt/colorscheme-jess.muttrc
 
-macro index,pager <f5> '<sync-mailbox><change-folder>~/.tmp/mutt/search<enter>'
+macro index,pager <f5> "<sync-mailbox><change-folder>`echo ${XDG_CACHE_HOME:-$HOME/.cache}/notmuch/mutt/results`<enter>"
 
 # -----------------------------------------------
 # Local Config
