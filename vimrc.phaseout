@@ -131,3 +131,20 @@ set switchbuf=useopen,usetab   " Look for buffers open in other windows and tabs
 "Plug 'tomasr/molokai'                  " Molokai color scheme for Vim
 "Plug 'jnurmine/Zenburn'                " Zenburn is a low-contrast color scheme for Vim
 "Plug 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
+
+"if has('python')
+"    Plug 'Valloric/YouCompleteMe'       " A code-completion engine for Vim
+"endif
+"Plug 'Shougo/neocomplete'              " Ultimate auto-completion system for Vim
+"Plug 'Shougo/neosnippet'               " neo-snippet plugin contains neocomplcache snippets source
+"Plug 'Shougo/neosnippet-snippets'      " The standard snippets repository for neosnippet
+
+"Plug 'MarcWeber/vim-addon-mw-utils'    " vim-snipmate dep
+"Plug 'tomtom/tlib_vim'                 " vim-snipmate dep
+"Plug 'garbas/vim-snipmate'             " snipMate.vim aims to be a concise vim script that implements some of TextMate's snippets features in Vim
+
+"Plug 'vim-php/tagbar-phpctags.vim'     " Using phpctags to generate php ctags index for vim plugin tagbar.
+
+"Plug 'craigemery/vim-autotag'          " Automatically discover and 'properly' update ctags files on save
+"Plug 'abudden/taghighlight-automirror' " Highlight known tags
+

@@ -15,12 +15,11 @@ call plug#begin('~/.vim/bundle')
 " Searching
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-"Plug 'kien/ctrlp.vim'                  " Fuzzy file, buffer, mru, tag, etc finder.
-Plug 'rking/ag.vim'                    " Vim plugin for the_silver_searcher, 'ag'
-Plug 'vim-scripts/IndexedSearch'       " shows 'Nth match out of M' at every search (index of match+total # matches)
-"Plug 'mileszs/ack.vim'                 " Vim plugin for the Perl module / CLI script 'ack'
-Plug 'Shougo/unite.vim' | Plug 'Shougo/vimproc.vim', { 'do' : 'make' } " Unite and create user interfaces
-Plug 'Shougo/neomru.vim'               " MRU plugin includes unite.vim MRU sources
+"Plug 'kien/ctrlp.vim'
+Plug 'rking/ag.vim', { 'on': 'Ag' }
+Plug 'vim-scripts/IndexedSearch' " shows 'Nth match out of M' at every search
+Plug 'Shougo/unite.vim' | Plug 'Shougo/vimproc.vim', { 'do' : 'make' }
+Plug 'Shougo/neomru.vim' " MRU plugin includes unite.vim MRU sources
 "Plug 'skwp/greplace.vim'               " Global search and replace for VI
 
 " Motions and Text Objects
@@ -38,18 +37,11 @@ Plug 'Shougo/neomru.vim'               " MRU plugin includes unite.vim MRU sourc
 
 " Statusbar
 
-Plug 'vim-airline/vim-airline'          " lean & mean status/tabline for vim that's light as air
-Plug 'vim-airline/vim-airline-themes'   " themes are now separate
-"Plug 'bling/vim-bufferline'            " super simple vim plugin to show the list of buffers in the command bar
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Completion
 
-"if has('python')
-"    Plug 'Valloric/YouCompleteMe'       " A code-completion engine for Vim
-"endif
-"Plug 'Shougo/neocomplete'              " Ultimate auto-completion system for Vim
-"Plug 'Shougo/neosnippet'               " neo-snippet plugin contains neocomplcache snippets source
-"Plug 'Shougo/neosnippet-snippets'      " The standard snippets repository for neosnippet
 Plug 'ervandew/supertab'               " Perform all your vim insert mode completions with Tab
 
 " Snippets
@@ -57,19 +49,11 @@ Plug 'ervandew/supertab'               " Perform all your vim insert mode comple
 if has('python')
     Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets' " The ultimate snippet solution for Vim
 endif
-"Plug 'MarcWeber/vim-addon-mw-utils'    " vim-snipmate dep
-"Plug 'tomtom/tlib_vim'                 " vim-snipmate dep
-"Plug 'garbas/vim-snipmate'             " snipMate.vim aims to be a concise vim script that implements some of TextMate's snippets features in Vim
 
 " Tags
 
-Plug 'majutsushi/tagbar'               " Vim plugin that displays tags in a window, ordered by scope
-"Plug 'vim-php/tagbar-phpctags.vim'     " Using phpctags to generate php ctags index for vim plugin tagbar.
-
-"Plug 'craigemery/vim-autotag'          " Automatically discover and 'properly' update ctags files on save
-"Plug 'abudden/taghighlight-automirror' " Highlight known tags
-
-Plug 'xolox/vim-easytags' | Plug 'xolox/vim-misc' " Might be better that the above two combined
+Plug 'majutsushi/tagbar'
+Plug 'xolox/vim-easytags', { 'for': ['php', 'javascript'] } | Plug 'xolox/vim-misc'
 
 " Git
 
@@ -78,7 +62,7 @@ if v:version < 702
 endif
 Plug 'tpope/vim-fugitive'              " a Git wrapper so awesome, it should be illegal
 Plug 'airblade/vim-gitgutter'          " A Vim plugin which shows a git diff in the gutter (sign column) and stages/reverts hunks.
-Plug 'Xuyuanp/nerdtree-git-plugin'     " A plugin of NERDTree showing git status
+Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' } " A plugin of NERDTree showing git status
 
 " Tmux
 
@@ -92,13 +76,13 @@ Plug 'scrooloose/syntastic'            " Syntax checking hacks for vim
 "Plug 'Raimondi/delimitMate'            " Vim plugin, provides insert mode auto-completion for quotes, parens, brackets, etc.
 "Plug 'alvan/vim-closetag'              " Auto close (X)HTML tags
 "Plug 'luochen1990/rainbow'             " rainbow parentheses improved, shorter code, no level limit, smooth and fast, powerful configuration.
-Plug 'joonty/vdebug'                   " Multi-language DBGP debugger client for Vim (PHP, Python, Perl, Ruby, etc.)
+Plug 'joonty/vdebug', { 'for': 'php' } " Multi-language DBGP debugger client for Vim (PHP, Python, Perl, Ruby, etc.)
 
 " PHP-specific
 
-Plug 'tobyS/pdv' | Plug 'tobyS/vmustache' " PHP Documentor for Vim - Generates PHP docblocks
+Plug 'tobyS/pdv', { 'for': 'php' } | Plug 'tobyS/vmustache' " PHP Documentor for Vim - Generates PHP docblocks
 Plug 'StanAngeloff/php.vim'            " Up-to-date PHP syntax file
-Plug 'shawncplus/phpcomplete.vim'      " Improved PHP omni-completion
+Plug 'shawncplus/phpcomplete.vim', { 'for': 'php' }     " Improved PHP omni-completion
 Plug '2072/PHP-Indenting-for-VIm'      " The official VIm indent script for PHP
 "Plug 'alvan/vim-php-manual'            " PHP manual for Vim
 "Plug 'stephpy/vim-php-cs-fixer'        " Use fabpot/PHP-CS-Fixer
