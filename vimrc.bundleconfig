@@ -36,6 +36,11 @@ if isdirectory(expand("~/.vim/bundle/vim-airline"))
 
 endif
 
+" Bbye
+if isdirectory(expand("~/.vim/bundle/vim-bbye"))
+    nnoremap <leader>q :Bdelete<CR>
+endif
+
 " CamelCaseMotion
 if isdirectory(expand("~/.vim/bundle/CamelCaseMotion"))
 
