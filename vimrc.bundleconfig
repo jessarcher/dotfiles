@@ -320,10 +320,9 @@ endif
 
 " Ultisnips
 if isdirectory(expand("~/.vim/bundle/ultisnips"))
-    let g:UltiSnipsExpandTrigger       ="<leader>s"
-    let g:UltiSnipsJumpForwardTrigger  ="<leader>s"
-    let g:UltiSnipsJumpBackwardTrigger ="<leader>S"
-    let g:UltiSnipsListSnippets        ="<leader>l"
+    let g:UltiSnipsExpandTrigger       ="<tab>"
+    let g:UltiSnipsJumpForwardTrigger  ="<tab>"
+    let g:UltiSnipsJumpBackwardTrigger ="<s-tab>"
 endif
 
 " Undotree
