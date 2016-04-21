@@ -34,6 +34,8 @@ if isdirectory(expand("~/.vim/bundle/vim-airline"))
     let g:airline#extensions#whitespace#checks = [ 'indent', 'trailing' ]
     let g:airline#extensions#whitespace#show_message = 1
 
+    let g:airline#extensions#tagbar#enabled = 0
+
 endif
 
 " Bbye
