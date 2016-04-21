@@ -127,7 +127,7 @@ set ignorecase                 " case insensitive searches
 set smartcase                  " unless specifically searching for something with uppercase characters
 
 " Clear search highlighting with <Esc><Esc>
-nmap <Esc><Esc> :nohlsearch<Bar>echo<CR>
+"nmap <Esc><Esc> :nohlsearch<Bar>echo<CR>
 
 "===============================================================================
 " Copy and Paste
