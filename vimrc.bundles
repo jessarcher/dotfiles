@@ -21,6 +21,7 @@ Plug 'vim-scripts/IndexedSearch' " shows 'Nth match out of M' at every search
 Plug 'Shougo/unite.vim' | Plug 'Shougo/vimproc.vim', { 'do' : 'make' }
 Plug 'Shougo/neomru.vim' " MRU plugin includes unite.vim MRU sources
 "Plug 'skwp/greplace.vim'               " Global search and replace for VI
+Plug 'nelstrom/vim-visual-star-search'  " Start a * or # search from a visual block
 
 " Motions and Text Objects
 
