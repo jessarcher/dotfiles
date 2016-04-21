@@ -381,4 +381,4 @@ endif
 
 " }}}
 
-" vim: set nospell foldmethod=marker:
+" vim: set nospell foldmethod=marker foldlevel=0:
