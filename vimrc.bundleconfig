@@ -34,6 +34,8 @@ if isdirectory(expand("~/.vim/bundle/vim-airline"))
     let g:airline#extensions#whitespace#checks = [ 'indent', 'trailing' ]
     let g:airline#extensions#whitespace#show_message = 1
 
+    let g:airline#extensions#tagbar#enabled = 0
+
 endif
 
 " Bbye
@@ -107,7 +109,7 @@ endif
 
 " Hardtime
 if isdirectory(expand("~/.vim/bundle/vim-hardtime/"))
-    let g:hardtime_default_on = 1
+    let g:hardtime_default_on = 0
     let g:hardtime_showmsg = 1
     let g:hardtime_allow_different_key = 1
     let g:hardtime_maxcount = 4
@@ -130,8 +132,8 @@ if isdirectory(expand("~/.vim/bundle/indentLine"))
     let g:indentLine_char = '┊'
     let g:indentLine_first_char = '┊'
     let g:indentLine_color_term = 237
-    let g:indentLine_leadingSpaceEnabled = 1
-    let g:indentLine_leadingSpaceChar = '·'
+    "let g:indentLine_leadingSpaceEnabled = 1
+    "let g:indentLine_leadingSpaceChar = '·'
     let g:indentLine_showFirstIndentLevel = 1
 endif
 

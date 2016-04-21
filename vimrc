@@ -14,8 +14,7 @@
 "           Personal .vimrc file of Jess Archer <jess@jessarcher.com>
 "
 
-"===============================================================================
-" Init
+" Init {{{
 "===============================================================================
 
 " Make sure Vim features are enabled first
@@ -28,16 +27,18 @@ if filereadable(expand("~/.vimrc.bundles"))
     let b:bundles_loaded = 1
 endif
 
-"===============================================================================
-" Plugin Config
+" }}}
+
+" Plugin Config {{{
 "===============================================================================
 
 if b:bundles_loaded == 1 && filereadable(expand("~/.vimrc.bundleconfig"))
     source ~/.vimrc.bundleconfig
 endif
 
-"===============================================================================
-" General Settings
+" }}}
+
+" General Settings {{{
 "===============================================================================
 
 set number                     " show line number(s)
@@ -60,8 +61,9 @@ set linebreak                  " when wrapping, break at end of word rather than
 set ruler                      " show line and column numbers (only useful when statusbar not enabled)"
 set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
 
-"===============================================================================
-" Moving Around
+" }}}
+
+" Moving Around {{{
 "===============================================================================
 
 set mouse=a                    " enable use of mouse in all modes with a supported terminal"
@@ -75,8 +77,9 @@ set nostartofline              " don't reset cursor to start of line when moving
 nmap j gj
 nmap k gk
 
-"===============================================================================
-" Text Editing and Formatting
+" }}}
+
+" Text Editing and Formatting {{{
 "===============================================================================
 
 set backspace=indent,eol,start " allow full backspace in insert mode
@@ -96,8 +99,9 @@ if v:version > 703 || v:version == 703 && has("patch541")
 endif
 autocmd FileType * setlocal formatoptions-=o " don't comment newline when using o or O from a commented line (needs autocmd otherwise it gets overwritten)
 
-"===============================================================================
-" Tabs & Indentation
+" }}}
+
+" Tabs & Indentation {{{
 "===============================================================================
 
 set expandtab                  " Use spaces instead of tabs
@@ -111,13 +115,14 @@ set copyindent                 " Copy whatever characters were used to indent th
 set preserveindent             " Preserve as much of the existing indentation characters when changing indentation level
 
 set list                       " display tabs, tailing spaces, and other chars visually
-set listchars=tab:▸\ ,trail:·,extends:>,precedes:<,nbsp:_
+set listchars=tab:▸\ ,space:·,trail:~,extends:>,precedes:<,nbsp:_
 
 vnoremap < <gv                 " Reselect visual selection after indenting
 vnoremap > >gv                 " Reselect visual selection after de-indenting
 
-"===============================================================================
-" Searching
+" }}}
+
+" Searching {{{
 "===============================================================================
 
 set hlsearch                   " highlight search matches
@@ -129,8 +134,9 @@ set smartcase                  " unless specifically searching for something wit
 " Clear search highlighting with <Esc><Esc>
 "nmap <Esc><Esc> :nohlsearch<Bar>echo<CR>
 
-"===============================================================================
-" Copy and Paste
+" }}}
+
+" Copy and Paste {{{
 "===============================================================================
 
 set clipboard^=unnamed,unnamedplus " use the system clipboard
@@ -145,8 +151,9 @@ augroup copypaste
     autocmd InsertLeave * set nopaste
 augroup end
 
-"===============================================================================
-" Completion
+" }}}
+
+" Completion {{{
 "===============================================================================
 
 set wildmenu                "Enable ^n and ^p to scroll through matches
@@ -177,8 +184,9 @@ set complete+=t      " tags
 set complete+=i      " file includes
 "set complete+=kspell " dictionary (when spell is on)
 
-"===============================================================================
-" Keymapping
+" }}}
+
+" Keymapping {{{
 "===============================================================================
 
 " n - Normal
@@ -228,15 +236,17 @@ map q: :q
 " Open the current file in the default X application
 nmap <leader>o :!xdg-open %<cr><cr>
 
-"===============================================================================
-" Spell Checking
+" }}}
+
+" Spell Checking {{{
 "===============================================================================
 
 set spell                      " enable spell checking
 set spelllang=en_au            " self-explanatory
 
-"===============================================================================
-" Colors
+" }}}
+
+" Colors {{{
 "===============================================================================
 
 syntax on
@@ -246,8 +256,9 @@ if !empty(glob('~/.vim/bundle/base16-vim/'))
     colorscheme base16-tomorrow
 endif
 
-"===============================================================================
-" Buffers
+" }}}
+
+" Buffers {{{
 "===============================================================================
 
 set hidden                     " allow unwritten buffers in the background
@@ -256,19 +267,22 @@ set hidden                     " allow unwritten buffers in the background
 nmap <C-n> :bnext<CR>
 nmap <C-p> :bprev<CR>
 
-"===============================================================================
-" Splits
+" }}}
+
+" Splits {{{
 "===============================================================================
 
 set splitbelow                 " Open new split below rather than above
 set splitright                 " Open new vertical split to the right, rather than left
 
-"===============================================================================
-" Folds
+" }}}
+
+" Folds {{{
 "===============================================================================
 
-"===============================================================================
-" Filetype Overrides
+" }}}
+
+" Filetype Overrides {{{
 "===============================================================================
 
 augroup filetypeoverrides
@@ -281,8 +295,9 @@ augroup filetypeoverrides
     au BufRead,BufNewFile *tmp/mutt* set ft=mail
 augroup end
 
-"===============================================================================
-" Programming-specific
+" }}}
+
+" Programming-specific {{{
 "===============================================================================
 
 " Look for tags files in parent directories
@@ -290,8 +305,9 @@ if has('path_extra')
     setglobal tags-=./tags tags-=./tags; tags^=./tags;
 endif
 
-"===============================================================================
-" General Auto-commands
+" }}}
+
+" General Auto-commands {{{
 "===============================================================================
 
 augroup generalautocommands
@@ -306,14 +322,20 @@ augroup generalautocommands
     autocmd BufWritePost .vimrc.bundleconfig source %
 augroup end
 
-"===============================================================================
-" Speed Improvements
+" }}}
+
+" Speed Improvements {{{
 "===============================================================================
 
 set lazyredraw                 " seems to fix scrolling issues caused by relativenumber and cursorline"
+set ttyfast
+syntax sync minlines=100
+syntax sync maxlines=240
+set synmaxcol=800
 
-"===============================================================================
-" Backups
+" }}}
+
+" Backups {{{
 "===============================================================================
 
 if !isdirectory($HOME . '/.vim/backups')
@@ -322,8 +344,9 @@ endif
 set backupdir=~/.vim/backups
 set backup
 
-"===============================================================================
-" Swap Files
+" }}}
+
+" Swap Files {{{
 "===============================================================================
 
 if !isdirectory($HOME . '/.vim/swaps')
@@ -331,8 +354,9 @@ if !isdirectory($HOME . '/.vim/swaps')
 endif
 set directory=~/.vim/swaps
 
-"===============================================================================
-" Undo
+" }}}
+
+" Undo {{{
 "===============================================================================
 
 if has('persistent_undo')
@@ -345,8 +369,9 @@ if has('persistent_undo')
     set undoreload=10000
 endif
 
-"===============================================================================
-" Local overrides
+" }}}
+
+" Local overrides {{{
 "===============================================================================
 
 let $LOCALFILE=expand("~/.vimrc_local")
@@ -354,5 +379,6 @@ if filereadable($LOCALFILE)
     source $LOCALFILE
 endif
 
-"===============================================================================
-" vim: set nospell:
+" }}}
+
+" vim: set nospell foldmethod=marker foldlevel=0:
