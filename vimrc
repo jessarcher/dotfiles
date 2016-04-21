@@ -311,6 +311,10 @@ augroup end
 "===============================================================================
 
 set lazyredraw                 " seems to fix scrolling issues caused by relativenumber and cursorline"
+set ttyfast
+syntax sync minlines=100
+syntax sync maxlines=240
+set synmaxcol=800
 
 "===============================================================================
 " Backups
