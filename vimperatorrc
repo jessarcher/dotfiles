@@ -25,3 +25,7 @@ noremap k 3k
 highlight Hint font-family: monospace; font-size: 13px; text-transform: uppercase; color: white; background-color: #333; border-width: 0px; border-style: solid; padding: 0px 1px 0px 1px; 
 highlight HintActive background-color: #88FF00; color: black;
 highlight HintElem background-color: #ccc;  color: #111;
+
+colorscheme indigo
+
+" vim: set ft=vim:
