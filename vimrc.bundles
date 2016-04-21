@@ -57,9 +57,6 @@ Plug 'xolox/vim-easytags', { 'for': ['php', 'javascript'] } | Plug 'xolox/vim-mi
 
 " Git
 
-if v:version < 702
-    Plug 'tpope/vim-git'               " Vim Git runtime files for Vim < 7.2
-endif
 Plug 'tpope/vim-fugitive'              " a Git wrapper so awesome, it should be illegal
 Plug 'airblade/vim-gitgutter'          " A Vim plugin which shows a git diff in the gutter (sign column) and stages/reverts hunks.
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' } " A plugin of NERDTree showing git status
