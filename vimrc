@@ -119,7 +119,7 @@ set copyindent                 " Copy whatever characters were used to indent th
 set preserveindent             " Preserve as much of the existing indentation characters when changing indentation level
 
 set list                       " display tabs, tailing spaces, and other chars visually
-set listchars=tab:▸\ ,space:·,trail:~,extends:>,precedes:<,nbsp:_
+set listchars=tab:▸\ ,space:·,trail:~,extends:>,precedes:<,nbsp:_,eol:¬
 
 vnoremap < <gv                 " Reselect visual selection after indenting
 vnoremap > >gv                 " Reselect visual selection after de-indenting
@@ -259,6 +259,9 @@ set background=dark
 if !empty(glob('~/.vim/bundle/base16-vim/'))
     colorscheme base16-tomorrow
 endif
+
+highlight SpecialKey ctermfg=237
+highlight NonText ctermfg=237
 
 " }}}
 
