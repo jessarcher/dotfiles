@@ -60,6 +60,10 @@ set nowrap                     " don't display lines wrapped by default
 set linebreak                  " when wrapping, break at end of word rather than mid-word
 set ruler                      " show line and column numbers (only useful when statusbar not enabled)"
 set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
+set display=lastline
+set encoding=utf-8
+set laststatus=2
+set viminfo+=%                 " Restore previous buffers when starting
 
 " }}}
 
@@ -176,12 +180,12 @@ set completeopt+=longest " Only insert the longest common text for all matches
 "set completeopt-=preview " The scratch window when auto-completing
 
 " Completion sources and order
-set complete=.       " current buffer
-set complete+=w      " buffers from other windows
-set complete+=b      " other loaded buffers
-set complete+=u      " unloaded buffers
-set complete+=t      " tags
-set complete+=i      " file includes
+"set complete=.       " current buffer
+"set complete+=w      " buffers from other windows
+"set complete+=b      " other loaded buffers
+"set complete+=u      " unloaded buffers
+"set complete+=t      " tags
+set complete-=i      " file includes
 "set complete+=kspell " dictionary (when spell is on)
 
 " }}}
