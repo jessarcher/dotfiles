@@ -215,10 +215,26 @@ let g:mapleader = "\\"
 " Map space to be a leader key as well (so that showcmd works for space)
 map <Space> <Leader>
 
-nmap <leader>w :w<CR>
+nmap <leader>w :w<cr>
 
-" Toggle line numbers, list, and gitgutter
+nmap <leader>q :Bdelete<CR>
+
 nmap <leader>l :setlocal number!<CR>:setlocal list!<CR>:silent! GitGutterToggle<CR>:silent! setlocal relativenumber!<CR>
+
+nmap <leader>f :CtrlP<CR>
+nmap <leader>b :CtrlPBuffer<CR>
+nmap <leader>v :CtrlP vendor<CR>
+
+nmap <leader>o :!xdg-open %<cr><cr>
+
+nmap <leader>n :NERDTreeToggle<CR>
+
+nmap <leader>d :call pdv#DocumentWithSnip()<cr>
+
+nmap <leader>t :TagbarToggle<CR>
+
+" Switch between the last two files
+nmap <leader><leader> <c-^>
 
 " Make vim act a bit more like readline
 cnoremap <C-a>  <Home>
@@ -233,14 +249,9 @@ cnoremap <Esc>f <S-Right>
 cnoremap <Esc>d <S-right><Delete>
 cnoremap <C-g>  <C-c>
 
-" Switch between the last two files
-nnoremap <Leader><Leader> <c-^>
 
 " Stop the annoying command history popup from typo
 map q: :q
-
-" Open the current file in the default X application
-nmap <leader>o :!xdg-open %<cr><cr>
 
 " }}}
 
