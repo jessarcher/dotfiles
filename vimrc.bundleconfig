@@ -278,7 +278,7 @@ if isdirectory(expand("~/.vim/bundle/php.vim"))
 
     augroup phpSyntaxOverride
         autocmd!
-        autocmd FileType php call PhpSyntaxOverride()
+"        autocmd FileType php call PhpSyntaxOverride()
     augroup END
 endif
 
