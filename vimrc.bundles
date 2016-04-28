@@ -15,11 +15,11 @@ call plug#begin('~/.vim/bundle')
 " Searching
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-"Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'rking/ag.vim', { 'on': 'Ag' }
 Plug 'vim-scripts/IndexedSearch' " shows 'Nth match out of M' at every search
-Plug 'Shougo/unite.vim' | Plug 'Shougo/vimproc.vim', { 'do' : 'make' }
-Plug 'Shougo/neomru.vim' " MRU plugin includes unite.vim MRU sources
+"Plug 'Shougo/unite.vim' | Plug 'Shougo/vimproc.vim', { 'do' : 'make' }
+"Plug 'Shougo/neomru.vim' " MRU plugin includes unite.vim MRU sources
 "Plug 'skwp/greplace.vim'               " Global search and replace for VI
 Plug 'nelstrom/vim-visual-star-search'  " Start a * or # search from a visual block
 
