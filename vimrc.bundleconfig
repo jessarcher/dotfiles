@@ -38,10 +38,6 @@ if isdirectory(expand("~/.vim/bundle/vim-airline"))
 
 endif
 
-" Bbye
-if isdirectory(expand("~/.vim/bundle/vim-bbye"))
-    nnoremap <leader>q :Bdelete<CR>
-endif
 
 " CamelCaseMotion
 if isdirectory(expand("~/.vim/bundle/CamelCaseMotion"))
@@ -238,9 +234,6 @@ endif
 
 " NERDTree
 if isdirectory(expand("~/.vim/bundle/nerdtree"))
-
-    nmap <leader>n :NERDTreeToggle<CR>
-
     let NERDTreeShowBookmarks=1
     let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
     let NERDTreeChDirMode=0
@@ -266,7 +259,6 @@ endif
 " PDV
 if isdirectory(expand("~/.vim/bundle/pdv"))
     let g:pdv_template_dir = $HOME . "/.vim/bundle/pdv/templates_snip"
-    nnoremap <leader>d :call pdv#DocumentWithSnip()<cr>
 endif
 
 " php.vim
@@ -318,7 +310,6 @@ if isdirectory(expand("~/.vim/bundle/tagbar"))
     autocmd FileType * nested :call tagbar#autoopen(0)
     let g:tagbar_autoclose = 0
     let g:easytags_async = 1
-    nmap <leader>t :TagbarToggle<CR>
 endif
 
 " Ultisnips
