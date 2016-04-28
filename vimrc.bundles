@@ -54,7 +54,7 @@ endif
 " Tags
 
 Plug 'majutsushi/tagbar'
-Plug 'xolox/vim-easytags', { 'for': ['php', 'javascript'] } | Plug 'xolox/vim-misc'
+"Plug 'xolox/vim-easytags', { 'for': ['php', 'javascript'] } | Plug 'xolox/vim-misc'
 
 " Git
 
