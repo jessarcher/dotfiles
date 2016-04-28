@@ -116,6 +116,23 @@ if isdirectory(expand("~/.vim/bundle/indentLine"))
     let g:indentLine_showFirstIndentLevel = 1
 endif
 
+" lightline.vim {{{
+"===============================================================================
+let g:lightline = {
+    \ 'component': {
+        \ 'readonly': '%{&readonly?"":""}',
+        \ 'fugitive': '%{exists("*fugitive#head")?" ".fugitive#head():""}'
+    \ },
+    \ 'active': {
+        \ 'left': [
+            \ [ 'mode', 'paste' ],
+            \ [ 'fugitive', 'readonly', 'filename', 'modified' ]
+        \ ]
+    \ },
+    \ 'separator': { 'left': '', 'right': '' },
+    \ 'subseparator': { 'left': '', 'right': '' }
+\ }
+" }}}
 
 " NERDTree
 if isdirectory(expand("~/.vim/bundle/nerdtree"))
