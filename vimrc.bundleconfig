@@ -417,3 +417,5 @@ endif
 if isdirectory(expand("~/.vim/bundle/ZoomWin"))
     nmap <leader>z :ZoomWin<CR>
 endif
+
+" vim: set nospell foldmethod=marker foldlevel=0:
