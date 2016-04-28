@@ -215,6 +215,8 @@ let g:mapleader = "\\"
 " Map space to be a leader key as well (so that showcmd works for space)
 map <Space> <Leader>
 
+nmap <leader>w :w<CR>
+
 " Toggle line numbers, list, and gitgutter
 nmap <leader>l :setlocal number!<CR>:setlocal list!<CR>:silent! GitGutterToggle<CR>:silent! setlocal relativenumber!<CR>
 
