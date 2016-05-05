@@ -115,6 +115,7 @@ Plug 'Yggdroot/indentLine'              "  A vim plugin to display the indention
 Plug 'moll/vim-bbye'                    " Delete buffers and close files in Vim without closing your windows or messing up your layout.
 Plug 'takac/vim-hardtime'               " Plugin to help you stop repeating the basic movement key
 Plug 'terryma/vim-smooth-scroll'
+Plug 'unblevable/quick-scope'           " Lightning fast left-right movement in Vim
 
 " To investigate further
 
