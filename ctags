@@ -1,5 +1,5 @@
-#--fields=+aimS
---languages=PHP
+--fields=+aimS
+--languages=php
 --recurse
 --exclude=.git
 --exclude=.svn
