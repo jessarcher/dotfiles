@@ -5,10 +5,10 @@
 --exclude=.svn
 --exclude=.hg
 --exclude=min
---exclude=vendorx
 --exclude=node_modules
 --exclude=bower_components
 --exclude=public
+--exclude=cache
 --exclude=\*.min.\*
 --exclude=\*.map
 --exclude=\*.swp
