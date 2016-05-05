@@ -293,6 +293,7 @@ if isdirectory(expand("~/.vim/bundle/tagbar"))
     autocmd FileType * nested :call tagbar#autoopen(0)
     let g:tagbar_autoclose = 0
     let g:easytags_async = 1
+    let g:tagbar_sort = 0
 endif
 
 " Ultisnips
