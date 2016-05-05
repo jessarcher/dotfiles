@@ -103,7 +103,7 @@ Plug 'chriskempson/base16-vim'         " Base16 for Vim
 
 " Misc
 
-"Plug 'AndrewRadev/splitjoin.vim'       " A vim plugin that simplifies the transition between multiline and single-line code
+Plug 'AndrewRadev/splitjoin.vim'       " A vim plugin that simplifies the transition between multiline and single-line code
 Plug 'tpope/vim-repeat'                " enable repeating supported plugin maps with .
 Plug 'tpope/vim-surround'              " quoting/parenthesizing made simple
 "Plug 'tpope/vim-sleuth'                " Heuristically set buffer options
