@@ -119,11 +119,16 @@ set copyindent                 " Copy whatever characters were used to indent th
 set preserveindent             " Preserve as much of the existing indentation characters when changing indentation level
 
 set list                       " display tabs, tailing spaces, and other chars visually
-set listchars=tab:▸\ ,space:·,trail:□,extends:→,precedes:←,nbsp:␣,eol:↲
+set listchars=tab:▸\ ,space:·,trail:·,extends:→,precedes:←,nbsp:␣,eol:↲
 set showbreak=↪\
 
 vnoremap < <gv                 " Reselect visual selection after indenting
 vnoremap > >gv                 " Reselect visual selection after de-indenting
+augroup something
+    autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+    autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+    autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+augroup end
 
 " }}}
 
