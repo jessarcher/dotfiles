@@ -122,8 +122,6 @@ set list                       " display tabs, tailing spaces, and other chars v
 set listchars=tab:▸\ ,space:·,trail:·,extends:→,precedes:←,nbsp:␣,eol:↲
 set showbreak=↪\
 
-vnoremap < <gv                 " Reselect visual selection after indenting
-vnoremap > >gv                 " Reselect visual selection after de-indenting
 augroup something
     autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
     autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
@@ -259,6 +257,9 @@ cnoremap <C-g>  <C-c>
 " http://ddrscott.github.io/blog/2016/yank-without-jank/
 vnoremap y myy`y
 vnoremap Y myY`y
+
+vnoremap < <gv                 " Reselect visual selection after indenting
+vnoremap > >gv                 " Reselect visual selection after de-indenting
 
 " Stop the annoying command history popup from typo
 map q: :q
