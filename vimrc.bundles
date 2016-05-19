@@ -69,7 +69,7 @@ Plug 'tmux-plugins/vim-tmux-focus-events' " Make terminal vim and tmux work bett
 
 " General Coding
 
-Plug 'scrooloose/nerdcommenter'        " commenting by Nerd Tree
+Plug 'tpope/vim-commentary'
 Plug 'scrooloose/syntastic'            " Syntax checking hacks for vim
 "Plug 'Raimondi/delimitMate'            " Vim plugin, provides insert mode auto-completion for quotes, parens, brackets, etc.
 "Plug 'alvan/vim-closetag'              " Auto close (X)HTML tags
