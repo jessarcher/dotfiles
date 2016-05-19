@@ -1,4 +1,5 @@
-" Settings
+" Vimperator Settings {{{
+"===============================================================================
 
 " Enable animations for fun
 set animations=true
@@ -16,11 +17,17 @@ set status=input,location,bookmark,history,tabcount,position,ssl
 set toolbars=addons,nobookmarks,nomenu,navigation,tabs
 
 " Use a visual bell instead of an auditory bell
-set visualbell=true
+set visualbell
+
+" Don't focus on the first input - start in normal mode
+set focuscontent
 
 " Increase how far we scroll on J/K 
 noremap j 3j
 noremap k 3k
+
+" Allow Ctrl-a to select all text in insert mode.
+inoremap <C-a> <Insert><C-a><Insert>
 
 highlight Hint font-family: monospace; font-size: 13px; text-transform: uppercase; color: white; background-color: #333; border-width: 0px; border-style: solid; padding: 0px 1px 0px 1px; 
 highlight HintActive background-color: #88FF00; color: black;
@@ -28,4 +35,43 @@ highlight HintElem background-color: #ccc;  color: #111;
 
 colorscheme indigo
 
-" vim: set ft=vim:
+set defsearch=duckduckgo
+
+" }}}
+
+" Firefox Settings {{{
+"===============================================================================
+
+" Show the help on launch
+set! browser.startup.homepage=liberator://help/intro
+
+" Just give us a blank new tabs
+set! browser.newtab.url=about:blank
+
+" Never hide the tab bar
+set! browser.tabs.autoHide=false
+
+" Do not animate the tab bar when switching to fullscreen.
+set! browser.fullscreen.animateUp=0
+
+" Do not shorten URLs (protocol and trailing slash).
+set! browser.urlbar.trimURLs=false
+
+" Do not close the window when the last tab is closed.
+set! browser.tabs.closeWindowWithLastTab=false
+
+" Do not select trailing spaces when selecting words.
+set! layout.word_select.eat_space_to_next_word=false
+
+" Do not wait before installing extensions.
+set! security.dialog_enable_delay=0
+
+" Enable pipelining
+set! network.http.pipelining=true
+set! network.http.pipelining.maxrequests=16
+set! network.http.max-connections=16
+set! network.http.max-connections-per-server=16
+
+"}}}
+
+" vim: set ft=vim nospell foldmethod=marker foldlevel=0:
