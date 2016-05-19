@@ -107,7 +107,7 @@ Plug 'AndrewRadev/splitjoin.vim'       " A vim plugin that simplifies the transi
 Plug 'tpope/vim-repeat'                " enable repeating supported plugin maps with .
 Plug 'tpope/vim-surround'              " quoting/parenthesizing made simple
 "Plug 'tpope/vim-sleuth'                " Heuristically set buffer options
-Plug 'godlygeek/tabular'               " Vim script for text filtering and alignment
+Plug 'tommcdo/vim-lion'                " A simple alignment operator for Vim text editor
 "Plug 'terryma/vim-expand-region'       " Vim plugin that allows you to visually select increasingly larger regions of text using the same key combination
 "Plug 'mbbill/undotree'                 " Display your undo history in a graph
 "Plug 'vits/ZoomWin'                    " Zoom in/out of windows (toggle between one window and multi-window)
