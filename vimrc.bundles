@@ -75,6 +75,7 @@ Plug 'scrooloose/syntastic'            " Syntax checking hacks for vim
 "Plug 'alvan/vim-closetag'              " Auto close (X)HTML tags
 "Plug 'luochen1990/rainbow'             " rainbow parentheses improved, shorter code, no level limit, smooth and fast, powerful configuration.
 Plug 'joonty/vdebug', { 'for': 'php' } " Multi-language DBGP debugger client for Vim (PHP, Python, Perl, Ruby, etc.)
+Plug 'axiaoxin/vim-json-line-format'
 
 " PHP-specific
 
