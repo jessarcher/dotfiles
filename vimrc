@@ -78,10 +78,6 @@ set sidescrolloff=3            " start horizontally scrolling when 3 lines from 
 set sidescroll=1               " how many columns to scroll at a time horizontally
 set nostartofline              " don't reset cursor to start of line when moving around
 
-" When text is wrapped, move by terminal rows, not lines
-nmap j gj
-nmap k gk
-
 " }}}
 
 " Text Editing and Formatting {{{
@@ -254,6 +250,8 @@ cnoremap <Esc>f <S-Right>
 cnoremap <Esc>d <S-right><Delete>
 cnoremap <C-g>  <C-c>
 
+noremap Y y$
+
 " Maintain the cursor position when yanking a visual selection
 " http://ddrscott.github.io/blog/2016/yank-without-jank/
 vnoremap y myy`y
@@ -261,6 +259,15 @@ vnoremap Y myY`y
 
 vnoremap < <gv                 " Reselect visual selection after indenting
 vnoremap > >gv                 " Reselect visual selection after de-indenting
+
+nnoremap <silent><Leader>/ :nohl<CR>
+
+" Visually select last pasted text using same visual mode
+nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
+
+" When text is wrapped, move by terminal rows, not lines, unless a count is provided
+noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
+noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
 " Stop the annoying command history popup from typo
 map q: :q
