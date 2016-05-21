@@ -136,9 +136,6 @@ set magic                      " enable regex for searches
 set ignorecase                 " case insensitive searches
 set smartcase                  " unless specifically searching for something with uppercase characters
 
-" Clear search highlighting with <Esc><Esc>
-"nmap <Esc><Esc> :nohlsearch<Bar>echo<CR>
-
 " }}}
 
 " Copy and Paste {{{
@@ -260,7 +257,8 @@ vnoremap Y myY`y
 vnoremap < <gv                 " Reselect visual selection after indenting
 vnoremap > >gv                 " Reselect visual selection after de-indenting
 
-nnoremap <silent><Leader>/ :nohl<CR>
+" Clear search highlighting
+nnoremap <silent> <leader>k :nohl<CR>
 
 " Visually select last pasted text using same visual mode
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
@@ -268,6 +266,8 @@ nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 " When text is wrapped, move by terminal rows, not lines, unless a count is provided
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
+
+cmap w!! %!sudo tee > /dev/null %
 
 " Stop the annoying command history popup from typo
 map q: :q
