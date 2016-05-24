@@ -20,20 +20,9 @@
 " Make sure Vim features are enabled first
 set nocompatible
 
-" Load bundles
-let b:bundles_loaded = 0
-if filereadable(expand("~/.vimrc.bundles"))
-    source ~/.vimrc.bundles
-    let b:bundles_loaded = 1
-endif
-
-" }}}
-
-" Plugin Config {{{
-"===============================================================================
-
-if b:bundles_loaded == 1 && filereadable(expand("~/.vimrc.bundleconfig"))
-    source ~/.vimrc.bundleconfig
+" Load plugins
+if filereadable(expand("~/.vimrc.plugins"))
+    source ~/.vimrc.plugins
 endif
 
 " }}}
@@ -357,8 +346,7 @@ augroup generalautocommands
 
     " Automatically re-source the .vimrc on save
     autocmd BufWritePost .vimrc source %
-    autocmd BufWritePost .vimrc.bundles source %
-    autocmd BufWritePost .vimrc.bundleconfig source %
+    autocmd BufWritePost .vimrc.plugins source %
 
     autocmd FileType php setlocal commentstring=//%s
 augroup end

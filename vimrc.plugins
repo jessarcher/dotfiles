@@ -1,0 +1,377 @@
+"
+"                                    ________
+"                                  |\\W#####M\
+"                                  |M\\W#####M\
+"                                  |#M\\W#####M\
+"                                  |##M\\W#####M\
+"                                  A###M\\W#####M\
+"                         _______,a#####M|\W#####M\
+"                         \W############W  \W#####M\
+"                          \W##########W    \W#####M\
+"                           'YW#####W7'      \W#####M\
+"                              ¯¯¯¯¯          ¯¯¯¯¯¯¯¯
+"
+"           Personal .vimrc file of Jess Archer <jess@jessarcher.com>
+
+"                      Plug definitions and configuration
+
+" vim-plug {{{
+"===============================================================================
+
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/bundle')
+
+" }}}
+
+" nerdtree {{{
+"===============================================================================
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' } " A plugin of NERDTree showing git status
+
+let NERDTreeShowBookmarks=1
+let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
+let NERDTreeChDirMode=0
+let NERDTreeMouseMode=2
+let NERDTreeShowHidden=1
+let NERDTreeWinSize=40
+let NERDTreeMinimalUI=1
+let NERDTreeKeepTreeInNewTab=1
+let g:nerdtree_tabs_open_on_gui_startup=1
+
+" Open NERDTree when Vim starts
+"autocmd vimenter * NERDTree
+
+" Only open NERDTree when Vim starts empty
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" Close vim if the only window left open is a NERDTree
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+" }}}
+
+" ctrlp.vim {{{
+"===============================================================================
+Plug 'ctrlpvim/ctrlp.vim'
+
+if executable('ag')
+    let g:ctrlp_user_command = 'ag %s -g "" --hidden --nocolor'
+    let g:ctrlp_use_caching = 0
+elseif executable('ack-grep')
+    let g:ctrlp_user_command = 'ack-grep %s --nocolor -f'
+elseif executable('ack')
+    let g:ctrlp_user_command = 'ack %s --nocolor -f'
+else
+    let g:ctrlp_user_command = 'find %s -type f'
+endif
+let g:ctrlp_map = ''
+" }}}
+
+" ag.vim  {{{
+"===============================================================================
+Plug 'rking/ag.vim', { 'on': 'Ag' }
+
+let g:ag_working_path_mode="r"
+" }}}
+
+" IndexedSearch {{{
+"===============================================================================
+Plug 'vim-scripts/IndexedSearch' " shows 'Nth match out of M' at every search
+" }}}
+
+" vim-visual-star-search {{{
+"===============================================================================
+Plug 'nelstrom/vim-visual-star-search'  " Start a * or # search from a visual block
+" }}}
+
+" vim-airline {{{
+"===============================================================================
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+set laststatus=2 " Show status line for all windows
+set noshowmode   " Remove duplicate mode indicator
+
+let g:airline_powerline_fonts = 1
+
+" Enable the list of tabs
+" Automatically displays all buffers when there's only one tab open.
+let g:airline#extensions#tabline#enabled = 1
+
+" Show just the filename
+let g:airline#extensions#tabline#fnamemod = ':t'
+
+let g:airline#extensions#tabline#buffer_nr_show = 1
+
+let g:airline#extensions#whitespace#enabled = 1
+let g:airline#extensions#whitespace#mixed_indent_algo = 0
+let g:airline#extensions#whitespace#symbol = '!'
+let g:airline#extensions#whitespace#checks = [ 'indent', 'trailing' ]
+let g:airline#extensions#whitespace#show_message = 1
+
+let g:airline#extensions#tagbar#enabled = 0
+" }}}
+
+" supertab {{{
+"===============================================================================
+Plug 'ervandew/supertab'               " Perform all your vim insert mode completions with Tab
+
+let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
+let g:SuperTabClosePreviewOnPopupClose = 1
+" }}}
+
+" ultisnips {{{
+"===============================================================================
+if has('python')
+    Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets' " The ultimate snippet solution for Vim
+
+    let g:UltiSnipsExpandTrigger       ="<tab>"
+    let g:UltiSnipsJumpForwardTrigger  ="<tab>"
+    let g:UltiSnipsJumpBackwardTrigger ="<s-tab>"
+endif
+" }}}
+
+" tagbar {{{
+"===============================================================================
+Plug 'majutsushi/tagbar'
+
+autocmd FileType * nested :call tagbar#autoopen(0)
+let g:tagbar_autoclose = 0
+let g:easytags_async = 1
+let g:tagbar_sort = 0
+" }}}
+
+" vim-fugitive {{{
+"===============================================================================
+Plug 'tpope/vim-fugitive'              " a Git wrapper so awesome, it should be illegal
+" }}}
+
+" vim-gitgutter {{{
+"===============================================================================
+Plug 'airblade/vim-gitgutter'          " A Vim plugin which shows a git diff in the gutter (sign column) and stages/reverts hunks.
+
+let g:gitgutter_max_signs=1000
+" }}}
+
+" vim-tmux-navigator {{{
+"===============================================================================
+Plug 'christoomey/vim-tmux-navigator'     " Seamless navigation between tmux panes and vim splits
+
+" seemless moving around between tmux panes and vim splits
+nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
+" }}}
+
+" vim-tmux-focus-events {{{
+"===============================================================================
+Plug 'tmux-plugins/vim-tmux-focus-events' " Make terminal vim and tmux work better together.
+" }}}
+
+" vim-commentary {{{
+"===============================================================================
+Plug 'tpope/vim-commentary'
+" }}}
+
+" syntastic {{{
+"===============================================================================
+Plug 'scrooloose/syntastic'            " Syntax checking hacks for vim
+
+let g:syntastic_php_checkers=['php', 'phpcs']
+let g:syntastic_php_phpcs_args='--standard=PSR2 -n'
+" }}}
+
+" vdebug {{{
+"===============================================================================
+Plug 'joonty/vdebug', { 'for': 'php' } " Multi-language DBGP debugger client for Vim (PHP, Python, Perl, Ruby, etc.)
+
+let g:vdebug_options = {
+\    'server' : '0.0.0.0',
+\    'watch_window_style' : 'expanded',
+\ }
+" }}}
+
+" vim-json-line-format {{{
+"===============================================================================
+Plug 'axiaoxin/vim-json-line-format'
+" }}}
+
+" lightline.vim {{{
+"===============================================================================
+let g:lightline = {
+    \ 'component': {
+        \ 'readonly': '%{&readonly?"":""}',
+        \ 'fugitive': '%{exists("*fugitive#head")?" ".fugitive#head():""}'
+    \ },
+    \ 'active': {
+        \ 'left': [
+            \ [ 'mode', 'paste' ],
+            \ [ 'fugitive', 'readonly', 'filename', 'modified' ]
+        \ ]
+    \ },
+    \ 'separator': { 'left': '', 'right': '' },
+    \ 'subseparator': { 'left': '', 'right': '' }
+\ }
+" }}}
+
+" pdv {{{
+"===============================================================================
+Plug 'tobyS/pdv', { 'for': 'php' } | Plug 'tobyS/vmustache' " PHP Documentor for Vim - Generates PHP docblocks
+
+let g:pdv_template_dir = $HOME . "/.vim/bundle/pdv/templates_snip"
+" }}}
+
+" php.vim {{{
+"===============================================================================
+Plug 'StanAngeloff/php.vim'            " Up-to-date PHP syntax file
+
+function! PhpSyntaxOverride()
+    hi! def link phpDocTags  phpDefine
+    hi! def link phpDocParam phpType
+endfunction
+
+augroup phpSyntaxOverride
+    autocmd!
+"    autocmd FileType php call PhpSyntaxOverride()
+augroup END
+" }}}
+
+" phpcomplete.vim {{{
+"===============================================================================
+Plug 'shawncplus/phpcomplete.vim', { 'for': 'php' }     " Improved PHP omni-completion
+
+let g:phpcomplete_parse_docblock_comments = 0
+" }}}
+
+" PHP-Indenting-for-VIm {{{
+"===============================================================================
+Plug '2072/PHP-Indenting-for-VIm'      " The official VIm indent script for PHP
+" }}}
+
+" vim-php-namespace {{{
+"===============================================================================
+Plug 'arnaud-lb/vim-php-namespace'
+
+autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
+autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
+" }}}
+
+" html5.vim {{{
+"===============================================================================
+Plug 'othree/html5.vim'                " HTML5 omnicomplete and syntax
+" }}}
+
+" emmet-vim {{{
+"===============================================================================
+Plug 'mattn/emmet-vim'                 " emmet for vim
+" }}}
+
+" scss-syntax.vim {{{
+"===============================================================================
+Plug 'cakebaker/scss-syntax.vim'       " Vim syntax file for scss
+" }}}
+
+" vim-css3-syntax {{{
+"===============================================================================
+Plug 'hail2u/vim-css3-syntax'          " Add CSS3 syntax support to vim's built-in `syntax/css.vim`.
+" }}}
+
+" vim-blade {{{
+"===============================================================================
+Plug 'jwalton512/vim-blade'            " Vim syntax highlighting for Blade templates
+" }}}
+
+" vim-javascript {{{
+"===============================================================================
+Plug 'pangloss/vim-javascript'         " Vastly improved Javascript indentation and syntax support in Vim.
+" }}}
+
+" vim-mustache-handlebars {{{
+"===============================================================================
+Plug 'mustache/vim-mustache-handlebars' " mustache and handlebars mode for vim
+" }}}
+
+" base16-vim {{{
+"===============================================================================
+Plug 'chriskempson/base16-vim'         " Base16 for Vim
+" }}}
+
+" splitjoin.vim {{{
+"===============================================================================
+Plug 'AndrewRadev/splitjoin.vim'       " A vim plugin that simplifies the transition between multiline and single-line code
+" }}}
+
+" vim-repeat {{{
+"===============================================================================
+Plug 'tpope/vim-repeat'                " enable repeating supported plugin maps with .
+" }}}
+
+" vim-surround {{{
+"===============================================================================
+Plug 'tpope/vim-surround'              " quoting/parenthesizing made simple
+" }}}
+
+" vim-lion {{{
+"===============================================================================
+Plug 'tommcdo/vim-lion'                " A simple alignment operator for Vim text editor
+" }}}
+
+" indentLine {{{
+"===============================================================================
+Plug 'Yggdroot/indentLine'              "  A vim plugin to display the indention levels with thin vertical lines
+
+" let g:indentLine_faster = 1
+let g:indentLine_char = '┊'
+let g:indentLine_first_char = '┊'
+let g:indentLine_color_term = 237
+let g:indentLine_showFirstIndentLevel = 1
+" }}}
+
+" vim-bbye {{{
+"===============================================================================
+Plug 'moll/vim-bbye'                    " Delete buffers and close files in Vim without closing your windows or messing up your layout.
+" }}}
+
+" vim-hardtime {{{
+"===============================================================================
+Plug 'takac/vim-hardtime'               " Plugin to help you stop repeating the basic movement key
+
+let g:hardtime_default_on = 0
+let g:hardtime_showmsg = 1
+let g:hardtime_allow_different_key = 1
+let g:hardtime_maxcount = 4
+" }}}
+
+" vim-smoothscroll {{{
+"===============================================================================
+Plug 'terryma/vim-smooth-scroll'
+
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 4)<CR>
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 4)<CR>
+noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 8)<CR>
+noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 8)<CR>
+" }}}
+
+" quick-scope {{{
+"===============================================================================
+Plug 'unblevable/quick-scope'           " Lightning fast left-right movement in Vim
+" }}}
+
+" vim-php-manual {{{
+"===============================================================================
+"let g:php_manual_online_search_shortcut = "<s-P>"
+" }}}
+
+" ZoomWin {{{
+"nmap <leader>z :ZoomWin<CR>
+" }}}
+
+call plug#end()
+
+" vim: set nospell foldmethod=marker foldlevel=0:

@@ -30,8 +30,7 @@
     ~/.vimperatorrc: vimperatorrc
     ~/.vimrc: vimrc
     ~/.config/nvim/init.vim: vimrc
-    ~/.vimrc.bundles: vimrc.bundles
-    ~/.vimrc.bundleconfig: vimrc.bundleconfig
+    ~/.vimrc.plugins: vimrc.plugins
     ~/.xinitrc: xinitrc
     ~/.Xresources: Xresources
 
