@@ -359,6 +359,8 @@ augroup generalautocommands
     autocmd BufWritePost .vimrc source %
     autocmd BufWritePost .vimrc.bundles source %
     autocmd BufWritePost .vimrc.bundleconfig source %
+
+    autocmd FileType php setlocal commentstring=//%s
 augroup end
 
 " }}}
