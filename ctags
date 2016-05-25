@@ -1,6 +1,7 @@
 --fields=+aimS
 --languages=php
 --recurse
+--sort=foldcase
 --exclude=.git
 --exclude=.svn
 --exclude=.hg
