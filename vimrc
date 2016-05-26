@@ -330,7 +330,7 @@ augroup end
 
 " Look for tags files in parent directories
 if has('path_extra')
-    setglobal tags-=./tags tags-=./tags; tags^=./tags;
+    setglobal tags-=./tags tags-=./tags; tags^=./tags;,./vendor-tags;
 endif
 
 " }}}
