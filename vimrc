@@ -261,6 +261,8 @@ cmap w!! %!sudo tee > /dev/null %
 " Stop the annoying command history popup from typo
 map q: :q
 
+nnoremap <leader>g :Ag<space>
+
 " }}}
 
 " Spell Checking {{{
