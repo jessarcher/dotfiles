@@ -57,6 +57,7 @@ let g:nerdtree_tabs_open_on_gui_startup=1
 " ctrlp.vim {{{
 "===============================================================================
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tacahiroy/ctrlp-funky'
 
 if executable('ag')
     let g:ctrlp_user_command = 'ag %s -g "" --hidden --nocolor'
@@ -68,7 +69,11 @@ elseif executable('ack')
 else
     let g:ctrlp_user_command = 'find %s -type f'
 endif
+
 let g:ctrlp_map = ''
+
+let g:ctrlp_funky_matchtype = 'path'
+let g:ctrlp_funky_syntax_highlight = 1
 " }}}
 
 " ag.vim  {{{
