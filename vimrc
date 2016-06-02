@@ -283,8 +283,9 @@ if !empty(glob('~/.vim/bundle/base16-vim/'))
     colorscheme base16-tomorrow
 endif
 
-highlight SpecialKey ctermfg=237
-highlight NonText ctermfg=237
+highlight SpecialKey  ctermfg=237
+highlight NonText     ctermfg=237
+highlight MatchParent ctermbg=240
 
 " }}}
 
