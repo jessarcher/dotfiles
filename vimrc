@@ -209,6 +209,7 @@ nmap <leader>q :Bdelete<CR>
 nmap <leader>l :setlocal number!<CR>:setlocal list!<CR>:silent! GitGutterToggle<CR>:silent! setlocal relativenumber!<CR>
 
 nmap <leader>f :CtrlP<CR>
+nmap <leader>s :CtrlPBufTag<CR>
 nmap <leader>b :CtrlPBuffer<CR>
 nmap <leader>v :CtrlP vendor<CR>
 
