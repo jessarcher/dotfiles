@@ -264,6 +264,8 @@ map q: :q
 
 nnoremap <leader>g :Ag<space>
 
+nmap c* *Ncgn
+
 " }}}
 
 " Spell Checking {{{
