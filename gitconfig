@@ -10,6 +10,7 @@
     ca = commit --amend
     ci = commit --interactive
     cm = commit --message
+    cv = commit --verbose
 
     d = diff
     dc = diff --cached
