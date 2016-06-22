@@ -1,21 +1,42 @@
 [alias]
-	st = status
-	co = checkout
-	ci = commit
-	br = branch
-	df = diff
-	dfs = diff --staged
-	logg = log --graph --decorate --oneline --abbrev-commit --all
+    a = add
+    aa = add --all
+    ap = add --patch
+    au = add --update
+
+    b = branch
+
+    c = commit
+    ca = commit --amend
+    ci = commit --interactive
+    cm = commit --message
+
+    d = diff
+    dc = diff --cached
+    ds = diff --staged
+    dw = diff --word-diff
+
+    l = log
+    lg = log --graph
+    lk = log --graph --topo-order --abbrev-commit --date=short --decorate --all --boundary --pretty=format:'%Cgreen%ad %Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue[%cn]%Creset'
+    lo = log --oneline
+    lp = log --patch
+    lt = log --topo-order
+
+    o = checkout
+
+    s = status -sb
+
 [color]
-	ui = auto
+    ui = auto
 [core]
-	editor = vim
-	excludesfile = ~/.gitignore_global
+    editor = vim
+    excludesfile = ~/.gitignore_global
 [diff]
-	tool = vimdiff
+    tool = vimdiff
 [help]
-	autocorrect = 10
+    autocorrect = 10
 [include]
-	path = ~/.gitconfig_local
+    path = ~/.gitconfig_local
 [push]
-	default = current
+    default = current
