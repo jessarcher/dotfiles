@@ -17,6 +17,9 @@
     ds = diff --staged
     dw = diff --word-diff
 
+    f = flow
+    ff = flow feature
+
     l = log
     lg = log --graph
     lk = log --graph --topo-order --abbrev-commit --date=short --decorate --all --boundary --pretty=format:'%Cgreen%ad %Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue[%cn]%Creset'
@@ -25,6 +28,7 @@
     lt = log --topo-order
 
     o = checkout
+    ob = checkout -b
 
     s = status -sb
 
