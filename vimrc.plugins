@@ -125,9 +125,6 @@ let g:airline#extensions#tagbar#enabled = 0
 "===============================================================================
 Plug 'ervandew/supertab'               " Perform all your vim insert mode completions with Tab
 
-let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
-let g:SuperTabClosePreviewOnPopupClose = 1
 " }}}
 
 " ultisnips {{{
