@@ -51,6 +51,7 @@ URxvt.scrollBar: false;
 URxvt.internalBorder: 1
 URxvt.urgentOnBell: true
 URxvt.iconFile: /usr/share/icons/Numix-Circle/48x48/apps/terminal.svg
+URxvt*skipBuiltinGlyphs: true
 
 ! do not scroll with output
 URxvt*scrollTtyOutput: false
