@@ -147,34 +147,6 @@ augroup end
 " Completion {{{
 "===============================================================================
 
-set wildmenu                "Enable ^n and ^p to scroll through matches
-set wildmode=list:longest
-" set wildchar=<TAB>
-set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
-set wildignore+=*vim/backups*
-set wildignore+=*sass-cache*
-set wildignore+=*DS_Store*
-set wildignore+=vendor/rails/**
-set wildignore+=vendor/cache/**
-set wildignore+=*.gem
-set wildignore+=log/**
-set wildignore+=tmp/**
-set wildignore+=*.png,*.jpg,*.gif
-
-set completeopt+=menu    " Popup menu
-set completeopt+=menuone " Popup menu even when only one match
-set completeopt+=longest " Only insert the longest common text for all matches
-"set completeopt-=preview " The scratch window when auto-completing
-
-" Completion sources and order
-"set complete=.       " current buffer
-"set complete+=w      " buffers from other windows
-"set complete+=b      " other loaded buffers
-"set complete+=u      " unloaded buffers
-"set complete+=t      " tags
-set complete-=i      " file includes
-"set complete+=kspell " dictionary (when spell is on)
-
 " }}}
 
 " Keymapping {{{
