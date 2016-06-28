@@ -64,7 +64,7 @@ URxvt*scrollTtyKeypress: true
 URxvt.secondaryScreen: 1
 URxvt.secondaryScroll: 0
 
-URxvt.perl-ext-common: default,matcher,clipboard
+URxvt.perl-ext-common: default,matcher,clipboard,font-size
 
 URxvt.url-launcher: firefox
 URxvt.matcher.button: 1
@@ -75,3 +75,11 @@ URxvt.iso14755: false
 ! Bind standard copy/paste keys
 URxvt.keysym.Shift-Control-C: perl:clipboard:copy
 URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+
+! Bind font zooming keys
+! https://github.com/majutsushi/urxvt-font-size
+URxvt.keysym.C-Up:     font-size:increase
+URxvt.keysym.C-Down:   font-size:decrease
+URxvt.keysym.C-0:      font-size:reset
+URxvt.keysym.C-S-Up:   font-size:incsave
+URxvt.keysym.C-S-Down: font-size:decsave
