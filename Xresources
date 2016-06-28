@@ -65,7 +65,7 @@ URxvt*scrollTtyKeypress: true
 URxvt.secondaryScreen: 1
 URxvt.secondaryScroll: 0
 
-URxvt.perl-ext-common: default,matcher,clipboard,font-size
+URxvt.perl-ext-common: default,matcher,clipboard,font-size,url-select
 
 URxvt.url-launcher: firefox
 URxvt.matcher.button: 1
@@ -82,3 +82,8 @@ URxvt.keysym.Shift-Control-V: perl:clipboard:paste
 URxvt.keysym.C-equal:  font-size:increase
 URxvt.keysym.C-minus:  font-size:decrease
 URxvt.keysym.C-0:      font-size:reset
+
+! Yankable URLs
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.url-select.launcher: /usr/bin/xdg-open
+URxvt.url-select.underline: true
