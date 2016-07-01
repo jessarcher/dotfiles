@@ -147,6 +147,12 @@ augroup end
 " Completion {{{
 "===============================================================================
 
+" Command mode completetion
+set wildmode=longest:full " Only complete the longest common part of the text, and show the wildmenu if enabled
+
+" Insert mode completion
+set completeopt+=longest " Only complete the longest common part of the text
+
 " }}}
 
 " Keymapping {{{
