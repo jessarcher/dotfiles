@@ -45,22 +45,25 @@
 ! URxvt
 
 URxvt.intensityStyles: false
-URxvt.font: xft:Deja Vu Sans Mono for Powerline:pixelsize=14
-URxvt.letterSpace: -1
+URxvt.font: xft:Deja Vu Sans Mono for Powerline:size=12
+!URxvt.letterSpace: -1
 URxvt.scrollBar: false;
 URxvt.internalBorder: 1
 URxvt.urgentOnBell: true
+URxvt.visualBell: true
+URxvt.mapAlert: true
 URxvt.iconFile: /usr/share/icons/Numix-Circle/48x48/apps/terminal.svg
-URxvt*skipBuiltinGlyphs: true
+URxvt.skipBuiltinGlyphs: true
+URxvt.geometry: 120x40
 
 ! do not scroll with output
-URxvt*scrollTtyOutput: false
+URxvt.scrollTtyOutput: false
 
 ! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
-URxvt*scrollWithBuffer: true
+URxvt.scrollWithBuffer: true
 
 ! scroll back to the bottom on keypress
-URxvt*scrollTtyKeypress: true
+URxvt.scrollTtyKeypress: true
 
 URxvt.secondaryScreen: 1
 URxvt.secondaryScroll: 0
