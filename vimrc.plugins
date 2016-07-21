@@ -360,11 +360,6 @@ noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 8)<CR>
 noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 8)<CR>
 " }}}
 
-" quick-scope {{{
-"===============================================================================
-Plug 'unblevable/quick-scope'           " Lightning fast left-right movement in Vim
-" }}}
-
 " vim-php-manual {{{
 "===============================================================================
 "let g:php_manual_online_search_shortcut = "<s-P>"
