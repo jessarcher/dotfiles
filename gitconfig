@@ -18,7 +18,14 @@
     dw = diff --word-diff
 
     f = flow
+
     ff = flow feature
+    ffs = flow feature start
+    ffp = flow feature publish
+
+    fh = flow hotfix
+    fhs = flow hotfix start
+    fhp = flow hotfix publish
 
     l = log
     lg = log --graph
