@@ -260,9 +260,9 @@ set spelllang=en_au            " self-explanatory
 syntax on
 set background=dark
 
-if !empty(glob('~/.vim/bundle/base16-vim/'))
+if !empty(glob('~/.vim/bundle/base16-vim/')) && filereadable(expand("~/.vimrc_background"))
     let base16colorspace=256  " Access colors present in 256 colorspace
-    colorscheme base16-tomorrow
+    source ~/.vimrc_background
 endif
 
 highlight SpecialKey  ctermfg=237
