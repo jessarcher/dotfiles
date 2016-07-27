@@ -109,6 +109,7 @@ set listchars=tab:▸\ ,space:·,trail:·,extends:→,precedes:←,nbsp:␣,eol:
 set showbreak=↪\
 
 augroup something
+    autocmd!
     autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
     autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
     autocmd InsertLeave * match ExtraWhitespace /\s\+$/
@@ -260,14 +261,19 @@ set spelllang=en_au            " self-explanatory
 syntax on
 set background=dark
 
+augroup colorschemeoverrides
+    autocmd!
+    autocmd ColorScheme * highlight SpecialKey  ctermfg=237
+    autocmd ColorScheme * highlight NonText     ctermfg=237
+    autocmd ColorScheme * highlight MatchParent ctermbg=240
+augroup end
+
 if !empty(glob('~/.vim/bundle/base16-vim/')) && filereadable(expand("~/.vimrc_background")) && $BASE16_THEME !=''
     let base16colorspace=256  " Access colors present in 256 colorspace
     source ~/.vimrc_background
+else
+    colorscheme default
 endif
-
-highlight SpecialKey  ctermfg=237
-highlight NonText     ctermfg=237
-highlight MatchParent ctermbg=240
 
 " }}}
 
