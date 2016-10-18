@@ -51,17 +51,16 @@ Xft.lcdfilter:  lcddefault
 
 ! URxvt
 
-URxvt.intensityStyles: false
-URxvt.font: xft:Deja Vu Sans Mono for Powerline:size=12
-!URxvt.letterSpace: -1
-URxvt.scrollBar: false;
-URxvt.internalBorder: 1
-URxvt.urgentOnBell: true
-URxvt.visualBell: true
-URxvt.mapAlert: true
-URxvt.iconFile: /usr/share/icons/Numix-Circle/48x48/apps/terminal.svg
+URxvt.intensityStyles:   false
+URxvt.font:              xft:Deja Vu Sans Mono for Powerline:pixelsize=16
+URxvt.scrollBar:         false;
+URxvt.internalBorder:    1
+URxvt.urgentOnBell:      true
+URxvt.visualBell:        true
+URxvt.mapAlert:          true
+URxvt.iconFile:          /usr/share/icons/Numix-Circle/48x48/apps/terminal.svg
 URxvt.skipBuiltinGlyphs: true
-URxvt.geometry: 120x40
+URxvt.geometry:          120x40
 
 ! do not scroll with output
 URxvt.scrollTtyOutput: false
