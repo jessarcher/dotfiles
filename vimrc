@@ -150,7 +150,8 @@ augroup end
 "===============================================================================
 
 " Command mode completetion
-set wildmode=longest:full " Only complete the longest common part of the text, and show the wildmenu if enabled
+set wildmenu
+set wildmode=list:longest,full " Only complete the longest common part of the text, and show the wildmenu if enabled. If tab is pressed again, it will cycle through the options
 
 " Insert mode completion
 set completeopt+=longest " Only complete the longest common part of the text
