@@ -53,6 +53,7 @@ Xft.lcdfilter:  lcddefault
 
 URxvt.intensityStyles:   false
 URxvt.font:              xft:Deja Vu Sans Mono for Powerline:pixelsize=16
+URxvt.lineSpace: 3
 URxvt.scrollBar:         false;
 URxvt.internalBorder:    1
 URxvt.urgentOnBell:      true
@@ -96,3 +97,12 @@ URxvt.keysym.C-0:      font-size:reset
 URxvt.keysym.M-u: perl:url-select:select_next
 URxvt.url-select.launcher: /usr/bin/xdg-open
 URxvt.url-select.underline: true
+
+! Xft
+
+Xft.autohint: 0
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintslight
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgba
