@@ -116,7 +116,7 @@ endif
 "===============================================================================
 Plug 'majutsushi/tagbar'
 
-autocmd FileType * nested :call tagbar#autoopen(0)
+autocmd FileType *.php nested :call tagbar#autoopen(0)
 let g:tagbar_autoclose = 0
 let g:easytags_async = 1
 let g:tagbar_sort = 0
