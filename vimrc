@@ -305,6 +305,14 @@ set splitright                 " Open new vertical split to the right, rather th
 
 " }}}
 
+" File Browsing {{{
+"===============================================================================
+set path+=** " Search in all subdirectories
+
+let g:netrw_liststyle = 3 " Tree view
+let g:netrw_banner = 0    " Disable the banner
+" }}}
+
 " Filetype Overrides {{{
 "===============================================================================
 
