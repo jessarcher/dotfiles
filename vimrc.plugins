@@ -28,32 +28,6 @@ call plug#begin('~/.vim/bundle')
 
 " }}}
 
-" nerdtree {{{
-"===============================================================================
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' } " A plugin of NERDTree showing git status
-
-let NERDTreeShowBookmarks=1
-let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
-let NERDTreeChDirMode=0
-let NERDTreeMouseMode=2
-let NERDTreeShowHidden=1
-let NERDTreeWinSize=40
-let NERDTreeMinimalUI=1
-let NERDTreeKeepTreeInNewTab=1
-let g:nerdtree_tabs_open_on_gui_startup=1
-
-" Open NERDTree when Vim starts
-"autocmd vimenter * NERDTree
-
-" Only open NERDTree when Vim starts empty
-"autocmd StdinReadPre * let s:std_in=1
-"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
-" Close vim if the only window left open is a NERDTree
-"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-" }}}
-
 " ctrlp.vim {{{
 "===============================================================================
 Plug 'ctrlpvim/ctrlp.vim'
