@@ -42,6 +42,13 @@
 *.color14:      base0F
 *.color15:      base07
 
+Xft.antialias:  true
+Xft.rgba:       rgb
+Xft.hinting:    true
+Xft.hintstyle:  hintslight
+Xft.autohint:   false
+Xft.lcdfilter:  lcddefault
+
 ! URxvt
 
 URxvt.intensityStyles: false
