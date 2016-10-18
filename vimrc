@@ -54,6 +54,7 @@ set encoding=utf-8
 set laststatus=2
 set viminfo+=%                 " Restore previous buffers when starting
 set showmatch
+set iskeyword+=-               " Don't count hyphens as a word boundary
 
 " }}}
 
