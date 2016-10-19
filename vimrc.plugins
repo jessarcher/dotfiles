@@ -169,7 +169,7 @@ let g:lightline = {
     \ 'active': {
         \ 'left': [
             \ [ 'mode', 'spell', 'paste' ],
-            \ [ 'fugitive', 'readonly', 'filename', 'modified' ],
+            \ [ 'fugitive', 'filename' ],
         \ ],
         \ 'right': [
             \ [ 'syntastic', 'lineinfo' ],
@@ -179,12 +179,13 @@ let g:lightline = {
     \ },
     \ 'colorscheme': 'wombat',
     \ 'component': {
-        \ 'readonly': '%{&readonly?"":""}',
-        \ 'modified': '%{&modified?"✎":&modifiable?"":"-"}',
         \ 'fugitive': '%{exists("*fugitive#head")?" ".fugitive#head():""}'
     \ },
     \ 'component_expand': {
         \ 'syntastic': 'SyntasticStatuslineFlag',
+    \ },
+    \ 'component_function': {
+        \ 'filename': 'LightLineFilename',
     \ },
     \ 'component_type': {
         \ 'syntastic': 'error',
@@ -192,6 +193,34 @@ let g:lightline = {
     \ 'separator': { 'left': '', 'right': '' },
     \ 'subseparator': { 'left': '', 'right': '' }
 \ }
+
+function! LightLineModified()
+    if &filetype == "help"
+        return ""
+    elseif &modified
+        return "✎"
+    elseif &modifiable
+        return ""
+    else
+        return ""
+    endif
+endfunction
+
+function! LightLineReadonly()
+    if &filetype == "help"
+        return ""
+    elseif &readonly
+        return ""
+    else
+        return ""
+    endif
+endfunction
+
+function! LightLineFilename()
+    return ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
+        \ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
+        \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
+endfunction
 
 augroup AutoSyntastic
     autocmd!
