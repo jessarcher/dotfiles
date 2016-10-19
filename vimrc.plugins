@@ -187,6 +187,11 @@ Plug 'tmux-plugins/vim-tmux-focus-events' " Make terminal vim and tmux work bett
 Plug 'tpope/vim-commentary'
 " }}}
 
+" vim-unimpaired - pairs of handy bracket mappings {{{
+"===============================================================================
+Plug 'tpope/vim-unimpaired'
+" }}}
+
 " syntastic {{{
 "===============================================================================
 Plug 'scrooloose/syntastic'            " Syntax checking hacks for vim
