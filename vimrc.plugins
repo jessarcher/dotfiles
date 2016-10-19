@@ -173,7 +173,7 @@ Plug 'itchyny/lightline.vim'
 let g:lightline = {
     \ 'active': {
         \ 'left': [
-            \ [ 'mode', 'spell', 'paste' ],
+            \ [ 'mode', 'paste', 'spell' ],
             \ [ 'fugitive', 'filename' ],
         \ ],
         \ 'right': [
