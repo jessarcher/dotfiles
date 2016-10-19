@@ -263,9 +263,10 @@ set background=dark
 
 augroup colorschemeoverrides
     autocmd!
-    autocmd ColorScheme * highlight SpecialKey  ctermfg=237
-    autocmd ColorScheme * highlight NonText     ctermfg=237
-    autocmd ColorScheme * highlight MatchParent ctermbg=240
+    autocmd ColorScheme * highlight Search     ctermbg=19  ctermfg=NONE
+    autocmd ColorScheme * highlight SpecialKey ctermfg=237
+    autocmd ColorScheme * highlight NonText    ctermfg=237
+    autocmd ColorScheme * highlight MatchParen ctermbg=240 ctermfg=NONE
 augroup end
 
 if !empty(glob('~/.vim/bundle/base16-vim/')) && filereadable(expand("~/.vimrc_background")) && $BASE16_THEME !=''
