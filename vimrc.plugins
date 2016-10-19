@@ -88,6 +88,12 @@ let g:ag_working_path_mode="r"
 Plug 'vim-scripts/IndexedSearch' " shows 'Nth match out of M' at every search
 " }}}
 
+" LargeFile {{{
+"===============================================================================
+let g:LargeFile = 1
+Plug 'vim-scripts/LargeFile' " Edit large files quickly
+" }}}
+
 " vim-visual-star-search {{{
 "===============================================================================
 Plug 'nelstrom/vim-visual-star-search'  " Start a * or # search from a visual block
