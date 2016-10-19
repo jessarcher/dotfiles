@@ -163,20 +163,46 @@ Plug 'axiaoxin/vim-json-line-format'
 
 " lightline.vim {{{
 "===============================================================================
+Plug 'itchyny/lightline.vim'
+
 let g:lightline = {
-    \ 'component': {
-        \ 'readonly': '%{&readonly?"":""}',
-        \ 'fugitive': '%{exists("*fugitive#head")?" ".fugitive#head():""}'
-    \ },
     \ 'active': {
         \ 'left': [
-            \ [ 'mode', 'paste' ],
-            \ [ 'fugitive', 'readonly', 'filename', 'modified' ]
+            \ [ 'mode', 'spell', 'paste' ],
+            \ [ 'fugitive', 'readonly', 'filename', 'modified' ],
+        \ ],
+        \ 'right': [
+            \ [ 'syntastic', 'lineinfo' ],
+            \ [ 'percent' ],
+            \ [ 'fileformat', 'fileencoding', 'filetype' ],
         \ ]
+    \ },
+    \ 'colorscheme': 'wombat',
+    \ 'component': {
+        \ 'readonly': '%{&readonly?"":""}',
+        \ 'modified': '%{&modified?"✎":&modifiable?"":"-"}',
+        \ 'fugitive': '%{exists("*fugitive#head")?" ".fugitive#head():""}'
+    \ },
+    \ 'component_expand': {
+        \ 'syntastic': 'SyntasticStatuslineFlag',
+    \ },
+    \ 'component_type': {
+        \ 'syntastic': 'error',
     \ },
     \ 'separator': { 'left': '', 'right': '' },
     \ 'subseparator': { 'left': '', 'right': '' }
 \ }
+
+augroup AutoSyntastic
+    autocmd!
+    autocmd BufWritePost *.php,*.js call s:syntastic()
+augroup END
+
+function! s:syntastic()
+    SyntasticCheck
+    call lightline#update()
+endfunction
+
 " }}}
 
 " pdv {{{
