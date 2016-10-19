@@ -73,34 +73,6 @@ Plug 'vim-scripts/LargeFile' " Edit large files quickly
 Plug 'nelstrom/vim-visual-star-search'  " Start a * or # search from a visual block
 " }}}
 
-" vim-airline {{{
-"===============================================================================
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
-set laststatus=2 " Show status line for all windows
-set noshowmode   " Remove duplicate mode indicator
-
-let g:airline_powerline_fonts = 1
-
-" Enable the list of tabs
-" Automatically displays all buffers when there's only one tab open.
-let g:airline#extensions#tabline#enabled = 1
-
-" Show just the filename
-let g:airline#extensions#tabline#fnamemod = ':t'
-
-let g:airline#extensions#tabline#buffer_nr_show = 1
-
-let g:airline#extensions#whitespace#enabled = 1
-let g:airline#extensions#whitespace#mixed_indent_algo = 0
-let g:airline#extensions#whitespace#symbol = '!'
-let g:airline#extensions#whitespace#checks = [ 'indent', 'trailing' ]
-let g:airline#extensions#whitespace#show_message = 1
-
-let g:airline#extensions#tagbar#enabled = 0
-" }}}
-
 " supertab {{{
 "===============================================================================
 Plug 'ervandew/supertab'               " Perform all your vim insert mode completions with Tab
