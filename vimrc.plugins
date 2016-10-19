@@ -183,14 +183,12 @@ let g:lightline = {
         \ ]
     \ },
     \ 'colorscheme': 'wombat',
-    \ 'component': {
-        \ 'fugitive': '%{exists("*fugitive#head")?" ".fugitive#head():""}'
-    \ },
     \ 'component_expand': {
         \ 'syntastic': 'SyntasticStatuslineFlag',
     \ },
     \ 'component_function': {
         \ 'filename': 'LightLineFilename',
+        \ 'fugitive': 'LightLineFugitive',
     \ },
     \ 'component_type': {
         \ 'syntastic': 'error',
@@ -225,6 +223,14 @@ function! LightLineFilename()
     return ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
         \ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
         \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
+endfunction
+
+function! LightLineFugitive()
+    if exists("*fugitive#head")
+        let branch = fugitive#head()
+        return branch !=# '' ? ' '.branch : ''
+    endif
+    return ''
 endfunction
 
 augroup AutoSyntastic
