@@ -44,18 +44,17 @@
 
 ! URxvt
 
-URxvt.intensityStyles: false
-URxvt.font: xft:DejaVu Sans Mono for Powerline:pixelsize=14
-!URxvt.letterSpace: -1
+URxvt.intensityStyles:   false
+URxvt.font:              xft:Deja Vu Sans Mono for Powerline:pixelsize=16
 URxvt.lineSpace: 3
-URxvt.scrollBar: false;
-URxvt.internalBorder: 1
-URxvt.urgentOnBell: true
-URxvt.visualBell: true
-URxvt.mapAlert: true
-URxvt.iconFile: /usr/share/icons/Numix-Circle/48x48/apps/terminal.svg
+URxvt.scrollBar:         false;
+URxvt.internalBorder:    1
+URxvt.urgentOnBell:      true
+URxvt.visualBell:        true
+URxvt.mapAlert:          true
+URxvt.iconFile:          /usr/share/icons/Numix-Circle/48x48/apps/terminal.svg
 URxvt.skipBuiltinGlyphs: true
-URxvt.geometry: 120x40
+URxvt.geometry:          120x40
 
 ! do not scroll with output
 URxvt.scrollTtyOutput: false
@@ -94,9 +93,9 @@ URxvt.url-select.underline: true
 
 ! Xft
 
-Xft.autohint: 0
-Xft.lcdfilter: lcddefault
+Xft.antialias: true
+Xft.autohint:  false
+Xft.hinting:   true
 Xft.hintstyle: hintslight
-Xft.hinting: 1
-Xft.antialias: 1
-Xft.rgba: rgba
+Xft.lcdfilter: lcddefault
+Xft.rgba:      rgba

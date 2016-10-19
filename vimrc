@@ -54,6 +54,7 @@ set encoding=utf-8
 set laststatus=2
 set viminfo+=%                 " Restore previous buffers when starting
 set showmatch
+set iskeyword+=-               " Don't count hyphens as a word boundary
 
 " }}}
 
@@ -149,7 +150,8 @@ augroup end
 "===============================================================================
 
 " Command mode completetion
-set wildmode=longest:full " Only complete the longest common part of the text, and show the wildmenu if enabled
+set wildmenu
+set wildmode=list:longest,full " Only complete the longest common part of the text, and show the wildmenu if enabled. If tab is pressed again, it will cycle through the options
 
 " Insert mode completion
 set completeopt+=longest " Only complete the longest common part of the text
@@ -186,6 +188,8 @@ nmap <leader>w :w<cr>
 nmap <leader>q :Bdelete<CR>
 
 nmap <leader>l :setlocal number!<CR>:setlocal list!<CR>:silent! GitGutterToggle<CR>:silent! setlocal relativenumber!<CR>
+
+nmap <leader>c :!ctags --recurse --totals .<CR>
 
 nmap <leader>f :CtrlP<CR>
 nmap <leader>s :CtrlPBufTag<CR>
@@ -300,6 +304,14 @@ set splitright                 " Open new vertical split to the right, rather th
 " Folds {{{
 "===============================================================================
 
+" }}}
+
+" File Browsing {{{
+"===============================================================================
+set path+=** " Search in all subdirectories
+
+let g:netrw_liststyle = 3 " Tree view
+let g:netrw_banner = 0    " Disable the banner
 " }}}
 
 " Filetype Overrides {{{
