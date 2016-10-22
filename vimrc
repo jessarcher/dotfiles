@@ -273,7 +273,7 @@ augroup colorschemeoverrides
     autocmd ColorScheme * highlight MatchParen ctermbg=240 ctermfg=NONE
 augroup end
 
-if !empty(glob('~/.vim/bundle/base16-vim/')) && filereadable(expand("~/.vimrc_background")) && $BASE16_THEME !=''
+if !empty(glob('~/.vim/bundle/base16-vim/')) && filereadable(expand("~/.vimrc_background")) && ($BASE16_THEME != '' || has("gui_running"))
     let base16colorspace=256  " Access colors present in 256 colorspace
     source ~/.vimrc_background
 else
