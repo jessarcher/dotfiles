@@ -1,4 +1,4 @@
-set gfn=DejaVu\ Sans\ Mono\ for\ Powerline
+set gfn=DejaVu\ Sans\ Mono\ for\ Powerline\ 12
 set lines=35
 set columns=120
 set guioptions-=T
