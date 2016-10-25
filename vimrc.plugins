@@ -100,11 +100,6 @@ let g:easytags_async = 1
 let g:tagbar_sort = 0
 " }}}
 
-" bling/vim-bufferline {{{
-"===============================================================================
-Plug 'bling/vim-bufferline'
-" }}}
-
 " vim-fugitive {{{
 "===============================================================================
 Plug 'tpope/vim-fugitive'              " a Git wrapper so awesome, it should be illegal
