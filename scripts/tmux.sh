@@ -41,14 +41,19 @@ case "$1" in
         ;;
     -cmd)
         case "$2" in
-            youtube-viewer|youtube-dl) echo "" ;;
-            ssh|scp)                   echo "" ;;
-            dmesg|journalctl)          echo "" ;;
-            gdb|coredumpctl)           echo "" ;;
-            git|gitsh)                 echo "" ;;
+            console|artisan)           echo "" ;;
+            psql|mysql)                echo "" ;;
+            vi|vim|nvim)               echo "" ;;
+            zsh)                       echo "" ;;
+            dmesg|logs|journalctl)     echo "" ;;
+            gulp)                      echo "" ;;
+            laravel)                   echo "" ;;
             mutt)                      echo "" ;;
+            git|gitsh)                 echo "" ;;
+            ssh|scp)                   echo "" ;;
+
+            youtube-viewer|youtube-dl) echo "" ;;
             mpv|gnome-mpv|ffmpeg)      echo "" ;;
-            parted|fdisk|gdisk)        echo "" ;;
             steel|kpcli)               echo "" ;;
             rtv)                       echo "" ;;
             ranger)                    echo "" ;;
@@ -56,9 +61,7 @@ case "$1" in
             virsh)                     echo "" ;;
             irssi|WeeChat)             echo "" ;;
             htop|top|glances)          echo "" ;;
-            vi|vim|nvim)               echo "" ;;
             man)                       echo "" ;;
-            zsh)                       echo "" ;;
             *)                         echo "" ;;
         esac
         ;;
