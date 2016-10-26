@@ -5,10 +5,14 @@ case "$1" in
         echo " ?"
         ;;
     -cpu)
-        echo " $(ps -e -So pcpu= | paste -sd+ | bc)%"
+        echo -n " "
+        top -bn2 | fgrep "Cpu(s)" | tail -1 | awk -F'id,' -v prefix="$prefix" '{ split($1, vs, ","); v=vs[length(vs)]; sub("%", "", v); printf "%s%.1f", prefix, 100 - v }'
+        echo "%"
         ;;
     -mem)
-        echo " $(ps -e -So pmem= | paste -sd+ | bc)%"
+        echo -n " "
+        free | awk '/Mem/{print $2} /buffers\/cache/{print $3}' | paste -s | awk '{printf("%.1f", $2/$1*100)}'
+        echo "%"
         ;;
     -num)
         case "$2" in
