@@ -444,6 +444,11 @@ noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 8)<CR>
 "let g:php_manual_online_search_shortcut = "<s-P>"
 " }}}
 
+" Localvimrc {{{
+"===============================================================================
+Plug 'embear/vim-localvimrc'
+" }}}
+
 " ZoomWin {{{
 "nmap <leader>z :ZoomWin<CR>
 " }}}
