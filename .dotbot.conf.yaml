@@ -32,6 +32,7 @@
     ~/.config/nvim/init.vim: vimrc
     ~/.vimrc.plugins: vimrc.plugins
     ~/.xinitrc: xinitrc
+    ~/.Xmodmap: Xmodmap
     ~/.Xresources: Xresources
 
 - shell:
