@@ -45,8 +45,8 @@
 ! URxvt
 
 URxvt.intensityStyles:   false
-URxvt.font:              xft:DejaVuSansMonoForPowerline Nerd Font:size=13
-URxvt.lineSpace: 3
+URxvt.font:              xft:DejaVuSansMonoForPowerline Nerd Font:size=8
+URxvt.lineSpace:         3
 URxvt.scrollBar:         false;
 URxvt.internalBorder:    1
 URxvt.urgentOnBell:      true
