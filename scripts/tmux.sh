@@ -41,7 +41,7 @@ case "$1" in
             ssh|scp)                   echo "" ;;
             dmesg|journalctl)          echo "" ;;
             gdb|coredumpctl)           echo "" ;;
-            git|gitsh)                 echo "" ;;
+            git|gitsh|g)               echo "" ;;
             mutt)                      echo "" ;;
             mpv|gnome-mpv|ffmpeg)      echo "" ;;
             parted|fdisk|gdisk)        echo "" ;;
