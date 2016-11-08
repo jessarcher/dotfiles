@@ -5,10 +5,14 @@ case "$1" in
         echo " ?"
         ;;
     -cpu)
-        echo " $(ps -e -So pcpu= | paste -sd+ | bc)%"
+        echo -n " "
+        top -bn2 | fgrep "Cpu(s)" | tail -1 | awk -F'id,' -v prefix="$prefix" '{ split($1, vs, ","); v=vs[length(vs)]; sub("%", "", v); printf "%s%.1f", prefix, 100 - v }'
+        echo "%"
         ;;
     -mem)
-        echo " $(ps -e -So pmem= | paste -sd+ | bc)%"
+        echo -n " "
+        free | awk '/Mem/{print $2} /buffers\/cache/{print $3}' | paste -s | awk '{printf("%.1f", $2/$1*100)}'
+        echo "%"
         ;;
     -num)
         case "$2" in
@@ -37,14 +41,19 @@ case "$1" in
         ;;
     -cmd)
         case "$2" in
-            youtube-viewer|youtube-dl) echo "" ;;
-            ssh|scp)                   echo "" ;;
-            dmesg|journalctl)          echo "" ;;
-            gdb|coredumpctl)           echo "" ;;
-            git|gitsh|g)               echo "" ;;
+            console|artisan)           echo "" ;;
+            psql|mysql)                echo "" ;;
+            vi|vim|nvim)               echo "" ;;
+            zsh)                       echo "" ;;
+            dmesg|logs|journalctl)     echo "" ;;
+            gulp)                      echo "" ;;
+            laravel)                   echo "" ;;
             mutt)                      echo "" ;;
+            git|gitsh|g)               echo "" ;;
+            ssh|scp)                   echo "" ;;
+
+            youtube-viewer|youtube-dl) echo "" ;;
             mpv|gnome-mpv|ffmpeg)      echo "" ;;
-            parted|fdisk|gdisk)        echo "" ;;
             steel|kpcli)               echo "" ;;
             rtv)                       echo "" ;;
             ranger)                    echo "" ;;
@@ -52,9 +61,7 @@ case "$1" in
             virsh)                     echo "" ;;
             irssi|WeeChat)             echo "" ;;
             htop|top|glances)          echo "" ;;
-            vi|vim|nvim)               echo "" ;;
             man)                       echo "" ;;
-            zsh)                       echo "" ;;
             *)                         echo "" ;;
         esac
         ;;
