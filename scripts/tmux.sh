@@ -2,7 +2,12 @@
 
 case "$1" in
     -mail)
-        echo " ?"
+        maildirs="
+            $HOME/.mail/jarcher@infoxchange.org/INBOX/new/
+            $HOME/.mail/jess@jessarcher.com/INBOX/new/
+        "
+        echo -n "✉ "
+        find $maildirs -type f 2>/dev/null | wc -l
         ;;
     -cpu)
         echo -n " "
