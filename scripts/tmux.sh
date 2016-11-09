@@ -54,7 +54,7 @@ case "$1" in
             gulp)                      echo "" ;;
             laravel)                   echo "" ;;
             mutt)                      echo "" ;;
-            git|gitsh)                 echo "" ;;
+            git|gitsh|g)               echo "" ;;
             ssh|scp)                   echo "" ;;
 
             youtube-viewer|youtube-dl) echo "" ;;

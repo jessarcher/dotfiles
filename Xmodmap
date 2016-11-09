@@ -1,0 +1,12 @@
+!
+! xmodmap
+!
+
+! Make Caps Lock another Control key
+clear lock
+clear control
+keycode 66 = Control_L
+add control = Control_L Control_R
+
+! Change the scrolling direction
+pointer = 1 2 3 5 4 7 6 8 9 10 11 12 13 14 15 16 17 18 19 20

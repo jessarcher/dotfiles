@@ -12,6 +12,8 @@
     ~/.gitconfig: gitconfig
     ~/.gitignore_global: gitignore_global
     ~/.gvimrc: gvimrc
+    ~/.i3: i3
+    ~/.i3status.conf: i3status.conf
     ~/.jshintrc: jshintrc
     ~/.mailcap: mailcap
     ~/.mutt/colorscheme-jess.muttrc:
@@ -32,6 +34,7 @@
     ~/.config/nvim/init.vim: vimrc
     ~/.vimrc.plugins: vimrc.plugins
     ~/.xinitrc: xinitrc
+    ~/.Xmodmap: Xmodmap
     ~/.Xresources: Xresources
 
 - shell:
