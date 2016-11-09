@@ -454,6 +454,7 @@ noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 8)<CR>
 " Localvimrc {{{
 "===============================================================================
 Plug 'embear/vim-localvimrc'
+let g:localvimrc_persistent = 2
 " }}}
 
 " ZoomWin {{{
