@@ -1,2 +1,2 @@
-[[ -f ~/.Xresources ]] && xrdb -load -I$HOME ~/.Xresources
-[[ -f ~/.Xresources_local ]] && xrdb -override -I$HOME ~/.Xresources_local
+if [ -f ~/.Xresources ] ; then xrdb -load ~/.Xresources; fi
+if [ -f ~/.Xresources.local ] ; then xrdb -override ~/.Xresources.local; fi
