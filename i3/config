@@ -144,7 +144,7 @@ bar {
         inactive_workspace #323232 #323232 #555555
         urgent_workspace   #323232 #323232 #555555
     }
-    font pango:DejaVuSansMonoForPowerline Nerd Font 7
+    font pango:DejaVuSansMonoForPowerline Nerd Font 9
     mode dock
     position top
     status_command i3status
