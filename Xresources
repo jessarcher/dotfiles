@@ -50,7 +50,7 @@ URxvt.lineSpace:         3
 URxvt.scrollBar:         false;
 URxvt.internalBorder:    1
 URxvt.urgentOnBell:      true
-URxvt.visualBell:        true
+URxvt.visualBell:        false
 URxvt.mapAlert:          true
 URxvt.iconFile:          /usr/share/icons/Numix-Circle/48x48/apps/terminal.svg
 URxvt.skipBuiltinGlyphs: true
