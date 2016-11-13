@@ -142,21 +142,21 @@ bar {
         inactive_workspace #323232 #323232 #555555
         urgent_workspace   #323232 #323232 #555555
     }
-    font pango:DejaVuSansMonoForPowerline Nerd Font 9
+    font pango:DejaVuSansMonoForPowerline Nerd Font 7
     mode dock
     position top
     status_command i3status
     tray_output primary
 }
 
-# Client Colors
 # class                 border  backgr. text    indicator child_border
-#client.focused          #1E1E1E #1E1E1E #AAAAAA #1E1E1E   #1E1E1E
-#client.focused_inactive #3C3C3C #3C3C3C #CCCCCC #3C3C3C   #3C3C3C
-#client.unfocused        #3C3C3C #3C3C3C #666666 #292D2E   #3C3C3C
-#client.urgent           #4C4C4C #4C4C4C #CCCCCC #4C4C4C   #4C4C4C
-#client.placeholder      #3C3C3C #3C3C3C #CCCCCC #3C3C3C   #3C3C3C
-#client.background #FFFFFF
+client.focused          #4c7899 #285577 #ffffff #444444   #444444
+client.focused_inactive #333333 #5f676a #ffffff #222222   #222222
+client.unfocused        #333333 #222222 #ffffff #222222   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #0c0c0c   #0c0c0c
+
+client.background       #ffffff
 
 for_window [class="^.*"] border pixel 2
 
