@@ -7,6 +7,9 @@
     ~/.agignore: agignore
     ~/.bash_profile: bash_profile
     ~/.bashrc: bashrc
+    ~/.config/dunst/dunstrc:
+        create: true
+        path: dunstrc
     ~/.ctags: ctags
     ~/.dircolors: dircolors
     ~/.gitconfig: gitconfig
