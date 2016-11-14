@@ -42,6 +42,7 @@
     ~/.xinitrc: xinitrc
     ~/.Xmodmap: Xmodmap
     ~/.Xresources: Xresources
+    ~/.zshrc: zshrc
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
