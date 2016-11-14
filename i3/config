@@ -11,6 +11,11 @@
 
 set $mod Mod4
 
+# Colors
+set $background-color #2f343f
+set $active-color     #676e7d
+set $urgent-color     #e53935
+
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:DejaVu Sans 8
@@ -113,7 +118,7 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-bindsym $mod+x exec "i3lock --color=222222 --dpms"
+bindsym $mod+x exec "i3lock --color=$background-color --dpms"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -127,36 +132,35 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-bindsym $mod+z mode "resize"
+bindsym $mod+r mode "resize"
+
+# Window Colors
+#                       border  background        text    indicator         child_border
+client.focused          #00ff00 $active-color     #00ff00 $active-color     $active-color
+client.unfocused        #00ff00 $background-color #00ff00 $background-color $background-color
+client.focused_inactive #00ff00 $background-color #00ff00 $background-color $background-color
+client.urgent           #00ff00 $urgent-color     #00ff00 $urgent-color     $urgent-color
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
     colors {
-        background #323232
-        statusline #AAAAAA
-        separator  #4C4C4C
+        background $background-color
+        statusline #aaaaaa
+        separator  #4c4c4c
 
-        focused_workspace  #323232 #323232 #AAAAAA
-        active_workspace   #323232 #323232 #AAAAAA
-        inactive_workspace #323232 #323232 #555555
-        urgent_workspace   #323232 #323232 #555555
+        #                  border            background        text
+        focused_workspace  $active-color     $active-color     #eeeeee
+        active_workspace   $background-color $background-color #aaaaaa
+        inactive_workspace $background-color $background-color #aaaaaa
+        urgent_workspace   $urgent-color     $urgent-color     #aaaaaa
     }
-    font pango:DejaVuSansMonoForPowerline Nerd Font 7
+    font pango:DejaVuSansMonoForPowerline Nerd Font 9
     mode dock
     position top
     status_command i3status
     tray_output primary
 }
-
-# class                 border  backgr. text    indicator child_border
-client.focused          #4c7899 #285577 #ffffff #444444   #444444
-client.focused_inactive #333333 #5f676a #ffffff #222222   #222222
-client.unfocused        #333333 #222222 #ffffff #222222   #222222
-client.urgent           #2f343a #900000 #ffffff #900000   #900000
-client.placeholder      #000000 #0c0c0c #ffffff #0c0c0c   #0c0c0c
-
-client.background       #ffffff
 
 for_window [class="^.*"] border pixel 2
 
