@@ -1,0 +1,13 @@
+rofi.fullscreen:    true
+rofi.padding:       400
+rofi.opacity:       85
+rofi.bw:            0
+rofi.color-enabled: true
+rofi.font:          DejaVuSansMonoForPowerline Nerd Font 14
+
+! State             bg       fg       bgalt    hlbg     hlfg
+rofi.color-normal:  #2f343f, #aaaaaa, #2f343f, #676e7d, #aaaaaa
+rofi.color-urgent:  #2f343f, #aaaaaa, #2f343f, #676e7d, #aaaaaa
+rofi.color-active:  #2f343f, #aaaaaa, #2f343f, #676e7d, #aaaaaa
+!                   bg       border
+rofi.color-window:  #2f343f, #2f343f
