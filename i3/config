@@ -157,11 +157,11 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Window Colors
-#                       border  background        text    indicator         child_border
-client.focused          #00ff00 $active-color     #00ff00 $active-color     $active-color
-client.unfocused        #00ff00 $background-color #00ff00 $background-color $background-color
-client.focused_inactive #00ff00 $background-color #00ff00 $background-color $background-color
-client.urgent           #00ff00 $urgent-color     #00ff00 $urgent-color     $urgent-color
+#                       border            background        text    indicator         child_border
+client.focused          $active-color     $active-color     #eeeeee #cccccc           $active-color
+client.unfocused        $background-color $background-color #aaaaaa $background-color $background-color
+client.focused_inactive $background-color $background-color #aaaaaa $background-color $background-color
+client.urgent           $urgent-color     $urgent-color     #ffffff $urgent-color     $urgent-color
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -184,7 +184,7 @@ bar {
     tray_output primary
 }
 
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 1
 
 smart_gaps on
 smart_borders on
