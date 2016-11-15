@@ -45,7 +45,7 @@
 ! URxvt
 
 URxvt.intensityStyles:   false
-URxvt.font:              xft:DejaVuSansMonoForPowerline Nerd Font:size=8:antialias=true:hinting=true
+URxvt.font:              xft:DejaVuSansMonoForPowerline Nerd Font:size=11:antialias=true:hinting=true
 URxvt.lineSpace:         3
 URxvt.scrollBar:         false;
 URxvt.internalBorder:    1
