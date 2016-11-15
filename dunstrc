@@ -1,5 +1,5 @@
 [global]
-    font = DejaVu Sans Mono
+    font = DejaVu Sans Condensed 10.5
 
     # Allow a small subset of html markup:
     #   <b>bold</b>
@@ -63,7 +63,7 @@
     # the top and down respectevly.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "300x5-30+20"
+    geometry = "300x10-30+50"
 
     # Shrink window if it's smaller than the width.  Will be ignored if
     # width is 0.
@@ -108,7 +108,7 @@
     # The height of a single line.  If the height is smaller than the
     # font height, it will get raised to the font height.
     # This adds empty space above and under the text.
-    line_height = 0
+    line_height = 14
 
     # Draw a line of "separator_height" pixel height between two
     # notifications.
@@ -116,10 +116,10 @@
     separator_height = 1
 
     # Padding between text and separator.
-    padding = 20
+    padding = 14
 
     # Horizontal padding.
-    horizontal_padding = 20
+    horizontal_padding = 14
 
     # Define a color for the separator.
     # possible values are:
@@ -147,8 +147,8 @@
     icon_folders = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
 
 [frame]
-    width = 0
-    #color = "#666666"
+    width = 1
+    color = "#666666"
 
 [shortcuts]
     # Shortcuts are specified as [modifier+][modifier+]...key
@@ -157,10 +157,10 @@
     # Xev might be helpful to find names for keys.
 
     # Close notification.
-    close = ctrl+space
+    #close = ctrl+space
 
     # Close all notifications.
-    close_all = ctrl+shift+space
+    #close_all = ctrl+shift+space
 
     # Redisplay last message(s).
     # On the US keyboard layout "grave" is normally above TAB and left
@@ -174,15 +174,15 @@
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
     background = "#222222"
-    foreground = "#888888"
+    foreground = "#eeeeee"
     timeout = 10
 
 [urgency_normal]
-    background = "#285577"
-    foreground = "#ffffff"
+    background = "#222222"
+    foreground = "#eeeeee"
     timeout = 10
 
 [urgency_critical]
     background = "#900000"
-    foreground = "#ffffff"
+    foreground = "#eeeeee"
     timeout = 0
