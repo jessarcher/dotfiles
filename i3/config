@@ -129,7 +129,7 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-bindsym $mod+x exec "~/.dotfiles/scripts/lock.sh"
+bindsym $mod+x exec --no-startup-id "~/.dotfiles/scripts/lock.sh"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -164,7 +164,7 @@ bar {
         focused_workspace  $active-color     $active-color     #eeeeee
         active_workspace   $background-color $background-color #aaaaaa
         inactive_workspace $background-color $background-color #aaaaaa
-        urgent_workspace   $urgent-color     $urgent-color     #aaaaaa
+        urgent_workspace   $urgent-color     $urgent-color     #ffffff
     }
     font pango:DejaVuSansMonoForPowerline Nerd Font 9
     mode dock
@@ -186,11 +186,13 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec light -A 10
-bindsym XF86MonBrightnessDown exec light -U 10
+bindsym XF86MonBrightnessUp exec --no-startup-id light -A 10
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10
+
+assign [class="Firefox"] 2
 
 exec --no-startup-id compton -f -D 1
-exec --no-startup-id ~/.screenlayout/layout.sh
-exec --no-startup-id ~/.fehbg
+exec --no-startup-id sh ~/.screenlayout/layout.sh
+exec --no-startup-id sh ~/.fehbg
 exec --no-startup-id dunst
-exec --no-startup-id xautolock -time 1 -locker "~/.dotfiles/scripts/lock.sh"
+exec --no-startup-id xautolock -time 10 -locker "~/.dotfiles/scripts/lock.sh"
