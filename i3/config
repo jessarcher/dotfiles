@@ -58,12 +58,12 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 # split in horizontal orientation
-bindsym $mod+pipe split h
+bindsym $mod+pipe      split h
 bindsym $mod+backslash split h
 
 # split in vertical orientation
 bindsym $mod+underscore split v
-bindsym $mod+minus split v
+bindsym $mod+minus      split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -199,6 +199,8 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec --no-startup-id light -A 10
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10
+
+bindsym $mod+z workspace back_and_forth
 
 assign [class="Firefox"] $ws2
 
