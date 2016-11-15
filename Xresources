@@ -45,14 +45,14 @@
 ! URxvt
 
 URxvt.intensityStyles:   false
-URxvt.font:              xft:DejaVuSansMonoForPowerline Nerd Font:size=8
+URxvt.font:              xft:DejaVuSansMonoForPowerline Nerd Font:size=8:antialias=true:hinting=true
 URxvt.lineSpace:         3
 URxvt.scrollBar:         false;
 URxvt.internalBorder:    1
 URxvt.urgentOnBell:      true
 URxvt.visualBell:        false
 URxvt.mapAlert:          true
-URxvt.iconFile:          /usr/share/icons/Numix-Circle/48x48/apps/terminal.svg
+URxvt.iconFile:          /usr/share/icons/Numix-Circle/48/apps/terminal.svg
 URxvt.skipBuiltinGlyphs: true
 URxvt.geometry:          120x40
 
@@ -68,7 +68,7 @@ URxvt.scrollTtyKeypress: true
 URxvt.secondaryScreen: 1
 URxvt.secondaryScroll: 0
 
-URxvt.perl-ext-common: default,matcher,clipboard,font-size,url-select
+URxvt.perl-ext-common: default,matcher,clipboard,font-size
 
 URxvt.url-launcher: firefox
 URxvt.matcher.button: 1
@@ -99,3 +99,4 @@ Xft.hinting:   true
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 Xft.rgba:      rgba
+Xft.dpi:       96
