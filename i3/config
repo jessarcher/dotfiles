@@ -177,7 +177,7 @@ bar {
         inactive_workspace $background-color $background-color #aaaaaa
         urgent_workspace   $urgent-color     $urgent-color     #ffffff
     }
-    font pango:DejaVuSansMonoForPowerline Nerd Font 9
+    font pango:DejaVuSansMonoForPowerline Nerd Font 7
     mode dock
     position top
     status_command i3status
