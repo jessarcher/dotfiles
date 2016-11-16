@@ -145,7 +145,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bindsym $mod+x exec --no-startup-id "~/.dotfiles/scripts/lock.sh"
 
 # resize window (you can also use the mouse for that)
-mode "resize" {
+mode "" {
     bindsym h resize shrink width  10 px or 10 ppt
     bindsym j resize grow   height 10 px or 10 ppt
     bindsym k resize shrink height 10 px or 10 ppt
@@ -156,7 +156,7 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 
-bindsym $mod+r mode "resize"
+bindsym $mod+r mode ""
 
 # Window Colors
 #                       border            background        text    indicator         child_border
