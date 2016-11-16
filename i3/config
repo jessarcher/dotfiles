@@ -188,6 +188,8 @@ bar {
 
 for_window [class="^.*"] border pixel 1
 
+for_window [class="Pgadmin3"] layout tabbed
+
 smart_gaps on
 smart_borders on
 gaps inner 10
