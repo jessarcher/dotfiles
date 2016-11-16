@@ -19,6 +19,7 @@
     ~/.gitignore_global: gitignore_global
     ~/.gvimrc: gvimrc
     ~/.i3: i3
+    ~/.i3blocks.conf: i3blocks.conf
     ~/.i3status.conf: i3status.conf
     ~/.jshintrc: jshintrc
     ~/.mailcap: mailcap

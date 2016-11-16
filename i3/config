@@ -182,7 +182,7 @@ bar {
     font pango:DejaVu Sans Mono $barFontSize
     mode dock
     position top
-    status_command i3status
+    status_command i3blocks
     tray_output primary
 }
 
