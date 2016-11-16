@@ -214,4 +214,4 @@ exec --no-startup-id compton -f -D 1
 exec --no-startup-id sh ~/.screenlayout/layout.sh
 exec --no-startup-id sh ~/.fehbg
 exec --no-startup-id dunst
-exec --no-startup-id xautolock -time 10 -locker "~/.dotfiles/scripts/lock.sh"
+exec --no-startup-id xss-lock -- "~/.dotfiles/scripts/lock.sh"
