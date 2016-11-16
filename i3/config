@@ -16,6 +16,8 @@ set $background-color #2f343f
 set $active-color     #676e7d
 set $urgent-color     #e53935
 
+set_from_resource $barFontSize i3wm.barFontSize 7
+
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:DejaVu Sans 8
@@ -177,7 +179,7 @@ bar {
         inactive_workspace $background-color $background-color #aaaaaa
         urgent_workspace   $urgent-color     $urgent-color     #ffffff
     }
-    font pango:DejaVuSansMonoForPowerline Nerd Font 7
+    font pango:DejaVu Sans Mono $barFontSize
     mode dock
     position top
     status_command i3status
