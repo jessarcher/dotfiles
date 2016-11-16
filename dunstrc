@@ -108,7 +108,7 @@
     # The height of a single line.  If the height is smaller than the
     # font height, it will get raised to the font height.
     # This adds empty space above and under the text.
-    line_height = 14
+    line_height = 11.5
 
     # Draw a line of "separator_height" pixel height between two
     # notifications.
