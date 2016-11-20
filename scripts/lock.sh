@@ -3,9 +3,17 @@
 # Take a screenshot and blur it
 image_file=/tmp/screen_lock.png
 resolution=$(xdpyinfo | grep dimensions | awk '{print $2}')
-filters='noise=alls=10,scale=iw*.05:-1,scale=iw*20:-1:flags=neighbor'
-#filters='noise=alls=10,gblur=sigma=8'
-ffmpeg -y -loglevel 0 -s "$resolution" -f x11grab -i $DISPLAY -vframes 1 -vf "$filters" "$image_file"
+#filters='noise=alls=10,scale=iw*.05:-1,scale=iw*20:-1:flags=neighbor'
+filters='gblur=sigma=50'
+
+# Take a screenshot and blur it
+#ffmpeg -y -loglevel 0 -s "$resolution" -f x11grab -i $DISPLAY -vframes 1 -vf "$filters" "$image_file"
+
+# Grab the last wallpaper set by feh
+wallpaper=$(grep feh ~/.fehbg | sed -E "s/^feh.*'(.*)'/\1/")
+
+# Blur it
+ffmpeg -y -loglevel 0 -s "$resolution" -i $wallpaper -vf "$filters" "$image_file"
 
 revert() {
     xset dpms 0 0 0
@@ -24,7 +32,7 @@ pkill -USR1 dunst
 i3lock \
     --nofork \
     --ignore-empty-password \
-    --image="$image_file_out" \
+    --image="$image_file" \
     --clock \
     --timestr="%H:%M" \
     --datestr="%e %B %Y" \
