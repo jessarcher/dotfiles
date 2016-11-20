@@ -21,6 +21,26 @@ xset +dpms dpms 5 5 5
 # Pause notifications
 pkill -USR1 dunst
 
-i3lock -n -e -i "$image_file"
+i3lock \
+    --nofork \
+    --ignore-empty-password \
+    --image="$image_file_out" \
+    --clock \
+    --timestr="%H:%M" \
+    --datestr="%e %B %Y" \
+    --line-uses-inside \
+    --textcolor=ffffffff \
+    --separatorcolor=ffffffff \
+    --keyhlcolor=ffffffff \
+    --bshlcolor=ffffffff \
+    \
+    --ringcolor=ffffff00 \
+    --insidecolor=00000066 \
+    \
+    --ringvercolor=ffffff00 \
+    --insidevercolor=00000066 \
+    \
+    --ringwrongcolor=ff0000ff \
+    --insidewrongcolor=ff000066 \
 
 revert
