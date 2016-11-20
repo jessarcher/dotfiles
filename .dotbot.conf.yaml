@@ -12,7 +12,10 @@
         path: dunstrc
     ~/.config/rofi/config:
         create: true
-        path: rofi
+        path: rofi.config
+    ~/.config/termite/config:
+        create: true
+        path: termite.config
     ~/.ctags: ctags
     ~/.dircolors: dircolors
     ~/.gitconfig: gitconfig

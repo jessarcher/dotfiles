@@ -35,7 +35,7 @@ focus_follows_mouse no
 workspace_auto_back_and_forth yes
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec termite
 
 # kill focused window
 bindsym $mod+Shift+q kill
