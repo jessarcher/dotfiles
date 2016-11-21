@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 CYAN='\033[0;36m'
 GREEN='\033[0;32m'
 NC='\033[0m' # No Color
