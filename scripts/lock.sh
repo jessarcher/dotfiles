@@ -33,6 +33,8 @@ i3lock \
     --nofork \
     --ignore-empty-password \
     --image="$image_file" \
+    --tiling \
+    --color=222222 \
     --clock \
     --timestr="%H:%M" \
     --datestr="%e %B %Y" \
