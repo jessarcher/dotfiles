@@ -184,6 +184,7 @@ bar {
     position top
     status_command i3blocks
     tray_output primary
+    tray_padding 0
 }
 
 for_window [class="^.*"] border pixel 1
