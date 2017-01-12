@@ -182,7 +182,7 @@ let g:lightline = {
         \ 'right': [
             \ [ 'syntastic', 'lineinfo' ],
             \ [ 'percent' ],
-            \ [ 'fileformat', 'fileencoding', 'filetype' ],
+            \ [ 'fileformat', 'fileencoding', 'filetype', 'indent' ],
         \ ]
     \ },
     \ 'colorscheme': 'wombat',
@@ -197,6 +197,7 @@ let g:lightline = {
         \ 'filetype': 'LightLineFiletype',
         \ 'fugitive': 'LightLineFugitive',
         \ 'mode': 'LightLineMode',
+        \ 'indent': 'LightLineIndent',
     \ },
     \ 'component_type': {
         \ 'syntastic': 'error',
@@ -287,6 +288,10 @@ endfunction
 
 function! LightLineFileencoding()
   return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
+endfunction
+
+function! LightLineIndent()
+    return winwidth(0) > 70 ? (&expandtab == 1 ? 'spaces[' . &shiftwidth . ']' : 'tabs[' . &tabstop . ']') : ''
 endfunction
 
 let g:tagbar_status_func = 'TagbarStatusFunc'
