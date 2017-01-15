@@ -29,6 +29,10 @@ noremap k 3k
 " Allow Ctrl-a to select all text in insert mode.
 inoremap <C-a> <Insert><C-a><Insert>
 
+" Pass various shortcuts directly to Firefox
+noremap <C-y> i<C-y> " Password store
+noremap <C-S-p> i<C-S-p> " Private browsing
+
 highlight Hint font-family: monospace; font-size: 13px; text-transform: uppercase; color: white; background-color: #333; border-width: 0px; border-style: solid; padding: 0px 1px 0px 1px; 
 highlight HintActive background-color: #88FF00; color: black;
 highlight HintElem background-color: #ccc;  color: #111;
