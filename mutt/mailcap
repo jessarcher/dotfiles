@@ -1,6 +1,6 @@
 # HTML
 
-text/html;       mkdir -p ~/.tmp/mutt_attach \; find ~/.tmp/mutt_attach -atime +1 -delete \; cp -f %s ~/.tmp/mutt_attach/$(basename %s).html \; xdg-open ~/.tmp/mutt_attach/$(basename %s).html &; test=type xdg-open > /dev/null 2>&1
+text/html;       mkdir -p ~/.tmp/mutt_attach \; find ~/.tmp/mutt_attach -atime +1 -delete \; cp -f %s ~/.tmp/mutt_attach/$(basename %s).html \; xdg-open ~/.tmp/mutt_attach/$(basename %s).html 2>&1 &; test=type xdg-open > /dev/null 2>&1
 text/html;       w3m -I %{charset} -T text/html; copiousoutput
 
 # PDF
@@ -11,13 +11,13 @@ text/html;       w3m -I %{charset} -T text/html; copiousoutput
 
 # Default most other things to xdg-open
 
-application/*;   mkdir -p ~/.tmp/mutt_attach \; find ~/.tmp/mutt_attach -atime +1 -delete \; cp -f %s ~/.tmp/mutt_attach/ \; xdg-open ~/.tmp/mutt_attach/$(basename %s) &; test=type xdg-open > /dev/null 2>&1
+application/*;   mkdir -p ~/.tmp/mutt_attach \; find ~/.tmp/mutt_attach -atime +1 -delete \; cp -f %s ~/.tmp/mutt_attach/ \; xdg-open ~/.tmp/mutt_attach/$(basename %s) 2>&1 &; test=type xdg-open > /dev/null 2>&1
 
-audio/*;         mkdir -p ~/.tmp/mutt_attach \; find ~/.tmp/mutt_attach -atime +1 -delete \; cp -f %s ~/.tmp/mutt_attach/ \; xdg-open ~/.tmp/mutt_attach/$(basename %s) &; test=type xdg-open > /dev/null 2>&1
+audio/*;         mkdir -p ~/.tmp/mutt_attach \; find ~/.tmp/mutt_attach -atime +1 -delete \; cp -f %s ~/.tmp/mutt_attach/ \; xdg-open ~/.tmp/mutt_attach/$(basename %s) 2>&1 &; test=type xdg-open > /dev/null 2>&1
 
-image/*;         mkdir -p ~/.tmp/mutt_attach \; find ~/.tmp/mutt_attach -atime +1 -delete \; cp -f %s ~/.tmp/mutt_attach/ \; xdg-open ~/.tmp/mutt_attach/$(basename %s) &; test=type xdg-open > /dev/null 2>&1
+image/*;         mkdir -p ~/.tmp/mutt_attach \; find ~/.tmp/mutt_attach -atime +1 -delete \; cp -f %s ~/.tmp/mutt_attach/ \; xdg-open ~/.tmp/mutt_attach/$(basename %s) 2>&1 &; test=type xdg-open > /dev/null 2>&1
 
-text/csv;        mkdir -p ~/.tmp/mutt_attach \; find ~/.tmp/mutt_attach -atime +1 -delete \; cp -f %s ~/.tmp/mutt_attach/ \; xdg-open ~/.tmp/mutt_attach/$(basename %s) &; test=type xdg-open > /dev/null 2>&1
+text/csv;        mkdir -p ~/.tmp/mutt_attach \; find ~/.tmp/mutt_attach -atime +1 -delete \; cp -f %s ~/.tmp/mutt_attach/ \; xdg-open ~/.tmp/mutt_attach/$(basename %s) 2>&1 &; test=type xdg-open > /dev/null 2>&1
 
 # Old stuff, probably not needed anymore
 

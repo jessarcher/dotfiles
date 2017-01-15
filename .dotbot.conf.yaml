@@ -25,10 +25,10 @@
     ~/.i3blocks.conf: i3blocks.conf
     ~/.i3status.conf: i3status.conf
     ~/.jshintrc: jshintrc
-    ~/.mailcap: mailcap
     ~/.mutt/colorscheme-jess.muttrc:
         create: true
         path: mutt/colorscheme-jess.muttrc
+    ~/.mutt/mailcap: mutt/mailcap
     ~/.muttrc: muttrc
     ~/.ncmpcpp/config:
         create: true

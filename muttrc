@@ -3,7 +3,7 @@
 # -----------------------------------------------
 
 set folder       = ~/.mail
-set mailcap_path = ~/.mailcap
+set mailcap_path = ~/.mutt/mailcap
 set header_cache = ~/.cache/mutt/headers
 set tmpdir       = ~/.tmp/mutt
 set alias_file   = ~/.mutt/aliases
