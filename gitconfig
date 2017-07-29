@@ -5,6 +5,7 @@
     au = add --update
 
     b = branch
+    ba = branch --all
 
     c = commit
     ca = commit --amend
