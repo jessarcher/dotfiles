@@ -38,7 +38,7 @@
     o = checkout
     ob = checkout -b
 
-    s = status -sb
+    s = status --short --branch
 
 [color]
     ui = auto
