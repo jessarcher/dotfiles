@@ -94,10 +94,11 @@ endif
 "===============================================================================
 Plug 'majutsushi/tagbar'
 
-autocmd FileType *.php nested :call tagbar#autoopen(0)
-let g:tagbar_autoclose = 0
+autocmd FileType * nested :call tagbar#autoopen(0) " Open tagbar automatically for supported types
+let g:tagbar_autoclose = 0 " Automatically close after jumping to a tag
 let g:easytags_async = 1
-let g:tagbar_sort = 0
+let g:tagbar_sort = 0 " Sort by name rather than order of appearance in the file
+let g:tagbar_show_linenumbers=1 " Show absolute line numbers
 " }}}
 
 " vim-fugitive {{{
@@ -138,6 +139,11 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-unimpaired'
 " }}}
 
+" vim-vue - Syntax highlight for Vue.js components {{{
+"===============================================================================
+Plug 'posva/vim-vue'
+" }}}
+
 " syntastic {{{
 "===============================================================================
 Plug 'scrooloose/syntastic'            " Syntax checking hacks for vim
@@ -151,6 +157,15 @@ let g:syntastic_error_symbol = ' ✖'
 let g:syntastic_style_error_symbol = ' ✖'
 let g:syntastic_warning_symbol = ' !'
 let g:syntastic_style_warning_symbol = ' !'
+
+" Disable syntastic on a per buffer basis
+function! SyntasticDisableBuffer()
+    let b:syntastic_skip_checks = 1
+    SyntasticReset
+    echo 'Syntastic disabled for this buffer'
+endfunction
+
+command! SyntasticDisableBuffer call SyntasticDisableBuffer()
 " }}}
 
 " vdebug {{{
@@ -464,6 +479,22 @@ let g:localvimrc_persistent = 2
 
 " ZoomWin {{{
 "nmap <leader>z :ZoomWin<CR>
+" }}}
+
+" NERDTree {{{
+"===============================================================================
+Plug 'scrooloose/nerdtree'
+
+" Open NERDTree automatically when vim starts up
+autocmd vimenter * NERDTree
+
+" Close vim automatically if the only window left open is a NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" }}}
+
+" nerdtree-git-plugin {{{
+"===============================================================================
+Plug 'Xuyuanp/nerdtree-git-plugin'
 " }}}
 
 call plug#end()
