@@ -1,5 +1,5 @@
 --fields=+aimS
---languages=php
+--languages=PHP,JavaScript
 --recurse
 --sort=foldcase
 --exclude=.git
