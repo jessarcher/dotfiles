@@ -6,6 +6,10 @@
 
     b = branch
     ba = branch --all
+    bd = branch --delete
+    bD = branch --delete --force
+    bm = branch --move
+    bM = branch --move --force
 
     c = commit
     ca = commit --amend
@@ -39,6 +43,9 @@
     ob = checkout -b
 
     s = status --short --branch
+
+    branch-list-merged = "!git branch --merged develop | grep -v -E '(develop|origin|master)'"
+    branch-delete-merged = "!git branch-list-merged | xargs git branch -d"
 
 [color]
     ui = auto
