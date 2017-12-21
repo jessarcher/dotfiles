@@ -499,6 +499,15 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 Plug 'Xuyuanp/nerdtree-git-plugin'
 " }}}
 
+" vim-devicons {{{
+"===============================================================================
+Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+let g:DevIconsEnableFoldersOpenClose = 1
+let g:DevIconsEnableFolderExtensionPatternMatching = 1
+" }}}
+
 call plug#end()
 
 " vim: set nospell foldmethod=marker foldlevel=0:
