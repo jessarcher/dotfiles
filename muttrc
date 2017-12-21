@@ -18,6 +18,7 @@ set wait_key     = no # Stop asking us to continue after external commands have 
 set check_new         # Check maildir for new mail
 set timeout      = 30 # Reduce the time between checking for new mail while idle.
 set mail_check   = 0  # We don't need any minium time between checking for new mail waith our Maildir
+set mail_check_stats
 set beep_new          # Bell on new mail
 set delete
 set send_charset = "utf-8" # UTF-8 all the way
@@ -29,8 +30,8 @@ set quit         = ask-yes # Ask before quitting, default to yes
 # Sidebar View Options
 # -----------------------------------------------
 
-set sidebar_delim   = ' │ '
 set sidebar_visible = yes
+set sidebar_format  = '%B%* %N/%S'
 set sidebar_width   = 25
 color sidebar_new color221 color233
 
@@ -41,7 +42,7 @@ color sidebar_new color221 color233
 
 bind index,pager \CN sidebar-next;
 bind index,pager \CP sidebar-prev;
-bind index,pager <Right> sidebar-open;
+bind index,pager \CO sidebar-open;
 
 macro index b '<enter-command>toggle sidebar_visible<enter><refresh>'
 macro pager b '<enter-command>toggle sidebar_visible<enter><redraw-screen>'
@@ -72,6 +73,7 @@ set status_format = "───[ Folder: %f ]───[ Msgs:%?M?%M/?%m%?n? New:%
 bind index k       previous-entry
 bind index j       next-entry
 
+bind index g       noop
 bind index gg      first-entry
 bind index G       last-entry
 
@@ -131,6 +133,7 @@ alternative_order text/plain text/html # Show the plain version first, if it exi
 
 bind pager k  previous-line
 bind pager j  next-line
+bind pager g  noop
 bind pager gg top
 bind pager G  bottom
 bind pager N  search-opposite
