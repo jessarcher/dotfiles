@@ -90,6 +90,10 @@ if has('python')
 endif
 " }}}
 
+" gutentags {{{
+Plug 'ludovicchabant/vim-gutentags'
+" }}}
+
 " tagbar {{{
 "===============================================================================
 Plug 'majutsushi/tagbar'
