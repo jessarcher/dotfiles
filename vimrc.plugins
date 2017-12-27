@@ -196,7 +196,7 @@ let g:lightline = {
         \ 'left': [
             \ [ 'mode', 'paste', 'spell' ],
             \ [ 'fugitive', 'filename' ],
-            \ [ 'ctrlpmark' ],
+            \ [ 'ctrlpmark', 'gutentags' ],
         \ ],
         \ 'right': [
             \ [ 'syntastic', 'lineinfo' ],
@@ -215,6 +215,7 @@ let g:lightline = {
         \ 'filename': 'LightLineFilename',
         \ 'filetype': 'LightLineFiletype',
         \ 'fugitive': 'LightLineFugitive',
+        \ 'gutentags': 'LightLineGutentags',
         \ 'mode': 'LightLineMode',
         \ 'indent': 'LightLineIndent',
     \ },
@@ -311,6 +312,10 @@ endfunction
 
 function! LightLineIndent()
     return winwidth(0) > 70 ? (&expandtab == 1 ? 'spaces[' . &shiftwidth . ']' : 'tabs[' . &tabstop . ']') : ''
+endfunction
+
+function! LightLineGutentags()
+    return gutentags#statusline('Generating tags...')
 endfunction
 
 let g:tagbar_status_func = 'TagbarStatusFunc'
