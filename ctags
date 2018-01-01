@@ -1,7 +1,8 @@
---fields=+aimS
---languages=PHP,JavaScript
+--tag-relative=yes
 --recurse
---sort=foldcase
+--fields=+aimlS
+--languages=php,JavaScript
+--PHP-kinds=+cdfint-av
 --exclude=.git
 --exclude=.svn
 --exclude=.hg
@@ -26,3 +27,6 @@
 --exclude=tags
 --exclude=cscope.\*
 --exclude=\*.tar.\*
+--exclude=\*.phar
+--exclude=\*Test.php
+--exclude=\*phpunit\*

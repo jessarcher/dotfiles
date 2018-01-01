@@ -90,6 +90,10 @@ if has('python')
 endif
 " }}}
 
+" gutentags {{{
+Plug 'ludovicchabant/vim-gutentags'
+" }}}
+
 " tagbar {{{
 "===============================================================================
 Plug 'majutsushi/tagbar'
@@ -99,6 +103,10 @@ let g:tagbar_autoclose = 0 " Automatically close after jumping to a tag
 let g:easytags_async = 1
 let g:tagbar_sort = 0 " Sort by name rather than order of appearance in the file
 let g:tagbar_show_linenumbers=1 " Show absolute line numbers
+" }}}
+
+" vim-autoclose {{{
+Plug 'Townk/vim-autoclose'
 " }}}
 
 " vim-fugitive {{{
@@ -192,7 +200,7 @@ let g:lightline = {
         \ 'left': [
             \ [ 'mode', 'paste', 'spell' ],
             \ [ 'fugitive', 'filename' ],
-            \ [ 'ctrlpmark' ],
+            \ [ 'ctrlpmark', 'gutentags' ],
         \ ],
         \ 'right': [
             \ [ 'syntastic', 'lineinfo' ],
@@ -211,6 +219,7 @@ let g:lightline = {
         \ 'filename': 'LightLineFilename',
         \ 'filetype': 'LightLineFiletype',
         \ 'fugitive': 'LightLineFugitive',
+        \ 'gutentags': 'LightLineGutentags',
         \ 'mode': 'LightLineMode',
         \ 'indent': 'LightLineIndent',
     \ },
@@ -307,6 +316,10 @@ endfunction
 
 function! LightLineIndent()
     return winwidth(0) > 70 ? (&expandtab == 1 ? 'spaces[' . &shiftwidth . ']' : 'tabs[' . &tabstop . ']') : ''
+endfunction
+
+function! LightLineGutentags()
+    return gutentags#statusline('Generating tags...')
 endfunction
 
 let g:tagbar_status_func = 'TagbarStatusFunc'
@@ -485,9 +498,12 @@ let g:localvimrc_persistent = 2
 "===============================================================================
 Plug 'scrooloose/nerdtree'
 
+let NERDTreeShowHidden=1
+let NERDTreeMinimalUI=1
+
 " Open NERDTree automatically when vim starts up and no files were specified
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | wincmd p | endif
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
 " Close vim automatically if the only window left open is a NERDTree
