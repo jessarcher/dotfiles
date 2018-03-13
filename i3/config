@@ -122,7 +122,7 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-bindsym $mod+x exec --no-startup-id "~/.dotfiles/scripts/lock.sh"
+bindsym $mod+x exec --no-startup-id "~/.dotfiles/scripts/i3lock.sh"
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5% && pkill -RTMIN+10 i3blocks
@@ -198,7 +198,7 @@ exec --no-startup-id compton -f -D 1
 exec --no-startup-id sh ~/.screenlayout/layout.sh
 exec --no-startup-id sh ~/.fehbg
 exec --no-startup-id dunst
-exec --no-startup-id xss-lock -- "~/.dotfiles/scripts/lock.sh"
+exec --no-startup-id xss-lock -- "~/.dotfiles/scripts/i3lock.sh"
 exec --no-startup-id nm-applet
 
 # }}}
