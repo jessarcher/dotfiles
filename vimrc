@@ -248,6 +248,20 @@ nnoremap <leader>g :Ag<space>
 
 nmap c* *Ncgn
 
+" In command mode (i.e. after pressing ':'), expand %% to the path of the current
+" buffer. This allows you to easily open files from the same directory as the
+" currently opened file.
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
+" Allows you to easily replace the current word and all its occurrences.
+nnoremap <Leader>rc :%s/\<<C-r><C-w>\>/
+vnoremap <Leader>rc y:%s/<C-r>"/
+" Allows you to easily change the current word and all occurrences to something
+" else. The difference between this and the previous mapping is that the mapping
+" below pre-fills the current word for you to change.
+nnoremap <Leader>cc :%s/\<<C-r><C-w>\>/<C-r><C-w>
+vnoremap <Leader>cc y:%s/<C-r>"/<C-r>"
+
 " }}}
 
 " Spell Checking {{{
