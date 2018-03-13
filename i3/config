@@ -113,6 +113,8 @@ bindsym $mod+a focus parent
 
 bindsym $mod+comma exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
 
+bindsym $mod+shift+colon exec i3-input -F '%s' -P 'Run command: '
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -246,6 +248,8 @@ bar {
 for_window [class="^.*"] border pixel 1
 
 assign [class="Firefox"] $ws2
+
+assign [class="Pidgin"] $ws3
 
 for_window [class="Pgadmin3"] layout tabbed
 
