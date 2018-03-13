@@ -278,6 +278,10 @@ set spelllang=en_au            " self-explanatory
 syntax on
 set background=dark
 
+" if has('nvim-0.1.5') " True color in neovim wasn't added until 0.1.5
+"     set termguicolors
+" endif
+
 augroup colorschemeoverrides
     autocmd!
     autocmd ColorScheme * highlight Search     ctermbg=19  ctermfg=NONE
