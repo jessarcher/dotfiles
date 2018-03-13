@@ -342,6 +342,9 @@ augroup filetypeoverrides
 
     " Format Mutt temp files as email
     au BufRead,BufNewFile *tmp/mutt* set ft=mail
+
+    " Don't backup gopass temp files
+    au BufNewFile,BufRead /dev/shm/gopass.* setlocal noswapfile nobackup noundofile
 augroup end
 
 " }}}
