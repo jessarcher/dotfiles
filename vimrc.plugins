@@ -150,6 +150,7 @@ Plug 'tpope/vim-unimpaired'
 " vim-vue - Syntax highlight for Vue.js components {{{
 "===============================================================================
 Plug 'posva/vim-vue'
+autocmd FileType vue syntax sync fromstart
 " }}}
 
 " syntastic {{{
