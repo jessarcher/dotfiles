@@ -3,18 +3,20 @@ CYAN='\033[0;36m'
 GREEN='\033[0;32m'
 NC='\033[0m' # No Color
 
-printf $CYAN
-echo '                _________'
-echo '               |\\W#####M\'
-echo '               |M\\W#####M\'
-echo '               |#M\\W#####M\'
-echo '               |##M\\W#####M\'
-echo '               A###M\\W#####M\'
-echo '      _______,a#####M|\W#####M\'
-echo '      \W############W  \W#####M\'
-echo '       \W##########W    \W#####M\'
-echo '        `YW#####W7"      \W#####M\'
-echo '           ¯¯¯¯¯          ¯¯¯¯¯¯¯¯'
+#printf $CYAN
+printf '
+                _________
+               |\\\W#####M\
+               |M\\\W#####M\
+               |#M\\\W#####M\
+               |##M\\\W#####M\
+               A###M\\\W#####M\
+      _______,a#####M|\W#####M\
+      \W############W  \W#####M\
+       \W##########W    \W#####M\
+        `YW#####W7"      \W#####M\
+           ¯¯¯¯¯          ¯¯¯¯¯¯¯¯
+' | lolcat
 echo
 printf $GREEN
 echo 'Greetings Jess! Here is a vimtip for you:'
