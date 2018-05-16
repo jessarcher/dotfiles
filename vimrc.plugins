@@ -525,6 +525,11 @@ let g:DevIconsEnableFoldersOpenClose = 1
 let g:DevIconsEnableFolderExtensionPatternMatching = 1
 " }}}
 
+" apiblueprint.vim {{{
+"===============================================================================
+Plug 'kylef/apiblueprint.vim'
+" }}}
+
 call plug#end()
 
 " vim: set nospell foldmethod=marker foldlevel=0:
