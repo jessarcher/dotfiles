@@ -139,6 +139,7 @@ Plug 'tpope/vim-fugitive'              " a Git wrapper so awesome, it should be 
 "===============================================================================
 Plug 'airblade/vim-gitgutter'          " A Vim plugin which shows a git diff in the gutter (sign column) and stages/reverts hunks.
 
+set updatetime=100
 let g:gitgutter_max_signs=1000
 " }}}
 
