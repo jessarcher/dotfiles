@@ -620,6 +620,14 @@ let g:DevIconsEnableFolderExtensionPatternMatching = 1
 Plug 'kylef/apiblueprint.vim'
 " }}}
 
+" vim-argwrap {{{
+"===============================================================================
+Plug 'FooSoft/vim-argwrap'
+"let g:argwrap_tail_comma = 1
+let g:argwrap_tail_comma_braces = '['
+nnoremap <silent> <leader>a :ArgWrap<CR>
+" }}}
+
 call plug#end()
 
 " vim: set nospell foldmethod=marker foldlevel=0:
