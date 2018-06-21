@@ -28,6 +28,27 @@ call plug#begin('~/.vim/bundle')
 
 " }}}
 
+" ale {{{
+"===============================================================================
+Plug 'w0rp/ale'
+Plug 'maximbaz/lightline-ale'
+let g:ale_completion_enabled = 1
+let g:ale_set_balloons = 1
+let g:ale_sign_error = '✖'
+let g:ale_sign_warning = '!'
+
+let g:ale_php_phpcbf_standard = 'PSR2'
+let g:ale_php_phpcs_standard = 'PSR2'
+let g:ale_php_cs_fixer_options = '--fixers PSR2'
+
+let g:ale_fixers = {'php': ['php_cs_fixer', 'phpcbf']}
+
+let g:lightline#ale#indicator_checking = "\uf110"
+let g:lightline#ale#indicator_warnings = "\uf071"
+let g:lightline#ale#indicator_errors = "\uf05e"
+let g:lightline#ale#indicator_ok = "\uf00c"
+" }}}
+
 " ctrlp.vim {{{
 "===============================================================================
 Plug 'ctrlpvim/ctrlp.vim'
@@ -155,26 +176,26 @@ autocmd FileType vue syntax sync fromstart
 
 " syntastic {{{
 "===============================================================================
-Plug 'scrooloose/syntastic'            " Syntax checking hacks for vim
+" Plug 'scrooloose/syntastic'            " Syntax checking hacks for vim
 
-let g:syntastic_mode_map = {
-    \ "mode": "passive",
-\ }
-let g:syntastic_php_checkers = ['php', 'phpcs']
-let g:syntastic_php_phpcs_args = '--standard=PSR2 -n'
-let g:syntastic_error_symbol = ' ✖'
-let g:syntastic_style_error_symbol = ' ✖'
-let g:syntastic_warning_symbol = ' !'
-let g:syntastic_style_warning_symbol = ' !'
+" let g:syntastic_mode_map = {
+"     \ "mode": "passive",
+" \ }
+" let g:syntastic_php_checkers = ['php', 'phpcs']
+" let g:syntastic_php_phpcs_args = '--standard=PSR2 -n'
+" let g:syntastic_error_symbol = ' ✖'
+" let g:syntastic_style_error_symbol = ' ✖'
+" let g:syntastic_warning_symbol = ' !'
+" let g:syntastic_style_warning_symbol = ' !'
 
-" Disable syntastic on a per buffer basis
-function! SyntasticDisableBuffer()
-    let b:syntastic_skip_checks = 1
-    SyntasticReset
-    echo 'Syntastic disabled for this buffer'
-endfunction
+" " Disable syntastic on a per buffer basis
+" function! SyntasticDisableBuffer()
+"     let b:syntastic_skip_checks = 1
+"     SyntasticReset
+"     echo 'Syntastic disabled for this buffer'
+" endfunction
 
-command! SyntasticDisableBuffer call SyntasticDisableBuffer()
+" command! SyntasticDisableBuffer call SyntasticDisableBuffer()
 " }}}
 
 " vdebug {{{
@@ -196,40 +217,95 @@ Plug 'axiaoxin/vim-json-line-format'
 "===============================================================================
 Plug 'itchyny/lightline.vim'
 
-let g:lightline = {
-    \ 'active': {
-        \ 'left': [
-            \ [ 'mode', 'paste', 'spell' ],
-            \ [ 'fugitive', 'filename' ],
-            \ [ 'ctrlpmark', 'gutentags' ],
-        \ ],
-        \ 'right': [
-            \ [ 'syntastic', 'lineinfo' ],
-            \ [ 'percent' ],
-            \ [ 'fileformat', 'fileencoding', 'filetype', 'indent' ],
-        \ ]
-    \ },
-    \ 'colorscheme': 'wombat',
-    \ 'component_expand': {
-        \ 'syntastic': 'SyntasticStatuslineFlag',
-    \ },
-    \ 'component_function': {
-        \ 'ctrlpmark': 'CtrlPMark',
-        \ 'fileencoding': 'LightLineFileencoding',
-        \ 'fileformat': 'LightLineFileformat',
-        \ 'filename': 'LightLineFilename',
-        \ 'filetype': 'LightLineFiletype',
-        \ 'fugitive': 'LightLineFugitive',
-        \ 'gutentags': 'LightLineGutentags',
-        \ 'mode': 'LightLineMode',
-        \ 'indent': 'LightLineIndent',
-    \ },
-    \ 'component_type': {
-        \ 'syntastic': 'error',
-    \ },
-    \ 'separator': { 'left': '', 'right': '' },
-    \ 'subseparator': { 'left': '', 'right': '' }
+let g:lightline = {}
+
+let g:lightline.active = {
+    \ 'left': [
+        \ [ 'mode', 'paste', 'spell' ],
+        \ [ 'fugitive', 'filename' ],
+        \ [ 'ctrlpmark', 'gutentags' ]
+    \ ],
+    \ 'right': [
+        \ [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok', 'lineinfo' ],
+        \ [ 'percent' ],
+        \ [ 'fileformat', 'fileencoding', 'filetype', 'indent' ]
+    \ ]
 \ }
+
+let g:lightline.colorscheme = 'wombat'
+
+" let g:lightline.component_expand = {
+"     \ 'syntastic': 'SyntasticStatuslineFlag',
+" \ }
+
+let g:lightline.component_expand = {
+    \ 'linter_checking': 'lightline#ale#checking',
+    \ 'linter_warnings': 'lightline#ale#warnings',
+    \ 'linter_errors': 'lightline#ale#errors',
+    \ 'linter_ok': 'lightline#ale#ok',
+\ }
+
+let g:lightline.component_function = {
+    \ 'ctrlpmark': 'CtrlPMark',
+    \ 'fileencoding': 'LightLineFileencoding',
+    \ 'fileformat': 'LightLineFileformat',
+    \ 'filename': 'LightLineFilename',
+    \ 'filetype': 'LightLineFiletype',
+    \ 'fugitive': 'LightLineFugitive',
+    \ 'gutentags': 'LightLineGutentags',
+    \ 'mode': 'LightLineMode',
+    \ 'indent': 'LightLineIndent'
+\ }
+
+" let g:lightline.component_type = {
+"     \ 'syntastic': 'error'
+" \ }
+
+let g:lightline.component_type = {
+    \ 'linter_checking': 'left',
+    \ 'linter_warnings': 'warning',
+    \ 'linter_errors': 'error',
+    \ 'linter_ok': 'left',
+\ }
+
+let g:lightline.separator = { 'left': '', 'right': '' }
+let g:lightline.subseparator = { 'left': '', 'right': '' }
+
+
+" let g:lightline = {
+"     \ 'active': {
+"         \ 'left': [
+"             \ [ 'mode', 'paste', 'spell' ],
+"             \ [ 'fugitive', 'filename' ],
+"             \ [ 'ctrlpmark', 'gutentags' ],
+"         \ ],
+"         \ 'right': [
+"             \ [ 'syntastic', 'lineinfo' ],
+"             \ [ 'percent' ],
+"             \ [ 'fileformat', 'fileencoding', 'filetype', 'indent' ],
+"         \ ]
+"     \ },
+"     \ 'colorscheme': 'wombat',
+"     \ 'component_expand': {
+"         \ 'syntastic': 'SyntasticStatuslineFlag',
+"     \ },
+"     \ 'component_function': {
+"         \ 'ctrlpmark': 'CtrlPMark',
+"         \ 'fileencoding': 'LightLineFileencoding',
+"         \ 'fileformat': 'LightLineFileformat',
+"         \ 'filename': 'LightLineFilename',
+"         \ 'filetype': 'LightLineFiletype',
+"         \ 'fugitive': 'LightLineFugitive',
+"         \ 'gutentags': 'LightLineGutentags',
+"         \ 'mode': 'LightLineMode',
+"         \ 'indent': 'LightLineIndent',
+"     \ },
+"     \ 'component_type': {
+"         \ 'syntastic': 'error',
+"     \ },
+"     \ 'separator': { 'left': '', 'right': '' },
+"     \ 'subseparator': { 'left': '', 'right': '' }
+" \ }
 
 function! CtrlPMark()
     if expand('%:t') =~ 'ControlP' && has_key(g:lightline, 'ctrlp_item')
@@ -330,15 +406,15 @@ function! TagbarStatusFunc(current, sort, fname, ...) abort
     return lightline#statusline(0)
 endfunction
 
-augroup AutoSyntastic
-    autocmd!
-    autocmd BufWritePost *.php,*.js call s:syntastic()
-augroup END
+" augroup AutoSyntastic
+"     autocmd!
+"     autocmd BufWritePost *.php,*.js call s:syntastic()
+" augroup END
 
-function! s:syntastic()
-    SyntasticCheck
-    call lightline#update()
-endfunction
+" function! s:syntastic()
+"     SyntasticCheck
+"     call lightline#update()
+" endfunction
 
 " }}}
 
