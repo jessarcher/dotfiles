@@ -288,6 +288,11 @@ augroup colorschemeoverrides
     " autocmd ColorScheme * highlight SpecialKey ctermfg=237
     autocmd ColorScheme * highlight NonText    ctermfg=237
     autocmd ColorScheme * highlight MatchParen ctermbg=240 ctermfg=NONE
+
+    autocmd ColorScheme * highlight SpellBad cterm=underline ctermbg=NONE
+    autocmd ColorScheme * highlight SpellLocal cterm=underline ctermbg=NONE
+    autocmd ColorScheme * highlight SpellRare cterm=underline ctermbg=NONE
+    autocmd ColorScheme * highlight SpellCap cterm=underline ctermbg=NONE
 augroup end
 
 if !empty(glob('~/.vim/bundle/base16-vim/')) && filereadable(expand("~/.vimrc_background")) && ($BASE16_THEME != '' || has("gui_running"))
