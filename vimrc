@@ -284,8 +284,8 @@ set background=dark
 
 augroup colorschemeoverrides
     autocmd!
-    autocmd ColorScheme * highlight Search     ctermbg=19  ctermfg=NONE
-    autocmd ColorScheme * highlight SpecialKey ctermfg=237
+    " autocmd ColorScheme * highlight Search     ctermbg=19  ctermfg=NONE
+    " autocmd ColorScheme * highlight SpecialKey ctermfg=237
     autocmd ColorScheme * highlight NonText    ctermfg=237
     autocmd ColorScheme * highlight MatchParen ctermbg=240 ctermfg=NONE
 augroup end
