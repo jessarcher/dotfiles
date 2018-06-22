@@ -538,6 +538,7 @@ Plug 'tpope/vim-surround'              " quoting/parenthesizing made simple
 " vim-lion {{{
 "===============================================================================
 Plug 'tommcdo/vim-lion'                " A simple alignment operator for Vim text editor
+let g:lion_squeeze_spaces = 1 " Remove as many spaces as possible when aligning
 " }}}
 
 " indentLine {{{
