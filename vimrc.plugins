@@ -69,6 +69,11 @@ let g:ctrlp_map = ''
 
 let g:ctrlp_funky_matchtype = 'path'
 let g:ctrlp_funky_syntax_highlight = 1
+
+nmap <leader>f :CtrlP<CR>
+nmap <leader>s :CtrlPFunky<CR>
+nmap <leader>b :CtrlPBuffer<CR>
+nmap <leader>v :CtrlP vendor<CR>
 " }}}
 
 " ag.vim  {{{

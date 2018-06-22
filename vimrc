@@ -190,11 +190,6 @@ nmap <leader>l :setlocal number!<CR>:setlocal list!<CR>:silent! GitGutterToggle<
 
 nmap <leader>c :!ctags --recurse --totals .<CR>
 
-nmap <leader>f :CtrlP<CR>
-nmap <leader>s :CtrlPBufTag<CR>
-nmap <leader>b :CtrlPBuffer<CR>
-nmap <leader>v :CtrlP vendor<CR>
-
 nmap <leader>o :!xdg-open %<cr><cr>
 
 nmap <leader>n :NERDTreeToggle<CR>
