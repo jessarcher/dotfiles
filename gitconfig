@@ -61,4 +61,4 @@
 [push]
     default = current
 [rerere]
-	enabled = true
+    enabled = true
