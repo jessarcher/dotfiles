@@ -147,6 +147,7 @@ Plug 'airblade/vim-gitgutter'          " A Vim plugin which shows a git diff in 
 
 set updatetime=100
 let g:gitgutter_max_signs=1000
+let g:gitgutter_async = 0 " Temporarily fix issue with vim-php-namespace
 " }}}
 
 " vim-tmux-navigator {{{
