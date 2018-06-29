@@ -638,6 +638,14 @@ let g:argwrap_tail_comma_braces = '['
 nnoremap <silent> <leader>a :ArgWrap<CR>
 " }}}
 
+" vim-wintabs {{{
+"===============================================================================
+Plug 'zefei/vim-wintabs'
+Plug 'zefei/vim-wintabs-powerline'
+
+let g:wintabs_ui_buffer_name_format = ' %n %t '
+" }}}
+
 call plug#end()
 
 " vim: set nospell foldmethod=marker foldlevel=0:
