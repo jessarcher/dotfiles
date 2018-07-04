@@ -74,6 +74,7 @@ let g:ctrlp_funky_nudists = ['php']
 nmap <leader>f :CtrlP<CR>
 nmap <leader>s :CtrlPFunky<CR>
 nmap <leader>b :CtrlPBuffer<CR>
+nmap <leader>m :CtrlPMRUFiles<CR>
 nmap <leader>v :CtrlP vendor<CR>
 " }}}
 
