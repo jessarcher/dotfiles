@@ -1,3 +1,39 @@
+# PHP-kinds (ctags --list-kinds)
+#   c  classes
+#   d  constant definitions
+#   f  functions
+#   i  interfaces
+#   l  local variables
+#   n  namespaces
+#   t  traits
+#   v  variables
+#   a  aliases
+
+# Fields (ctags --list-fields)
+#  N       name           tag name
+#  F       input          input file
+#  P       pattern        pattern
+#  C       compact        compact input line (used only in xref output)
+#  E       extras         Extra tag type information
+#  K       NONE           Kind of tag as full name
+#  R       NONE           Marker (R or D) representing whether tag is definition or reference
+#  S       signature      Signature of routine (e.g. prototype or parameter list)
+#  Z       scope          Include the "scope:" key in scope field (use s) in tags output, scope name in xref output
+#  a       access         Access (or export) of class members
+#  e       end            end lines of various items
+#  f       file           File-restricted scoping
+#  i       inherits       Inheritance information
+#  k       NONE           Kind of tag as a single letter
+#  l       language       Language of input file containing tag
+#  m       implementation Implementation information
+#  n       line           Line number of tag definition
+#  p       scopeKind      Kind of scope as full name
+#  r       role           Role
+#  s       NONE           Scope of tag definition (`p' can be used for printing its kind)
+#  t       typeref        Type and name of a variable or typedef
+#  x       xpath          xpath for the tag
+#  z       kind           Include the "kind:" key in kind field (use k or K) in tags output, kind full name in xref output
+
 --tag-relative=yes
 --recurse
 --fields=+aimlS
