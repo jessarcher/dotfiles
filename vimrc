@@ -54,6 +54,7 @@ set encoding=utf-8
 set laststatus=2
 set viminfo+=%                 " Restore previous buffers when starting
 set showmatch
+set signcolumn=yes             " Always show the sign column so things don't jump around when it appears
 
 " }}}
 
