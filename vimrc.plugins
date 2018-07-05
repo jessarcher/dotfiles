@@ -175,6 +175,7 @@ Plug 'tpope/vim-commentary'
 " vim-unimpaired - pairs of handy bracket mappings {{{
 "===============================================================================
 Plug 'tpope/vim-unimpaired'
+autocmd VimEnter * unmap <silent><expr> co
 " }}}
 
 " vim-vue - Syntax highlight for Vue.js components {{{
