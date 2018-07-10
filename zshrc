@@ -42,6 +42,9 @@ dceas () {
 }
 alias dceasa="dceas php artisan"
 alias mux="tmuxinator"
+open () {
+    xdg-open $* > /dev/null 2>&1
+}
 
 if (( $+commands[tag] )); then
     tag() { command tag "$@"; source ${TAG_ALIAS_FILE:-/tmp/tag_aliases} 2>/dev/null }
