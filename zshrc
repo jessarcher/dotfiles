@@ -45,6 +45,8 @@ alias mux="tmuxinator"
 open () {
     xdg-open $* > /dev/null 2>&1
 }
+alias v="nvim"
+alias vim="nvim"
 
 if (( $+commands[tag] )); then
     tag() { command tag "$@"; source ${TAG_ALIAS_FILE:-/tmp/tag_aliases} 2>/dev/null }
