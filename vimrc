@@ -109,12 +109,12 @@ set list                       " display tabs, tailing spaces, and other chars v
 set listchars=tab:▸\ ,space:·,trail:·,extends:→,precedes:←,nbsp:␣,eol:↲
 set showbreak=↪\
 
-augroup something
-    autocmd!
-    autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
-    autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-    autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-augroup end
+" augroup something
+"     autocmd!
+"     autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+"     autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+"     autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+" augroup end
 
 " }}}
 
@@ -271,32 +271,47 @@ set spelllang=en_au            " self-explanatory
 " Colors {{{
 "===============================================================================
 
-syntax on
-set background=dark
-
-" if has('nvim-0.1.5') " True color in neovim wasn't added until 0.1.5
-"     set termguicolors
-" endif
-
-augroup colorschemeoverrides
-    autocmd!
-    " autocmd ColorScheme * highlight Search     ctermbg=19  ctermfg=NONE
-    autocmd ColorScheme * highlight SpecialKey ctermfg=237
-    autocmd ColorScheme * highlight NonText    ctermfg=237
-    autocmd ColorScheme * highlight MatchParen ctermbg=240 ctermfg=NONE
-
-    autocmd ColorScheme * highlight SpellBad cterm=underline ctermbg=NONE
-    autocmd ColorScheme * highlight SpellLocal cterm=underline ctermbg=NONE
-    autocmd ColorScheme * highlight SpellRare cterm=underline ctermbg=NONE
-    autocmd ColorScheme * highlight SpellCap cterm=underline ctermbg=NONE
-augroup end
-
-if !empty(glob('~/.vim/bundle/base16-vim/')) && filereadable(expand("~/.vimrc_background")) && ($BASE16_THEME != '' || has("gui_running"))
-    let base16colorspace=256  " Access colors present in 256 colorspace
-    source ~/.vimrc_background
-else
-    colorscheme default
+"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
+"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
+"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
+if (empty($TMUX))
+    if (has("nvim"))
+        "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+        let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+    endif
+    "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
+    "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
+    " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
+    if (has("termguicolors"))
+        set termguicolors
+    endif
 endif
+
+syntax on
+"set background=dark
+
+
+"augroup colorschemeoverrides
+"     autocmd!
+"     " autocmd ColorScheme * highlight Search     ctermbg=19  ctermfg=NONE
+"     autocmd ColorScheme * highlight SpecialKey ctermfg=237
+"     autocmd ColorScheme * highlight NonText    ctermfg=237
+"     autocmd ColorScheme * highlight MatchParen ctermbg=240 ctermfg=NONE
+
+"     autocmd ColorScheme * highlight SpellBad cterm=underline ctermbg=NONE
+"     autocmd ColorScheme * highlight SpellLocal cterm=underline ctermbg=NONE
+"     autocmd ColorScheme * highlight SpellRare cterm=underline ctermbg=NONE
+"     autocmd ColorScheme * highlight SpellCap cterm=underline ctermbg=NONE
+"augroup end
+
+" if !empty(glob('~/.vim/bundle/base16-vim/')) && filereadable(expand("~/.vimrc_background")) && ($BASE16_THEME != '' || has("gui_running"))
+"     let base16colorspace=256  " Access colors present in 256 colorspace
+"     source ~/.vimrc_background
+" else
+"     colorscheme default
+" endif
+let g:onedark_terminal_italics = 1
+colorscheme onedark
 
 " }}}
 

@@ -243,7 +243,8 @@ let g:lightline.active = {
     \ ]
 \ }
 
-let g:lightline.colorscheme = 'wombat'
+" let g:lightline.colorscheme = 'wombat' " built-in
+let g:lightline.colorscheme = 'onedark'
 
 " let g:lightline.component_expand = {
 "     \ 'syntastic': 'SyntasticStatuslineFlag',
@@ -519,10 +520,10 @@ Plug 'pangloss/vim-javascript'         " Vastly improved Javascript indentation 
 Plug 'mustache/vim-mustache-handlebars' " mustache and handlebars mode for vim
 " }}}
 
-" base16-vim {{{
-"===============================================================================
-Plug 'chriskempson/base16-vim'         " Base16 for Vim
-" }}}
+"" base16-vim {{{
+""===============================================================================
+"Plug 'chriskempson/base16-vim'         " Base16 for Vim
+"" }}}
 
 " splitjoin.vim {{{
 "===============================================================================
@@ -653,6 +654,11 @@ Plug 'sickill/vim-pasta'
 
 " Add CtrlP to the default list of disabled filetypes
 let g:pasta_disabled_filetypes = ["python", "coffee", "markdown", "yaml", "slim", "nerdtree", "netrw", "startify", "ctrlp"]
+" }}}
+
+" onedark.vim {{{
+"===============================================================================
+Plug 'joshdick/onedark.vim'
 " }}}
 
 call plug#end()
