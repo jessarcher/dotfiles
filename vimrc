@@ -306,8 +306,8 @@ endif
 set hidden                     " allow unwritten buffers in the background
 
 " Move between buffers like tabs
-nmap <C-n> :bnext<CR>
-nmap <C-p> :bprev<CR>
+" nmap <C-n> :bnext<CR>
+" nmap <C-p> :bprev<CR>
 
 " }}}
 
