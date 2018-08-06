@@ -655,6 +655,12 @@ Plug 'sickill/vim-pasta'
 let g:pasta_disabled_filetypes = ["python", "coffee", "markdown", "yaml", "slim", "nerdtree", "netrw", "startify", "ctrlp"]
 " }}}
 
+" vim-json {{{
+"===============================================================================
+Plug 'elzr/vim-json' " Leave commented to use the default
+let g:vim_json_syntax_conceal = 0
+" }}}
+
 call plug#end()
 
 " vim: set nospell foldmethod=marker foldlevel=0:
