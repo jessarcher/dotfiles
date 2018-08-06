@@ -107,6 +107,7 @@ set preserveindent             " Preserve as much of the existing indentation ch
 
 set list                       " display tabs, tailing spaces, and other chars visually
 set listchars=tab:▸\ ,space:·,trail:·,extends:→,precedes:←,nbsp:␣,eol:↲
+set fillchars+=vert:│
 set showbreak=↪\
 
 " augroup something
