@@ -243,7 +243,8 @@ let g:lightline.active = {
     \ ]
 \ }
 
-let g:lightline.colorscheme = 'wombat'
+" let g:lightline.colorscheme = 'wombat' " built-in
+let g:lightline.colorscheme = 'onedark'
 
 " let g:lightline.component_expand = {
 "     \ 'syntastic': 'SyntasticStatuslineFlag',
@@ -519,10 +520,10 @@ Plug 'pangloss/vim-javascript'         " Vastly improved Javascript indentation 
 Plug 'mustache/vim-mustache-handlebars' " mustache and handlebars mode for vim
 " }}}
 
-" base16-vim {{{
-"===============================================================================
-Plug 'chriskempson/base16-vim'         " Base16 for Vim
-" }}}
+"" base16-vim {{{
+""===============================================================================
+"Plug 'chriskempson/base16-vim'         " Base16 for Vim
+"" }}}
 
 " splitjoin.vim {{{
 "===============================================================================
@@ -662,6 +663,11 @@ let g:pasta_disabled_filetypes = ["python", "coffee", "markdown", "yaml", "slim"
 "===============================================================================
 Plug 'elzr/vim-json' " Leave commented to use the default
 let g:vim_json_syntax_conceal = 0
+" }}}
+
+" onedark.vim {{{
+"===============================================================================
+Plug 'joshdick/onedark.vim'
 " }}}
 
 call plug#end()

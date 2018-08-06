@@ -45,14 +45,16 @@ alias mux="tmuxinator"
 open () {
     xdg-open $* > /dev/null 2>&1
 }
+alias v="nvim"
+alias vim="nvim"
 
 if (( $+commands[tag] )); then
     tag() { command tag "$@"; source ${TAG_ALIAS_FILE:-/tmp/tag_aliases} 2>/dev/null }
     alias ag=tag
 fi
 
-BASE16_SHELL=$HOME/.config/base16-shell/
-[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
-base16_ocean
+# BASE16_SHELL=$HOME/.config/base16-shell/
+# [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+# base16_ocean
 
 ~/.dotfiles/scripts/login.sh
