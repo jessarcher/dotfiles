@@ -187,7 +187,7 @@ nmap <leader>w :w<cr>
 
 nmap <leader>q :Bdelete<CR>
 
-nmap <leader>l :setlocal number!<CR>:setlocal list!<CR>:silent! GitGutterToggle<CR>:silent! setlocal relativenumber!<CR>
+nmap <leader>l :setlocal number!<CR>:setlocal list!<CR>:silent! GitGutterToggle<CR>:silent! setlocal relativenumber!<CR>:silent! IndentLinesToggle<CR>
 
 nmap <leader>c :!ctags --recurse --totals .<CR>
 
