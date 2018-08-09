@@ -298,12 +298,12 @@ syntax on
 "     autocmd ColorScheme * highlight SpellCap cterm=underline ctermbg=NONE
 "augroup end
 
-" augroup something
-"     autocmd!
-"     autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
-"     autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-"     autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-" augroup end
+augroup HighlightWhitespace
+    autocmd!
+    autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+    autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+    autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+augroup end
 
 " if !empty(glob('~/.vim/bundle/base16-vim/')) && filereadable(expand("~/.vimrc_background")) && ($BASE16_THEME != '' || has("gui_running"))
 "     let base16colorspace=256  " Access colors present in 256 colorspace
