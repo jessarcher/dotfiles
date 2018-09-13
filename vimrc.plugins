@@ -120,6 +120,10 @@ endif
 
 " gutentags {{{
 Plug 'ludovicchabant/vim-gutentags'
+" Disable gutentags when working with git as this was triggering an error.
+" See https://github.com/ludovicchabant/vim-gutentags/issues/178
+" and https://github.com/ludovicchabant/vim-gutentags/issues/168
+autocmd FileType gitcommit,gitrebase let g:gutentags_enabled=0
 " }}}
 
 " tagbar {{{
