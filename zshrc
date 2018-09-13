@@ -8,7 +8,7 @@ COMPLETION_WAITING_DOTS="true"
 HIST_STAMPS="yyyy-mm-dd"
 DISABLE_AUTO_TITLE="true"
 
-plugins=(git git-flow laravel5 gulp composer docker docker-compose rsync pass npm bower gpg-agent ssh-agent tmux tmuxinator)
+plugins=(git git-flow laravel5 gulp composer docker docker-compose rsync pass npm bower gpg-agent ssh-agent tmux tmuxinator sack)
 
 export PATH="$HOME/.local/bin:$HOME/.bin:$HOME/.composer/vendor/bin:$HOME/.go/bin:./vendor/bin:./node_modules/.bin:$PATH"
 
@@ -49,6 +49,7 @@ alias v="nvim"
 alias vim="nvim"
 alias copy="xclip -selection clipboard"
 alias paste="xclip -o -selection clipboard"
+alias ag="sag"
 
 if (( $+commands[tag] )); then
     tag() { command tag "$@"; source ${TAG_ALIAS_FILE:-/tmp/tag_aliases} 2>/dev/null }
