@@ -103,7 +103,7 @@ Plug 'nelstrom/vim-visual-star-search'  " Start a * or # search from a visual bl
 
 " supertab {{{
 "===============================================================================
-Plug 'ervandew/supertab'               " Perform all your vim insert mode completions with Tab
+"Plug 'ervandew/supertab'               " Perform all your vim insert mode completions with Tab
 
 " }}}
 
