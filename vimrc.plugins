@@ -112,9 +112,9 @@ Plug 'nelstrom/vim-visual-star-search'  " Start a * or # search from a visual bl
 if has('python')
     Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets' " The ultimate snippet solution for Vim
 
-    let g:UltiSnipsExpandTrigger       ="<tab>"
-    let g:UltiSnipsJumpForwardTrigger  ="<tab>"
-    let g:UltiSnipsJumpBackwardTrigger ="<s-tab>"
+    " let g:UltiSnipsExpandTrigger       ="<tab>"
+    " let g:UltiSnipsJumpForwardTrigger  ="<tab>"
+    " let g:UltiSnipsJumpBackwardTrigger ="<s-tab>"
 endif
 " }}}
 
@@ -434,11 +434,95 @@ endfunction
 
 " }}}
 
+" ncm2 {{{
+"===============================================================================
+Plug 'ncm2/ncm2'
+Plug 'roxma/nvim-yarp'
+
+" enable ncm2 for all buffers
+autocmd BufEnter * call ncm2#enable_for_buffer()
+
+" IMPORTANTE: :help Ncm2PopupOpen for more information
+set completeopt=noinsert,menuone,noselect
+
+" NOTE: you need to install completion sources to get completions. Check
+" our wiki page for a list of sources: https://github.com/ncm2/ncm2/wiki
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-tmux'
+Plug 'ncm2/ncm2-path'
+Plug 'phpactor/ncm2-phpactor'
+Plug 'ncm2/ncm2-cssomni'
+Plug 'ncm2/ncm2-tern',  {'do': 'npm install'}
+Plug 'ncm2/ncm2-match-highlight'
+Plug 'ncm2/ncm2-ultisnips'
+
+" Optional Vimrc Tips
+
+" suppress the annoying 'match x of y', 'The only match' and 'Pattern not
+" found' messages
+set shortmess+=c
+
+" CTRL-C doesn't trigger the InsertLeave autocmd . map to <ESC> instead.
+inoremap <c-c> <ESC>
+
+" Use <TAB> to select the popup menu:
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" Plugin settings
+
+" Press enter key to trigger snippet expansion
+" The parameters are the same as `:help feedkeys()`
+inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
+
+" c-j c-k for moving in snippet
+let g:UltiSnipsExpandTrigger		= "<Plug>(ultisnips_expand)"
+let g:UltiSnipsJumpForwardTrigger	= "<c-j>"
+let g:UltiSnipsJumpBackwardTrigger	= "<c-k>"
+let g:UltiSnipsRemoveSelectModeMappings = 0
+
+" }}}
+
 " pdv {{{
 "===============================================================================
 Plug 'tobyS/pdv', { 'for': 'php' } | Plug 'tobyS/vmustache' " PHP Documentor for Vim - Generates PHP docblocks
 
 let g:pdv_template_dir = $HOME . "/.vim/bundle/pdv/templates_snip"
+" }}}
+
+" phpactor {{{
+"===============================================================================
+Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
+
+let g:phpactorOmniError = v:true
+autocmd FileType php setlocal omnifunc=phpactor#Complete
+
+" Include use statement
+nmap <Leader>u :call phpactor#UseAdd()<CR>
+
+" Invoke the context menu
+nmap <Leader>mm :call phpactor#ContextMenu()<CR>
+
+" Invoke the navigation menu
+nmap <Leader>nn :call phpactor#Navigate()<CR>
+
+" Goto definition of class or class member under the cursor
+nmap <Leader>o :call phpactor#GotoDefinition()<CR>
+
+" Transform the classes in the current file
+nmap <Leader>tt :call phpactor#Transform()<CR>
+
+" Generate a new class (replacing the current file)
+nmap <Leader>cc :call phpactor#ClassNew()<CR>
+
+" Extract expression (normal mode)
+nmap <silent><Leader>ee :call phpactor#ExtractExpression(v:false)<CR>
+
+" Extract expression from selection
+vmap <silent><Leader>ee :<C-U>call phpactor#ExtractExpression(v:true)<CR>
+
+" Extract method from selection
+vmap <silent><Leader>em :<C-U>call phpactor#ExtractMethod()<CR>
 " }}}
 
 " php.vim {{{
@@ -470,23 +554,23 @@ Plug '2072/PHP-Indenting-for-VIm'      " The official VIm indent script for PHP
 
 " vim-php-namespace {{{
 "===============================================================================
-Plug 'arnaud-lb/vim-php-namespace'
-
-function! IPhpInsertUse()
-    call PhpInsertUse()
-    call feedkeys('a',  'n')
-endfunction
-
-"autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
-autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
-
-function! IPhpExpandClass()
-    call PhpExpandClass()
-    call feedkeys('a', 'n')
-endfunction
-
-"autocmd FileType php inoremap <Leader>e <Esc>:call IPhpExpandClass()<CR>
-autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
+"Plug 'arnaud-lb/vim-php-namespace'
+"
+"function! IPhpInsertUse()
+"    call PhpInsertUse()
+"    call feedkeys('a',  'n')
+"endfunction
+"
+""autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
+"autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
+"
+"function! IPhpExpandClass()
+"    call PhpExpandClass()
+"    call feedkeys('a', 'n')
+"endfunction
+"
+""autocmd FileType php inoremap <Leader>e <Esc>:call IPhpExpandClass()<CR>
+"autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
 " }}}
 
 " html5.vim {{{

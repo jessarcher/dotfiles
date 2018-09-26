@@ -148,7 +148,7 @@ set wildmenu
 set wildmode=list:longest,full " Only complete the longest common part of the text, and show the wildmenu if enabled. If tab is pressed again, it will cycle through the options
 
 " Insert mode completion
-set completeopt=longest,menu,preview " Only complete the longest common part of the text
+"set completeopt=longest,menu,preview " Only complete the longest common part of the text
 
 " }}}
 
@@ -185,7 +185,7 @@ nmap <leader>l :setlocal number!<CR>:setlocal list!<CR>:silent! GitGutterToggle<
 
 nmap <leader>c :!ctags --recurse --totals .<CR>
 
-nmap <leader>o :!xdg-open %<cr><cr>
+"nmap <leader>o :!xdg-open %<cr><cr>
 
 nmap <leader>n :NERDTreeToggle<CR>
 
