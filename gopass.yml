@@ -1,0 +1,17 @@
+root:
+  askformore: false
+  autoclip: true
+  autoimport: true
+  autosync: false
+  check_recipient_hash: false
+  cliptimeout: 45
+  concurrency: 1
+  editrecipients: false
+  nocolor: false
+  noconfirm: false
+  nopager: false
+  notifications: true
+  recipient_hash: {}
+  safecontent: false
+  usesymbols: true
+mounts: {}
