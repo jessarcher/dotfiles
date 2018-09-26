@@ -16,6 +16,9 @@
     ~/.config/kitty/kitty.conf:
         create: true
         path: kitty.conf
+    ~/.config/phpactor/phpactor.yml:
+        create: true
+        path: phpactor.yml
     ~/.config/rofi/config:
         create: true
         path: rofi.config
