@@ -183,7 +183,7 @@ nmap <leader>q :Bdelete<CR>
 
 nmap <leader>l :setlocal number!<CR>:setlocal list!<CR>:silent! GitGutterToggle<CR>:silent! setlocal relativenumber!<CR>:silent! IndentLinesToggle<CR>
 
-nmap <leader>c :!ctags --recurse --totals .<CR>
+"nmap <leader>c :!ctags --recurse --totals .<CR>
 
 "nmap <leader>o :!xdg-open %<cr><cr>
 
@@ -383,9 +383,9 @@ augroup end
 "===============================================================================
 
 " Look for tags files in parent directories
-if has('path_extra')
-    setglobal tags-=./tags tags-=./tags; tags^=./tags;,./vendor-tags;
-endif
+"if has('path_extra')
+"    setglobal tags-=./tags tags-=./tags; tags^=./tags;,./vendor-tags;
+"endif
 
 " }}}
 
