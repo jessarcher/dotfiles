@@ -550,9 +550,9 @@ augroup END
 
 " phpcomplete.vim {{{
 "===============================================================================
-Plug 'shawncplus/phpcomplete.vim', { 'for': 'php' }     " Improved PHP omni-completion
-
-let g:phpcomplete_parse_docblock_comments = 0
+"Plug 'shawncplus/phpcomplete.vim', { 'for': 'php' }     " Improved PHP omni-completion
+"
+"let g:phpcomplete_parse_docblock_comments = 0
 " }}}
 
 " PHP-Indenting-for-VIm {{{
