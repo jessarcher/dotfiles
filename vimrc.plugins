@@ -137,8 +137,13 @@ let g:tagbar_sort = 0 " Sort by name rather than order of appearance in the file
 let g:tagbar_show_linenumbers=1 " Show absolute line numbers
 " }}}
 
-" vim-autoclose {{{
-Plug 'Townk/vim-autoclose'
+" vim-autoclose - This plugin for Vim enable an auto-close chars feature for you. {{{
+" Disabled because it conflicts with completion plugins (like ncm2)
+"Plug 'Townk/vim-autoclose'
+" }}}
+
+" delimitMate - provides insert mode auto-completion for quotes, parens, brackets, etc. {{{
+Plug 'Raimondi/delimitMate'
 " }}}
 
 " vim-fugitive {{{
