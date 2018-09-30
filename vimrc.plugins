@@ -752,9 +752,6 @@ map <C-p> :WintabsPrev<CR>
 " vim-pasta {{{
 "===============================================================================
 Plug 'sickill/vim-pasta'
-
-" Add CtrlP to the default list of disabled filetypes
-let g:pasta_disabled_filetypes = ["python", "coffee", "markdown", "yaml", "slim", "nerdtree", "netrw", "startify", "ctrlp"]
 " }}}
 
 " vim-json {{{
