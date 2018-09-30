@@ -119,11 +119,11 @@ endif
 " }}}
 
 " gutentags {{{
-Plug 'ludovicchabant/vim-gutentags'
+"Plug 'ludovicchabant/vim-gutentags'
 " Disable gutentags when working with git as this was triggering an error.
 " See https://github.com/ludovicchabant/vim-gutentags/issues/178
 " and https://github.com/ludovicchabant/vim-gutentags/issues/168
-autocmd FileType gitcommit,gitrebase let g:gutentags_enabled=0
+"autocmd FileType gitcommit,gitrebase let g:gutentags_enabled=0
 " }}}
 
 " tagbar {{{
@@ -243,7 +243,7 @@ let g:lightline.active = {
     \ 'left': [
         \ [ 'mode', 'paste', 'spell' ],
         \ [ 'fugitive', 'filename' ],
-        \ [ 'ctrlpmark', 'gutentags' ]
+        \ [ 'ctrlpmark' ]
     \ ],
     \ 'right': [
         \ [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok', 'lineinfo' ],
