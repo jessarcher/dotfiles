@@ -499,8 +499,11 @@ let g:pdv_template_dir = $HOME . "/.vim/bundle/pdv/templates_snip"
 "===============================================================================
 Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
 
+" The FileType autocmd doesn't trigger properly because phpactor is lazy-loaded,
+" so it needs to be triggered via the User event.
+autocmd! User phpactor autocmd FileType php setlocal omnifunc=phpactor#Complete
+
 let g:phpactorOmniError = v:true
-autocmd FileType php setlocal omnifunc=phpactor#Complete
 
 " Include use statement
 nmap <Leader>u :call phpactor#UseAdd()<CR>
