@@ -54,7 +54,10 @@ let g:lightline#ale#indicator_ok = "\uf00c"
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
 
-if executable('ag')
+if executable('fd')
+    let g:ctrlp_user_command = 'fd --type f --color=never "" %s'
+    let g:ctrlp_use_caching = 0
+elseif executable('ag')
     let g:ctrlp_user_command = 'ag %s -g "" --hidden --nocolor'
     let g:ctrlp_use_caching = 0
 elseif executable('ack-grep')
