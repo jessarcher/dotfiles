@@ -8,7 +8,7 @@ COMPLETION_WAITING_DOTS="true"
 HIST_STAMPS="yyyy-mm-dd"
 DISABLE_AUTO_TITLE="true"
 
-plugins=(git git-flow laravel5 gulp composer docker docker-compose rsync pass npm bower gpg-agent ssh-agent tmux tmuxinator sack)
+plugins=( adb bower composer cp dnf docker docker-compose dotenv git git-flow gpg-agent gulp httpie jsontools jump laravel5 nmap npm pass rsync sack ssh-agent tmux tmuxinator vi-mode)
 
 export PATH="$HOME/.local/bin:$HOME/.bin:$HOME/.composer/vendor/bin:$HOME/.go/bin:./vendor/bin:./node_modules/.bin:$PATH"
 
