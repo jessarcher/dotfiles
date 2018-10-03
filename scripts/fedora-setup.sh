@@ -8,8 +8,12 @@ sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/dock
 
 # Install packages
 sudo dnf install \
+    boost-devel \
+    cmake \
     docker-ce \
+    fd-find \
     fortune-mod \
+    gcc-c++ \
     git \
     gopass \
     httpie \
@@ -20,12 +24,16 @@ sudo dnf install \
     php-json \
     php-mbstring \
     php-xml \
+    php-pdo \
+    php-pgsql \
     pidgin \
     pidgin-libnotify \
     pidgin-otr \
     postgresql \
+    python-devel \
     python2-neovim \
     python3-neovim \
+    python3-devel \
     the_silver_searcher \
     thunderbird \
     tmux \
