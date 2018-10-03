@@ -57,6 +57,9 @@ sudo systemctl enable docker
 sudo curl -L $(curl -s https://api.github.com/repos/docker/compose/releases/latest | grep "docker-compose-$(uname -s)-$(uname -m)\"" | grep browser_download_url | cut -d\" -f4) -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 
+# Sack
+git clone https://github.com/sampson-chen/sack.git /tmp/sack && cd /tmp/sack && chmod +x install_sack.sh && ./install_sack.sh
+
 # GNUPG
 # TODO: How to do this securely?
 
