@@ -50,6 +50,7 @@ alias vim="nvim"
 alias copy="xclip -selection clipboard"
 alias paste="xclip -o -selection clipboard"
 alias ag="sag"
+alias gs="git s"
 
 if (( $+commands[tag] )); then
     tag() { command tag "$@"; source ${TAG_ALIAS_FILE:-/tmp/tag_aliases} 2>/dev/null }
