@@ -53,6 +53,7 @@ let g:lightline#ale#indicator_ok = "\uf00c"
 "===============================================================================
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
+Plug 'nixprime/cpsm', { 'do': 'env PY3=ON ./install.sh' }
 
 if executable('fd')
     let g:ctrlp_user_command = 'fd --type f --color=never "" %s'
@@ -67,6 +68,8 @@ elseif executable('ack')
 else
     let g:ctrlp_user_command = 'find %s -type f'
 endif
+
+let g:ctrlp_match_func = { 'match': 'cpsm#CtrlPMatch' }
 
 let g:ctrlp_map = ''
 
