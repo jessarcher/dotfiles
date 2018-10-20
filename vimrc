@@ -897,6 +897,13 @@ set nocompatible
 
     " }}}
 
+    " editorconfig {{{
+    " ==========================================================================
+
+        Plug 'editorconfig/editorconfig-vim'
+
+    " }}}
+
     call plug#end()
 " }}}
 
