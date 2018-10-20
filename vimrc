@@ -738,7 +738,7 @@
     " A vim plugin to display the indention levels with thin vertical lines
     " ==========================================================================
 
-        Plug 'yggdroot/indentline'
+        Plug 'Yggdroot/indentLine'
 
         " let g:indentline_faster = 1
         " let g:indentline_char = '┊'
