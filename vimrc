@@ -15,10 +15,10 @@
 "
 
 " Init {{{
-"===============================================================================
+" ==============================================================================
 
-" Make sure Vim features are enabled first
-set nocompatible
+    " Make sure Vim features are enabled first
+    set nocompatible
 
 " }}}
 
@@ -908,439 +908,566 @@ set nocompatible
 " }}}
 
 " General Settings {{{
-"===============================================================================
+" ==============================================================================
 
-set number                     " show line number(s)
-if exists('+relativenumber')
-    set relativenumber         " show line numbers relative to the current line
-endif
-set history=1000               " store lots of :cmdline history
-set autoread                   " reload files changed outside of vim
-set visualbell                 " replace annoying error bell with annoying screen flash
-set t_vb=                      " make the visual bell do nothing (so it's not annoying)
-set title                      " set term title
-let &titleold=''               " get rid of the pesky 'Thanks for flying Vim' title on exit
-set showtabline=1              " tab bar display setting: 0: never, 1: only when >1 tabs, 2: always
-set showcmd                    " show commands as they are being typed (e.g. 2dd), also the number of lines or the dimensions in Visual selection modes
-if exists('+colorcolumn')
-    set colorcolumn=+1,81,121  " show a column at textwidth+1 chars as the boundary of textwidth
-endif
-set nowrap                     " don't display lines wrapped by default
-set linebreak                  " when wrapping, break at end of word rather than mid-word
-set ruler                      " show line and column numbers (only useful when statusbar not enabled)"
-set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
-set display=lastline
-set encoding=utf-8
-set laststatus=2
-set viminfo+=%                 " Restore previous buffers when starting
-set showmatch
-set signcolumn=yes             " Always show the sign column so things don't jump around when it appears
+    " Show line number(s)
+    set number
+
+    " Show line numbers relative to the current line
+    if exists('+relativenumber')
+        set relativenumber
+    endif
+
+    " Store lots of :cmdline history
+    set history=1000
+
+    " Reload files changed outside of vim
+    set autoread
+
+    " Replace annoying error bell with annoying screen flash
+    set visualbell
+
+    " Make the visual bell do nothing (so it's not annoying)
+    set t_vb=
+
+    " Set term title
+    set title
+
+    " Get rid of the pesky 'Thanks for flying Vim' title on exit
+    let &titleold=''
+
+    " Tab bar display setting: 0: never, 1: only when >1 tabs, 2: always
+    set showtabline=1
+
+    " Show commands as they are being typed (e.g. 2dd), also the number of lines
+    " or the dimensions in Visual selection modes
+    set showcmd
+
+    " Show a column at textwidth+1 chars as the boundary of textwidth
+    if exists('+colorcolumn')
+        set colorcolumn=+1,81,121
+    endif
+
+    " don't display lines wrapped by default
+    set nowrap
+
+    " When wrapping, break at end of word rather than mid-word
+    set linebreak
+
+    " Show line and column numbers (only useful when statusbar not enabled)"
+    set ruler
+    set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
+
+    " Restore previous buffers when starting
+    set viminfo+=%
+
+    " Always show the sign column so things don't jump around when it appears
+    set signcolumn=yes
+
+    set display=lastline
+    set encoding=utf-8
+    set laststatus=2
+    set showmatch
 
 " }}}
 
 " Moving Around {{{
-"===============================================================================
+" ==============================================================================
 
-set mouse=a                    " enable use of mouse in all modes with a supported terminal"
-set cursorline                 " highlight the line that the cursor is on
-set scrolloff=3                " start vertically scrolling when 3 lines from the top or bottom
-set sidescrolloff=3            " start horizontally scrolling when 3 lines from the edges
-set sidescroll=1               " how many columns to scroll at a time horizontally
-set nostartofline              " don't reset cursor to start of line when moving around
+    " Enable use of mouse in all modes with a supported terminal"
+    set mouse=a
+
+    " Highlight the line that the cursor is on
+    set cursorline
+
+    " Start vertically scrolling when 3 lines from the top or bottom
+    set scrolloff=3
+
+    " Start horizontally scrolling when 3 lines from the edges
+    set sidescrolloff=3
+
+    " How many columns to scroll at a time horizontally
+    set sidescroll=1
+
+    " Don't reset cursor to start of line when moving around
+    set nostartofline
 
 " }}}
 
 " Text Editing and Formatting {{{
-"===============================================================================
+" ==============================================================================
 
-set backspace=indent,eol,start " allow full backspace in insert mode
-set textwidth=80               " width of text before breaking
-set nojoinspaces               " only insert single space after '.', '?', and '!' when joining
-set nrformats-=octal           " Treat strings starting with '0' as numbers for the purposes of incrementing
-set formatoptions=             " reset formatoptions
-set formatoptions+=c           " format comments
-set formatoptions+=r           " continue comments onto next line
-set formatoptions+=q           " format comments with gq
-set formatoptions+=n           " recognize numbered lists
-set formatoptions+=2           " use indent from 2nd line of a paragraph
-set formatoptions+=l           " don't break lines that are already long
-set formatoptions+=1           " break before 1-letter words
-if v:version > 703 || v:version == 703 && has("patch541")
-    set formatoptions+=j       " delete comment character when joining commented lines
-endif
-autocmd FileType * setlocal formatoptions-=o " don't comment newline when using o or O from a commented line (needs autocmd otherwise it gets overwritten)
+    " Allow full backspace in insert mode
+    set backspace=indent,eol,start
+
+    " Width of text before breaking
+    set textwidth=80
+
+    " Only insert single space after '.', '?', and '!' when joining
+    set nojoinspaces
+
+    " Treat strings starting with '0' as numbers for the purposes of incrementing
+    set nrformats-=octal
+
+    " Reset formatoptions
+    set formatoptions=
+
+    " Format comments
+    set formatoptions+=c
+
+    " Continue comments onto next line
+    set formatoptions+=r
+
+    " Format comments with gq
+    set formatoptions+=q
+
+    " Recognize numbered lists
+    set formatoptions+=n
+
+    " Use indent from 2nd line of a paragraph
+    set formatoptions+=2
+
+    " Don't break lines that are already long
+    set formatoptions+=l
+
+    " Break before 1-letter words
+    set formatoptions+=1
+
+    " Delete comment character when joining commented lines
+    if v:version > 703 || v:version == 703 && has("patch541")
+        set formatoptions+=j
+    endif
+
+    " Don't comment newline when using o or O from a commented line (needs
+    " autocmd otherwise it gets overwritten)
+    autocmd FileType * setlocal formatoptions-=o
 
 " }}}
 
 " Tabs & Indentation {{{
-"===============================================================================
+" ==============================================================================
 
-set expandtab                  " Use spaces instead of tabs
-set tabstop=4                  " How many characters wide the tab character should be
-set shiftwidth=4               " How many spaces to use instead of a tab
-set smarttab                   " Intelligently backspace the right number of space characters
+    " Use spaces instead of tabs
+    set expandtab
 
-set autoindent                 " Copy indent level from previous line when starting a new line
-set smartindent                " Seems to automatically update the indentation when a closing paren is typed
-set copyindent                 " Copy whatever characters were used to indent the previous line
-set preserveindent             " Preserve as much of the existing indentation characters when changing indentation level
+    " How many characters wide the tab character should be
+    set tabstop=4
 
-set list                       " display tabs, tailing spaces, and other chars visually
-set listchars=tab:▸\ ,space:·,trail:·,extends:→,precedes:←,nbsp:␣,eol:↲
-set fillchars+=vert:│
-set showbreak=↪\
+    " How many spaces to use instead of a tab
+    set shiftwidth=4
+
+    " Intelligently backspace the right number of space characters
+    set smarttab
+
+    " Copy indent level from previous line when starting a new line
+    set autoindent
+
+    " Seems to automatically update the indentation when a closing paren is
+    " typed
+    set smartindent
+
+    " Copy whatever characters were used to indent the previous line
+    set copyindent
+
+    " Preserve as much of the existing indentation characters when changing
+    " indentation level
+    set preserveindent
+
+    " display tabs, tailing spaces, and other chars visually
+    set list
+
+    set listchars=tab:▸\ ,space:·,trail:·,extends:→,precedes:←,nbsp:␣,eol:↲
+    set fillchars+=vert:│
+    set showbreak=↪\
 
 " }}}
 
 " Searching {{{
-"===============================================================================
+" ==============================================================================
 
-set hlsearch                   " highlight search matches
-set incsearch                  " start searching while typing
-set magic                      " enable regex for searches
-set ignorecase                 " case insensitive searches
-set smartcase                  " unless specifically searching for something with uppercase characters
+    " Highlight search matches
+    set hlsearch
+
+    " Start searching while typing
+    set incsearch
+
+    " Enable regex for searches
+    set magic
+
+    " Case insensitive searches...
+    set ignorecase
+
+    " ...unless specifically searching for something with uppercase characters
+    set smartcase
 
 " }}}
 
 " Copy and Paste {{{
-"===============================================================================
+" ==============================================================================
 
-set clipboard^=unnamed,unnamedplus " use the system clipboard
+    " use the system clipboard
+    set clipboard^=unnamed,unnamedplus
 
-" Use xclip for copy/paste
-vmap "+y :!xclip -f -sel clip
-map  "+p :r!xclip -o -sel clip
+    " Use xclip for copy/paste
+    vmap "+y :!xclip -f -sel clip
+    map  "+p :r!xclip -o -sel clip
 
-" Leave paste mode when leaving insert mode
-augroup copypaste
-    autocmd!
-    autocmd InsertLeave * set nopaste
-augroup end
+    " Leave paste mode when leaving insert mode
+    augroup copypaste
+        autocmd!
+        autocmd InsertLeave * set nopaste
+    augroup end
 
 " }}}
 
 " Completion {{{
-"===============================================================================
+" ==============================================================================
 
-" Command mode completetion
-set wildmenu
-set wildmode=list:longest,full " Only complete the longest common part of the text, and show the wildmenu if enabled. If tab is pressed again, it will cycle through the options
+    " Command mode completetion
+    set wildmenu
 
-" Insert mode completion
-"set completeopt=longest,menu,preview " Only complete the longest common part of the text
+    " Only complete the longest common part of the text, and show the wildmenu
+    " if enabled. If tab is pressed again, it will cycle through the options.
+    set wildmode=list:longest,full
+
+    " Insert mode completion - only complete the longest common part of the text
+    " set completeopt=longest,menu,preview
 
 " }}}
 
 " Keymapping {{{
-"===============================================================================
+" ==============================================================================
 
-" n - Normal
-" v - Visual and Select
-" s - Select
-" x - Visual
-" o - Operator-pending
-" i - Insert
-" l - Insert, Command-line, Lang-Arg
-" c - Command-line
-" None - Normal, Visual, Select, Operator-pending
-"
-" [nvsxoilc]noremap - Don't recursively map if recursive mapping is on (default)
-" [nvsxoilc]map
-" [nvsxoilc]unmap
-" [nvsxoilc]mapclea
+    " n - Normal
+    " v - Visual and Select
+    " s - Select
+    " x - Visual
+    " o - Operator-pending
+    " i - Insert
+    " l - Insert, Command-line, Lang-Arg
+    " c - Command-line
+    " None - Normal, Visual, Select, Operator-pending
+    "
+    " [nvsxoilc]noremap - Don't recursively map if recursive mapping is on (default)
+    " [nvsxoilc]map
+    " [nvsxoilc]unmap
+    " [nvsxoilc]mapclea
 
-" Use the default leader
-let mapleader = "\\"
-let g:mapleader = "\\"
+    " Use the default leader
+    let mapleader = "\\"
+    let g:mapleader = "\\"
 
-" Map space to be a leader key as well (so that showcmd works for space)
-map <Space> <Leader>
+    " Map space to be a leader key as well (so that showcmd works for space)
+    map <Space> <Leader>
 
-nmap <leader>w :w<cr>
+    nmap <leader>w :w<cr>
 
-nmap <leader>q :Bdelete<CR>
+    nmap <leader>q :Bdelete<CR>
 
-nmap <leader>l :setlocal number!<CR>:setlocal list!<CR>:silent! GitGutterToggle<CR>:silent! setlocal relativenumber!<CR>:silent! IndentLinesToggle<CR>
+    nmap <leader>l :setlocal number!<CR>:setlocal list!<CR>:silent! GitGutterToggle<CR>:silent! setlocal relativenumber!<CR>:silent! IndentLinesToggle<CR>
 
-"nmap <leader>c :!ctags --recurse --totals .<CR>
+    "nmap <leader>c :!ctags --recurse --totals .<CR>
 
-"nmap <leader>o :!xdg-open %<cr><cr>
+    "nmap <leader>o :!xdg-open %<cr><cr>
 
-nmap <leader>n :NERDTreeToggle<CR>
+    nmap <leader>n :NERDTreeToggle<CR>
 
-nmap <leader>d :call pdv#DocumentWithSnip()<cr>
+    nmap <leader>d :call pdv#DocumentWithSnip()<cr>
 
-nmap <leader>t :TagbarToggle<CR>
+    nmap <leader>t :TagbarToggle<CR>
 
-" Switch between the last two files
-nmap <leader><leader> <c-^>
+    " Switch between the last two files
+    nmap <leader><leader> <c-^>
 
-" Make vim act a bit more like readline
-cnoremap <C-a>  <Home>
-cnoremap <C-b>  <Left>
-cnoremap <C-f>  <Right>
-cnoremap <C-d>  <Delete>
-cnoremap <M-b>  <S-Left>
-cnoremap <M-f>  <S-Right>
-cnoremap <M-d>  <S-right><Delete>
-cnoremap <Esc>b <S-Left>
-cnoremap <Esc>f <S-Right>
-cnoremap <Esc>d <S-right><Delete>
-cnoremap <C-g>  <C-c>
+    " Make vim act a bit more like readline
+    cnoremap <C-a>  <Home>
+    cnoremap <C-b>  <Left>
+    cnoremap <C-f>  <Right>
+    cnoremap <C-d>  <Delete>
+    cnoremap <M-b>  <S-Left>
+    cnoremap <M-f>  <S-Right>
+    cnoremap <M-d>  <S-right><Delete>
+    cnoremap <Esc>b <S-Left>
+    cnoremap <Esc>f <S-Right>
+    cnoremap <Esc>d <S-right><Delete>
+    cnoremap <C-g>  <C-c>
 
-noremap Y y$
+    noremap Y y$
 
-" Maintain the cursor position when yanking a visual selection
-" http://ddrscott.github.io/blog/2016/yank-without-jank/
-vnoremap y myy`y
-vnoremap Y myY`y
+    " Maintain the cursor position when yanking a visual selection
+    " http://ddrscott.github.io/blog/2016/yank-without-jank/
+    vnoremap y myy`y
+    vnoremap Y myY`y
 
-vnoremap < <gv                 " Reselect visual selection after indenting
-vnoremap > >gv                 " Reselect visual selection after de-indenting
+    " Reselect visual selection after indenting
+    vnoremap < <gv
 
-" Clear search highlighting
-nnoremap <silent> <leader>k :nohl<CR>
+    " Reselect visual selection after de-indenting
+    vnoremap > >gv
 
-" Visually select last pasted text using same visual mode
-nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
+    " Clear search highlighting
+    nnoremap <silent> <leader>k :nohl<CR>
 
-" When text is wrapped, move by terminal rows, not lines, unless a count is provided
-noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
-noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
+    " Visually select last pasted text using same visual mode
+    nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
-cmap w!! %!sudo tee > /dev/null %
+    " When text is wrapped, move by terminal rows, not lines, unless a count is
+    " provided
+    noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
+    noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
-" Stop the annoying command history popup from typo
-map q: :q
+    cmap w!! %!sudo tee > /dev/null %
 
-nnoremap <leader>g :Ag<space>
+    " Stop the annoying command history popup from typo
+    map q: :q
 
-nmap c* *Ncgn
+    nnoremap <leader>g :Ag<space>
 
-" In command mode (i.e. after pressing ':'), expand %% to the path of the current
-" buffer. This allows you to easily open files from the same directory as the
-" currently opened file.
-cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+    nmap c* *Ncgn
 
-" Allows you to easily replace the current word and all its occurrences.
-nnoremap <Leader>rc :%s/\<<C-r><C-w>\>/
-vnoremap <Leader>rc y:%s/<C-r>"/
-" Allows you to easily change the current word and all occurrences to something
-" else. The difference between this and the previous mapping is that the mapping
-" below pre-fills the current word for you to change.
-nnoremap <Leader>cc :%s/\<<C-r><C-w>\>/<C-r><C-w>
-vnoremap <Leader>cc y:%s/<C-r>"/<C-r>"
+    " In command mode (i.e. after pressing ':'), expand %% to the path of the
+    " current buffer. This allows you to easily open files from the same
+    " directory as the currently opened file.
+    cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
+    " Allows you to easily replace the current word and all its occurrences.
+    nnoremap <Leader>rc :%s/\<<C-r><C-w>\>/
+    vnoremap <Leader>rc y:%s/<C-r>"/
+
+    " Allows you to easily change the current word and all occurrences to
+    " something else. The difference between this and the previous mapping is
+    " that the mapping below pre-fills the current word for you to change.
+    nnoremap <Leader>cc :%s/\<<C-r><C-w>\>/<C-r><C-w>
+    vnoremap <Leader>cc y:%s/<C-r>"/<C-r>"
 
 " }}}
 
 " Spell Checking {{{
-"===============================================================================
+" ==============================================================================
 
-set spell                      " enable spell checking
-set spelllang=en_au            " self-explanatory
+    " Enable spell checking
+    set spell
+
+    " Self-explanatory
+    set spelllang=en_au
 
 " }}}
 
 " Colors {{{
-"===============================================================================
+" ==============================================================================
 
-"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
-"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
-"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
-if (empty($TMUX))
-    if (has("nvim"))
-        "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
-        let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+    " Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
+    " If you're using tmux version 2.2 or later, you can remove the outermost
+    " $TMUX check and use tmux's 24-bit color support.
+    " See http://sunaku.github.io/tmux-24bit-color.html#usage for more
+    " information.
+    if (empty($TMUX))
+        if (has("nvim"))
+            " For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+            let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+        endif
+
+        " For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
+        " Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
+        " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
+        if (has("termguicolors"))
+            set termguicolors
+        endif
     endif
-    "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
-    "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
-    " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
-    if (has("termguicolors"))
-        set termguicolors
-    endif
-endif
 
-syntax on
-"set background=dark
+    syntax on
+    "set background=dark
 
 
-"augroup colorschemeoverrides
-"     autocmd!
-"     " autocmd ColorScheme * highlight Search     ctermbg=19  ctermfg=NONE
-"     autocmd ColorScheme * highlight SpecialKey ctermfg=237
-"     autocmd ColorScheme * highlight NonText    ctermfg=237
-"     autocmd ColorScheme * highlight MatchParen ctermbg=240 ctermfg=NONE
+    "augroup colorschemeoverrides
+    "     autocmd!
+    "     " autocmd ColorScheme * highlight Search     ctermbg=19  ctermfg=NONE
+    "     autocmd ColorScheme * highlight SpecialKey ctermfg=237
+    "     autocmd ColorScheme * highlight NonText    ctermfg=237
+    "     autocmd ColorScheme * highlight MatchParen ctermbg=240 ctermfg=NONE
 
-"     autocmd ColorScheme * highlight SpellBad cterm=underline ctermbg=NONE
-"     autocmd ColorScheme * highlight SpellLocal cterm=underline ctermbg=NONE
-"     autocmd ColorScheme * highlight SpellRare cterm=underline ctermbg=NONE
-"     autocmd ColorScheme * highlight SpellCap cterm=underline ctermbg=NONE
-"augroup end
+    "     autocmd ColorScheme * highlight SpellBad cterm=underline ctermbg=NONE
+    "     autocmd ColorScheme * highlight SpellLocal cterm=underline ctermbg=NONE
+    "     autocmd ColorScheme * highlight SpellRare cterm=underline ctermbg=NONE
+    "     autocmd ColorScheme * highlight SpellCap cterm=underline ctermbg=NONE
+    "augroup end
 
-augroup HighlightWhitespace
-    autocmd!
-    autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
-    autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-    autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-augroup end
+    augroup HighlightWhitespace
+        autocmd!
+        autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+        autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+        autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+    augroup end
 
-" if !empty(glob('~/.vim/bundle/base16-vim/')) && filereadable(expand("~/.vimrc_background")) && ($BASE16_THEME != '' || has("gui_running"))
-"     let base16colorspace=256  " Access colors present in 256 colorspace
-"     source ~/.vimrc_background
-" else
-"     colorscheme default
-" endif
+    " if !empty(glob('~/.vim/bundle/base16-vim/')) && filereadable(expand("~/.vimrc_background")) && ($BASE16_THEME != '' || has("gui_running"))
+    "     let base16colorspace=256  " Access colors present in 256 colorspace
+    "     source ~/.vimrc_background
+    " else
+    "     colorscheme default
+    " endif
 
-augroup onedarkextend
-    autocmd!
-    " Make non text characters (like listchars) barely visible
-    autocmd ColorScheme * call onedark#extend_highlight("NonText", { "fg": { "cterm": 237 } })
+    augroup onedarkextend
+        autocmd!
+        " Make non text characters (like listchars) barely visible
+        autocmd ColorScheme * call onedark#extend_highlight("NonText", { "fg": { "cterm": 237 } })
 
-    " Don't give spelling errors a special colour
-    autocmd ColorScheme * call onedark#extend_highlight("SpellBad", { "fg": { "cterm": "NONE" } })
-    autocmd ColorScheme * call onedark#extend_highlight("SpellLocal", { "fg": { "cterm": "NONE" } })
-    autocmd ColorScheme * call onedark#extend_highlight("SpellRare", { "fg": { "cterm": "NONE" } })
-    autocmd ColorScheme * call onedark#extend_highlight("SpellCap", { "fg": { "cterm": "NONE" } })
-augroup end
+        " Don't give spelling errors a special colour
+        autocmd ColorScheme * call onedark#extend_highlight("SpellBad", { "fg": { "cterm": "NONE" } })
+        autocmd ColorScheme * call onedark#extend_highlight("SpellLocal", { "fg": { "cterm": "NONE" } })
+        autocmd ColorScheme * call onedark#extend_highlight("SpellRare", { "fg": { "cterm": "NONE" } })
+        autocmd ColorScheme * call onedark#extend_highlight("SpellCap", { "fg": { "cterm": "NONE" } })
+    augroup end
 
-let g:onedark_terminal_italics = 1
-colorscheme onedark
+    let g:onedark_terminal_italics = 1
+    colorscheme onedark
 
 " }}}
 
 " Buffers {{{
-"===============================================================================
+" ==============================================================================
 
-set hidden                     " allow unwritten buffers in the background
+    " Allow unwritten buffers in the background
+    set hidden
 
-" Move between buffers like tabs
-" nmap <C-n> :bnext<CR>
-" nmap <C-p> :bprev<CR>
+    " Move between buffers like tabs
+    " nmap <C-n> :bnext<CR>
+    " nmap <C-p> :bprev<CR>
 
 " }}}
 
 " Splits {{{
-"===============================================================================
+" ==============================================================================
 
-set splitbelow                 " Open new split below rather than above
-set splitright                 " Open new vertical split to the right, rather than left
+    " Open new split below rather than above
+    set splitbelow
 
-" }}}
-
-" Folds {{{
-"===============================================================================
+    " Open new vertical split to the right, rather than left
+    set splitright
 
 " }}}
 
 " File Browsing {{{
-"===============================================================================
-set path+=** " Search in all subdirectories
+" ==============================================================================
 
-let g:netrw_liststyle = 3 " Tree view
-let g:netrw_banner = 0    " Disable the banner
+    " Search in all subdirectories
+    set path+=**
+
+    " Tree view
+    let g:netrw_liststyle = 3
+
+    " Disable the banner
+    let g:netrw_banner = 0
+
 " }}}
 
 " Filetype Overrides {{{
-"===============================================================================
+" ==============================================================================
 
-augroup filetypeoverrides
-    autocmd!
+    augroup filetypeoverrides
+        autocmd!
 
-    " Give JSON files JavaScript highlighting
-    au BufRead,BufNewFile *.json set ft=json syntax=javascript
+        " Give JSON files JavaScript highlighting
+        au BufRead,BufNewFile *.json set ft=json syntax=javascript
 
-    " Format Mutt temp files as email
-    au BufRead,BufNewFile *tmp/mutt* set ft=mail
+        " Format Mutt temp files as email
+        au BufRead,BufNewFile *tmp/mutt* set ft=mail
 
-    " Don't backup gopass temp files
-    au BufNewFile,BufRead /dev/shm/gopass.* setlocal noswapfile nobackup noundofile
-augroup end
+        " Don't backup gopass temp files
+        au BufNewFile,BufRead /dev/shm/gopass.* setlocal noswapfile nobackup noundofile
+    augroup end
 
 " }}}
 
 " Programming-specific {{{
-"===============================================================================
+" ==============================================================================
 
-" Look for tags files in parent directories
-"if has('path_extra')
-"    setglobal tags-=./tags tags-=./tags; tags^=./tags;,./vendor-tags;
-"endif
+    " Look for tags files in parent directories
+    "if has('path_extra')
+    "    setglobal tags-=./tags tags-=./tags; tags^=./tags;,./vendor-tags;
+    "endif
 
 " }}}
 
 " General Auto-commands {{{
-"===============================================================================
+" ==============================================================================
 
-augroup generalautocommands
-    autocmd!
+    augroup generalautocommands
+        autocmd!
 
-    " Return to last edit position when opening files
-    autocmd BufReadPost * call setpos(".", getpos("'\""))
+        " Return to last edit position when opening files
+        autocmd BufReadPost * call setpos(".", getpos("'\""))
 
-    " Automatically re-source the .vimrc on save
-    autocmd BufWritePost .vimrc source %
-    autocmd BufWritePost .vimrc.plugins source %
+        " Automatically re-source the .vimrc on save
+        autocmd BufWritePost .vimrc source %
+        autocmd BufWritePost .vimrc.plugins source %
 
-    autocmd FileType php setlocal commentstring=//%s
-augroup end
+        autocmd FileType php setlocal commentstring=//%s
+    augroup end
 
 " }}}
 
 " Speed Improvements {{{
-"===============================================================================
+" ==============================================================================
 
-set lazyredraw                 " seems to fix scrolling issues caused by relativenumber and cursorline"
-set ttyfast
-syntax sync minlines=100
-syntax sync maxlines=240
-set synmaxcol=800
+    " Seems to fix scrolling issues caused by relativenumber and cursorline
+    set lazyredraw
+
+    set ttyfast
+    syntax sync minlines=100
+    syntax sync maxlines=240
+    set synmaxcol=800
 
 " }}}
 
 " Backups {{{
-"===============================================================================
+" ==============================================================================
 
-if !isdirectory($HOME . '/.vim/backups')
-    call mkdir($HOME . '/.vim/backups', 'p')
-endif
-set backupdir=~/.vim/backups
-set backup
+    if !isdirectory($HOME . '/.vim/backups')
+        call mkdir($HOME . '/.vim/backups', 'p')
+    endif
+
+    set backupdir=~/.vim/backups
+    set backup
 
 " }}}
 
 " Swap Files {{{
-"===============================================================================
+" ==============================================================================
 
-if !isdirectory($HOME . '/.vim/swaps')
-    call mkdir($HOME . '/.vim/swaps', 'p')
-endif
-set directory=~/.vim/swaps
+    if !isdirectory($HOME . '/.vim/swaps')
+        call mkdir($HOME . '/.vim/swaps', 'p')
+    endif
+
+    set directory=~/.vim/swaps
 
 " }}}
 
 " Undo {{{
-"===============================================================================
+" ==============================================================================
 
-if has('persistent_undo')
-    if !isdirectory($HOME . '/.vim/undo')
-        call mkdir($HOME . '/.vim/undo', 'p')
+    if has('persistent_undo')
+
+        if !isdirectory($HOME . '/.vim/undo')
+            call mkdir($HOME . '/.vim/undo', 'p')
+        endif
+
+        set undodir=~/.vim/undo
+        set undofile
+        set undolevels=1000
+        set undoreload=10000
+
     endif
-    set undodir=~/.vim/undo
-    set undofile
-    set undolevels=1000
-    set undoreload=10000
-endif
 
 " }}}
 
 " Local overrides {{{
-"===============================================================================
+" ==============================================================================
 
-let $LOCALFILE=expand("~/.vimrc_local")
-if filereadable($LOCALFILE)
-    source $LOCALFILE
-endif
+    let $LOCALFILE=expand("~/.vimrc_local")
+
+    if filereadable($LOCALFILE)
+        source $LOCALFILE
+    endif
 
 " }}}
 
