@@ -902,6 +902,9 @@
 
         Plug 'editorconfig/editorconfig-vim'
 
+        " Ensure that this plugin works well with Tim Pope's fugitive
+        let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+
     " }}}
 
     call plug#end()
