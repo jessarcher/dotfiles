@@ -1171,24 +1171,42 @@
     " Map space to be a leader key as well (so that showcmd works for space)
     map <Space> <Leader>
 
+    " Quicky escape to normal mode
+    imap jj <esc>
+
     nmap <leader>w :w<cr>
 
     nmap <leader>q :Bdelete<CR>
+
+    " Auto change directory to match current file ,cd
+    nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 
     nmap <leader>l :setlocal number!<CR>:setlocal list!<CR>:silent! GitGutterToggle<CR>:silent! setlocal relativenumber!<CR>:silent! IndentLinesToggle<CR>
 
     "nmap <leader>c :!ctags --recurse --totals .<CR>
 
-    "nmap <leader>o :!xdg-open %<cr><cr>
+    " Open the current file in the default program
+    nmap <leader>x :!xdg-open %<cr><cr>
+
+    " Run PHPUnit tests
+    map <leader>t :!phpunit %<cr>
+
+    " Artisan shortcuts
+    abbrev amod !php artisan make:model
+    abbrev amig !php artisan make:migration
+    abbrev ajob !php artisan make:job
 
     nmap <leader>n :NERDTreeToggle<CR>
 
     nmap <leader>d :call pdv#DocumentWithSnip()<cr>
 
-    nmap <leader>t :TagbarToggle<CR>
+    nmap <leader>tb :TagbarToggle<CR>
 
     " Switch between the last two files
     nmap <leader><leader> <c-^>
+
+    " Create/edit file in the current directory
+    nmap :ed :edit %:p:h/
 
     " Make vim act a bit more like readline
     cnoremap <C-a>  <Home>
@@ -1231,8 +1249,6 @@
 
     " Stop the annoying command history popup from typo
     map q: :q
-
-    nnoremap <leader>g :Ag<space>
 
     nmap c* *Ncgn
 
