@@ -100,9 +100,17 @@
     " ag.vim  {{{
     " ==========================================================================
 
-        Plug 'rking/ag.vim', { 'on': 'Ag' }
+        Plug 'mileszs/ack.vim', { 'on': 'Ack' }
 
-        let g:ag_working_path_mode="r"
+        " Don't jump to the first result automatically
+        cnoreabbrev Ack Ack!
+
+        nnoremap <leader>g :Ack!<space>
+
+        " Use ag instead of ack
+        if executable('ag')
+            let g:ackprg = 'ag --vimgrep --smart-case'
+        endif
 
     " }}}
 
