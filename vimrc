@@ -152,6 +152,8 @@
 
             let g:ultisnips_php_scalar_types = 1
 
+            autocmd FileType php UltiSnipsAddFiletypes php-laravel
+
             " let g:UltiSnipsExpandTrigger       ="<tab>"
             " let g:UltiSnipsJumpForwardTrigger  ="<tab>"
             " let g:UltiSnipsJumpBackwardTrigger ="<s-tab>"
