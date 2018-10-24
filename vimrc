@@ -150,6 +150,8 @@
         if has('python')
             Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
+            let g:ultisnips_php_scalar_types = 1
+
             " let g:UltiSnipsExpandTrigger       ="<tab>"
             " let g:UltiSnipsJumpForwardTrigger  ="<tab>"
             " let g:UltiSnipsJumpBackwardTrigger ="<s-tab>"
