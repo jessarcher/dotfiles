@@ -105,7 +105,7 @@
         " Don't jump to the first result automatically
         cnoreabbrev Ack Ack!
 
-        nnoremap <leader>g :Ack!<space>
+        nnoremap <leader>ag :Ack!<space>
 
         " Use ag instead of ack
         if executable('ag')
@@ -209,6 +209,11 @@
 
         Plug 'tpope/vim-fugitive'
 
+        nmap <leader>gs :Gstatus<cr>
+        nmap <leader>gb :Gblame<cr>
+        nmap <leader>gc :Gcommit -v<cr>
+        nmap <leader>gp :Gpush<cr>
+
     " }}}
 
     " vim-gitgutter {{{
@@ -221,6 +226,11 @@
 
         set updatetime=100
         let g:gitgutter_max_signs=1000
+
+        nmap <leader>gn <Plug>GitGutterNextHunk
+        nmap <leader>gp <Plug>GitGutterPrevHunk
+        nmap <Leader>ga <Plug>GitGutterStageHunk
+        nmap <Leader>gu <Plug>GitGutterUndoHunk
 
     " }}}
 
@@ -873,7 +883,7 @@
 
         " let g:argwrap_tail_comma = 1
         let g:argwrap_tail_comma_braces = '['
-        nnoremap <silent> <leader>a :ArgWrap<CR>
+        nnoremap <silent> <leader>aw :ArgWrap<CR>
 
     " }}}
 
