@@ -1170,6 +1170,9 @@
     " [nvsxoilc]unmap
     " [nvsxoilc]mapclea
 
+    " Quickly edit our .vimrc file
+    nmap <leader>ve :e ~/.vimrc<cr>
+
     " Use the default leader
     let mapleader = "\\"
     let g:mapleader = "\\"
