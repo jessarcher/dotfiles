@@ -26,10 +26,12 @@
 
     ff = flow feature
     ffs = flow feature start
+    ffo = flow feature checkout
     ffp = flow feature publish
 
     fh = flow hotfix
     fhs = flow hotfix start
+    fho = flow hotfix checkout
     fhp = flow hotfix publish
 
     l = log
