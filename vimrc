@@ -566,6 +566,8 @@
 
         let g:pdv_template_dir = $HOME . "/.vim/bundle/pdv/templates_snip"
 
+        nmap <leader>pd :call pdv#DocumentWithSnip()<cr>
+
     " }}}
 
     " phpactor {{{
@@ -1201,8 +1203,6 @@
     abbrev ajob !php artisan make:job
 
     nmap <leader>n :NERDTreeToggle<CR>
-
-    nmap <leader>d :call pdv#DocumentWithSnip()<cr>
 
     nmap <leader>tb :TagbarToggle<CR>
 
