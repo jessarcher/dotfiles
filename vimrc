@@ -1429,8 +1429,11 @@
         autocmd BufReadPost * call setpos(".", getpos("'\""))
 
         " Automatically re-source the .vimrc on save
-        autocmd BufWritePost .vimrc source %
-        autocmd BufWritePost .vimrc.plugins source %
+        autocmd! BufWritePost $MYVIMRC source % | echom "Reloaded " . $MYVIMRC | redraw
+
+        " Add a variation for when we edit the .vimrc while using neovim where
+        " $MYVIMRC is set to init.vim
+        autocmd! BufWritePost .vimrc source % | echom "Reloaded " . $MYVIMRC | redraw
 
         autocmd FileType php setlocal commentstring=//%s
     augroup end
