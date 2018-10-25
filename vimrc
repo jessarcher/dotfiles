@@ -211,7 +211,8 @@
 
         nmap <leader>gs :Gstatus<cr>
         nmap <leader>gb :Gblame<cr>
-        nmap <leader>gc :Gcommit -v<cr>
+        nmap <leader>gcv :Gcommit -v<cr>
+        nmap <leader>gca :Gcommit -v --amend<cr>
         nmap <leader>gp :Gpush<cr>
 
     " }}}
@@ -227,8 +228,6 @@
         set updatetime=100
         let g:gitgutter_max_signs=1000
 
-        nmap <leader>gn <Plug>GitGutterNextHunk
-        nmap <leader>gp <Plug>GitGutterPrevHunk
         nmap <Leader>ga <Plug>GitGutterStageHunk
         nmap <Leader>gu <Plug>GitGutterUndoHunk
 
