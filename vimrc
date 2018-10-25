@@ -1195,7 +1195,7 @@
     nmap <leader>x :!xdg-open %<cr><cr>
 
     " Run PHPUnit tests
-    map <leader>t :!phpunit %<cr>
+    map <leader>pu :!phpunit %<cr>
 
     " Artisan shortcuts
     abbrev amod !php artisan make:model
