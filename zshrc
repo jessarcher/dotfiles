@@ -34,6 +34,7 @@ unsetopt sharehistory
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias a="artisan"
 alias g="git"
 alias d="docker"
 alias dc="docker-compose"
