@@ -1126,6 +1126,9 @@
     " Start searching while typing
     set incsearch
 
+    " Show what substitutions will look like real-time
+    set inccommand=split
+
     " Enable regex for searches
     set magic
 
