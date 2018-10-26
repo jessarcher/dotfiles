@@ -47,10 +47,11 @@
     ~/.tmux_darwin.conf: tmux_darwin.conf
     ~/.tmux_linux.conf: tmux_linux.conf
     ~/.vim: vim/
-    ~/.config/nvim: vim/
     ~/.vimperatorrc: vimperatorrc
     ~/.vimrc: vimrc
-    ~/.config/nvim/init.vim: vimrc
+    ~/.config/nvim/init.vim:
+        create: true
+        path: nvim.vim
     ~/.xinitrc: xinitrc
     ~/.Xmodmap: Xmodmap
     ~/.Xresources: Xresources
