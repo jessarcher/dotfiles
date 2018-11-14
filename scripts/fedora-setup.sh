@@ -26,6 +26,7 @@ sudo dnf install \
     php-xml \
     php-pdo \
     php-pgsql \
+    php-process \
     pidgin \
     pidgin-libnotify \
     pidgin-otr \
