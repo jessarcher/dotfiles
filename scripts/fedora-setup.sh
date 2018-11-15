@@ -20,6 +20,7 @@ sudo dnf install \
     kitty \
     neovim \
     nodejs \
+    php-bcmath \
     php-cli \
     php-json \
     php-mbstring \
