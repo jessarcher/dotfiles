@@ -962,7 +962,7 @@
     endif
 
     " Store lots of :cmdline history
-    set history=1000
+    set history=500
 
     " Reload files changed outside of vim
     set autoread
@@ -1481,7 +1481,7 @@
     set ttyfast
     syntax sync minlines=100
     syntax sync maxlines=240
-    set synmaxcol=800
+    set synmaxcol=120
 
 " }}}
 
