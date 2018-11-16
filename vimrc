@@ -957,9 +957,9 @@
     set number
 
     " Show line numbers relative to the current line
-    if exists('+relativenumber')
-        set relativenumber
-    endif
+    " if exists('+relativenumber')
+    "     set relativenumber
+    " endif
 
     " Store lots of :cmdline history
     set history=500
@@ -1021,7 +1021,7 @@
     set mouse=a
 
     " Highlight the line that the cursor is on
-    set cursorline
+    " set cursorline
 
     " Start vertically scrolling when 3 lines from the top or bottom
     set scrolloff=3
