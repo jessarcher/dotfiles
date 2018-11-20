@@ -286,6 +286,16 @@
 
     " }}}
 
+    " vim-context-commentstring {{{
+    "
+    " Vim plugin that sets the value of ‘commentstring’ to a different value
+    " depending on the region of the file you are in.
+    " ==========================================================================
+
+        Plug 'suy/vim-context-commentstring'
+
+    " }}}
+
     " vdebug {{{
     "
     " Multi-language DBGP debugger client for Vim
