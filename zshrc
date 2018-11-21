@@ -90,6 +90,11 @@ alias paste="xclip -o -selection clipboard"
 alias ag="sag"
 alias gs="git s"
 alias cat="bat"
+alias nah="git reset --hard;git clean -df"
+
+homestead() {
+    ( cd ~/Homestead && vagrant $* )
+}
 
 if (( $+commands[tag] )); then
     tag() { command tag "$@"; source ${TAG_ALIAS_FILE:-/tmp/tag_aliases} 2>/dev/null }
