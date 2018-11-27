@@ -972,9 +972,9 @@
     set number
 
     " Show line numbers relative to the current line
-    " if exists('+relativenumber')
-    "     set relativenumber
-    " endif
+    if exists('+relativenumber')
+        set relativenumber
+    endif
 
     " Store lots of :cmdline history
     set history=500
