@@ -902,13 +902,14 @@
 
     " vim-wintabs {{{
     " ==========================================================================
-        Plug 'zefei/vim-wintabs'
-        Plug 'zefei/vim-wintabs-powerline'
 
-        let g:wintabs_ui_buffer_name_format = ' %n %t '
+"         Plug 'zefei/vim-wintabs'
+"         Plug 'zefei/vim-wintabs-powerline'
 
-        map <C-n> :WintabsNext<CR>
-        map <C-p> :WintabsPrev<CR>
+"         let g:wintabs_ui_buffer_name_format = ' %n %t '
+
+"         map <C-n> :WintabsNext<CR>
+"         map <C-p> :WintabsPrev<CR>
 
     " }}}
 
