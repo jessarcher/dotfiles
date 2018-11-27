@@ -1490,9 +1490,9 @@
     set lazyredraw
 
     set ttyfast
-    syntax sync minlines=100
-    syntax sync maxlines=240
-    set synmaxcol=120
+    " syntax sync minlines=200
+    " syntax sync maxlines=240
+    set synmaxcol=210 " Prevent vim from processing syntax on really long lines
 
 " }}}
 
