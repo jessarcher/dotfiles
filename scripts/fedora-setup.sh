@@ -25,6 +25,7 @@ sudo dnf install \
     php-json \
     php-mbstring \
     php-xml \
+    php-mysqlnd \
     php-pdo \
     php-pgsql \
     php-process \
