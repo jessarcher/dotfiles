@@ -191,6 +191,8 @@
         " Show absolute line numbers
         let g:tagbar_show_linenumbers=1
 
+        nmap <leader>tb :TagbarToggle<CR>
+
     " }}}
 
     " delimitMate {{{
@@ -857,6 +859,8 @@
         " Close vim automatically if the only window left open is a NERDTree
         "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+        nmap <leader>n :NERDTreeToggle<CR>
+
     " }}}
 
     " nerdtree-git-plugin {{{
@@ -1243,10 +1247,6 @@
     abbrev amod !php artisan make:model
     abbrev amig !php artisan make:migration
     abbrev ajob !php artisan make:job
-
-    nmap <leader>n :NERDTreeToggle<CR>
-
-    nmap <leader>tb :TagbarToggle<CR>
 
     " Switch between the last two files
     nmap <leader><leader> <c-^>
