@@ -17,7 +17,6 @@ plugins=(
     dnf
     docker
     docker-compose
-    dotenv
     git
     git-flow
     gpg-agent
