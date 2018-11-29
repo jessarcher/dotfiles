@@ -178,7 +178,7 @@
         Plug 'majutsushi/tagbar'
 
         " Open tagbar automatically for supported types
-        autocmd FileType * nested :call tagbar#autoopen(0)
+        "autocmd FileType * nested :call tagbar#autoopen(0)
 
         " Automatically close after jumping to a tag
         let g:tagbar_autoclose = 0
@@ -190,6 +190,8 @@
 
         " Show absolute line numbers
         let g:tagbar_show_linenumbers=1
+
+        nmap <leader>tb :TagbarToggle<CR>
 
     " }}}
 
@@ -850,12 +852,14 @@
         let NERDTreeMinimalUI=1
 
         " Open NERDTree automatically when vim starts up and no files were specified
-        autocmd StdinReadPre * let s:std_in=1
+        "autocmd StdinReadPre * let s:std_in=1
         "autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | wincmd p | endif
-        autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+        "autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
         " Close vim automatically if the only window left open is a NERDTree
-        autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+        "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+        nmap <leader>n :NERDTreeToggle<CR>
 
     " }}}
 
@@ -898,13 +902,14 @@
 
     " vim-wintabs {{{
     " ==========================================================================
-        Plug 'zefei/vim-wintabs'
-        Plug 'zefei/vim-wintabs-powerline'
 
-        let g:wintabs_ui_buffer_name_format = ' %n %t '
+"         Plug 'zefei/vim-wintabs'
+"         Plug 'zefei/vim-wintabs-powerline'
 
-        map <C-n> :WintabsNext<CR>
-        map <C-p> :WintabsPrev<CR>
+"         let g:wintabs_ui_buffer_name_format = ' %n %t '
+
+"         map <C-n> :WintabsNext<CR>
+"         map <C-p> :WintabsPrev<CR>
 
     " }}}
 
@@ -967,9 +972,9 @@
     set number
 
     " Show line numbers relative to the current line
-    " if exists('+relativenumber')
-    "     set relativenumber
-    " endif
+    if exists('+relativenumber')
+        set relativenumber
+    endif
 
     " Store lots of :cmdline history
     set history=500
@@ -1244,10 +1249,6 @@
     abbrev amig !php artisan make:migration
     abbrev ajob !php artisan make:job
 
-    nmap <leader>n :NERDTreeToggle<CR>
-
-    nmap <leader>tb :TagbarToggle<CR>
-
     " Switch between the last two files
     nmap <leader><leader> <c-^>
 
@@ -1489,9 +1490,9 @@
     set lazyredraw
 
     set ttyfast
-    syntax sync minlines=100
-    syntax sync maxlines=240
-    set synmaxcol=120
+    " syntax sync minlines=200
+    " syntax sync maxlines=240
+    set synmaxcol=210 " Prevent vim from processing syntax on really long lines
 
 " }}}
 
