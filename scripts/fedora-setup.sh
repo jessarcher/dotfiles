@@ -8,6 +8,7 @@ sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/dock
 
 # Install packages
 sudo dnf install \
+    bat \
     boost-devel \
     cmake \
     docker-ce \
