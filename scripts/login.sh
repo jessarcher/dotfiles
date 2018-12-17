@@ -17,10 +17,12 @@ printf '
         `YW#####W7"      \W#####M\
            ¯¯¯¯¯          ¯¯¯¯¯¯¯¯
 ' | lolcat
+printf '
+      Greetings Jess, welcome back!
+' | lolcat
 echo
-printf $GREEN
-echo 'Greetings Jess! Here is a vimtip for you:'
-echo
-fortune vimtips
-echo
-printf $NC
+# printf $GREEN
+# echo
+# fortune vimtips
+# echo
+# printf $NC
