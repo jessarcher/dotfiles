@@ -17,48 +17,45 @@
 # Plugins {{{
 # ==============================================================================
 
-    # Load the Antigen plugin manager for zsh.
-    source ~/.dotfiles/antigen/antigen.zsh
+    # Load the Antibody plugin manager for zsh.
+    source <(antibody init)
 
-    # Load the oh-my-zsh library.
-    antigen use oh-my-zsh
+    # Setup required env var for oh-my-zsh plugins
+    export ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
 
-    # Bundles from the default repo (robbyrussell's oh-my-zsh).
-    antigen bundle adb
-    antigen bundle bower
-    antigen bundle composer
-    antigen bundle cp
-    antigen bundle dnf
-    antigen bundle docker
-    antigen bundle docker-compose
-    antigen bundle git
-    antigen bundle git-flow
-    antigen bundle gpg-agent
-    antigen bundle gulp
-    antigen bundle httpie
-    antigen bundle jsontools
-    antigen bundle jump
-    antigen bundle nmap
-    antigen bundle npm
-    antigen bundle pass
-    antigen bundle rsync
-    antigen bundle sack
-    antigen bundle ssh-agent
-    antigen bundle tmux
-    antigen bundle tmuxinator
+    antibody bundle robbyrussell/oh-my-zsh
+    antibody bundle robbyrussell/oh-my-zsh path:plugins/adb
+    antibody bundle robbyrussell/oh-my-zsh path:plugins/bower
+    antibody bundle robbyrussell/oh-my-zsh path:plugins/composer
+    antibody bundle robbyrussell/oh-my-zsh path:plugins/cp
+    antibody bundle robbyrussell/oh-my-zsh path:plugins/dnf
+    antibody bundle robbyrussell/oh-my-zsh path:plugins/docker
+    antibody bundle robbyrussell/oh-my-zsh path:plugins/docker-compose
+    antibody bundle robbyrussell/oh-my-zsh path:plugins/git
+    antibody bundle robbyrussell/oh-my-zsh path:plugins/git-flow
+    antibody bundle robbyrussell/oh-my-zsh path:plugins/gpg-agent
+    antibody bundle robbyrussell/oh-my-zsh path:plugins/gulp
+    antibody bundle robbyrussell/oh-my-zsh path:plugins/httpie
+    antibody bundle robbyrussell/oh-my-zsh path:plugins/jsontools
+    antibody bundle robbyrussell/oh-my-zsh path:plugins/jump
+    antibody bundle robbyrussell/oh-my-zsh path:plugins/nmap
+    antibody bundle robbyrussell/oh-my-zsh path:plugins/npm
+    antibody bundle robbyrussell/oh-my-zsh path:plugins/pass
+    antibody bundle robbyrussell/oh-my-zsh path:plugins/rsync
+    antibody bundle robbyrussell/oh-my-zsh path:plugins/ssh-agent
+    antibody bundle robbyrussell/oh-my-zsh path:plugins/tmux
+    antibody bundle robbyrussell/oh-my-zsh path:plugins/tmuxinator
 
     # Other bundles
-    antigen bundle jessarcher/zsh-artisan
-    antigen bundle zsh-users/zsh-autosuggestions
+    antibody bundle sampson-chen/sack
+    antibody bundle jessarcher/zsh-artisan
+    antibody bundle zsh-users/zsh-autosuggestions
 
     # This needs to be the last bundle.
-    antigen bundle zsh-users/zsh-syntax-highlighting
+    antibody bundle zsh-users/zsh-syntax-highlighting
 
     # Load the theme.
-    antigen theme robbyrussell
-
-    # Tell Antigen that you're done.
-    antigen apply
+    antibody bundle robbyrussell/oh-my-zsh path:themes/robbyrussell.zsh-theme
 
 # }}}
 
