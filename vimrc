@@ -63,54 +63,54 @@
     " ctrlp.vim {{{
     " ==========================================================================
 
-        Plug 'ctrlpvim/ctrlp.vim'
-        Plug 'tacahiroy/ctrlp-funky'
-        Plug 'nixprime/cpsm', { 'do': 'env PY3=ON ./install.sh' }
+        " Plug 'ctrlpvim/ctrlp.vim'
+        " Plug 'tacahiroy/ctrlp-funky'
+        " Plug 'nixprime/cpsm', { 'do': 'env PY3=ON ./install.sh' }
 
-        if executable('fd')
-            let g:ctrlp_user_command = 'fd --type f --color=never "" %s'
-            let g:ctrlp_use_caching = 0
-        elseif executable('ag')
-            let g:ctrlp_user_command = 'ag %s -g "" --hidden --nocolor'
-            let g:ctrlp_use_caching = 0
-        elseif executable('ack-grep')
-            let g:ctrlp_user_command = 'ack-grep %s --nocolor -f'
-        elseif executable('ack')
-            let g:ctrlp_user_command = 'ack %s --nocolor -f'
-        else
-            let g:ctrlp_user_command = 'find %s -type f'
-        endif
+        " if executable('fd')
+        "     let g:ctrlp_user_command = 'fd --type f --color=never "" %s'
+        "     let g:ctrlp_use_caching = 0
+        " elseif executable('ag')
+        "     let g:ctrlp_user_command = 'ag %s -g "" --hidden --nocolor'
+        "     let g:ctrlp_use_caching = 0
+        " elseif executable('ack-grep')
+        "     let g:ctrlp_user_command = 'ack-grep %s --nocolor -f'
+        " elseif executable('ack')
+        "     let g:ctrlp_user_command = 'ack %s --nocolor -f'
+        " else
+        "     let g:ctrlp_user_command = 'find %s -type f'
+        " endif
 
-        let g:ctrlp_match_func = { 'match': 'cpsm#CtrlPMatch' }
+        " let g:ctrlp_match_func = { 'match': 'cpsm#CtrlPMatch' }
 
-        let g:ctrlp_map = ''
+        " let g:ctrlp_map = ''
 
-        let g:ctrlp_funky_matchtype = 'path'
-        let g:ctrlp_funky_syntax_highlight = 1
-        let g:ctrlp_funky_nudists = ['php']
+        " let g:ctrlp_funky_matchtype = 'path'
+        " let g:ctrlp_funky_syntax_highlight = 1
+        " let g:ctrlp_funky_nudists = ['php']
 
-        nmap <leader>f :CtrlP<CR>
-        nmap <leader>s :CtrlPFunky<CR>
-        nmap <leader>b :CtrlPBuffer<CR>
-        nmap <leader>m :CtrlPMRUFiles<CR>
-        nmap <leader>v :CtrlP vendor<CR>
+        " nmap <leader>f :CtrlP<CR>
+        " nmap <leader>s :CtrlPFunky<CR>
+        " nmap <leader>b :CtrlPBuffer<CR>
+        " nmap <leader>m :CtrlPMRUFiles<CR>
+        " nmap <leader>v :CtrlP vendor<CR>
 
     " }}}
 
     " ag.vim  {{{
     " ==========================================================================
 
-        Plug 'mileszs/ack.vim', { 'on': 'Ack' }
+        " Plug 'mileszs/ack.vim', { 'on': 'Ack' }
 
-        " Don't jump to the first result automatically
-        cnoreabbrev Ack Ack!
+        " " Don't jump to the first result automatically
+        " cnoreabbrev Ack Ack!
 
-        nnoremap <leader>ag :Ack!<space>
+        " nnoremap <leader>ag :Ack!<space>
 
-        " Use ag instead of ack
-        if executable('ag')
-            let g:ackprg = 'ag --vimgrep --smart-case'
-        endif
+        " " Use ag instead of ack
+        " if executable('ag')
+        "     let g:ackprg = 'ag --vimgrep --smart-case'
+        " endif
 
     " }}}
 
@@ -773,15 +773,15 @@
     " A vim plugin to display the indention levels with thin vertical lines
     " ==========================================================================
 
-        Plug 'Yggdroot/indentLine'
+        " Plug 'Yggdroot/indentLine'
 
-        " let g:indentline_faster = 1
-        " let g:indentline_char = '┊'
-        " let g:indentline_first_char = '┊'
-        let g:indentline_char = '│'
-        let g:indentline_first_char = '│'
-        let g:indentline_color_term = 237
-        let g:indentline_showfirstindentlevel = 1
+        " " let g:indentline_faster = 1
+        " " let g:indentline_char = '┊'
+        " " let g:indentline_first_char = '┊'
+        " let g:indentline_char = '│'
+        " let g:indentline_first_char = '│'
+        " let g:indentline_color_term = 237
+        " let g:indentline_showfirstindentlevel = 1
 
     " }}}
 
@@ -961,6 +961,29 @@
 
     " }}}
 
+    " fzf {{{
+    " ==========================================================================
+
+        Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+        Plug 'junegunn/fzf.vim'
+
+        nmap <leader>f :GFiles --cached --others --exclude-standard<CR>
+        nmap <leader>F :Files<CR>
+        nmap <leader>b :Buffers<CR>
+        nmap <leader>h :History<CR>
+        nmap <leader>t :BTags<CR>
+        nmap <leader>l :BLines<CR>
+        nmap <leader>L :Lines<CR>
+        nmap <leader>' :Marks<CR>
+        nmap <leader>ag :Ag<space>
+        nmap <leader>H :Helptags!<space>
+        nmap <leader>C :Commands<space>
+        nmap <leader>: :History:<space>
+        nmap <leader>/ :History/<space>
+        nmap <leader>M :Maps<space>
+        nmap <leader>M :Maps<space>
+
+    " }}}
 
     call plug#end()
 " }}}
@@ -1234,7 +1257,7 @@
     " Auto change directory to match current file ,cd
     nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 
-    nmap <leader>l :setlocal number!<CR>:setlocal list!<CR>:silent! GitGutterToggle<CR>:silent! setlocal relativenumber!<CR>:silent! IndentLinesToggle<CR>
+    "nmap <leader>l :setlocal number!<CR>:setlocal list!<CR>:silent! GitGutterToggle<CR>:silent! setlocal relativenumber!<CR>:silent! IndentLinesToggle<CR>
 
     "nmap <leader>c :!ctags --recurse --totals .<CR>
 
