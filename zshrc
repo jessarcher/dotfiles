@@ -143,3 +143,5 @@
 # }}}
 
 # vim: set nospell foldmethod=marker foldlevel=0:
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
