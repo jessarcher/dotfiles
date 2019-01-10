@@ -210,6 +210,8 @@
     " ==========================================================================
 
         Plug 'tpope/vim-fugitive'
+        Plug 'tpope/vim-rhubarb' " Github support
+        Plug 'shumphrey/fugitive-gitlab.vim' " Gitlab support
 
         nmap <leader>gs :Gstatus<cr>
         nmap <leader>gb :Gblame<cr>
