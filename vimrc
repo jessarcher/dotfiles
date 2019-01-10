@@ -1457,6 +1457,11 @@
     " Disable the banner
     let g:netrw_banner = 0
 
+    " Force netrw to open links directly in firefox rather than using xdg-open
+    " and friends. This fixes an issue where xdg-open and friends will redirect
+    " to the login screen for URLs where a session exists in Firefox.
+    let g:netrw_browsex_viewer = "firefox"
+
 " }}}
 
 " Filetype Overrides {{{
