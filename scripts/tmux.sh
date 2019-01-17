@@ -46,12 +46,13 @@ case "$1" in
         ;;
     -cmd)
         case "$2" in
+            server)                    echo "" ;;
             console|artisan)           echo "" ;;
-            psql|mysql)                echo "" ;;
-            vi|vim|nvim)               echo "" ;;
-            zsh)                       echo "" ;;
+            psql|mysql)                echo "" ;;
+            vi|vim|nvim)               echo "" ;;
+            zsh|shell)                 echo "" ;;
             dmesg|logs|journalctl)     echo "" ;;
-            gulp)                      echo "" ;;
+            gulp|runner)               echo "" ;;
             laravel)                   echo "" ;;
             mutt)                      echo "" ;;
             git|gitsh|g)               echo "" ;;
