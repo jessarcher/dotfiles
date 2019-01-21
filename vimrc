@@ -200,7 +200,32 @@
     " provides insert mode auto-completion for quotes, parens, brackets, etc.
     " ==========================================================================
 
-        Plug 'Raimondi/delimitMate'
+        " Plug 'Raimondi/delimitMate'
+
+    " }}}
+
+    " pear-tree {{{
+    "
+    " A Vim auto-pair plugin that supports multi-character pairs, intelligent matching, and more
+    " ==========================================================================
+
+        Plug 'tmsvg/pear-tree'
+
+        let g:pear_tree_pairs = {
+            \ '(': {'closer': ')'},
+            \ '[': {'closer': ']'},
+            \ '{': {'closer': '}'},
+            \ "'": {'closer': "'"},
+            \ '"': {'closer': '"'},
+            \ '/\*': {'closer': '\*/'},
+            \ '<!--': {'closer': '-->'}
+            \ }
+
+        let g:pear_tree_repeatable_expand = 0
+
+        let g:pear_tree_smart_openers = 1
+        let g:pear_tree_smart_closers = 1
+        let g:pear_tree_smart_backspace = 1
 
     " }}}
 
