@@ -578,6 +578,8 @@
         Plug 'ncm2/ncm2-match-highlight'
         Plug 'ncm2/ncm2-ultisnips'
 
+        let g:ncm2#match_highlight = 'mono-space'
+
         " Optional Vimrc Tips
 
         " suppress the annoying 'match x of y', 'The only match' and 'Pattern not
