@@ -1026,6 +1026,12 @@
         let g:test#custom_transformations = {'docker': function('DockerTransform')}
         let g:test#transformation = 'docker'
 
+        nmap <leader>tn :TestNearest<CR>
+        nmap <leader>tf :TestFile<CR>
+        nmap <leader>ts :TestSuite<CR>
+        nmap <leader>tl :TestLast<CR>
+        nmap <leader>tv :TestVisit<CR>
+
     " }}}
 
     call plug#end()
@@ -1306,9 +1312,6 @@
 
     " Open the current file in the default program
     nmap <leader>x :!xdg-open %<cr><cr>
-
-    " Run PHPUnit tests
-    map <leader>pu :!phpunit %<cr>
 
     " Artisan shortcuts
     abbrev amod !php artisan make:model
