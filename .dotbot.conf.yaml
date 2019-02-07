@@ -60,4 +60,4 @@
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
     - [~/.tmux/plugins/tpm/scripts/install_plugins.sh >/dev/null 2>&1, Installing tmux plugins]
-    - ["mkdir -p ~/.urxvt/ext/ && curl https://raw.githubusercontent.com/majutsushi/urxvt-font-size/master/font-size > ~/.urxvt/ext/font-size", 'Installing urxvt-font-size']
+    - ["vim +PlugUpdate +PlugClean! +qa", Installing and updating plugins]

@@ -227,6 +227,10 @@
         let g:pear_tree_smart_closers = 1
         let g:pear_tree_smart_backspace = 1
 
+        " Override the default pear-tree <CR> mapping to prevent it from
+        " hijacking the ability to select items from the pop up menu
+        imap <expr> <CR> !pumvisible() ? "\<Plug>(PearTreeExpand)" : ncm2_ultisnips#expand_or("\<CR>", 'n')
+
     " }}}
 
     " vim-fugitive {{{
@@ -597,7 +601,8 @@
 
         " Press enter key to trigger snippet expansion
         " The parameters are the same as `:help feedkeys()`
-        inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
+        " Implemented via pear-tree
+        " inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
 
         " c-j c-k for moving in snippet
         let g:UltiSnipsExpandTrigger		= "<Plug>(ultisnips_expand)"
@@ -946,6 +951,8 @@
     " ==========================================================================
 
         Plug 'sickill/vim-pasta'
+
+        let g:pasta_disabled_filetypes = ['fugitive']
 
     " }}}
 
