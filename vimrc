@@ -1383,9 +1383,6 @@
 
     cmap w!! %!sudo tee > /dev/null %
 
-    " Stop the annoying command history popup from typo
-    map q: :q
-
     nmap c* *Ncgn
 
     " In command mode (i.e. after pressing ':'), expand %% to the path of the
