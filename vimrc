@@ -308,6 +308,15 @@
 
     " }}}
 
+    " vim-abolish {{{
+    "
+    " easily search for, substitute, and abbreviate multiple variants of a word
+    " ==========================================================================
+
+        Plug 'tpope/vim-abolish'
+
+    " }}}
+
     " vim-vue {{{
     "
     " Syntax highlight for Vue.js components
