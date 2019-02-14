@@ -261,9 +261,6 @@
         set updatetime=100
         let g:gitgutter_max_signs=1000
 
-        nmap <Leader>ga <Plug>GitGutterStageHunk
-        nmap <Leader>gu <Plug>GitGutterUndoHunk
-
     " }}}
 
     " vim-tmux-navigator {{{
