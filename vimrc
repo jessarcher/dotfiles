@@ -710,6 +710,15 @@
 
     " }}}
 
+    " phpfolding.vim {{{
+    "
+    " Automatic folding of PHP functions, classes,.. (aldo folds related PhpDoc)
+    " ==========================================================================
+
+        Plug 'rayburgemeestre/phpfolding.vim'
+
+    " }}}
+
     " html5.vim {{{
     "
     " HTML5 omnicomplete and syntax
