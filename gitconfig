@@ -64,3 +64,5 @@
     default = current
 [rerere]
     enabled = true
+[merge]
+	conflictstyle = diff3
