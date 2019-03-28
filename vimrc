@@ -150,9 +150,12 @@
         if has('python')
             Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
+            let g:UltiSnipsSnippetDirectories=['UltiSnips', $HOME.'/.vim/UltiSnips']
+
             let g:ultisnips_php_scalar_types = 1
 
-            autocmd FileType php UltiSnipsAddFiletypes php-laravel
+            autocmd FileType php UltiSnipsAddFiletypes laravel.php
+            autocmd FileType vue UltiSnipsAddFiletypes vue.javascript
 
             " let g:UltiSnipsExpandTrigger       ="<tab>"
             " let g:UltiSnipsJumpForwardTrigger  ="<tab>"
