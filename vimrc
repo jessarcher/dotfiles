@@ -1081,6 +1081,13 @@
 
     " }}}
 
+    " vim-sleuth {{{
+    " ==========================================================================
+
+        Plug 'tpope/vim-sleuth'
+
+    " }}}
+
     call plug#end()
 " }}}
 
@@ -1225,30 +1232,30 @@
 " ==============================================================================
 
     " Use spaces instead of tabs
-    set expandtab
+    "set expandtab
 
     " How many characters wide the tab character should be
-    set tabstop=4
+    "set tabstop=4
 
     " How many spaces to use instead of a tab
-    set shiftwidth=4
+    "set shiftwidth=4
 
     " Intelligently backspace the right number of space characters
-    set smarttab
+    "set smarttab
 
     " Copy indent level from previous line when starting a new line
-    set autoindent
+    "set autoindent
 
     " Seems to automatically update the indentation when a closing paren is
     " typed
-    set smartindent
+    "set smartindent
 
     " Copy whatever characters were used to indent the previous line
-    set copyindent
+    "set copyindent
 
     " Preserve as much of the existing indentation characters when changing
     " indentation level
-    set preserveindent
+    "set preserveindent
 
     " display tabs, tailing spaces, and other chars visually
     set list
