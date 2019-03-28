@@ -1418,6 +1418,7 @@
     cmap w!! %!sudo tee > /dev/null %
 
     nmap c* *Ncgn
+    vmap c* *Ncgn
 
     " In command mode (i.e. after pressing ':'), expand %% to the path of the
     " current buffer. This allows you to easily open files from the same
