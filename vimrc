@@ -1112,6 +1112,14 @@
 
     " }}}
 
+    " vim-laravel {{{
+    " ==========================================================================
+
+        Plug 'noahfrederick/vim-composer'
+        Plug 'noahfrederick/vim-laravel'
+
+    " }}}
+
     call plug#end()
 " }}}
 
