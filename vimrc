@@ -334,7 +334,7 @@
 
         Plug 'posva/vim-vue'
 
-        autocmd FileType vue syntax sync fromstart
+        autocmd BufEnter *.vue syntax sync fromstart
 
     " }}}
 
