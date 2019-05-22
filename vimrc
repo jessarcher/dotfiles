@@ -254,6 +254,15 @@
 
     " }}}
 
+    " vim-dispatch {{{
+    "
+    " Asynchronous build and test dispatcher
+    " ==========================================================================
+
+        Plug 'tpope/vim-dispatch'
+
+    " }}}
+
     " vim-gitgutter {{{
     "
     " A Vim plugin which shows a git diff in the gutter (sign column) and
