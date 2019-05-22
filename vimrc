@@ -997,6 +997,21 @@
 
         Plug 'joshdick/onedark.vim'
 
+        augroup onedarkextend
+            autocmd!
+            " Make non text characters (like listchars) barely visible
+            autocmd ColorScheme * call onedark#extend_highlight("NonText", { "fg": { "cterm": 237 } })
+
+            " Don't give spelling errors a special colour
+            autocmd ColorScheme * call onedark#extend_highlight("SpellBad", { "fg": { "cterm": "NONE" } })
+            autocmd ColorScheme * call onedark#extend_highlight("SpellLocal", { "fg": { "cterm": "NONE" } })
+            autocmd ColorScheme * call onedark#extend_highlight("SpellRare", { "fg": { "cterm": "NONE" } })
+            autocmd ColorScheme * call onedark#extend_highlight("SpellCap", { "fg": { "cterm": "NONE" } })
+        augroup end
+
+        let g:onedark_hide_endofbuffer = 1
+        let g:onedark_terminal_italics = 1
+
     " }}}
 
     " editorconfig {{{
@@ -1510,19 +1525,6 @@
     "     colorscheme default
     " endif
 
-    augroup onedarkextend
-        autocmd!
-        " Make non text characters (like listchars) barely visible
-        autocmd ColorScheme * call onedark#extend_highlight("NonText", { "fg": { "cterm": 237 } })
-
-        " Don't give spelling errors a special colour
-        autocmd ColorScheme * call onedark#extend_highlight("SpellBad", { "fg": { "cterm": "NONE" } })
-        autocmd ColorScheme * call onedark#extend_highlight("SpellLocal", { "fg": { "cterm": "NONE" } })
-        autocmd ColorScheme * call onedark#extend_highlight("SpellRare", { "fg": { "cterm": "NONE" } })
-        autocmd ColorScheme * call onedark#extend_highlight("SpellCap", { "fg": { "cterm": "NONE" } })
-    augroup end
-
-    let g:onedark_terminal_italics = 1
     colorscheme onedark
 
 " }}}
