@@ -43,6 +43,7 @@
         Plug 'w0rp/ale'
         Plug 'maximbaz/lightline-ale'
         let g:ale_completion_enabled = 1
+        let g:ale_set_highlights = 0
         let g:ale_set_balloons = 1
         let g:ale_sign_error = '✖'
         let g:ale_sign_warning = '!'
