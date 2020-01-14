@@ -46,7 +46,7 @@
 
     s = status --short --branch
 
-    branch-list-merged = "!git branch --merged develop | grep -v -E '(develop|origin|master)'"
+    branch-list-merged = "!git branch --merged master | grep -v -E '(develop|origin|master)'"
     branch-delete-merged = "!git branch-list-merged | xargs git branch -d"
 
 [color]
