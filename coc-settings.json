@@ -1,0 +1,27 @@
+{
+    "languageserver": {
+        "intelephense": {
+            "command": "intelephense",
+            "args": ["--stdio"],
+            "filetypes": ["php"],
+            "initializationOptions": {
+                "storagePath": "/tmp/intelephense"
+            }
+        }
+    },
+    "diagnostic-languageserver.filetypes": {
+        "email": "languagetool",
+        "markdown": [ "write-good", "markdownlint" ],
+        "sh": "shellcheck",
+        "php": "phpcs"
+    },
+    "diagnostic-languageserver.formatFiletypes": {
+    },
+    "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact", "typescript.tsx"],
+    "diagnostic.errorSign": "\uf05e",
+    "diagnostic.warningSign": "\uf071",
+    "diagnostic.infoSign": "•",
+    "coc.source.emoji.filetypes": null,
+    "diagnostic.hintSign": "•",
+    "git.enableGutters": true
+}

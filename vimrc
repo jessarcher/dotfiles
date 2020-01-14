@@ -25,8 +25,6 @@
 " Plugins {{{
 
     " vim-plug {{{
-    " ==========================================================================
-
         if empty(glob('~/.vim/autoload/plug.vim'))
             silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
                 \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -34,151 +32,37 @@
         endif
 
         call plug#begin('~/.vim/bundle')
-
     " }}}
 
-    " ale {{{
-    " ==========================================================================
-
-        Plug 'w0rp/ale'
-        Plug 'maximbaz/lightline-ale'
-        let g:ale_completion_enabled = 1
-        let g:ale_set_highlights = 0
-        let g:ale_set_balloons = 1
-        let g:ale_sign_error = '✖'
-        let g:ale_sign_warning = '!'
-
-        let g:ale_php_phpcbf_standard = 'PSR2'
-        let g:ale_php_phpcs_standard = 'PSR2'
-        let g:ale_php_cs_fixer_options = '--fixers PSR2'
-
-        let g:ale_fixers = {'php': ['php_cs_fixer', 'phpcbf']}
-
-        let g:lightline#ale#indicator_checking = "\uf110"
-        let g:lightline#ale#indicator_warnings = "\uf071"
-        let g:lightline#ale#indicator_errors = "\uf05e"
-        let g:lightline#ale#indicator_ok = "\uf00c"
-
-    " }}}
-
-    " ctrlp.vim {{{
-    " ==========================================================================
-
-        " Plug 'ctrlpvim/ctrlp.vim'
-        " Plug 'tacahiroy/ctrlp-funky'
-        " Plug 'nixprime/cpsm', { 'do': 'env PY3=ON ./install.sh' }
-
-        " if executable('fd')
-        "     let g:ctrlp_user_command = 'fd --type f --color=never "" %s'
-        "     let g:ctrlp_use_caching = 0
-        " elseif executable('ag')
-        "     let g:ctrlp_user_command = 'ag %s -g "" --hidden --nocolor'
-        "     let g:ctrlp_use_caching = 0
-        " elseif executable('ack-grep')
-        "     let g:ctrlp_user_command = 'ack-grep %s --nocolor -f'
-        " elseif executable('ack')
-        "     let g:ctrlp_user_command = 'ack %s --nocolor -f'
-        " else
-        "     let g:ctrlp_user_command = 'find %s -type f'
-        " endif
-
-        " let g:ctrlp_match_func = { 'match': 'cpsm#CtrlPMatch' }
-
-        " let g:ctrlp_map = ''
-
-        " let g:ctrlp_funky_matchtype = 'path'
-        " let g:ctrlp_funky_syntax_highlight = 1
-        " let g:ctrlp_funky_nudists = ['php']
-
-        " nmap <leader>f :CtrlP<CR>
-        " nmap <leader>s :CtrlPFunky<CR>
-        " nmap <leader>b :CtrlPBuffer<CR>
-        " nmap <leader>m :CtrlPMRUFiles<CR>
-        " nmap <leader>v :CtrlP vendor<CR>
-
-    " }}}
-
-    " ag.vim  {{{
-    " ==========================================================================
-
-        " Plug 'mileszs/ack.vim', { 'on': 'Ack' }
-
-        " " Don't jump to the first result automatically
-        " cnoreabbrev Ack Ack!
-
-        " nnoremap <leader>ag :Ack!<space>
-
-        " " Use ag instead of ack
-        " if executable('ag')
-        "     let g:ackprg = 'ag --vimgrep --smart-case'
-        " endif
-
-    " }}}
-
-    " IndexedSearch {{{
-    "
-    " Shows 'Nth match out of M' at every search
-    " ==========================================================================
-
+    " IndexedSearch - shows 'Nth match out of M' at every search {{{
         Plug 'vim-scripts/IndexedSearch'
-
     " }}}
 
-    " LargeFile {{{
-    "
-    " Edit large files quickly
-    " ==========================================================================
-
+    " LargeFile - Edit large files quickly {{{
         let g:LargeFile = 1
         Plug 'vim-scripts/LargeFile'
-
     " }}}
 
-    " vim-visual-star-search {{{
-    "
-    " Start a * or # search from a visual block
-    " ==========================================================================
-
+    " vim-visual-star-search - Start a * or # search from a visual block {{{
         Plug 'nelstrom/vim-visual-star-search'
-
     " }}}
 
-    " ultisnips {{{
-    "
-    " The ultimate snippet solution for Vim
-    " ==========================================================================
+    " ultisnips - The ultimate snippet solution for Vim {{{
+        Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
-        if has('python')
-            Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+        " let g:UltiSnipsSnippetDirectories=['UltiSnips', $HOME.'/.vim/UltiSnips']
 
-            let g:UltiSnipsSnippetDirectories=['UltiSnips', $HOME.'/.vim/UltiSnips']
+        " let g:ultisnips_php_scalar_types = 1
 
-            let g:ultisnips_php_scalar_types = 1
+        " autocmd FileType php UltiSnipsAddFiletypes laravel.php
+        " autocmd FileType vue UltiSnipsAddFiletypes vue.javascript
 
-            autocmd FileType php UltiSnipsAddFiletypes laravel.php
-            autocmd FileType vue UltiSnipsAddFiletypes vue.javascript
-
-            " let g:UltiSnipsExpandTrigger       ="<tab>"
-            " let g:UltiSnipsJumpForwardTrigger  ="<tab>"
-            " let g:UltiSnipsJumpBackwardTrigger ="<s-tab>"
-        endif
-
-    " }}}
-
-    " gutentags {{{
-    " ==========================================================================
-
-        " Plug 'ludovicchabant/vim-gutentags'
-        " " Disable gutentags when working with git as this was triggering an error.
-        " " See https://github.com/ludovicchabant/vim-gutentags/issues/178
-        " " and https://github.com/ludovicchabant/vim-gutentags/issues/168
-        " autocmd FileType gitcommit,gitrebase let g:gutentags_enabled=0
-
+        " " let g:UltiSnipsExpandTrigger       ="<tab>"
+        " " let g:UltiSnipsJumpForwardTrigger  ="<tab>"
+        " " let g:UltiSnipsJumpBackwardTrigger ="<s-tab>"
     " }}}
 
     " tagbar {{{
-    " ==========================================================================
-
         Plug 'majutsushi/tagbar'
 
         " Open tagbar automatically for supported types
@@ -196,53 +80,9 @@
         let g:tagbar_show_linenumbers=1
 
         nmap <leader>tb :TagbarToggle<CR>
-
     " }}}
 
-    " delimitMate {{{
-    "
-    " provides insert mode auto-completion for quotes, parens, brackets, etc.
-    " ==========================================================================
-
-        " Plug 'Raimondi/delimitMate'
-
-    " }}}
-
-    " pear-tree {{{
-    "
-    " A Vim auto-pair plugin that supports multi-character pairs, intelligent matching, and more
-    " ==========================================================================
-
-        Plug 'tmsvg/pear-tree'
-
-        let g:pear_tree_pairs = {
-            \ '(': {'closer': ')'},
-            \ '[': {'closer': ']'},
-            \ '{': {'closer': '}'},
-            \ "'": {'closer': "'"},
-            \ '"': {'closer': '"'},
-            \ '<*>': {'closer': '</*>', 'not_like': '/$'},
-            \ '/\*': {'closer': '\*/'},
-            \ '<!--': {'closer': '-->'}
-            \ }
-
-        let g:pear_tree_repeatable_expand = 0
-
-        let g:pear_tree_smart_openers = 1
-        let g:pear_tree_smart_closers = 1
-        let g:pear_tree_smart_backspace = 1
-
-        " Override the default pear-tree <CR> mapping to prevent it from
-        " hijacking the ability to select items from the pop up menu
-        imap <expr> <CR> !pumvisible() ? "\<Plug>(PearTreeExpand)" : ncm2_ultisnips#expand_or("\<CR>", 'n')
-
-    " }}}
-
-    " vim-fugitive {{{
-    "
-    " A Git wrapper so awesome, it should be illegal
-    " ==========================================================================
-
+    " vim-fugitive - A Git wrapper so awesome, it should be illegal {{{
         Plug 'tpope/vim-fugitive'
         Plug 'tpope/vim-rhubarb' " Github support
         Plug 'shumphrey/fugitive-gitlab.vim' " Gitlab support
@@ -252,36 +92,13 @@
         nmap <leader>gcv :Gcommit -v<cr>
         nmap <leader>gca :Gcommit -v --amend<cr>
         nmap <leader>gp :Gpush<cr>
-
     " }}}
 
-    " vim-dispatch {{{
-    "
-    " Asynchronous build and test dispatcher
-    " ==========================================================================
-
+    " vim-dispatch - Asynchronous build and test dispatcher {{{
         Plug 'tpope/vim-dispatch'
-
     " }}}
 
-    " vim-gitgutter {{{
-    "
-    " A Vim plugin which shows a git diff in the gutter (sign column) and
-    " stages/reverts hunks.
-    " ==========================================================================
-
-        Plug 'airblade/vim-gitgutter'
-
-        set updatetime=100
-        let g:gitgutter_max_signs=1000
-
-    " }}}
-
-    " vim-tmux-navigator {{{
-    "
-    " Seamless navigation between tmux panes and vim splits
-    " ==========================================================================
-
+    " vim-tmux-navigator - Seamless navigation between tmux panes and vim splits {{{
         Plug 'christoomey/vim-tmux-navigator'
 
         " seemless moving around between tmux panes and vim splits
@@ -289,90 +106,35 @@
         nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
         nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
         nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
-
     " }}}
 
-    " vim-tmux-focus-events {{{
-    "
-     " Make terminal vim and tmux work better together.
-    " ==========================================================================
-
+    " vim-tmux-focus-events - Make terminal vim and tmux work better together. {{{
         Plug 'tmux-plugins/vim-tmux-focus-events'
-
     " }}}
 
     " vim-commentary {{{
-    " ==========================================================================
-
         Plug 'tpope/vim-commentary'
-
     " }}}
 
-    " vim-unimpaired {{{
-    "
-    " Pairs of handy bracket mappings
-    " ==========================================================================
-
+    " vim-unimpaired - Pairs of handy bracket mappings {{{
         Plug 'tpope/vim-unimpaired'
-
         autocmd VimEnter * unmap <silent><expr> co
-
     " }}}
 
-    " vim-abolish {{{
-    "
-    " easily search for, substitute, and abbreviate multiple variants of a word
-    " ==========================================================================
-
+    " vim-abolish - easily search for, substitute, and abbreviate multiple variants of a word {{{
         Plug 'tpope/vim-abolish'
-
     " }}}
 
-    " vim-vue {{{
-    "
-    " Syntax highlight for Vue.js components
-    " ==========================================================================
-
+    " vim-vue - Syntax highlight for Vue.js components {{{
         Plug 'posva/vim-vue'
-
-        autocmd BufEnter *.vue syntax sync fromstart
-
+        autocmd BufEnter *.vue syntax sync fromstart " Fix issue with syntax highlight disappearing randomly
     " }}}
 
-    " vim-context-commentstring {{{
-    "
-    " Vim plugin that sets the value of ‘commentstring’ to a different value
-    " depending on the region of the file you are in.
-    " ==========================================================================
-
+    " vim-context-commentstring - sets the value of ‘commentstring’ to a different value depending on the region of the file you are in. {{{
         Plug 'suy/vim-context-commentstring'
-
-    " }}}
-
-    " vdebug {{{
-    "
-    " Multi-language DBGP debugger client for Vim
-    " ==========================================================================
-
-        Plug 'joonty/vdebug', { 'for': 'php' }
-
-        let g:vdebug_options = {
-        \    'server' : '0.0.0.0',
-        \    'watch_window_style' : 'expanded',
-        \ }
-
-    " }}}
-
-    " vim-json-line-format {{{
-    " ==========================================================================
-
-        Plug 'axiaoxin/vim-json-line-format'
-
     " }}}
 
     " lightline.vim {{{
-    " ==========================================================================
-
         Plug 'itchyny/lightline.vim'
 
         let g:lightline = {}
@@ -382,18 +144,20 @@
         let g:lightline.active = {
             \ 'left': [
                 \ [ 'mode', 'paste', 'spell' ],
-                \ [ 'fugitive', 'filename' ],
+                \ [ 'cocstatus', 'currentfunction', 'fugitive', 'filename' ],
                 \ [ 'ctrlpmark' ]
             \ ],
             \ 'right': [
                 \ [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok', 'lineinfo' ],
                 \ [ 'percent' ],
-                \ [ 'fileformat', 'fileencoding', 'filetype', 'indent' ]
+                \ [ 'fileformat', 'fileencoding', 'filetype', 'indent' ],
+                \ [ 'blame' ]
             \ ]
         \ }
 
         " let g:lightline.colorscheme = 'wombat' " built-in
-        let g:lightline.colorscheme = 'onedark'
+        " let g:lightline.colorscheme = 'onedark'
+        let g:lightline.colorscheme = 'dracula'
 
         " let g:lightline.component_expand = {
         "     \ 'syntastic': 'SyntasticStatuslineFlag',
@@ -415,7 +179,10 @@
             \ 'fugitive': 'LightLineFugitive',
             \ 'gutentags': 'LightLineGutentags',
             \ 'mode': 'LightLineMode',
-            \ 'indent': 'LightLineIndent'
+            \ 'indent': 'LightLineIndent',
+            \ 'cocstatus': 'coc#status',
+            \ 'currentfunction': 'CocCurrentFunction',
+            \ 'blame': 'LightlineGitBlame'
         \ }
 
         " let g:lightline.component_type = {
@@ -577,473 +344,227 @@
         "     call lightline#update()
         " endfunction
 
+        function! CocCurrentFunction()
+            return get(b:, 'coc_current_function', '')
+        endfunction
+
+        function! LightlineGitBlame() abort
+            let blame = get(b:, 'coc_git_blame', '')
+            " return blame
+            return winwidth(0) > 120 ? blame : ''
+        endfunction
+
+        " Use auocmd to force lightline update.
+        autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
     " }}}
 
-    " ncm2 {{{
-    " ==========================================================================
-
-        Plug 'ncm2/ncm2'
-        Plug 'roxma/nvim-yarp'
-
-        " enable ncm2 for all buffers
-        autocmd BufEnter * call ncm2#enable_for_buffer()
-
-        " IMPORTANTE: :help Ncm2PopupOpen for more information
-        set completeopt=noinsert,menuone,noselect
-
-        " NOTE: you need to install completion sources to get completions. Check
-        " our wiki page for a list of sources: https://github.com/ncm2/ncm2/wiki
-        Plug 'ncm2/ncm2-bufword'
-        Plug 'ncm2/ncm2-tmux'
-        Plug 'ncm2/ncm2-path'
-        Plug 'phpactor/ncm2-phpactor'
-        Plug 'ncm2/ncm2-cssomni'
-        Plug 'ncm2/ncm2-tern',  {'do': 'npm install'}
-        Plug 'ncm2/ncm2-match-highlight'
-        Plug 'ncm2/ncm2-ultisnips'
-
-        let g:ncm2#match_highlight = 'mono-space'
-
-        " Optional Vimrc Tips
-
-        " suppress the annoying 'match x of y', 'The only match' and 'Pattern not
-        " found' messages
-        set shortmess+=c
-
-        " CTRL-C doesn't trigger the InsertLeave autocmd . map to <ESC> instead.
-        inoremap <c-c> <ESC>
-
-        " Use <TAB> to select the popup menu:
-        inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-        inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-        " Plugin settings
-
-        " Press enter key to trigger snippet expansion
-        " The parameters are the same as `:help feedkeys()`
-        " Implemented via pear-tree
-        " inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
-
-        " c-j c-k for moving in snippet
-        let g:UltiSnipsExpandTrigger		= "<Plug>(ultisnips_expand)"
-        let g:UltiSnipsJumpForwardTrigger	= "<c-j>"
-        let g:UltiSnipsJumpBackwardTrigger	= "<c-k>"
-        let g:UltiSnipsRemoveSelectModeMappings = 0
-
-    " }}}
-
-    " pdv {{{
-    "
-    " PHP Documentor for Vim - Generates PHP docblocks
-    " ==========================================================================
-
+    " pdv - PHP Documentor for Vim - Generates PHP docblocks {{{
         Plug 'tobyS/pdv', { 'for': 'php' } | Plug 'tobyS/vmustache'
 
         let g:pdv_template_dir = $HOME . "/.vim/bundle/pdv/templates_snip"
 
         nmap <leader>pd :call pdv#DocumentWithSnip()<cr>
-
     " }}}
 
-    " phpactor {{{
-    " ==========================================================================
-
-        Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
-
-        " The FileType autocmd doesn't trigger properly because phpactor is lazy-loaded,
-        " so it needs to be triggered via the User event.
-        autocmd! User phpactor autocmd FileType php setlocal omnifunc=phpactor#Complete
-
-        let g:phpactorOmniError = v:true
-
-        " Include use statement
-        nmap <Leader>u :call phpactor#UseAdd()<CR>
-
-        " Invoke the context menu
-        nmap <Leader>mm :call phpactor#ContextMenu()<CR>
-
-        " Invoke the navigation menu
-        nmap <Leader>nn :call phpactor#Navigate()<CR>
-
-        " Goto definition of class or class member under the cursor
-        nmap <Leader>o :call phpactor#GotoDefinition()<CR>
-
-        " Transform the classes in the current file
-        nmap <Leader>tt :call phpactor#Transform()<CR>
-
-        " Generate a new class (replacing the current file)
-        nmap <Leader>cc :call phpactor#ClassNew()<CR>
-
-        " Extract expression (normal mode)
-        nmap <silent><Leader>ee :call phpactor#ExtractExpression(v:false)<CR>
-
-        " Extract expression from selection
-        vmap <silent><Leader>ee :<C-U>call phpactor#ExtractExpression(v:true)<CR>
-
-        " Extract method from selection
-        vmap <silent><Leader>em :<C-U>call phpactor#ExtractMethod()<CR>
-
-    " }}}
-
-    " php.vim {{{
-    "
-    " Up-to-date PHP syntax file
-    " ==========================================================================
-
+    " php.vim - Up-to-date PHP syntax file {{{
         Plug 'StanAngeloff/php.vim'
-
-        function! PhpSyntaxOverride()
-            hi! def link phpDocTags  phpDefine
-            hi! def link phpDocParam phpType
-        endfunction
-
-        augroup phpSyntaxOverride
-            autocmd!
-        "    autocmd FileType php call PhpSyntaxOverride()
-        augroup END
-
     " }}}
 
-    " phpcomplete.vim {{{
-    "
-    " Improved PHP omni-completion
-    " ==========================================================================
-
-        "Plug 'shawncplus/phpcomplete.vim', { 'for': 'php' }
-
-        "let g:phpcomplete_parse_docblock_comments = 0
-
-    " }}}
-
-    " PHP-Indenting-for-VIm {{{
-    "
-    " The official VIm indent script for PHP
-    " ==========================================================================
-
+    " PHP-Indenting-for-VIm - The official VIm indent script for PHP {{{
         Plug '2072/PHP-Indenting-for-VIm'
-
     " }}}
 
-    " phpfolding.vim {{{
-    "
-    " Automatic folding of PHP functions, classes,.. (aldo folds related PhpDoc)
-    " ==========================================================================
-
+    " phpfolding.vim - Automatic folding of PHP functions, classes,.. (aldo folds related PhpDoc) {{{
         Plug 'rayburgemeestre/phpfolding.vim'
-
     " }}}
 
-    " html5.vim {{{
-    "
-    " HTML5 omnicomplete and syntax
-    " ==========================================================================
-
+    " html5.vim - HTML5 omnicomplete and syntax {{{
         Plug 'othree/html5.vim'
-
     " }}}
 
     " emmet-vim {{{
-    " ==========================================================================
-
         Plug 'mattn/emmet-vim'
-
     " }}}
 
     " scss-syntax.vim {{{
-    " ==========================================================================
-
         Plug 'cakebaker/scss-syntax.vim'
-
     " }}}
 
-    " vim-css3-syntax {{{
-    "
-    " Add CSS3 syntax support to vim's built-in `syntax/css.vim`.
-    " ==========================================================================
-
+    " vim-css3-syntax - Add CSS3 syntax support to vim's built-in `syntax/css.vim` {{{
         Plug 'hail2u/vim-css3-syntax'
-
     " }}}
 
-    " vim-blade {{{
-    "
-    " Syntax highlighting for Blade templates
-    " ==========================================================================
-
+    " vim-blade - Syntax highlighting for Blade templates {{{
         Plug 'jwalton512/vim-blade'
-
     " }}}
 
-    " vim-javascript {{{
-    "
-    " Vastly improved Javascript indentation and syntax support
-    " ==========================================================================
-
+    " vim-javascript - Vastly improved Javascript indentation and syntax support {{{
         Plug 'pangloss/vim-javascript'
-
     " }}}
 
-    " vim-mustache-handlebars {{{
-    "
-    " Mustache and handlebars mode for vim
-    " ==========================================================================
-
+    " vim-mustache-handlebars - Mustache and handlebars mode for vim {{{
         Plug 'mustache/vim-mustache-handlebars'
-
     " }}}
 
-    " splitjoin.vim {{{
-    "
-    " Simplifies the transition between multiline and single-line code
-    " ==========================================================================
-
+    " splitjoin.vim - Switch between single-line and multiline forms of code {{{
         Plug 'AndrewRadev/splitjoin.vim'
-
     " }}}
 
-    " vim-repeat {{{
-    "
-    " Enable repeating supported plugin maps with .
-    " ==========================================================================
-
+    " vim-repeat - Enable repeating supported plugin maps with . {{{
         Plug 'tpope/vim-repeat'
-
     " }}}
 
-    " vim-surround {{{
-    "
-    " Quoting/parenthesizing made simple
-    " ==========================================================================
-
+    " vim-surround - Quoting/parenthesizing made simple {{{
         Plug 'tpope/vim-surround'
-
     " }}}
 
-    " vim-lion {{{
-    "
-    " Alignment by characters
-    " ==========================================================================
+    " targets.vim - Vim plugin that provides additional text objects {{{
+        Plug 'wellle/targets.vim'
+    " }}}
 
+    " vim-indent-object {{{
+        Plug 'michaeljsmith/vim-indent-object'
+    " }}}
+
+    " vim-lion - Alignment by characters {{{
         Plug 'tommcdo/vim-lion'
 
-        " Remove as many spaces as possible when aligning
-        let g:lion_squeeze_spaces = 1
-
+        let g:lion_squeeze_spaces = 1 " Remove as many spaces as possible when aligning
     " }}}
 
-    " indentLine {{{
-    "
-    " A vim plugin to display the indention levels with thin vertical lines
-    " ==========================================================================
-
-        " Plug 'Yggdroot/indentLine'
+    " indentLine - A vim plugin to display the indention levels with thin vertical lines {{{
+        Plug 'Yggdroot/indentLine'
 
         " " let g:indentline_faster = 1
         " " let g:indentline_char = '┊'
         " " let g:indentline_first_char = '┊'
-        " let g:indentline_char = '│'
-        " let g:indentline_first_char = '│'
-        " let g:indentline_color_term = 237
-        " let g:indentline_showfirstindentlevel = 1
-
+        let g:indentline_char = '│'
+        let g:indentline_first_char = '│'
+        let g:indentline_color_term = 237
+        let g:indentline_showfirstindentlevel = 1
     " }}}
 
-    " vim-bbye {{{
-    "
-    " Delete buffers and close files in Vim without closing your windows or
-    " messing up your layout.
-    " ==========================================================================
-
+    " vim-bbye - Delete buffers and close files in Vim without closing your windows or messing up your layout. {{{
         Plug 'moll/vim-bbye'
-
     " }}}
 
-    " vim-hardtime {{{
-    "
-    " Plugin to help you stop repeating the basic movement key
-    " ==========================================================================
-
+    " vim-hardtime - Plugin to help you stop repeating the basic movement key {{{
         Plug 'takac/vim-hardtime'
 
         let g:hardtime_default_on = 0
         let g:hardtime_showmsg = 1
         let g:hardtime_allow_different_key = 1
         let g:hardtime_maxcount = 4
-
     " }}}
 
     " vim-smoothscroll {{{
-    " ==========================================================================
-
         Plug 'terryma/vim-smooth-scroll'
 
         noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 4)<CR>
         noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 4)<CR>
         noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 8)<CR>
         noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 8)<CR>
-
-    " }}}
-
-    " vim-php-manual {{{
-    " ==========================================================================
-
-        " let g:php_manual_online_search_shortcut = "<s-P>"
-
     " }}}
 
     " localvimrc {{{
-    " ==========================================================================
-
         Plug 'embear/vim-localvimrc'
         let g:localvimrc_persistent = 2
-
-    " }}}
-
-    " ZoomWin {{{
-    " ==========================================================================
-
-        "nmap <leader>z :ZoomWin<CR>
-
     " }}}
 
     " NERDTree {{{
-    " ==========================================================================
-
         Plug 'scrooloose/nerdtree'
 
         let NERDTreeShowHidden=1
         let NERDTreeMinimalUI=1
 
-        " Open NERDTree automatically when vim starts up and no files were specified
-        "autocmd StdinReadPre * let s:std_in=1
-        "autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | wincmd p | endif
-        "autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
-
-        " Close vim automatically if the only window left open is a NERDTree
-        "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
         nmap <leader>n :NERDTreeToggle<CR>
-
     " }}}
 
     " nerdtree-git-plugin {{{
-    " ==========================================================================
-
         Plug 'Xuyuanp/nerdtree-git-plugin'
-
     " }}}
 
     " vim-devicons {{{
-    " ==========================================================================
-
         Plug 'ryanoasis/vim-devicons'
         Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
         let g:WebDevIconsUnicodeDecorateFolderNodes = 1
         let g:DevIconsEnableFoldersOpenClose = 1
         let g:DevIconsEnableFolderExtensionPatternMatching = 1
-
     " }}}
 
     " apiblueprint.vim {{{
-    " ==========================================================================
-
         Plug 'kylef/apiblueprint.vim'
-
     " }}}
 
-    " vim-argwrap {{{
-    " ==========================================================================
-
+    " vim-argwrap - Wrap and unwrap function arguments, lists, and dictionaries in Vim {{{
         Plug 'FooSoft/vim-argwrap'
 
         " let g:argwrap_tail_comma = 1
         let g:argwrap_tail_comma_braces = '['
-        nnoremap <silent> <leader>aw :ArgWrap<CR>
-
+        " nnoremap <silent> <leader>aw :ArgWrap<CR>
     " }}}
 
-    " vim-wintabs {{{
-    " ==========================================================================
-
-"         Plug 'zefei/vim-wintabs'
-"         Plug 'zefei/vim-wintabs-powerline'
-
-"         let g:wintabs_ui_buffer_name_format = ' %n %t '
-
-"         map <C-n> :WintabsNext<CR>
-"         map <C-p> :WintabsPrev<CR>
-
-    " }}}
-
-    " vim-pasta {{{
-    " ==========================================================================
-
+    " vim-pasta - Pasting in Vim with indentation adjusted to destination context {{{
         Plug 'sickill/vim-pasta'
 
         let g:pasta_disabled_filetypes = ['fugitive']
-
     " }}}
 
     " vim-json {{{
-    " ==========================================================================
-
         Plug 'elzr/vim-json'
         let g:vim_json_syntax_conceal = 0
-
     " }}}
 
     " onedark.vim {{{
-    " ==========================================================================
-
         Plug 'joshdick/onedark.vim'
 
-        augroup onedarkextend
-            autocmd!
-            " Make non text characters (like listchars) barely visible
-            autocmd ColorScheme * call onedark#extend_highlight("NonText", { "fg": { "cterm": 237 } })
+        " augroup onedarkextend
+        "     autocmd!
+        "     " Make non text characters (like listchars) barely visible
+        "     autocmd ColorScheme * call onedark#extend_highlight("NonText", { "fg": { "cterm": 237 } })
 
-            " Don't give spelling errors a special colour
-            autocmd ColorScheme * call onedark#extend_highlight("SpellBad", { "fg": { "cterm": "NONE" } })
-            autocmd ColorScheme * call onedark#extend_highlight("SpellLocal", { "fg": { "cterm": "NONE" } })
-            autocmd ColorScheme * call onedark#extend_highlight("SpellRare", { "fg": { "cterm": "NONE" } })
-            autocmd ColorScheme * call onedark#extend_highlight("SpellCap", { "fg": { "cterm": "NONE" } })
-        augroup end
+        "     " Don't give spelling errors a special colour
+        "     autocmd ColorScheme * call onedark#extend_highlight("SpellBad", { "fg": { "cterm": "NONE" } })
+        "     autocmd ColorScheme * call onedark#extend_highlight("SpellLocal", { "fg": { "cterm": "NONE" } })
+        "     autocmd ColorScheme * call onedark#extend_highlight("SpellRare", { "fg": { "cterm": "NONE" } })
+        "     autocmd ColorScheme * call onedark#extend_highlight("SpellCap", { "fg": { "cterm": "NONE" } })
+        " augroup end
 
         let g:onedark_hide_endofbuffer = 1
         let g:onedark_terminal_italics = 1
-
     " }}}
 
-    " editorconfig {{{
-    " ==========================================================================
+    " darcula {{{
+        Plug 'dracula/vim', { 'as': 'dracula' }
 
+        "Include bold attributes in highlighting >
+        let g:dracula_bold = 1
+
+        " Include italic attributes in highlighting >
+        let g:dracula_italic = 1
+
+        " Include underline attributes in highlighting >
+        let g:dracula_underline = 1
+
+        " Include undercurl attributes in highlighting (only if underline enabled) >
+        let g:dracula_undercurl = 1
+
+        " Include inverse attributes in highlighting >
+        let g:dracula_inverse = 1
+
+        " Include background fill colors >
+        let g:dracula_colorterm = 1
+    " }}}"
+
+    " editorconfig {{{
         Plug 'editorconfig/editorconfig-vim'
 
         " Ensure that this plugin works well with Tim Pope's fugitive
         let g:EditorConfig_exclude_patterns = ['fugitive://.*']
-
-    " }}}
-
-    " highlightedyank {{{
-    "
-    " Make the yanked region apparent
-    " ==========================================================================
-
-    Plug 'machakann/vim-highlightedyank'
-
-    " }}}
-
-    " emmet {{{
-    " ==========================================================================
-
-    Plug 'mattn/emmet-vim'
-
     " }}}
 
     " fzf {{{
-    " ==========================================================================
-
         Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
         Plug 'junegunn/fzf.vim'
 
@@ -1055,27 +576,32 @@
         nmap <leader>l :BLines<CR>
         nmap <leader>L :Lines<CR>
         nmap <leader>' :Marks<CR>
-        nmap <leader>ag :Ag<space>
-        nmap <leader>H :Helptags!<space>
-        nmap <leader>C :Commands<space>
-        nmap <leader>: :History:<space>
-        nmap <leader>/ :History/<space>
-        nmap <leader>M :Maps<space>
-        nmap <leader>M :Maps<space>
-
+        nmap <leader>a :AgRaw<space>
+        nmap <leader>H :Helptags!<CR>
+        nmap <leader>C :Commands<CR>
+        nmap <leader>: :History:<CR>
+        nmap <leader>/ :History/<CR>
+        nmap <leader>M :Maps<CR>
+        nmap <leader>s :Filetypes<CR>
     " }}}
 
     " vim-test {{{
-    " ==========================================================================
-
         Plug 'janko-m/vim-test'
+        " Plug 'haginaga/vim-compiler-phpunit'
+        " Plug 'afternoon/vim-phpunit'
 
         function! DockerTransform(cmd) abort
             return 'docker-compose exec app '.a:cmd
         endfunction
 
-        let g:test#custom_transformations = {'docker': function('DockerTransform')}
-        let g:test#transformation = 'docker'
+        function! HomesteadTransform(cmd) abort
+            return 'cd ~/Homestead; vagrant ssh -c "cd code/wisha; '.a:cmd.'"'
+        endfunction
+
+        let g:test#custom_transformations = {'docker': function('DockerTransform'), 'homestead': function('HomesteadTransform')}
+        " let g:test#transformation = 'homestead'
+
+        let test#strategy = "make"
 
         nmap <leader>tn :TestNearest<CR>
         nmap <leader>tf :TestFile<CR>
@@ -1083,42 +609,177 @@
         nmap <leader>tl :TestLast<CR>
         nmap <leader>tv :TestVisit<CR>
 
+        " let g:test#strategy = 'dispatch' " To use quickfix
     " }}}
 
     " projectionist {{{
-    " ==========================================================================
-
         Plug 'tpope/vim-projectionist'
-
     " }}}
 
     " vim-css-color {{{
-    " ==========================================================================
-
         Plug 'ap/vim-css-color'
-
     " }}}
 
     " vim-convert-color-to {{{
-    " ==========================================================================
-
         Plug 'amadeus/vim-convert-color-to'
-
     " }}}
 
     " vim-sleuth {{{
-    " ==========================================================================
-
         Plug 'tpope/vim-sleuth'
+    " }}}
 
+    " vim-multiple-cursors {{{
+        Plug 'terryma/vim-multiple-cursors'
+    " }}}
+
+    " goyo {{{
+        Plug 'junegunn/goyo.vim'
+    " }}}
+
+    " vim-agriculture {{{
+        Plug 'JesseLeite/vim-agriculture'
+        " nmap <Leader>/ <Plug>AgRawSearch
+        " vmap <Leader>/ <Plug>AgRawVisualSelection
+        " nmap <Leader>* <Plug>AgRawWordUnderCursor
+    " }}}
+
+    " vim-composer {{{
+        Plug 'noahfrederick/vim-composer'
     " }}}
 
     " vim-laravel {{{
-    " ==========================================================================
-
-        Plug 'noahfrederick/vim-composer'
         Plug 'noahfrederick/vim-laravel'
+    " }}}
 
+    " coc.nvim {{{
+        Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+        let g:coc_global_extensions = [
+            \ 'coc-css',
+            \ 'coc-diagnostic',
+            \ 'coc-emmet',
+            \ 'coc-emoji',
+            \ 'coc-eslint',
+            \ 'coc-git',
+            \ 'coc-html',
+            \ 'coc-json',
+            \ 'coc-pairs',
+            \ 'coc-prettier',
+            \ 'coc-snippets',
+            \ 'coc-tailwindcss',
+            \ 'coc-tslint',
+            \ 'coc-tsserver',
+            \ 'coc-ultisnips',
+            \ 'coc-vetur',
+        \ ]
+
+        " Use tab for trigger completion with characters ahead and navigate.
+        " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+        inoremap <silent><expr> <TAB>
+              \ pumvisible() ? "\<C-n>" :
+              \ <SID>check_back_space() ? "\<TAB>" :
+              \ coc#refresh()
+        inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+        function! s:check_back_space() abort
+          let col = col('.') - 1
+          return !col || getline('.')[col - 1]  =~# '\s'
+        endfunction
+
+        " Use <c-space> to trigger completion.
+        inoremap <silent><expr> <c-tab> coc#refresh()
+
+        " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+        " Coc only does snippet and additional edit on confirm.
+        inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+        " Use `[c` and `]c` to navigate diagnostics
+        nmap <silent> [c <Plug>(coc-diagnostic-prev)
+        nmap <silent> ]c <Plug>(coc-diagnostic-next)
+
+        " Remap keys for gotos
+        nmap <silent> gd <Plug>(coc-definition)
+        nmap <silent> gy <Plug>(coc-type-definition)
+        nmap <silent> gi <Plug>(coc-implementation)
+        nmap <silent> gr <Plug>(coc-references)
+
+        " Use K to show documentation in preview window
+        nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+        function! s:show_documentation()
+          if (index(['vim','help'], &filetype) >= 0)
+            execute 'h '.expand('<cword>')
+          else
+            call CocAction('doHover')
+          endif
+        endfunction
+
+        " Highlight symbol under cursor on CursorHold
+        autocmd CursorHold * silent call CocActionAsync('highlight')
+
+        " Remap for rename current word
+        nmap <leader>rn <Plug>(coc-rename)
+
+        " Remap for format selected region
+        " xmap <leader>f  <Plug>(coc-format-selected)
+        " nmap <leader>f  <Plug>(coc-format-selected)
+
+        augroup mygroup
+          autocmd!
+          " Setup formatexpr specified filetype(s).
+          autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+          " Update signature help on jump placeholder
+          autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+        augroup end
+
+        " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
+        " xmap <leader>a  <Plug>(coc-codeaction-selected)
+        " nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+        " Remap for do codeAction of current line
+        " nmap <leader>ac  <Plug>(coc-codeaction)
+        " Fix autofix problem of current line
+        nmap <leader>qf  <Plug>(coc-fix-current)
+
+        " Use <tab> for select selections ranges, needs server support, like: coc-tsserver, coc-python
+        nmap <silent> <TAB> <Plug>(coc-range-select)
+        xmap <silent> <TAB> <Plug>(coc-range-select)
+        xmap <silent> <S-TAB> <Plug>(coc-range-select-backword)
+
+        " Use `:Format` to format current buffer
+        command! -nargs=0 Format :call CocAction('format')
+
+        " Use `:Fold` to fold current buffer
+        command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+        " use `:OR` for organize import of current buffer
+        command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+        " Using CocList
+        " Show all diagnostics
+        " nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+        " " Manage extensions
+        " nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+        " " Show commands
+        " nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+        " " Find symbol of current document
+        " nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+        " " Search workspace symbols
+        " nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+        " " Do default action for next item.
+        " nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+        " " Do default action for previous item.
+        " nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+        " " Resume latest coc list
+        " nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+    " }}}
+
+    " vim-peekaboo {{{
+        Plug 'junegunn/vim-peekaboo'
+    " }}}
+
+    " typescript-vim {{{
+        Plug 'leafgarland/typescript-vim'
     " }}}
 
     call plug#end()
@@ -1179,12 +840,15 @@
     set viminfo+=%
 
     " Always show the sign column so things don't jump around when it appears
-    set signcolumn=yes
+    set signcolumn=yes:2
 
     set display=lastline
     set encoding=utf-8
     set laststatus=2
     set showmatch
+
+    " Recommended by coc.nvim README
+    set updatetime=300 " default 4000
 
 " }}}
 
@@ -1519,7 +1183,7 @@
     "     colorscheme default
     " endif
 
-    colorscheme onedark
+    colorscheme dracula
 
 " }}}
 

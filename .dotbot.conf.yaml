@@ -52,6 +52,9 @@
     ~/.config/nvim/init.vim:
         create: true
         path: nvim.vim
+    ~/.config/nvim/coc-settings.json:
+        create: true
+        path: coc-settings.json
     ~/.xinitrc: xinitrc
     ~/.Xmodmap: Xmodmap
     ~/.Xresources: Xresources
