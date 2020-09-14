@@ -48,18 +48,20 @@
 
     # Other bundles
     antibody bundle sampson-chen/sack
-    antibody bundle jessarcher/zsh-artisan
+    #antibody bundle jessarcher/zsh-artisan
+    antibody bundle /home/jess/.oh-my-zsh/custom/plugins/artisan
     antibody bundle zsh-users/zsh-autosuggestions
 
     # This needs to be the last bundle.
     antibody bundle zsh-users/zsh-syntax-highlighting
 
     # Load the theme.
-    antibody bundle robbyrussell/oh-my-zsh path:themes/robbyrussell.zsh-theme
+    # antibody bundle robbyrussell/oh-my-zsh path:themes/robbyrussell.zsh-theme
+    antibody bundle dracula/zsh
 
 # }}}
 
-#  Configuration {{{
+# Configuration {{{
 # ==============================================================================
 
     HYPHEN_INSENSITIVE="true"
@@ -68,6 +70,13 @@
     HIST_STAMPS="yyyy-mm-dd"
     DISABLE_AUTO_TITLE="true"
 
+    typeset -U path cdpath fpath
+
+    export ANDROID_HOME="$HOME/Android/Sdk/"
+
+    #precmd () {print -Pn "\e]0;%~\a"}
+    #precmd () { print -Pn "\e]2;%n@%M | %~\a" } # title bar prompt
+
     path=(
         $HOME/.local/bin
         $HOME/.bin
@@ -75,10 +84,26 @@
         $HOME/.composer/vendor/bin
         $HOME/.go/bin
         ./vendor/bin
+        ${ANDROID_HOME}tools/
+        ${ANDROID_HOME}platform-tools/
         $path
     )
 
+    setopt auto_cd
+    cdpath=(
+        $HOME/Code
+    )
+
+    zstyle ':completion:*' group-name ''
+    zstyle ':completion:*:descriptions' format %d
+    zstyle ':completion:*:descriptions' format %B%d%b
+    zstyle ':completion:*:complete:(cd|pushd):*' tag-order \
+            'local-directories named-directories'
+
     export EDITOR='vim'
+    export NVIM_LISTEN_ADDRESS='/tmp/nvimsocket'
+    export ARTISAN_OPEN_ON_MAKE_EDITOR='nvr'
+    export FZF_DEFAULT_COMMAND='ag -u -g ""'
 
     unsetopt sharehistory
 
@@ -119,10 +144,11 @@
     alias paste="xclip -o -selection clipboard"
     alias ag="sag"
     alias cat="bat"
-    cdls() {
-        cd $1 && eval ls
-    }
-    alias cd="cdls"
+    alias dslr-webcam="gphoto2 --set-config-value whitebalance="Auto" && gphoto2 --stdout --capture-movie | ffmpeg -i - -vcodec rawvideo -pix_fmt yuv420p -threads 0 -f v4l2 /dev/video0"
+    # cd() {
+    #     cd $1 && eval ls
+    # }
+    # alias cd="cdls"
     open () {
         xdg-open $* > /dev/null 2>&1
     }
@@ -137,7 +163,7 @@
 # Interactive shell startup scripts {{{
 # ==============================================================================
 
-    if [[ $- == *i* ]]; then
+    if [[ $- == *i* && $0 == '/bin/zsh' ]]; then
         ~/.dotfiles/scripts/login.sh
     fi
 
