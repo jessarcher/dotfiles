@@ -49,11 +49,14 @@
     branch-list-merged = "!git branch --merged master | grep -v -E '(develop|origin|master)'"
     branch-delete-merged = "!git branch-list-merged | xargs git branch -d"
 
+    undo-last-commit = reset HEAD~1
+
 [color]
     ui = auto
 [core]
     editor = vim
     excludesfile = ~/.gitignore_global
+    pager = delta
 [diff]
     tool = vimdiff
 [help]
@@ -65,4 +68,13 @@
 [rerere]
     enabled = true
 [merge]
-	conflictstyle = diff3
+    conflictstyle = diff3
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    line-numbers = true
+    syntax-theme = Dracula
+    plus-style = "syntax #2A363B"
+    plus-emph-style = "syntax #2D4E45"
+    minus-style = "syntax #3B2C37"
+    minus-emph-style = "syntax #613038"
