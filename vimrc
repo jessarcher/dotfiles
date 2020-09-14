@@ -48,7 +48,7 @@
     " }}}
 
     " ultisnips - The ultimate snippet solution for Vim {{{
-        Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+        " Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
         " let g:UltiSnipsSnippetDirectories=['UltiSnips', $HOME.'/.vim/UltiSnips']
 
@@ -57,9 +57,9 @@
         " autocmd FileType php UltiSnipsAddFiletypes laravel.php
         " autocmd FileType vue UltiSnipsAddFiletypes vue.javascript
 
-        " " let g:UltiSnipsExpandTrigger       ="<tab>"
-        " " let g:UltiSnipsJumpForwardTrigger  ="<tab>"
-        " " let g:UltiSnipsJumpBackwardTrigger ="<s-tab>"
+        " let g:UltiSnipsExpandTrigger       ="<tab>"
+        " let g:UltiSnipsJumpForwardTrigger  ="<tab>"
+        " let g:UltiSnipsJumpBackwardTrigger ="<s-tab>"
     " }}}
 
     " tagbar {{{
@@ -118,7 +118,10 @@
 
     " vim-unimpaired - Pairs of handy bracket mappings {{{
         Plug 'tpope/vim-unimpaired'
-        autocmd VimEnter * unmap <silent><expr> co
+        augroup unimpaired
+            autocmd!
+            autocmd VimEnter * unmap <silent><expr> co
+        augroup END
     " }}}
 
     " vim-abolish - easily search for, substitute, and abbreviate multiple variants of a word {{{
@@ -127,235 +130,196 @@
 
     " vim-vue - Syntax highlight for Vue.js components {{{
         Plug 'posva/vim-vue'
-        autocmd BufEnter *.vue syntax sync fromstart " Fix issue with syntax highlight disappearing randomly
+        augroup vue
+            autocmd!
+            autocmd BufEnter *.vue syntax sync fromstart " Fix issue with syntax highlight disappearing randomly
+        augroup END
     " }}}
 
     " vim-context-commentstring - sets the value of ‘commentstring’ to a different value depending on the region of the file you are in. {{{
         Plug 'suy/vim-context-commentstring'
     " }}}
 
+    " airline {{{
+        Plug 'vim-airline/vim-airline'
+        Plug 'vim-airline/vim-airline-themes'
+        " let g:airline#extensions#tabline#enabled = 1
+        let g:airline_powerline_fonts = 1
+        let g:airline_skip_empty_sections = 1
+        let g:airline_theme = 'dracula'
+        " Always show tabs
+        "set showtabline=2
+
+        " We don't need to see things like -- INSERT -- anymore
+        set noshowmode
+    " }}}
+
     " lightline.vim {{{
-        Plug 'itchyny/lightline.vim'
+        " Plug 'itchyny/lightline.vim'
 
-        let g:lightline = {}
+        " let g:lightline = {}
 
-        let g:lightline.fname = ''
+        " let g:lightline.fname = ''
 
-        let g:lightline.active = {
-            \ 'left': [
-                \ [ 'mode', 'paste', 'spell' ],
-                \ [ 'cocstatus', 'currentfunction', 'fugitive', 'filename' ],
-                \ [ 'ctrlpmark' ]
-            \ ],
-            \ 'right': [
-                \ [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok', 'lineinfo' ],
-                \ [ 'percent' ],
-                \ [ 'fileformat', 'fileencoding', 'filetype', 'indent' ],
-                \ [ 'blame' ]
-            \ ]
-        \ }
+        " let g:lightline.active = {
+        "     \ 'left': [
+        "         \ [ 'mode', 'paste', 'spell' ],
+        "         \ [ 'cocstatus', 'currentfunction', 'fugitive', 'filename' ],
+        "         \ [ 'ctrlpmark' ]
+        "     \ ],
+        "     \ 'right': [
+        "         \ [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok', 'lineinfo' ],
+        "         \ [ 'percent' ],
+        "         \ [ 'fileformat', 'fileencoding', 'filetype', 'indent' ],
+        "         \ [ 'blame' ]
+        "     \ ]
+        " \ }
 
-        " let g:lightline.colorscheme = 'wombat' " built-in
-        " let g:lightline.colorscheme = 'onedark'
-        let g:lightline.colorscheme = 'dracula'
+        " let g:lightline.colorscheme = 'dracula'
 
         " let g:lightline.component_expand = {
-        "     \ 'syntastic': 'SyntasticStatuslineFlag',
+        "     \ 'linter_checking': 'lightline#ale#checking',
+        "     \ 'linter_warnings': 'lightline#ale#warnings',
+        "     \ 'linter_errors': 'lightline#ale#errors',
+        "     \ 'linter_ok': 'lightline#ale#ok',
         " \ }
 
-        let g:lightline.component_expand = {
-            \ 'linter_checking': 'lightline#ale#checking',
-            \ 'linter_warnings': 'lightline#ale#warnings',
-            \ 'linter_errors': 'lightline#ale#errors',
-            \ 'linter_ok': 'lightline#ale#ok',
-        \ }
-
-        let g:lightline.component_function = {
-            \ 'ctrlpmark': 'CtrlPMark',
-            \ 'fileencoding': 'LightLineFileencoding',
-            \ 'fileformat': 'LightLineFileformat',
-            \ 'filename': 'LightLineFilename',
-            \ 'filetype': 'LightLineFiletype',
-            \ 'fugitive': 'LightLineFugitive',
-            \ 'gutentags': 'LightLineGutentags',
-            \ 'mode': 'LightLineMode',
-            \ 'indent': 'LightLineIndent',
-            \ 'cocstatus': 'coc#status',
-            \ 'currentfunction': 'CocCurrentFunction',
-            \ 'blame': 'LightlineGitBlame'
-        \ }
+        " let g:lightline.component_function = {
+        "     \ 'ctrlpmark': 'CtrlPMark',
+        "     \ 'fileencoding': 'LightLineFileencoding',
+        "     \ 'fileformat': 'LightLineFileformat',
+        "     \ 'filename': 'LightLineFilename',
+        "     \ 'filetype': 'LightLineFiletype',
+        "     \ 'fugitive': 'LightLineFugitive',
+        "     \ 'gutentags': 'LightLineGutentags',
+        "     \ 'mode': 'LightLineMode',
+        "     \ 'indent': 'LightLineIndent',
+        "     \ 'cocstatus': 'coc#status',
+        "     \ 'currentfunction': 'CocCurrentFunction',
+        "     \ 'blame': 'LightlineGitBlame'
+        " \ }
 
         " let g:lightline.component_type = {
-        "     \ 'syntastic': 'error'
+        "     \ 'linter_checking': 'left',
+        "     \ 'linter_warnings': 'warning',
+        "     \ 'linter_errors': 'error',
+        "     \ 'linter_ok': 'left',
         " \ }
 
-        let g:lightline.component_type = {
-            \ 'linter_checking': 'left',
-            \ 'linter_warnings': 'warning',
-            \ 'linter_errors': 'error',
-            \ 'linter_ok': 'left',
-        \ }
+        " let g:lightline.separator = { 'left': '', 'right': '' }
+        " let g:lightline.subseparator = { 'left': '', 'right': '' }
 
-        let g:lightline.separator = { 'left': '', 'right': '' }
-        let g:lightline.subseparator = { 'left': '', 'right': '' }
-
-
-        " let g:lightline = {
-        "     \ 'active': {
-        "         \ 'left': [
-        "             \ [ 'mode', 'paste', 'spell' ],
-        "             \ [ 'fugitive', 'filename' ],
-        "             \ [ 'ctrlpmark', 'gutentags' ],
-        "         \ ],
-        "         \ 'right': [
-        "             \ [ 'syntastic', 'lineinfo' ],
-        "             \ [ 'percent' ],
-        "             \ [ 'fileformat', 'fileencoding', 'filetype', 'indent' ],
-        "         \ ]
-        "     \ },
-        "     \ 'colorscheme': 'wombat',
-        "     \ 'component_expand': {
-        "         \ 'syntastic': 'SyntasticStatuslineFlag',
-        "     \ },
-        "     \ 'component_function': {
-        "         \ 'ctrlpmark': 'CtrlPMark',
-        "         \ 'fileencoding': 'LightLineFileencoding',
-        "         \ 'fileformat': 'LightLineFileformat',
-        "         \ 'filename': 'LightLineFilename',
-        "         \ 'filetype': 'LightLineFiletype',
-        "         \ 'fugitive': 'LightLineFugitive',
-        "         \ 'gutentags': 'LightLineGutentags',
-        "         \ 'mode': 'LightLineMode',
-        "         \ 'indent': 'LightLineIndent',
-        "     \ },
-        "     \ 'component_type': {
-        "         \ 'syntastic': 'error',
-        "     \ },
-        "     \ 'separator': { 'left': '', 'right': '' },
-        "     \ 'subseparator': { 'left': '', 'right': '' }
-        " \ }
-
-        function! CtrlPMark()
-            if expand('%:t') =~ 'ControlP' && has_key(g:lightline, 'ctrlp_item')
-                call lightline#link('iR'[g:lightline.ctrlp_regex])
-                return lightline#concatenate([g:lightline.ctrlp_prev, g:lightline.ctrlp_item, g:lightline.ctrlp_next], 0)
-            else
-                return ''
-            endif
-        endfunction
-
-        let g:ctrlp_status_func = {
-            \ 'main': 'CtrlPStatusFunc_1',
-            \ 'prog': 'CtrlPStatusFunc_2',
-        \ }
-
-        function! CtrlPStatusFunc_1(focus, byfname, regex, prev, item, next, marked)
-            let g:lightline.ctrlp_regex = a:regex
-            let g:lightline.ctrlp_prev = a:prev
-            let g:lightline.ctrlp_item = a:item
-            let g:lightline.ctrlp_next = a:next
-            return lightline#statusline(0)
-        endfunction
-
-        function! CtrlPStatusFunc_2(str)
-            return lightline#statusline(0)
-        endfunction
-
-        function! LightLineMode()
-            let fname = expand('%:t')
-            return fname =~ '__Tagbar__' ? 'Tagbar' :
-                \ fname == 'ControlP' ? 'CtrlP' :
-                \ fname == '__Gundo__' ? 'Gundo' :
-                \ fname == '__Gundo_Preview__' ? 'Gundo Preview' :
-                \ fname =~ 'NERD_tree' ? 'NERDTree' :
-                \ &ft == 'unite' ? 'Unite' :
-                \ &ft == 'vimfiler' ? 'VimFiler' :
-                \ &ft == 'vimshell' ? 'VimShell' :
-                \ winwidth(0) > 60 ? lightline#mode() : ''
-        endfunction
-
-        function! LightLineModified()
-            return &ft =~ 'help' ? '' : &modified ? '✎' : &modifiable ? '' : '-'
-        endfunction
-
-        function! LightLineReadonly()
-            return &ft !~? 'help' && &readonly ? '' : ''
-        endfunction
-
-        function! LightLineFilename()
-            let fname = expand('%:t')
-            return fname == 'ControlP' && has_key(g:lightline, 'ctrlp_item') ? g:lightline.ctrlp_item :
-                \ fname =~ '__Tagbar__' ? '' :
-                \ fname =~ '__Gundo\|NERD_tree' ? '' :
-                \ &ft == 'vimfiler' ? vimfiler#get_status_string() :
-                \ &ft == 'unite' ? unite#get_status_string() :
-                \ &ft == 'vimshell' ? vimshell#get_status_string() :
-                \ ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
-                \ ('' != fname ? fname : '[No Name]') .
-                \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
-        endfunction
-
-        function! LightLineFileformat()
-            return winwidth(0) > 70 ? &fileformat : ''
-        endfunction
-
-        function! LightLineFiletype()
-            return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
-        endfunction
-
-        function! LightLineFugitive()
-            try
-                if expand('%:t') !~? 'Tagbar\|Gundo\|NERD' && &ft !~? 'vimfiler' && exists('*fugitive#head')
-                    let mark = ' '  " edit here for cool mark
-                    let branch = fugitive#head()
-                    return branch !=# '' ? mark.branch : ''
-                endif
-            catch
-            endtry
-            return ''
-        endfunction
-
-        function! LightLineFileencoding()
-          return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
-        endfunction
-
-        function! LightLineIndent()
-            return winwidth(0) > 70 ? (&expandtab == 1 ? 'spaces[' . &shiftwidth . ']' : 'tabs[' . &tabstop . ']') : ''
-        endfunction
-
-        function! LightLineGutentags()
-            return gutentags#statusline('Generating tags...')
-        endfunction
-
-        let g:tagbar_status_func = 'TagbarStatusFunc'
-
-        function! TagbarStatusFunc(current, sort, fname, ...) abort
-            let g:lightline.fname = a:fname
-            return lightline#statusline(0)
-        endfunction
-
-        " augroup AutoSyntastic
-        "     autocmd!
-        "     autocmd BufWritePost *.php,*.js call s:syntastic()
-        " augroup END
-
-        " function! s:syntastic()
-        "     SyntasticCheck
-        "     call lightline#update()
+        " function! CtrlPMark()
+        "     if expand('%:t') =~ 'ControlP' && has_key(g:lightline, 'ctrlp_item')
+        "         call lightline#link('iR'[g:lightline.ctrlp_regex])
+        "         return lightline#concatenate([g:lightline.ctrlp_prev, g:lightline.ctrlp_item, g:lightline.ctrlp_next], 0)
+        "     else
+        "         return ''
+        "     endif
         " endfunction
 
-        function! CocCurrentFunction()
-            return get(b:, 'coc_current_function', '')
-        endfunction
+        " let g:ctrlp_status_func = {
+        "     \ 'main': 'CtrlPStatusFunc_1',
+        "     \ 'prog': 'CtrlPStatusFunc_2',
+        " \ }
 
-        function! LightlineGitBlame() abort
-            let blame = get(b:, 'coc_git_blame', '')
-            " return blame
-            return winwidth(0) > 120 ? blame : ''
-        endfunction
+        " function! CtrlPStatusFunc_1(focus, byfname, regex, prev, item, next, marked)
+        "     let g:lightline.ctrlp_regex = a:regex
+        "     let g:lightline.ctrlp_prev = a:prev
+        "     let g:lightline.ctrlp_item = a:item
+        "     let g:lightline.ctrlp_next = a:next
+        "     return lightline#statusline(0)
+        " endfunction
 
-        " Use auocmd to force lightline update.
-        autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
+        " function! CtrlPStatusFunc_2(str)
+        "     return lightline#statusline(0)
+        " endfunction
+
+        " function! LightLineMode()
+        "     let fname = expand('%:t')
+        "     return fname =~ '__Tagbar__' ? 'Tagbar' :
+        "         \ fname == 'ControlP' ? 'CtrlP' :
+        "         \ fname == '__Gundo__' ? 'Gundo' :
+        "         \ fname == '__Gundo_Preview__' ? 'Gundo Preview' :
+        "         \ fname =~ 'NERD_tree' ? 'NERDTree' :
+        "         \ &ft == 'unite' ? 'Unite' :
+        "         \ &ft == 'vimfiler' ? 'VimFiler' :
+        "         \ &ft == 'vimshell' ? 'VimShell' :
+        "         \ winwidth(0) > 60 ? lightline#mode() : ''
+        " endfunction
+
+        " function! LightLineModified()
+        "     return &ft =~ 'help' ? '' : &modified ? '✎' : &modifiable ? '' : '-'
+        " endfunction
+
+        " function! LightLineReadonly()
+        "     return &ft !~? 'help' && &readonly ? '' : ''
+        " endfunction
+
+        " function! LightLineFilename()
+        "     let fname = expand('%:t')
+        "     return fname == 'ControlP' && has_key(g:lightline, 'ctrlp_item') ? g:lightline.ctrlp_item :
+        "         \ fname =~ '__Tagbar__' ? '' :
+        "         \ fname =~ '__Gundo\|NERD_tree' ? '' :
+        "         \ &ft == 'vimfiler' ? vimfiler#get_status_string() :
+        "         \ &ft == 'unite' ? unite#get_status_string() :
+        "         \ &ft == 'vimshell' ? vimshell#get_status_string() :
+        "         \ ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
+        "         \ ('' != fname ? fname : '[No Name]') .
+        "         \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
+        " endfunction
+
+        " function! LightLineFileformat()
+        "     return winwidth(0) > 70 ? &fileformat : ''
+        " endfunction
+
+        " function! LightLineFiletype()
+        "     return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
+        " endfunction
+
+        " function! LightLineFugitive()
+        "     try
+        "         if expand('%:t') !~? 'Tagbar\|Gundo\|NERD' && &ft !~? 'vimfiler' && exists('*fugitive#head')
+        "             let mark = ' '  " edit here for cool mark
+        "             let branch = fugitive#head()
+        "             return branch !=# '' ? mark.branch : ''
+        "         endif
+        "     catch
+        "     endtry
+        "     return ''
+        " endfunction
+
+        " function! LightLineFileencoding()
+        "   return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
+        " endfunction
+
+        " function! LightLineIndent()
+        "     return winwidth(0) > 70 ? (&expandtab == 1 ? 'spaces[' . &shiftwidth . ']' : 'tabs[' . &tabstop . ']') : ''
+        " endfunction
+
+        " function! LightLineGutentags()
+        "     return gutentags#statusline('Generating tags...')
+        " endfunction
+
+        " let g:tagbar_status_func = 'TagbarStatusFunc'
+
+        " function! TagbarStatusFunc(current, sort, fname, ...) abort
+        "     let g:lightline.fname = a:fname
+        "     return lightline#statusline(0)
+        " endfunction
+
+        " function! CocCurrentFunction()
+        "     return get(b:, 'coc_current_function', '')
+        " endfunction
+
+        " function! LightlineGitBlame() abort
+        "     let blame = get(b:, 'coc_git_blame', '')
+        "     " return blame
+        "     return winwidth(0) > 120 ? blame : ''
+        " endfunction
+
+        " " Use auocmd to force lightline update.
+        " autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
     " }}}
 
     " pdv - PHP Documentor for Vim - Generates PHP docblocks {{{
@@ -375,7 +339,12 @@
     " }}}
 
     " phpfolding.vim - Automatic folding of PHP functions, classes,.. (aldo folds related PhpDoc) {{{
-        Plug 'rayburgemeestre/phpfolding.vim'
+        Plug 'jessarcher/phpfolding.vim'
+
+"         augroup phpfolding
+"             autocmd!
+"             autocmd InsertLeave *.php EnableFastPHPFolds
+"         augroup END
     " }}}
 
     " html5.vim - HTML5 omnicomplete and syntax {{{
@@ -435,17 +404,33 @@
     " indentLine - A vim plugin to display the indention levels with thin vertical lines {{{
         Plug 'Yggdroot/indentLine'
 
+        " let g:indentLine_enabled = 0
         " " let g:indentline_faster = 1
         " " let g:indentline_char = '┊'
         " " let g:indentline_first_char = '┊'
-        let g:indentline_char = '│'
-        let g:indentline_first_char = '│'
-        let g:indentline_color_term = 237
-        let g:indentline_showfirstindentlevel = 1
+        let g:indentLine_char = '│'
+        let g:indentLine_first_char = '│'
+        let g:indentLine_color_term = 237
+        let g:indentLine_color_gui = '#333540'
+        let g:indentLine_showfirstindentlevel = 1
+    " }}}
+
+    " vim-sayonarao {{{
+        Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
+
+        nmap <leader>q :Sayonara!<CR>
+        nmap <leader>Q :Sayonara<CR>
+    " }}}
+
+    " vim-floaterm {{{
+        Plug 'voldikss/vim-floaterm'
+        let g:floaterm_keymap_toggle = '<F1>'
     " }}}
 
     " vim-bbye - Delete buffers and close files in Vim without closing your windows or messing up your layout. {{{
-        Plug 'moll/vim-bbye'
+        " Plug 'moll/vim-bbye'
+
+        " nmap <leader>q :Bdelete<CR>
     " }}}
 
     " vim-hardtime - Plugin to help you stop repeating the basic movement key {{{
@@ -472,29 +457,37 @@
     " }}}
 
     " NERDTree {{{
-        Plug 'scrooloose/nerdtree'
+        " Plug 'preservim/nerdtree'
 
-        let NERDTreeShowHidden=1
-        let NERDTreeMinimalUI=1
+        " let NERDTreeShowHidden=1
+        " let NERDTreeMinimalUI=1
 
-        nmap <leader>n :NERDTreeToggle<CR>
+        " nmap <leader>n :NERDTreeToggle<CR>
+        " nmap <leader>N :NERDTreeFind<CR>
+
+        " " If more than one window and previous buffer was NERDTree, go back to it.
+        " autocmd BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | endif
+
+        " " avoid crashes when calling vim-plug functions while the cursor is on the NERDTree window
+        " let g:plug_window = 'noautocmd vertical topleft new'
+
     " }}}
 
     " nerdtree-git-plugin {{{
-        Plug 'Xuyuanp/nerdtree-git-plugin'
+        " Plug 'Xuyuanp/nerdtree-git-plugin'
     " }}}
 
     " vim-devicons {{{
-        Plug 'ryanoasis/vim-devicons'
-        Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+        " Plug 'ryanoasis/vim-devicons'
+        " Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
-        let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-        let g:DevIconsEnableFoldersOpenClose = 1
-        let g:DevIconsEnableFolderExtensionPatternMatching = 1
+        " let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+        " let g:DevIconsEnableFoldersOpenClose = 1
+        " let g:DevIconsEnableFolderExtensionPatternMatching = 1
     " }}}
 
     " apiblueprint.vim {{{
-        Plug 'kylef/apiblueprint.vim'
+        " Plug 'kylef/apiblueprint.vim'
     " }}}
 
     " vim-argwrap - Wrap and unwrap function arguments, lists, and dictionaries in Vim {{{
@@ -516,8 +509,15 @@
         let g:vim_json_syntax_conceal = 0
     " }}}
 
+    " quick-scope {{{
+        Plug 'unblevable/quick-scope'
+        " Trigger a highlight in the appropriate direction when pressing these keys:
+        let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+        let g:qs_max_chars=150
+    " }}}
+
     " onedark.vim {{{
-        Plug 'joshdick/onedark.vim'
+        " Plug 'joshdick/onedark.vim'
 
         " augroup onedarkextend
         "     autocmd!
@@ -531,11 +531,11 @@
         "     autocmd ColorScheme * call onedark#extend_highlight("SpellCap", { "fg": { "cterm": "NONE" } })
         " augroup end
 
-        let g:onedark_hide_endofbuffer = 1
-        let g:onedark_terminal_italics = 1
+        " let g:onedark_hide_endofbuffer = 1
+        " let g:onedark_terminal_italics = 1
     " }}}
 
-    " darcula {{{
+    " dracula {{{
         Plug 'dracula/vim', { 'as': 'dracula' }
 
         "Include bold attributes in highlighting >
@@ -555,6 +555,12 @@
 
         " Include background fill colors >
         let g:dracula_colorterm = 1
+
+        augroup dracula_customization
+            autocmd!
+            autocmd ColorScheme * highlight CursorLine guibg=#2E303C
+            autocmd ColorScheme * highlight Folded guibg=NONE
+        augroup end
     " }}}"
 
     " editorconfig {{{
@@ -565,30 +571,60 @@
     " }}}
 
     " fzf {{{
-        Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+        Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
         Plug 'junegunn/fzf.vim'
 
-        nmap <leader>f :GFiles --cached --others --exclude-standard<CR>
-        nmap <leader>F :Files<CR>
+        let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8, 'yoffset':0.5, 'xoffset': 0.5 } }
+        let g:fzf_preview_window = 'right:50%'
+
+        let $FZF_DEFAULT_OPTS = '--layout=reverse --info=inline'
+        " let $FZF_DEFAULT_COMMAND="rg --files --hidden"
+
+        " Customise the Files command to use rg for ignoring .gitignore files
+        command! -bang -nargs=? -complete=dir Files
+            \ call fzf#run(fzf#wrap('files', fzf#vim#with_preview({ 'dir': <q-args>, 'sink': 'e', 'source': 'rg --files --hidden' }), <bang>0))
+
+        " Add an AllFiles variation that ignores .gitignore files
+        command! -bang -nargs=? -complete=dir AllFiles
+            \ call fzf#run(fzf#wrap('allfiles', fzf#vim#with_preview({ 'dir': <q-args>, 'sink': 'e', 'source': 'rg --files --hidden --no-ignore' }), <bang>0))
+
+        " nmap <leader>f :GFiles --cached --others --exclude-standard<CR>
+        nmap <leader>f :Files<CR>
+        nmap <leader>F :AllFiles<CR>
         nmap <leader>b :Buffers<CR>
         nmap <leader>h :History<CR>
-        nmap <leader>t :BTags<CR>
+        " nmap <leader>t :BTags<CR>
         nmap <leader>l :BLines<CR>
         nmap <leader>L :Lines<CR>
         nmap <leader>' :Marks<CR>
         nmap <leader>a :AgRaw<space>
+        nmap <leader>r :Rg<space>
         nmap <leader>H :Helptags!<CR>
-        nmap <leader>C :Commands<CR>
+        nmap <leader>c :Commands<CR>
         nmap <leader>: :History:<CR>
         nmap <leader>/ :History/<CR>
         nmap <leader>M :Maps<CR>
         nmap <leader>s :Filetypes<CR>
     " }}}
 
+    " vim-rooter {{{
+        Plug 'airblade/vim-rooter'
+    " }}}
+
+    " vim-which-key {{{
+        Plug 'liuchengxu/vim-which-key'
+        nnoremap <silent> <leader> :WhichKey '\'<CR>
+    " }}}
+
     " vim-test {{{
-        Plug 'janko-m/vim-test'
+        "Plug 'benmills/vimux'
+        Plug 'vim-test/vim-test'
         " Plug 'haginaga/vim-compiler-phpunit'
-        " Plug 'afternoon/vim-phpunit'
+        Plug 'afternoon/vim-phpunit'
+
+        function! InteractiveZshTransform(cmd) abort
+            return 'zsh -ic "'.a:cmd.'"'
+        endfunction
 
         function! DockerTransform(cmd) abort
             return 'docker-compose exec app '.a:cmd
@@ -598,10 +634,15 @@
             return 'cd ~/Homestead; vagrant ssh -c "cd code/wisha; '.a:cmd.'"'
         endfunction
 
-        let g:test#custom_transformations = {'docker': function('DockerTransform'), 'homestead': function('HomesteadTransform')}
-        " let g:test#transformation = 'homestead'
+        let g:test#custom_transformations = {
+            \ 'docker': function('DockerTransform'),
+            \ 'homestead': function('HomesteadTransform'),
+            \ 'zsh': function('InteractiveZshTransform')
+        \ }
+        let g:test#transformation = 'zsh'
+        let test#php#phpunit#executable = 'artisan test'
 
-        let test#strategy = "make"
+        let test#strategy = "neovim"
 
         nmap <leader>tn :TestNearest<CR>
         nmap <leader>tf :TestFile<CR>
@@ -609,7 +650,7 @@
         nmap <leader>tl :TestLast<CR>
         nmap <leader>tv :TestVisit<CR>
 
-        " let g:test#strategy = 'dispatch' " To use quickfix
+        "let g:test#strategy = 'dispatch' " To use quickfix
     " }}}
 
     " projectionist {{{
@@ -619,6 +660,10 @@
     " vim-css-color {{{
         Plug 'ap/vim-css-color'
     " }}}
+
+    " " nvim-colorizer.lua {{{
+    "     Plug 'norcalli/nvim-colorizer.lua'
+    " " }}}
 
     " vim-convert-color-to {{{
         Plug 'amadeus/vim-convert-color-to'
@@ -715,7 +760,10 @@
         endfunction
 
         " Highlight symbol under cursor on CursorHold
-        autocmd CursorHold * silent call CocActionAsync('highlight')
+        augroup cochighlight
+            autocmd!
+            autocmd CursorHold * silent call CocActionAsync('highlight')
+        augroup END
 
         " Remap for rename current word
         nmap <leader>rn <Plug>(coc-rename)
@@ -772,6 +820,13 @@
         " nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
         " " Resume latest coc list
         " nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+        nmap <leader>e :CocCommand explorer<CR>
+
+        " quit vim if coc-explorer is the last window
+        augroup cocexplorer
+            autocmd!
+            autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
+        augroup END
     " }}}
 
     " vim-peekaboo {{{
@@ -780,6 +835,50 @@
 
     " typescript-vim {{{
         Plug 'leafgarland/typescript-vim'
+    " }}}
+
+    " Konfekt/FastFold {{{
+        Plug 'Konfekt/FastFold'
+    " }}}
+
+    " Konfekt/FoldText {{{
+        " Plug 'Konfekt/FoldText'
+
+        " Set a nicer foldtext function
+        set foldtext=MyFoldText()
+        function! MyFoldText()
+          let line = getline(v:foldstart)
+          if match( line, '^[ \t]*\(\/\*\|\/\/\)[*/\\]*[ \t]*$' ) == 0
+            let initial = substitute( line, '^\([ \t]\)*\(\/\*\|\/\/\)\(.*\)', '\1\2', '' )
+            let linenum = v:foldstart + 1
+            while linenum < v:foldend
+              let line = getline( linenum )
+              let comment_content = substitute( line, '^\([ \t\/\*]*\)\(.*\)$', '\2', 'g' )
+              if comment_content != ''
+                break
+              endif
+              let linenum = linenum + 1
+            endwhile
+            let sub = initial . ' ' . comment_content
+          else
+            let sub = line
+            let startbrace = substitute( line, '^.*{[ \t]*$', '{', 'g')
+            if startbrace == '{'
+              let line = getline(v:foldend)
+              let endbrace = substitute( line, '^[ \t]*}\(.*\)$', '}', 'g')
+              if endbrace == '}'
+                let sub = sub.substitute( line, '^[ \t]*}\(.*\)$', '...}\1', 'g')
+              endif
+            endif
+          endif
+          let n = v:foldend - v:foldstart + 1
+          let info = " " . n . " lines"
+          let sub = sub . "                                                                                                                  "
+          let num_w = getwinvar( 0, '&number' ) * getwinvar( 0, '&numberwidth' )
+          let fold_w = getwinvar( 0, '&foldcolumn' )
+          let sub = strpart( sub, 0, winwidth(0) - strlen( info ) - num_w - fold_w - 1 )
+          return sub . info
+        endfunction
     " }}}
 
     call plug#end()
@@ -823,7 +922,7 @@
 
     " Show a column at textwidth+1 chars as the boundary of textwidth
     if exists('+colorcolumn')
-        set colorcolumn=+1,81,121
+        "set colorcolumn=+1,81,121
     endif
 
     " don't display lines wrapped by default
@@ -837,7 +936,7 @@
     set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
 
     " Restore previous buffers when starting
-    set viminfo+=%
+    "set viminfo+=%
 
     " Always show the sign column so things don't jump around when it appears
     set signcolumn=yes:2
@@ -850,6 +949,10 @@
     " Recommended by coc.nvim README
     set updatetime=300 " default 4000
 
+    set lazyredraw " Don't redraw the screen while performing macros (so they run faster)
+
+    set foldcolumn=1 "Show folds in the gutter
+
 " }}}
 
 " Moving Around {{{
@@ -859,7 +962,7 @@
     set mouse=a
 
     " Highlight the line that the cursor is on
-    " set cursorline
+    set cursorline
 
     " Start vertically scrolling when 3 lines from the top or bottom
     set scrolloff=3
@@ -921,7 +1024,10 @@
 
     " Don't comment newline when using o or O from a commented line (needs
     " autocmd otherwise it gets overwritten)
-    autocmd FileType * setlocal formatoptions-=o
+    augroup formatting
+        autocmd!
+        autocmd FileType * setlocal formatoptions-=o
+    augroup END
 
 " }}}
 
@@ -955,10 +1061,10 @@
     "set preserveindent
 
     " display tabs, tailing spaces, and other chars visually
-    set list
+    "set list
 
     set listchars=tab:▸\ ,space:·,trail:·,extends:→,precedes:←,nbsp:␣,eol:↲
-    set fillchars+=vert:│
+    set fillchars+=fold:\ ,vert:│
     set showbreak=↪\
 
 " }}}
@@ -973,7 +1079,7 @@
     set incsearch
 
     " Show what substitutions will look like real-time
-    set inccommand=split
+    set inccommand=nosplit
 
     " Enable regex for searches
     set magic
@@ -1052,8 +1158,6 @@
 
     nmap <leader>w :w<cr>
 
-    nmap <leader>q :Bdelete<CR>
-
     " Auto change directory to match current file ,cd
     nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 
@@ -1101,6 +1205,9 @@
     " Reselect visual selection after de-indenting
     vnoremap > >gv
 
+    " xnoremap K :move '<-2<CR>gv=gv
+    " xnoremap J :move '>+1<CR>gv=gv
+
     " Clear search highlighting
     nnoremap <silent> <leader>k :nohl<CR>
 
@@ -1132,6 +1239,11 @@
     nnoremap <Leader>cc :%s/\<<C-r><C-w>\>/<C-r><C-w>
     vnoremap <Leader>cc y:%s/<C-r>"/<C-r>"
 
+    " noremap A <nop>
+
+    imap ;; <Esc>A;<Esc>
+    imap ,, <Esc>A,<Esc>
+
 " }}}
 
 " Spell Checking {{{
@@ -1148,26 +1260,17 @@
 " Colors {{{
 " ==============================================================================
 
+    syntax on
+
     if (has("termguicolors"))
         set termguicolors
     endif
 
-    syntax on
-    "set background=dark
-
-
-    "augroup colorschemeoverrides
-    "     autocmd!
-    "     " autocmd ColorScheme * highlight Search     ctermbg=19  ctermfg=NONE
-    "     autocmd ColorScheme * highlight SpecialKey ctermfg=237
-    "     autocmd ColorScheme * highlight NonText    ctermfg=237
-    "     autocmd ColorScheme * highlight MatchParen ctermbg=240 ctermfg=NONE
-
-    "     autocmd ColorScheme * highlight SpellBad cterm=underline ctermbg=NONE
-    "     autocmd ColorScheme * highlight SpellLocal cterm=underline ctermbg=NONE
-    "     autocmd ColorScheme * highlight SpellRare cterm=underline ctermbg=NONE
-    "     autocmd ColorScheme * highlight SpellCap cterm=underline ctermbg=NONE
-    "augroup end
+    augroup ColorSchemeOverrides
+        autocmd!
+        autocmd ColorScheme * highlight SpellBad gui=undercurl
+        autocmd ColorScheme * highlight SpellCap gui=undercurl
+    augroup end
 
     augroup HighlightWhitespace
         autocmd!
@@ -1175,13 +1278,6 @@
         autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
         autocmd InsertLeave * match ExtraWhitespace /\s\+$/
     augroup end
-
-    " if !empty(glob('~/.vim/bundle/base16-vim/')) && filereadable(expand("~/.vimrc_background")) && ($BASE16_THEME != '' || has("gui_running"))
-    "     let base16colorspace=256  " Access colors present in 256 colorspace
-    "     source ~/.vimrc_background
-    " else
-    "     colorscheme default
-    " endif
 
     colorscheme dracula
 
@@ -1241,6 +1337,11 @@
         " Format Mutt temp files as email
         au BufRead,BufNewFile *tmp/mutt* set ft=mail
 
+        " Use '//' instead of '/* */' comments
+        autocmd FileType php setlocal commentstring=//%s
+
+        " autocmd FileType html setlocal foldmethod=syntax
+
         " Don't backup gopass temp files
         au BufNewFile,BufRead /dev/shm/gopass.* setlocal noswapfile nobackup noundofile
     augroup end
@@ -1255,6 +1356,8 @@
     "    setglobal tags-=./tags tags-=./tags; tags^=./tags;,./vendor-tags;
     "endif
 
+    set foldlevelstart=99
+
 " }}}
 
 " General Auto-commands {{{
@@ -1267,13 +1370,15 @@
         autocmd BufReadPost * call setpos(".", getpos("'\""))
 
         " Automatically re-source the .vimrc on save
-        autocmd! BufWritePost $MYVIMRC source % | echom "Reloaded " . $MYVIMRC | redraw
+        "autocmd! BufWritePost $MYVIMRC source % | echom "Reloaded " . $MYVIMRC | redraw
 
         " Add a variation for when we edit the .vimrc while using neovim where
         " $MYVIMRC is set to init.vim
-        autocmd! BufWritePost .vimrc source % | echom "Reloaded " . $MYVIMRC | redraw
+        "autocmd! BufWritePost .vimrc source % | echom "Reloaded " . $MYVIMRC | redraw
 
-        autocmd FileType php setlocal commentstring=//%s
+
+        " Use an interactive shell (to get zsh functions and aliases)
+        "autocmd vimenter * let &shell='/bin/zsh -i'
     augroup end
 
     " Create any required directories when saving
@@ -1294,9 +1399,6 @@
 
 " Speed Improvements {{{
 " ==============================================================================
-
-    " Seems to fix scrolling issues caused by relativenumber and cursorline
-    set lazyredraw
 
     set ttyfast
     " syntax sync minlines=200
@@ -1357,4 +1459,4 @@
 
 " }}}
 
-" vim: set nospell foldmethod=marker foldlevel=0:
+" vim: set nospell foldmethod=marker foldlevel=99:
