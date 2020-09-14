@@ -23,5 +23,14 @@
     "diagnostic.infoSign": "•",
     "coc.source.emoji.filetypes": null,
     "diagnostic.hintSign": "•",
-    "git.enableGutters": true
+    "git.enableGutters": true,
+    "tailwindCSS.headwind.runOnSave": false,
+    // explorer
+    "explorer.width": 30,
+    "explorer.icon.enableNerdfont": true,
+    "explorer.previewAction.onHover": false,
+    "explorer.keyMappings": {
+        "<cr>": ["expandable?", "expand", "open"],
+        "v": "open:vsplit"
+    }
 }
