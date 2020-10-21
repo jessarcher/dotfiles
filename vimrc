@@ -425,6 +425,9 @@
     " vim-floaterm {{{
         Plug 'voldikss/vim-floaterm'
         let g:floaterm_keymap_toggle = '<F1>'
+        let g:floaterm_width = 0.8
+        let g:floaterm_height = 0.8
+        " let g:floaterm_autoclose = 1
     " }}}
 
     " vim-bbye - Delete buffers and close files in Vim without closing your windows or messing up your layout. {{{
@@ -612,8 +615,8 @@
     " }}}
 
     " vim-which-key {{{
-        Plug 'liuchengxu/vim-which-key'
-        nnoremap <silent> <leader> :WhichKey '\'<CR>
+        " Plug 'liuchengxu/vim-which-key'
+        " nnoremap <silent> <leader> :WhichKey '\'<CR>
     " }}}
 
     " vim-test {{{
@@ -642,7 +645,7 @@
         let g:test#transformation = 'zsh'
         let test#php#phpunit#executable = 'artisan test'
 
-        let test#strategy = "neovim"
+        let test#strategy = "floaterm"
 
         nmap <leader>tn :TestNearest<CR>
         nmap <leader>tf :TestFile<CR>
@@ -839,46 +842,6 @@
 
     " Konfekt/FastFold {{{
         Plug 'Konfekt/FastFold'
-    " }}}
-
-    " Konfekt/FoldText {{{
-        " Plug 'Konfekt/FoldText'
-
-        " Set a nicer foldtext function
-        set foldtext=MyFoldText()
-        function! MyFoldText()
-          let line = getline(v:foldstart)
-          if match( line, '^[ \t]*\(\/\*\|\/\/\)[*/\\]*[ \t]*$' ) == 0
-            let initial = substitute( line, '^\([ \t]\)*\(\/\*\|\/\/\)\(.*\)', '\1\2', '' )
-            let linenum = v:foldstart + 1
-            while linenum < v:foldend
-              let line = getline( linenum )
-              let comment_content = substitute( line, '^\([ \t\/\*]*\)\(.*\)$', '\2', 'g' )
-              if comment_content != ''
-                break
-              endif
-              let linenum = linenum + 1
-            endwhile
-            let sub = initial . ' ' . comment_content
-          else
-            let sub = line
-            let startbrace = substitute( line, '^.*{[ \t]*$', '{', 'g')
-            if startbrace == '{'
-              let line = getline(v:foldend)
-              let endbrace = substitute( line, '^[ \t]*}\(.*\)$', '}', 'g')
-              if endbrace == '}'
-                let sub = sub.substitute( line, '^[ \t]*}\(.*\)$', '...}\1', 'g')
-              endif
-            endif
-          endif
-          let n = v:foldend - v:foldstart + 1
-          let info = " " . n . " lines"
-          let sub = sub . "                                                                                                                  "
-          let num_w = getwinvar( 0, '&number' ) * getwinvar( 0, '&numberwidth' )
-          let fold_w = getwinvar( 0, '&foldcolumn' )
-          let sub = strpart( sub, 0, winwidth(0) - strlen( info ) - num_w - fold_w - 1 )
-          return sub . info
-        endfunction
     " }}}
 
     call plug#end()
