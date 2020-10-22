@@ -46,15 +46,8 @@
     ~/.tmux.conf: tmux.conf
     ~/.tmux_darwin.conf: tmux_darwin.conf
     ~/.tmux_linux.conf: tmux_linux.conf
-    ~/.vim: vim/
     ~/.vimperatorrc: vimperatorrc
-    ~/.vimrc: vimrc
-    ~/.config/nvim/init.vim:
-        create: true
-        path: nvim.vim
-    ~/.config/nvim/coc-settings.json:
-        create: true
-        path: coc-settings.json
+    ~/.config/nvim: nvim
     ~/.xinitrc: xinitrc
     ~/.Xmodmap: Xmodmap
     ~/.Xresources: Xresources

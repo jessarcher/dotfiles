@@ -1,0 +1,1 @@
+Plug 'airblade/vim-rooter'

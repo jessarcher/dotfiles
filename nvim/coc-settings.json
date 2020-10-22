@@ -1,0 +1,16 @@
+{
+    "coc.preferences.extensionUpdateCheck": "daily",
+    "coc.preferences.formatOnType": true,
+    "diagnostic.virtualText": true,
+    "diagnostic.messageTarget": "echo",
+    "diagnostic-languageserver.formatFiletypes": {
+        "php": "php-cs-fixer"
+    },
+    "diagnostic.errorSign": "✖",
+    "diagnostic.warningSign": "!",
+    "diagnostic.infoSign": "•",
+    "diagnostic.hintSign": "•",
+    "git.enableGutters": true,
+    "tailwindCSS.headwind.runOnSave": false,
+    "tailwindCSS.emmetCompletions": true
+}
