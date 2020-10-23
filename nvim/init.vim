@@ -143,6 +143,7 @@ source ~/.config/nvim/plugins/pasta.vim
 source ~/.config/nvim/plugins/quickscope.vim
 source ~/.config/nvim/plugins/visual-star-search.vim
 source ~/.config/nvim/plugins/rooter.vim
+source ~/.config/nvim/plugins/markdown-preview.vim
 
 call plug#end()
 
