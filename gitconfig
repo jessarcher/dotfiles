@@ -53,12 +53,16 @@
 
 [color]
     ui = auto
+[commit]
+    gpgsign = true
 [core]
     editor = vim
     excludesfile = ~/.gitignore_global
     pager = delta
 [diff]
     tool = vimdiff
+[fetch]
+    prune = true
 [help]
     autocorrect = 10
 [include]
