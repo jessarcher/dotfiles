@@ -145,6 +145,7 @@ source ~/.config/nvim/plugins/visual-star-search.vim
 source ~/.config/nvim/plugins/rooter.vim
 source ~/.config/nvim/plugins/markdown-preview.vim
 source ~/.config/nvim/plugins/phpactor.vim
+source ~/.config/nvim/plugins/lion.vim
 
 call plug#end()
 
