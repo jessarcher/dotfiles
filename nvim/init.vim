@@ -131,7 +131,6 @@ source ~/.config/nvim/plugins/surround.vim
 source ~/.config/nvim/plugins/repeat.vim
 source ~/.config/nvim/plugins/polyglot.vim
 source ~/.config/nvim/plugins/context-commentstring.vim
-source ~/.config/nvim/plugins/sleuth.vim
 source ~/.config/nvim/plugins/vim-test.vim
 source ~/.config/nvim/plugins/lastplace.vim
 source ~/.config/nvim/plugins/fugitive.vim
