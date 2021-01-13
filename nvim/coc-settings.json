@@ -1,5 +1,7 @@
 {
+    "coc.preferences.formatOnSaveFiletypes": ["php"],
     "coc.preferences.extensionUpdateCheck": "daily",
+    "coc.preferences.formatOnInsertLeave": true,
     "coc.preferences.formatOnType": true,
     "diagnostic.virtualText": true,
     "diagnostic.messageTarget": "echo",
@@ -11,6 +13,8 @@
     "diagnostic.infoSign": "•",
     "diagnostic.hintSign": "•",
     "git.enableGutters": true,
+    "phpls.path": "/usr/local/bin/intelephense",
+    "intelephense.environment.phpVersion": "8",
     "tailwindCSS.headwind.runOnSave": false,
     "tailwindCSS.emmetCompletions": true
 }

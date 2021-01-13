@@ -43,7 +43,7 @@ set clipboard=unnamedplus
 set confirm
 
 "--------------------------------------------------------------------------
-" General key maps
+" General key maps (keymaps, key binds, keybinds)
 "--------------------------------------------------------------------------
 
 let mapleader = "\<space>"
@@ -145,6 +145,7 @@ source ~/.config/nvim/plugins/rooter.vim
 source ~/.config/nvim/plugins/markdown-preview.vim
 source ~/.config/nvim/plugins/phpactor.vim
 source ~/.config/nvim/plugins/lion.vim
+source ~/.config/nvim/plugins/smooth-scroll.vim
 
 call plug#end()
 
