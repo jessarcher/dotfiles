@@ -1,13 +1,9 @@
 {
     "coc.preferences.formatOnSaveFiletypes": ["php"],
     "coc.preferences.extensionUpdateCheck": "daily",
-    "coc.preferences.formatOnInsertLeave": true,
     "coc.preferences.formatOnType": true,
     "diagnostic.virtualText": true,
     "diagnostic.messageTarget": "echo",
-    "diagnostic-languageserver.formatFiletypes": {
-        "php": "php-cs-fixer"
-    },
     "diagnostic.errorSign": "✖",
     "diagnostic.warningSign": "!",
     "diagnostic.infoSign": "•",

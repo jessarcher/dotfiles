@@ -41,6 +41,7 @@ set nojoinspaces
 set splitright
 set clipboard=unnamedplus
 set confirm
+set exrc
 
 "--------------------------------------------------------------------------
 " General key maps (keymaps, key binds, keybinds)
@@ -146,6 +147,8 @@ source ~/.config/nvim/plugins/markdown-preview.vim
 source ~/.config/nvim/plugins/phpactor.vim
 source ~/.config/nvim/plugins/lion.vim
 source ~/.config/nvim/plugins/smooth-scroll.vim
+source ~/.config/nvim/plugins/arduino.vim
+source ~/.config/nvim/plugins/nerdtree.vim
 
 call plug#end()
 
