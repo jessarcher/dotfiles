@@ -45,6 +45,7 @@
     antibody bundle robbyrussell/oh-my-zsh path:plugins/ssh-agent
     antibody bundle robbyrussell/oh-my-zsh path:plugins/tmux
     antibody bundle robbyrussell/oh-my-zsh path:plugins/tmuxinator
+    antibody bundle robbyrussell/oh-my-zsh path:plugins/z
 
     # Other bundles
     antibody bundle sampson-chen/sack
@@ -137,7 +138,6 @@
     alias dceasa="dceas php artisan"
 
     # General
-    alias v="nvim"
     alias vim="nvim"
     alias mux="tmuxinator"
     alias copy="xclip -selection clipboard"
@@ -145,6 +145,16 @@
     alias ag="sag"
     alias cat="bat"
     alias dslr-webcam="gphoto2 --set-config-value whitebalance="Auto" && gphoto2 --stdout --capture-movie | ffmpeg -i - -vcodec rawvideo -pix_fmt yuv420p -threads 0 -f v4l2 /dev/video0"
+
+    # Open vim with z argument
+    v() {
+      if [ -n "$1" ]; then
+        z $1
+      fi
+
+      nvim
+    }
+
     # cd() {
     #     cd $1 && eval ls
     # }
