@@ -35,8 +35,8 @@ set nowrap
 set list
 set listchars=tab:▸\ ,trail:·
 set mouse=a
-set scrolloff=3
-set sidescrolloff=3
+set scrolloff=8
+set sidescrolloff=8
 set nojoinspaces
 set splitright
 set clipboard=unnamedplus
