@@ -152,6 +152,7 @@ source ~/.config/nvim/plugins/lion.vim
 source ~/.config/nvim/plugins/smooth-scroll.vim
 source ~/.config/nvim/plugins/arduino.vim
 source ~/.config/nvim/plugins/nerdtree.vim
+source ~/.config/nvim/plugins/textobj-xmlattr.vim
 
 call plug#end()
 
