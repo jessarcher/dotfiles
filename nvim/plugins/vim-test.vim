@@ -1,16 +1,8 @@
 Plug 'vim-test/vim-test'
 
-function! InteractiveZshTransform(cmd) abort
-    return 'zsh -ic "'.a:cmd.'"'
-endfunction
-
-let g:test#custom_transformations = {
-    \ 'zsh': function('InteractiveZshTransform')
-\ }
-
-let test#strategy = "neovim"
-let g:test#transformation = 'zsh'
-let test#php#phpunit#executable = 'phpunit'
+"let test#strategy = "neovim"
+"let g:test#transformation = 'zsh'
+let test#php#phpunit#executable = 'deliver vendor/bin/phpunit'
 
 nmap <leader>tn :TestNearest<CR>
 nmap <leader>tf :TestFile<CR>
