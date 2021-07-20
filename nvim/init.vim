@@ -42,6 +42,8 @@ set splitright
 set clipboard=unnamedplus
 set confirm
 set exrc
+set backup
+set backupdir=~/.local/share/nvim/backup
 
 "--------------------------------------------------------------------------
 " General key maps (keymaps, key binds, keybinds)
