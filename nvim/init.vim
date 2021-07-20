@@ -130,6 +130,7 @@ source ~/.config/nvim/plugins/airline.vim
 source ~/.config/nvim/plugins/coc.vim
 source ~/.config/nvim/plugins/dracula.vim
 source ~/.config/nvim/plugins/commentary.vim
+source ~/.config/nvim/plugins/dispatch.vim
 source ~/.config/nvim/plugins/surround.vim
 source ~/.config/nvim/plugins/repeat.vim
 source ~/.config/nvim/plugins/polyglot.vim
