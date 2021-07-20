@@ -6,7 +6,10 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 let NERDTreeShowHidden=1
 let NERDTreeMinimalUI=1
 
-nmap <leader>n :NERDTreeToggle<CR>
+let g:NERDTreeDirArrowExpandable = '▹'
+let g:NERDTreeDirArrowCollapsible = '▿'
+
+nnoremap <expr> <leader>n g:NERDTree.IsOpen() ? ':NERDTreeClose<CR>' : ':NERDTreeFind<CR>'
 nmap <leader>N :NERDTreeFind<CR>
 
 " If more than one window and previous buffer was NERDTree, go back to it.
