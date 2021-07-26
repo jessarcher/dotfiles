@@ -46,10 +46,12 @@
 
     s = status --short --branch
 
-    branch-list-merged = "!git branch --merged master | grep -v -E '(develop|origin|master)'"
+    branch-list-merged = "!git branch --merged develop | grep -v -E '(develop|origin|master)'"
     branch-delete-merged = "!git branch-list-merged | xargs git branch -d"
 
-    undo-last-commit = reset HEAD~1
+    unstage = reset HEAD
+    undo-commit = reset --soft HEAD^
+    set-upstream = !git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`
 
 [color]
     ui = auto
@@ -82,3 +84,7 @@
     plus-emph-style = "syntax #2D4E45"
     minus-style = "syntax #3B2C37"
     minus-emph-style = "syntax #613038"
+[pull]
+	rebase = false
+[init]
+	defaultBranch = main
