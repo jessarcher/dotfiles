@@ -6,11 +6,9 @@ let g:projectionist_heuristics = {
     \     "start": "sail up",
     \     "console": "sail tinker",
     \   },
-    \   "app/**/Controllers/*.php": {
+    \   "app/*Controller.php": {
     \     "type": "source",
-    \     "alternate": [
-    \       "tests/Feature/{dirname}/Controllers/{basename}Test.php",
-    \     ],
+    \     "alternate": "tests/Feature/{}ControllerTest.php",
     \   },
     \   "app/**/Models/*.php": {
     \     "type": "source",
