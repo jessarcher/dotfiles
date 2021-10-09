@@ -11,6 +11,7 @@ let g:coc_global_extensions = [
     \ 'coc-json',
     \ 'coc-pairs',
     \ 'coc-phpls',
+    \ 'coc-php-cs-fixer',
     \ 'coc-prettier',
     \ 'coc-sh',
     \ 'coc-snippets',
@@ -57,6 +58,9 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+
+nmap <silent> ]h <Plug>(coc-git-nextchunk)
+nmap <silent> [h <Plug>(coc-git-prevchunk)
 
 " apply autofix to problem on the current line.
 nmap <leader>af  <plug>(coc-fix-current)

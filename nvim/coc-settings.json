@@ -1,16 +1,23 @@
 {
-    "coc.preferences.formatOnSaveFiletypes": ["php"],
     "coc.preferences.extensionUpdateCheck": "daily",
     "coc.preferences.formatOnType": true,
     "diagnostic.virtualText": true,
     "diagnostic.messageTarget": "echo",
     "diagnostic.errorSign": "✖",
-    "diagnostic.warningSign": "!",
+    "diagnostic.warningSign": "⚠",
     "diagnostic.infoSign": "•",
     "diagnostic.hintSign": "•",
     "git.enableGutters": true,
+    "git.addedSign.text": "┃",
+    "git.changedSign.text": "┃",
+    "git.removedSign.text": "▁",
+    "git.topRemovedSign.text": "▔",
+    "git.changeRemovedSign.text": "▔",
     "phpls.path": "/usr/local/bin/intelephense",
+    "php-cs-fixer.config": ".php-cs-fixer.dist.php",
+    "php-cs-fixer.enableFormatProvider": true,
     "intelephense.environment.phpVersion": "8",
-    "tailwindCSS.headwind.runOnSave": false,
-    "tailwindCSS.emmetCompletions": true
+    "tailwindCSS.validate": true,
+    "tailwindCSS.emmetCompletions": true,
+    "prettier.requireConfig": true
 }
