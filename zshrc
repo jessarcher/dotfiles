@@ -69,14 +69,16 @@
     ENABLE_CORRECTION="false"
     COMPLETION_WAITING_DOTS="true"
     HIST_STAMPS="yyyy-mm-dd"
-    DISABLE_AUTO_TITLE="true"
 
     typeset -U path cdpath fpath
 
+    # Vim mode
+    bindkey -v
+    export KEYTIMEOUT=1
+
     export ANDROID_HOME="$HOME/Android/Sdk/"
 
-    #precmd () {print -Pn "\e]0;%~\a"}
-    #precmd () { print -Pn "\e]2;%n@%M | %~\a" } # title bar prompt
+    export GIT_EDITOR=vim
 
     path=(
         $HOME/.local/bin
@@ -126,6 +128,7 @@
     alias g="git"
     alias gs="git s"
     alias nah="git reset --hard;git clean -df"
+    alias co="git checkout"
 
     # Docker
     alias d="docker"
@@ -144,7 +147,7 @@
     alias paste="xclip -o -selection clipboard"
     alias ag="sag"
     alias cat="bat"
-    alias dslr-webcam="gphoto2 --set-config-value whitebalance="Auto" && gphoto2 --stdout --capture-movie | ffmpeg -i - -vcodec rawvideo -pix_fmt yuv420p -threads 0 -f v4l2 /dev/video0"
+    alias webcam="gphoto2 --stdout --capture-movie | ffmpeg -i - -vcodec rawvideo -pix_fmt yuv420p -threads 0 -f v4l2 /dev/video1"
 
     # Open vim with z argument
     v() {
