@@ -13,9 +13,6 @@
     ~/.config/gopass/config.yml:
         create: true
         path: gopass.yml
-    ~/.config/kitty/kitty.conf:
-        create: true
-        path: kitty.conf
     ~/.config/phpactor/phpactor.yml:
         create: true
         path: phpactor.yml
@@ -47,6 +44,7 @@
     ~/.tmux_darwin.conf: tmux_darwin.conf
     ~/.tmux_linux.conf: tmux_linux.conf
     ~/.vimperatorrc: vimperatorrc
+    ~/.config/kitty: kitty
     ~/.config/nvim: nvim
     ~/.xinitrc: xinitrc
     ~/.Xmodmap: Xmodmap
