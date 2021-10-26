@@ -27,7 +27,6 @@ set termguicolors
 set undofile
 set spell
 set title
-set inccommand=nosplit
 set ignorecase
 set smartcase
 set wildmode=longest:full,full
@@ -43,8 +42,8 @@ set clipboard=unnamedplus
 set confirm
 set exrc
 set backup
-set backupdir=~/.local/share/nvim/backup
-set updatetime=300 " Reduce time for CoC to highlight references
+set backupdir=~/.local/share/nvim/backup//
+set updatetime=300 " Reduce time for highlighting other references
 set redrawtime=10000 " Allow more time for loading syntax on large files
 
 "--------------------------------------------------------------------------
