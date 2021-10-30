@@ -72,7 +72,7 @@ nmap <leader>ac  <Plug>(coc-codeaction)
 " Example: `<leader>aap` for current paragraph
 xmap <leader>a  <Plug>(coc-codeaction-selected)
 nmap <leader>a  <Plug>(coc-codeaction-selected)
-
+nmap <leader>ga  <Plug>(coc-codeaction-line)
 
 " Map function and class text objects
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
