@@ -12,7 +12,6 @@ let g:coc_global_extensions = [
     \ 'coc-pairs',
     \ 'coc-phpls',
     \ 'coc-php-cs-fixer',
-    \ 'coc-prettier',
     \ 'coc-sh',
     \ 'coc-snippets',
     \ 'coc-sql',

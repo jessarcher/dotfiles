@@ -62,12 +62,6 @@ nmap <leader>Q :bufdo bdelete<cr>
 " Allow gf to open non-existent files
 map gf :edit <cfile><cr>
 
-" Quicker switching between windows
-nmap <silent> <C-h> <C-w>h
-nmap <silent> <C-j> <C-w>j
-nmap <silent> <C-k> <C-w>k
-nmap <silent> <C-l> <C-w>l
-
 " Reselect visual selection after indenting
 vnoremap < <gv
 vnoremap > >gv
@@ -117,6 +111,7 @@ endif
 
 call plug#begin(data_dir . '/plugins')
 
+source ~/.config/nvim/plugins/abolish.vim
 source ~/.config/nvim/plugins/airline.vim
 source ~/.config/nvim/plugins/arduino.vim
 source ~/.config/nvim/plugins/coc.vim
@@ -150,6 +145,7 @@ source ~/.config/nvim/plugins/splitjoin.vim
 source ~/.config/nvim/plugins/surround.vim
 source ~/.config/nvim/plugins/targets.vim
 source ~/.config/nvim/plugins/textobj-xmlattr.vim
+source ~/.config/nvim/plugins/tmux-navigator.vim
 source ~/.config/nvim/plugins/unimpaired.vim
 source ~/.config/nvim/plugins/vim-test.vim
 source ~/.config/nvim/plugins/visual-multi.vim

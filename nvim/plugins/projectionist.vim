@@ -21,6 +21,13 @@ let g:projectionist_heuristics = {
     \     "type": "source",
     \     "alternate": "tests/Unit/{dirname}/Listeners/{basename}Test.php",
     \   },
+    \   "app/*.php": {
+    \     "type": "source",
+    \     "alternate": [
+    \       "tests/Unit/{}Test.php",
+    \       "tests/Feature/{}Test.php",
+    \     ]
+    \   },
     \   "tests/Feature/*Test.php": {
     \     "type": "test",
     \     "alternate": "app/{}.php",
