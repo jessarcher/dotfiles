@@ -1,1 +1,0 @@
-Plug 'junegunn/vim-peekaboo'

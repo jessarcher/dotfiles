@@ -1,1 +1,0 @@
-Plug 'wellle/targets.vim'
