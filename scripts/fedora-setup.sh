@@ -1,98 +1,67 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
-# Extra Repos
-sudo dnf copr enable oleastre/kitty-terminal
-sudo dnf copr enable daftaupe/gopass
-sudo dnf copr enable thindil/universal-ctags
 sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
 
-# Install packages
-sudo dnf install \
-    bat \
-    boost-devel \
-    cmake \
-    docker-ce \
-    fd-find \
-    fortune-mod \
-    gcc-c++ \
-    git \
-    gopass \
-    httpie \
-    kitty \
+sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+
+sudo dnf install -y \
+    anacron \
+    gnome-tweaks \
+    gnome-extensions-app \
     neovim \
-    nodejs \
-    php-bcmath \
-    php-cli \
-    php-json \
-    php-mbstring \
-    php-xml \
-    php-mysqlnd \
-    php-pdo \
-    php-pgsql \
-    php-process \
-    pidgin \
-    pidgin-libnotify \
-    pidgin-otr \
-    postgresql \
-    python-devel \
-    python2-neovim \
     python3-neovim \
-    python3-devel \
-    the_silver_searcher \
-    thunderbird \
+    git \
+    kitty \
+    zsh \
+    g++ \
+    lua-devel \
+    luarocks \
+    php \
+    php-bcmath \
+    php-mysqlnd \
+    php-pecl-zip \
+    php-pgsql \
+    php-posix \
+    php-soap \
+    docker-ce \
+    docker-ce-cli \
+    containerd.io \
+    docker-compose-plugin \
+    bat \
+    fzf \
+    httpie \
+    ripgrep \
     tmux \
-    universal-ctags \
-    urlview \
-    xclip \
-    xsel \
-    zsh
+    ruby \
+    python3 \
+    htop \
+    proselint \
+    lm_sensors \
+    discord \
+    slack
 
-sudo gem install lolcat tmuxinator
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak install flathub org.telegram.desktop
 
-# zsh Setup
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+sudo gem install lolcat
+
+pip install gitlint
+
+sudo luarocks install luacheck
+
+# Composer
+./install-composer.sh
+composer global require laravel/installer
+
+# Node
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+nvm install node
 
 # Docker setup
 sudo groupadd docker
 sudo usermod -aG docker $USER
-sudo systemctl enable docker
+sudo systemctl enable docker.service
+sudo systemctl enable containerd.service
+sudo systemctl start docker
 
-# Install Docker Compose
-sudo curl -L $(curl -s https://api.github.com/repos/docker/compose/releases/latest | grep "docker-compose-$(uname -s)-$(uname -m)\"" | grep browser_download_url | cut -d\" -f4) -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-
-# Sack
-git clone https://github.com/sampson-chen/sack.git /tmp/sack && cd /tmp/sack && chmod +x install_sack.sh && ./install_sack.sh
-
-# GNUPG
-# TODO: How to do this securely?
-
-# Pass Setup
-# TODO: Clone from personal repo
-sudo ln -s /usr/bin/gopass /usr/local/bin/pass
-curl -sSL $(curl -s https://api.github.com/repos/passff/passff-host/releases/latest | grep "install_host_app.sh" | grep browser_download_url | cut -d\" -f4) | bash -s -- firefox
-
-# Dotfiles
-rm ~/.bashrc
-rm ~/.bash_profile
-rm ~/.zshrc
-git clone git@github.com:jessarcher/dotfiles.git ~/.dotfiles
-~/.dotfiles/install
-
-# SSH Keys
-
-# Composer
-EXPECTED_SIGNATURE="$(wget -q -O - https://composer.github.io/installer.sig)"
-php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-ACTUAL_SIGNATURE="$(php -r "echo hash_file('SHA384', 'composer-setup.php');")"
-
-if [ "$EXPECTED_SIGNATURE" != "$ACTUAL_SIGNATURE" ]
-then
-    >&2 echo 'ERROR: Invalid installer signature'
-    rm composer-setup.php
-    exit 1
-fi
-
-sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
-rm composer-setup.php
-sudo chmod +x /usr/local/bin/composer
+echo "Don't forget to copy over your .ssh and .gnupg directories!"
