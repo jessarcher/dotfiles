@@ -1,0 +1,40 @@
+<?php
+
+namespace {{ prototype.namespace }};
+
+use Mockery\MockInterface;
+use Shift\Facades\Log;
+use Tests\InteractsWithProject;
+use Tests\TestCase;
+
+/**
+ * @see Task
+ */
+{% for class in prototype.classes %}
+class {{ class.name }} extends TestCase
+{
+    use InteractsWithProject;
+
+    protected MockInterface $log;
+
+    protected Task $subject;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->log = \Mockery::spy(Log::class);
+        Log::swap($this->log);
+
+        $this->subject = new Task();
+    }
+
+    /** @test */
+    public function it_does_nothing_when_nothing_is_found()
+    {
+        $this->fakeProject(Laravel9Shift::class, []);
+
+        $this->subject->perform();
+    }
+}
+{% endfor %}

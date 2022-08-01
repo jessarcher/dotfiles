@@ -1,0 +1,14 @@
+<?php
+
+namespace {{ prototype.namespace }};
+
+use Shift\Tasks\Task;
+
+{% for class in prototype.classes %}
+class {{ class.name }} extends Task
+{
+    public function perform(): void
+    {
+    }
+}
+{% endfor %}

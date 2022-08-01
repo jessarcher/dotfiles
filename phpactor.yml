@@ -1,7 +1,0 @@
-navigator.destinations:
-    source: app/<kernel>.php
-    unit_test: tests/Unit/<kernel>Test.php
-
-navigator.autocreate:
-    source: default
-    unit_test: phpunit_test
