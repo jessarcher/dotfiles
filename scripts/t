@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+# Credit to ThePrimeagen
+
+if [[ $# -eq 1 ]]; then
+    selected=$1
+else
+    items=`find ~/Code -maxdepth 2 -mindepth 1 -type d`
+    items+=`echo -e "\n/tmp"`
+    selected=`echo "$items" | fzf`
+fi
+
+dirname=`basename $selected | sed 's/\./_/g'`
+
+tmux switch-client -t =$dirname
+if [[ $? -eq 0 ]]; then
+    exit 0
+fi
+
+tmux new-session -c $selected -d -s $dirname && tmux switch-client -t $dirname || tmux new -c $selected -A -s $dirname
