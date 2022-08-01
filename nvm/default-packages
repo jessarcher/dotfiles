@@ -1,0 +1,10 @@
+@fsouza/prettierd
+@tailwindcss/language-server
+@volar/vue-language-server
+bash-language-server
+eslint_d
+intelephense
+npm-check-updates
+typescript
+vscode-langservers-extracted
+emmet-ls
