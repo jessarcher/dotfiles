@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+# See if docker is available and run the container via that.
+docker compose &> /dev/null
+if [ $? == 0 ]; then
+    DOCKER_COMPOSE="docker compose"
+else
+    DOCKER_COMPOSE="docker-compose"
+fi
+
+DOCKER_COMPOSE_SERVICE_NAME=`$DOCKER_COMPOSE ps --services 2>/dev/null | grep '^app\|php\|api\|workspace\|laravel\.test$' | head -n1`
+
+if [ "$DOCKER_COMPOSE_SERVICE_NAME" != '' ]; then
+    if [ -t 1 ]; then
+        docker compose exec $DOCKER_COMPOSE_SERVICE_NAME $@
+    else
+        # The command is not being run in a TTY
+        docker compose exec -T $DOCKER_COMPOSE_SERVICE_NAME $@
+    fi
+else
+    $@
+fi
