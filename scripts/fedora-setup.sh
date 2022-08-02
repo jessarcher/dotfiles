@@ -6,6 +6,7 @@ sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfre
 
 sudo dnf install -y \
     anacron \
+    cargo \
     gnome-tweaks \
     gnome-extensions-app \
     neovim \
@@ -48,6 +49,8 @@ sudo gem install lolcat
 pip install gitlint
 
 sudo luarocks install luacheck
+
+cargo install stylua
 
 # Composer
 ./install-composer.sh

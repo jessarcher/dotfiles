@@ -60,6 +60,7 @@ path=(
     $HOME/.local/bin
     $HOME/.config/composer/vendor/bin
     $HOME/.go/bin
+    $HOME/.cargo/bin
     ./vendor/bin
     ${ANDROID_HOME}tools/
     ${ANDROID_HOME}platform-tools/
