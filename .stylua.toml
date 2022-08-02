@@ -1,3 +1,4 @@
 column_width = 999
 indent_type = "Spaces"
+indent_width = 2
 quote_style = "AutoPreferSingle"

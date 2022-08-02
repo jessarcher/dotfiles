@@ -1,17 +1,21 @@
 -- local tabLineHl = vim.api.nvim_get_hl_by_name('TabLine', true)
 -- local bg = '#' .. bit.tohex(tabLineHl.background, 6)
 -- local fg = '#' .. bit.tohex(tabLineHl.foreground, 6)
+local colors = vim.api.nvim_get_hl_by_name('StatusLine', true)
 local fg = '#F8F8F2' -- DraculaFg
-local bg = '#21222C' -- DraculaBgDark
+-- local fg = colors.foreground
+-- local bg = '#21222C' -- DraculaBgDark
+local bg = '#' .. colors.background
 local separator = '#424450' -- DraculaSubtle
 -- local fg = '#' .. bit.tohex(vim.api.nvim_get_hl_by_name('DraculaFg', true).foreground, 6)
 -- local bg = '#' .. bit.tohex(vim.api.nvim_get_hl_by_name('DraculaBgDark', true).background, 6)
 -- local separator = '#' .. bit.tohex(vim.api.nvim_get_hl_by_name('DraculaSubtle', true).foreground, 6)
 
-require('lualine').setup {
+require('lualine').setup({
   options = {
     component_separators = '',
     section_separators = '▕',
+    globalstatus = true,
     theme = {
       normal = {
         a = { fg = fg, bg = bg },
@@ -61,4 +65,4 @@ require('lualine').setup {
   --     {'tabs'}
   --   }
   -- }
-}
+})

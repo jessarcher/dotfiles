@@ -1,4 +1,4 @@
-local parser_config = require('nvim-treesitter.parsers').get_parser_configs();
+local parser_config = require('nvim-treesitter.parsers').get_parser_configs()
 parser_config.solidity = {
   install_info = {
     url = '~/Code/JoranHonig/tree-sitter-solidity/', -- local path or git repo
@@ -6,11 +6,12 @@ parser_config.solidity = {
   },
 }
 
-require('nvim-treesitter.configs').setup {
-  ensure_installed = 'maintained',
-  indent = {
-    enable = { 'php', 'html', 'blade' },
-  },
+require('nvim-treesitter.configs').setup({
+  ensure_installed = 'all',
+  -- indent = true,
+  -- indent = {
+  --   enable = { 'php', 'html', 'blade' },
+  -- },
   highlight = {
     enable = true,
     disable = { 'NvimTree' },
@@ -36,4 +37,9 @@ require('nvim-treesitter.configs').setup {
   context_commentstring = {
     enable = true,
   },
-}
+  query_linter = {
+    enable = true,
+    use_virtual_text = true,
+    lint_events = { 'BufWrite', 'CursorHold' },
+  },
+})

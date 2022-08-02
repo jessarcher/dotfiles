@@ -1,4 +1,4 @@
-local keymap = require 'lib.utils'.keymap
+local keymap = require('lib.utils').keymap
 
 keymap('n', '<Leader>tn', ':TestNearest<CR>', { silent = false })
 keymap('n', '<Leader>tf', ':TestFile<CR>', { silent = false })

@@ -1,8 +1,4 @@
-vim.cmd([[
-  highlight IndentBlanklineJess guifg=#2F313C gui=nocombine
-]])
-
-require('indent_blankline').setup {
+require('indent_blankline').setup({
   filetype_exclude = {
     'help',
     'terminal',
@@ -12,12 +8,20 @@ require('indent_blankline').setup {
     'TelescopePrompt',
     'TelescopeResults',
   },
-  buftype_exclude = { 'terminal', 'NvimTree' },
+  buftype_exclude = {
+    'terminal',
+    'NvimTree',
+  },
   show_trailing_blankline_indent = false,
   show_first_indent_level = true,
-  -- show_current_context = true,
-  -- show_current_context_start = true,
-  char_highlight_list = {
-    'IndentBlanklineJess'
-  }
-}
+})
+
+vim.api.nvim_set_hl(0, 'IndentBlanklineChar', { fg = '#2F313C' })
+-- local highlight_group = vim.api.nvim_create_augroup('IndentBlanklineHighlight', { clear = true })
+-- vim.api.nvim_create_autocmd('ColorScheme', {
+--   group = highlight_group,
+--   pattern = '*',
+--   callback = function ()
+--     vim.api.nvim_set_hl(0, 'IndentBlanklineChar', { fg = '#2F313C' })
+--   end,
+-- })

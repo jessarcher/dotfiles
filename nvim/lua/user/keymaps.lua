@@ -1,4 +1,4 @@
-local keymap = require 'lib.utils'.keymap
+local keymap = require('lib.utils').keymap
 
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
@@ -29,7 +29,7 @@ keymap('v', 'p', '"_dP') -- TODO: vim-pasta is breaking this :(
 keymap('i', ';;', '<Esc>A;<Esc>')
 keymap('i', ',,', '<Esc>A,<Esc>')
 
--- Open the current file in the default program (on Mac I think this is just `open`)
+-- Open the current file in the default program (on Mac this should just be just `open`)
 keymap('n', '<leader>x', ':!xdg-open %<cr><cr>')
 
 -- Disable annoying command line thing
@@ -42,8 +42,6 @@ keymap('n', '<C-Left>', ':vertical resize -2<CR>')
 keymap('n', '<C-Right>', ':vertical resize +2<CR>')
 
 -- Move text up and down
-keymap('n', '<A-j>', ':move .+1<CR>==') -- TODO: Something seems to be sending Alt occasionally and makes me mess up
-keymap('n', '<A-k>', ':move .-2<CR>==') -- TODO: Something seems to be sending Alt occasionally and makes me mess up
 keymap('i', '<A-j>', '<Esc>:move .+1<CR>==gi')
 keymap('i', '<A-k>', '<Esc>:move .-2<CR>==gi')
 keymap('x', '<A-j>', ":move '>+1<CR>gv-gv")
