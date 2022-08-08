@@ -3,6 +3,7 @@ vim.g.projectionist_heuristics = {
     ['*'] = {
       start = 'sail up',
       console = 'sail tinker',
+      make = 'npm run dev',
     },
     ['app/Models/*.php'] = {
       type = 'model',
