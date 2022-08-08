@@ -85,6 +85,6 @@
     minus-style = "syntax #3B2C37"
     minus-emph-style = "syntax #613038"
 [pull]
-	rebase = false
+    rebase = false
 [init]
-	defaultBranch = main
+    defaultBranch = main
