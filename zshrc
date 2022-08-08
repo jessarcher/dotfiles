@@ -1,61 +1,50 @@
 #
-#                           ⢸⣦⡈⠻⣿⣿⣿⣿⣿⣿⣷⣦⡀
-#                           ⢸⣿⣿⣦⡈⠻⣿⣿⣿⣿⣿⣿⣿⣦⡀
-#                           ⢸⣿⣿⣿⣿⣦⡈⠻⣿⣿⣿⣿⣿⣿⣿⣦⡀
-#                           ⢸⣿⣿⣿⣿⣿⣿⣦⠈⠻⣿⣿⣿⣿⣿⣿⣿⣦⡀
-#                        ⢀⣀⣴⣿⣿⣿⣿⣿⣿⣿⡿  ⠈⠻⣿⣿⣿⣿⣿⣿⣿⣦⡀
-#                ⠈⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠁    ⠈⠻⣿⣿⣿⣿⣿⣿⣿⣦⡀
-#                  ⠈⠻⣿⣿⣿⣿⣿⣿⣿⣿⠿⠿⠛⠉         ⠈⠛⠿⣿⣿⣿⣿⣿⣿⣦⡀
+#                          ⢸⣦⡈⠻⣿⣿⣿⣶⣄
+#                          ⢸⣿⣿⣦⡈⠻⣿⣿⣿⣷⣄
+#                    ⣀⣀⣀⣀⣀⣀⣼⣿⣿⣿⣿ ⠈⠻⣿⣿⣿⣷⣄
+#                    ⠈⠻⣿⣿⣿⣿⣿⡿⠿⠛⠁   ⠈⠻⢿⣿⣿⣷⣄
 #
-#   Personal zsh configuration of Jess Archer <jess@jessarcher.com>
+# Personal zsh configuration of Jess Archer <jess@jessarcher.com>
 
-export ZSH="$HOME/.oh-my-zsh"
+#--------------------------------------------------------------------------
+# Oh My Zsh
+#--------------------------------------------------------------------------
+
+export ZSH=$HOME/.oh-my-zsh
+
 ZSH_THEME="robbyrussell"
+HYPHEN_INSENSITIVE="true"
+COMPLETION_WAITING_DOTS="true"
+HIST_STAMPS="yyyy-mm-dd"
+VI_MODE_SET_CURSOR=true
+VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
+
 plugins=(
     artisan
     npm
-    #adb
-    #bower
-    #composer
-    #cp
-    #dnf
-    #docker
-    #docker-compose
-    #git
-    #git-flow
-    #gpg-agent
-    #gulp
-    #httpie
-    #jsontools
-    #jump
-    #nmap
-    #rsync
-    #ssh-agent
-    #tmux
-    #tmuxinator
-    #z
+    vi-mode
+    composer
+    cp
+    dnf
+    docker
+    docker-compose
+    git
+    httpie
+    rsync
+    tmux
+    z
 )
+
 source $ZSH/oh-my-zsh.sh
 
 #--------------------------------------------------------------------------
 # Configuration
 #--------------------------------------------------------------------------
 
-HYPHEN_INSENSITIVE="true"
-ENABLE_CORRECTION="false"
-COMPLETION_WAITING_DOTS="true"
-HIST_STAMPS="yyyy-mm-dd"
+# Decrease delay that vi-mode waits for the end of a key sequence
+export KEYTIMEOUT=15
 
 typeset -U path cdpath fpath
-
-# Vim mode
-bindkey -v
-export KEYTIMEOUT=1
-
-export ANDROID_HOME="$HOME/Android/Sdk/"
-
-export GIT_EDITOR=vim
-
 path=(
     $HOME/.local/bin
     $HOME/.config/composer/vendor/bin
@@ -78,9 +67,10 @@ zstyle ':completion:*:descriptions' format %B%d%b
 zstyle ':completion:*:complete:(cd|pushd):*' tag-order \
     'local-directories named-directories'
 
-export EDITOR='vim'
-export NVIM_LISTEN_ADDRESS='/tmp/nvimsocket'
-export ARTISAN_OPEN_ON_MAKE_EDITOR='nvr'
+export EDITOR=vim
+export GIT_EDITOR=vim
+export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
+export ARTISAN_OPEN_ON_MAKE_EDITOR=nvr
 export FZF_DEFAULT_COMMAND='ag -u -g ""'
 
 unsetopt sharehistory
@@ -94,6 +84,7 @@ alias copy="xclip -selection clipboard"
 alias paste="xclip -o -selection clipboard"
 alias cat="bat"
 alias webcam="gphoto2 --stdout --capture-movie | ffmpeg -i - -vcodec rawvideo -pix_fmt yuv420p -threads 0 -f v4l2 /dev/video2"
+alias sail='[ -f sail ] && sail || vendor/bin/sail'
 
 # Laravel
 alias a="artisan"
@@ -124,10 +115,6 @@ composer-link() {
 # Miscellaneous
 #--------------------------------------------------------------------------
 
-if [[ $- == *i* && $0 == '/usr/bin/zsh' ]]; then
-    ~/.dotfiles/scripts/login.sh
-fi
-
 ### Fix slowness of pastes with zsh-syntax-highlighting.zsh
 pasteinit() {
   OLD_SELF_INSERT=${${(s.:.)widgets[self-insert]}[2,3]}
@@ -146,3 +133,7 @@ if [ -e /home/jess/.nix-profile/etc/profile.d/nix.sh ]; then . /home/jess/.nix-p
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+if [[ $- == *i* && $0 == '/usr/bin/zsh' ]]; then
+    ~/.dotfiles/scripts/login.sh
+fi
