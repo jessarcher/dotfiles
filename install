@@ -1,6 +1,7 @@
 #!/usr/bin/env sh
 
-DOTFILES="$HOME/.dotfiles"
+DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 
 rm $HOME/.zshrc
 ln -s $DOTFILES/zshrc $HOME/.zshrc
@@ -29,7 +30,7 @@ rm -rf $HOME/.local/bin/deliver
 ln -s $DOTFILES/scripts/deliver $HOME/.local/bin/deliver
 
 mkdir -p $HOME/.nvm
-ln -s $DOTFILES/nvm/default-packages $HOME/.nvm/default-packages
+ln -sf $DOTFILES/nvm/default-packages $HOME/.nvm/default-packages
 
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
     KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
