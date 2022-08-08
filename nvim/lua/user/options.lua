@@ -29,7 +29,7 @@ opt.backupdir = vim.fn.stdpath('data') .. '/backup//'
 opt.updatetime = 4001 -- Set updatime to 1ms longer than the default to prevent polyglot from changing it
 opt.redrawtime = 10000 -- Allow more time for loading syntax on large files
 opt.showmode = false
-opt.fillchars = 'eob: '
+opt.fillchars = 'eob: ' -- Hide `~` on empty lines
 opt.shortmess:append({ I = true })
 
 local highlight_group = vim.api.nvim_create_augroup('Blah', { clear = true })
