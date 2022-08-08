@@ -15,7 +15,7 @@ keymap('v', '>', '>gv')
 
 -- Maintain the cursor position when yanking a visual selection
 -- http://ddrscott.github.io/blog/2016/yank-without-jank/
-keymap('v', 'y', 'myy`hay')
+keymap('v', 'y', 'myy`y')
 keymap('v', 'Y', 'myY`y')
 
 -- When text is wrapped, move by terminal rows, not lines, unless a count is provided
