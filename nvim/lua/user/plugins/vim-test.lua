@@ -11,7 +11,7 @@ vim.cmd([[
   let test#php#phpunit#options = '--colors=always'
 
   function! FloatermStrategy(cmd)
-    execute 'FloatermKill scratch'
+    execute 'silent FloatermKill scratch'
     execute 'FloatermNew! --autoclose=2 --name=scratch '.a:cmd.' |less -X'
   endfunction
 
