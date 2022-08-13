@@ -1,4 +1,4 @@
-local keymap = require('lib.utils').keymap
+local keymap = require('user.lib.utils').keymap
 
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '

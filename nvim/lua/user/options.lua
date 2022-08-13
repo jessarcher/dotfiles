@@ -29,20 +29,3 @@ vim.opt.signcolumn = 'yes:2'
 vim.opt.showmode = false
 vim.opt.updatetime = 4001 -- Set updatime to 1ms longer than the default to prevent polyglot from changing it
 vim.opt.redrawtime = 10000 -- Allow more time for loading syntax on large files
-
-local highlight_group = vim.api.nvim_create_augroup('GeneralColorSchemeTweaks', { clear = true })
-vim.api.nvim_create_autocmd('ColorScheme', {
-  callback = function()
-    vim.cmd('hi SpellBad gui=undercurl guifg=none')
-
-    local bg = vim.api.nvim_get_hl_by_name('PMenu', true).background
-    vim.api.nvim_set_hl(0, 'PMenuBg', { fg = bg, bg = bg })
-
-    bg = vim.api.nvim_get_hl_by_name('CursorLine', true).background
-    vim.api.nvim_set_hl(0, 'CursorLineBg', { fg = bg, bg = bg })
-  end,
-  group = highlight_group,
-  pattern = '*',
-})
-
-vim.cmd([[colorscheme onedark]])

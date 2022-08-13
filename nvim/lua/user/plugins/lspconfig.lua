@@ -1,6 +1,6 @@
 local buf_option = vim.api.nvim_buf_set_option
-local buf_keymap = require('lib.utils').buf_keymap
-local keymap = require('lib.utils').keymap
+local buf_keymap = require('user.lib.utils').buf_keymap
+local keymap = require('user.lib.utils').keymap
 local util = require('lspconfig.util')
 
 vim.api.nvim_create_user_command('Format', vim.lsp.buf.formatting_seq_sync, {})

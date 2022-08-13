@@ -14,6 +14,8 @@ require('indent_blankline').setup({
   },
   show_trailing_blankline_indent = false,
   show_first_indent_level = true,
+  -- show_end_of_line = true,
+  -- space_char_blankline = ' ',
 })
 
 vim.api.nvim_set_hl(0, 'IndentBlanklineChar', { fg = '#2F313C' })

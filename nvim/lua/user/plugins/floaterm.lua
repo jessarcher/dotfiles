@@ -1,4 +1,4 @@
-local keymap = require('lib.utils').keymap
+local keymap = require('user.lib.utils').keymap
 
 keymap('n', '<F1>', ':FloatermToggle scratch<CR>')
 keymap('t', '<F1>', '<C-\\><C-n>:FloatermToggle scratch<CR>')
