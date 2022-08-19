@@ -52,6 +52,9 @@ require('bufferline').setup({
     modified = {
       guibg = { attribute = 'bg', highlight = 'StatusLine' },
     },
+    modified_visible = {
+      guibg = { attribute = 'bg', highlight = 'StatusLine' },
+    },
     separator = {
       guifg = { attribute = 'bg', highlight = 'StatusLine' },
       guibg = { attribute = 'bg', highlight = 'StatusLine' },
