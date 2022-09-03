@@ -56,3 +56,4 @@ keymap('n', '<leader>F', [[<cmd>lua require('telescope.builtin').find_files({ no
 keymap('n', '<leader>b', [[<cmd>lua require('telescope.builtin').buffers()<CR>]])
 keymap('n', '<leader>g', [[<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>]])
 keymap('n', '<leader>h', [[<cmd>lua require('telescope.builtin').oldfiles()<CR>]])
+keymap('n', '<leader>s', [[<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>]])
