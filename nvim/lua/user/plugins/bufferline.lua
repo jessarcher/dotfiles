@@ -55,6 +55,12 @@ require('bufferline').setup({
     modified_visible = {
       guibg = { attribute = 'bg', highlight = 'StatusLine' },
     },
+    duplicate = {
+      guibg = { attribute = 'bg', highlight = 'StatusLine' },
+    },
+    duplicate_visible = {
+      guibg = { attribute = 'bg', highlight = 'StatusLine' },
+    },
     separator = {
       guifg = { attribute = 'bg', highlight = 'StatusLine' },
       guibg = { attribute = 'bg', highlight = 'StatusLine' },
