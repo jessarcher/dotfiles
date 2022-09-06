@@ -1,6 +1,8 @@
 require('bufferline').setup({
   options = {
-    indicator_icon = ' ',
+    indicator = {
+      icon = ' ',
+    },
     show_close_icon = false,
     tab_size = 0,
     max_name_length = 25,
@@ -17,61 +19,61 @@ require('bufferline').setup({
     custom_areas = {
       left = function()
         return {
-          { text = '    ', guifg = '#8fff6d' },
+          { text = '    ', fg = '#8fff6d' },
         }
       end,
     },
   },
   highlights = {
     fill = {
-      guibg = { attribute = 'bg', highlight = 'StatusLine' },
+      bg = { attribute = 'bg', highlight = 'StatusLine' },
     },
     background = {
-      guibg = { attribute = 'bg', highlight = 'StatusLine' },
+      bg = { attribute = 'bg', highlight = 'StatusLine' },
     },
     tab = {
-      guibg = { attribute = 'bg', highlight = 'StatusLine' },
-    },
-    buffer_visible = {
-      guibg = { attribute = 'bg', highlight = 'StatusLine' },
-    },
-    close_button = {
-      guibg = { attribute = 'bg', highlight = 'StatusLine' },
-      guifg = { attribute = 'fg', highlight = 'StatusLineNonText' },
-    },
-    close_button_selected = {
-      guifg = { attribute = 'fg', highlight = 'StatusLineNonText' },
-    },
-    close_button_visible = {
-      guibg = { attribute = 'bg', highlight = 'StatusLine' },
-      guifg = { attribute = 'fg', highlight = 'StatusLineNonText' },
+      bg = { attribute = 'bg', highlight = 'StatusLine' },
     },
     tab_close = {
-      guibg = { attribute = 'bg', highlight = 'StatusLine' },
+      bg = { attribute = 'bg', highlight = 'StatusLine' },
+    },
+    close_button = {
+      bg = { attribute = 'bg', highlight = 'StatusLine' },
+      fg = { attribute = 'fg', highlight = 'StatusLineNonText' },
+    },
+    close_button_visible = {
+      bg = { attribute = 'bg', highlight = 'StatusLine' },
+      fg = { attribute = 'fg', highlight = 'StatusLineNonText' },
+    },
+    close_button_selected = {
+      fg = { attribute = 'fg', highlight = 'StatusLineNonText' },
+    },
+    buffer_visible = {
+      bg = { attribute = 'bg', highlight = 'StatusLine' },
     },
     modified = {
-      guibg = { attribute = 'bg', highlight = 'StatusLine' },
+      bg = { attribute = 'bg', highlight = 'StatusLine' },
     },
     modified_visible = {
-      guibg = { attribute = 'bg', highlight = 'StatusLine' },
+      bg = { attribute = 'bg', highlight = 'StatusLine' },
     },
     duplicate = {
-      guibg = { attribute = 'bg', highlight = 'StatusLine' },
+      bg = { attribute = 'bg', highlight = 'StatusLine' },
     },
     duplicate_visible = {
-      guibg = { attribute = 'bg', highlight = 'StatusLine' },
+      bg = { attribute = 'bg', highlight = 'StatusLine' },
     },
     separator = {
-      guifg = { attribute = 'bg', highlight = 'StatusLine' },
-      guibg = { attribute = 'bg', highlight = 'StatusLine' },
+      fg = { attribute = 'bg', highlight = 'StatusLine' },
+      bg = { attribute = 'bg', highlight = 'StatusLine' },
     },
     separator_selected = {
-      guifg = { attribute = 'bg', highlight = 'StatusLine' },
-      guibg = { attribute = 'bg', highlight = 'Normal' }
+      fg = { attribute = 'bg', highlight = 'StatusLine' },
+      bg = { attribute = 'bg', highlight = 'Normal' }
     },
     separator_visible = {
-      guifg = { attribute = 'bg', highlight = 'StatusLine' },
-      guibg = { attribute = 'bg', highlight = 'StatusLine' },
+      fg = { attribute = 'bg', highlight = 'StatusLine' },
+      bg = { attribute = 'bg', highlight = 'StatusLine' },
     },
   },
 })
