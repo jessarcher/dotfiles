@@ -7,7 +7,7 @@ parser_config.solidity = {
 }
 
 require('nvim-treesitter.configs').setup({
-  ensure_installed = 'all',
+  auto_install = true,
   -- indent = true,
   -- indent = {
   --   enable = { 'php', 'html', 'blade' },
