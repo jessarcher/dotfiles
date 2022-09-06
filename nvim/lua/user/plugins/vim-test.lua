@@ -1,10 +1,8 @@
-local keymap = require('user.lib.utils').keymap
-
-keymap('n', '<Leader>tn', ':TestNearest<CR>', { silent = false })
-keymap('n', '<Leader>tf', ':TestFile<CR>', { silent = false })
-keymap('n', '<Leader>ts', ':TestSuite<CR>', { silent = false })
-keymap('n', '<Leader>tl', ':TestLast<CR>', { silent = false })
-keymap('n', '<Leader>tv', ':TestVisit<CR>', { silent = false })
+vim.keymap.set('n', '<Leader>tn', ':TestNearest<CR>')
+vim.keymap.set('n', '<Leader>tf', ':TestFile<CR>')
+vim.keymap.set('n', '<Leader>ts', ':TestSuite<CR>')
+vim.keymap.set('n', '<Leader>tl', ':TestLast<CR>')
+vim.keymap.set('n', '<Leader>tv', ':TestVisit<CR>')
 
 vim.cmd([[
   let test#php#phpunit#executable = 'deliver vendor/bin/phpunit'

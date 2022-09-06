@@ -1,7 +1,5 @@
-local keymap = require('user.lib.utils').keymap
-
-keymap('n', '<F1>', ':FloatermToggle scratch<CR>')
-keymap('t', '<F1>', '<C-\\><C-n>:FloatermToggle scratch<CR>')
+vim.keymap.set('n', '<F1>', ':FloatermToggle scratch<CR>')
+vim.keymap.set('t', '<F1>', '<C-\\><C-n>:FloatermToggle scratch<CR>')
 
 vim.g.floaterm_gitcommit = 'floaterm'
 vim.g.floaterm_autoinsert = 1
