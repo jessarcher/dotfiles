@@ -5,6 +5,7 @@ bash-language-server
 eslint_d
 intelephense
 npm-check-updates
+tree-sitter-cli
 typescript
 vscode-langservers-extracted
 emmet-ls
