@@ -1,7 +1,5 @@
 local db = require('dashboard')
 
--- vim.g.dashboard_default_executive = 'telescope'
-
 db.custom_header = {
   '',
   '',
@@ -10,8 +8,6 @@ db.custom_header = {
   '⣀⣀⣀⣀⣀⣀⣼⣿⣿⣿⣿ ⠈⠻⣿⣿⣿⣷⣄',
   '  ⠈⠻⣿⣿⣿⣿⣿⡿⠿⠛⠁   ⠈⠻⢿⣿⣿⣷⣄',
   '',
-  -- '',
-  -- '  ⣸ ⣯ ⣫ ⣫  ⣵ ⣟ ⣏ ⣿ ⣯ ⣟',
 }
 
 db.custom_center = {
@@ -22,10 +18,6 @@ db.custom_center = {
 }
 
 db.custom_footer = { '' }
--- vim.g.dashboard_custom_footer = {
--- vim.cmd([[matchstr(execute('version'), 'NVIM v\zs[^\n]*')]]),
--- 'neovim',
--- }
 
 vim.cmd([[
   augroup DashboardHighlights
@@ -36,9 +28,6 @@ vim.cmd([[
   augroup end
 ]])
 vim.api.nvim_set_hl(0, 'DashboardHeader', { fg = '#6272a4' })
--- vim.api.nvim_set_hl(0, 'DashboardHeader', {fg = '#bd93f9'})
 vim.api.nvim_set_hl(0, 'DashboardCenter', { fg = '#f8f8f2' })
--- vim.api.nvim_set_hl(0, 'DashboardCenter', {fg = '#80a0ff'})
--- vim.api.nvim_set_hl(0, 'DashboardShortcut', {fg = '#80a0ff'})
 vim.api.nvim_set_hl(0, 'DashboardShortcut', { fg = '#bd93f9' })
 vim.api.nvim_set_hl(0, 'DashboardFooter', { fg = '#6272a4' })

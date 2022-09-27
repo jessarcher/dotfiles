@@ -44,7 +44,6 @@ use('tpope/vim-surround')
 use('tpope/vim-eunuch') -- Adds :Rename, :SudoWrite
 use('tpope/vim-unimpaired') -- Adds [b and other handy mappings
 use('tpope/vim-sleuth') -- Indent autodetection with editorconfig support
--- use({ 'tpope/vim-sleuth', commit = 'e726df55a669f02699b7ac396011315370752f4e' }) -- Indent autodetection with editorconfig support
 use('jessarcher/vim-heritage') -- Automatically create parent dirs when saving
 use('nelstrom/vim-visual-star-search')
 -- use { 'posva/vim-vue' }
@@ -105,9 +104,9 @@ use({
 })
 
 use({
-  'jessarcher/vim-sayonara',
+  'famiu/bufdelete.nvim',
   config = function()
-    require('user.plugins.sayonara')
+    vim.keymap.set('n', '<Leader>q', ':Bdelete<CR>')
   end,
 })
 
@@ -355,6 +354,6 @@ end
 vim.cmd([[
   augroup packer_user_config
     autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+    autocmd BufWritePost plugins.lua source <afile>
   augroup end
 ]])
