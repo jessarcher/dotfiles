@@ -4,8 +4,8 @@ local actions = require('telescope.actions')
 vim.cmd([[
   highlight link TelescopePromptTitle PMenuSel
   highlight link TelescopePreviewTitle PMenuSel
-  highlight link TelescopePromptNormal PMenu
-  highlight link TelescopePromptBorder PMenuBg
+  highlight link TelescopePromptNormal NormalFloat
+  highlight link TelescopePromptBorder FloatBorder
   highlight link TelescopeNormal CursorLine
   highlight link TelescopeBorder CursorLineBg
 ]])
