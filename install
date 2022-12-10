@@ -14,7 +14,7 @@ ln -sf $DOTFILES/tmux/tmux.conf $HOME/.tmux.conf
 
 ln -sf $DOTFILES/git/gitconfig $HOME/.gitconfig
 
-ln -sf $DOTFILES/gitignore_global $HOME/.gitignore_global
+ln -sf $DOTFILES/git/gitignore_global $HOME/.gitignore_global
 
 rm -rf $HOME/.config/phpactor
 ln -s $DOTFILES/phpactor $HOME/.config/phpactor
