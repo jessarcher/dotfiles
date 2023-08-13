@@ -58,7 +58,7 @@
 [commit]
     gpgsign = true
 [core]
-    editor = vim
+    editor = nvim
     excludesfile = ~/.gitignore_global
     pager = delta
 [diff]

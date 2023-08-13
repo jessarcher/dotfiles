@@ -2,31 +2,39 @@
 
 DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+# Zsh
 ln -sf $DOTFILES/zsh/zshrc $HOME/.zshrc
 
+# Neovim
 rm -rf $HOME/.config/nvim
 ln -s $DOTFILES/nvim $HOME/.config/nvim
 
+# Kitty
 rm -rf $HOME/.config/kitty
 ln -s $DOTFILES/kitty $HOME/.config/kitty
 
+# Tmux
 ln -sf $DOTFILES/tmux/tmux.conf $HOME/.tmux.conf
 
+# Git
 ln -sf $DOTFILES/git/gitconfig $HOME/.gitconfig
-
 ln -sf $DOTFILES/git/gitignore_global $HOME/.gitignore_global
 
+# Phpactor
 rm -rf $HOME/.config/phpactor
 ln -s $DOTFILES/phpactor $HOME/.config/phpactor
 
+# Scripts
 mkdir -p $HOME/.local/bin
 
 ln -sf $DOTFILES/scripts/t $HOME/.local/bin/t
 ln -sf $DOTFILES/scripts/deliver $HOME/.local/bin/deliver
 
+# NVM (Node Version Manager)
 mkdir -p $HOME/.nvm
 ln -sf $DOTFILES/nvm/default-packages $HOME/.nvm/default-packages
 
+# Oh My Zsh
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
     KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi

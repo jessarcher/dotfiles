@@ -51,6 +51,7 @@ path=(
     $HOME/.go/bin
     $HOME/.cargo/bin
     ./vendor/bin
+    $HOME/.local/share/bob/nvim-bin
     ${ANDROID_HOME}tools/
     ${ANDROID_HOME}platform-tools/
     $path
@@ -67,8 +68,8 @@ zstyle ':completion:*:descriptions' format %B%d%b
 zstyle ':completion:*:complete:(cd|pushd):*' tag-order \
     'local-directories named-directories'
 
-export EDITOR=vim
-export GIT_EDITOR=vim
+export EDITOR=nvim
+export GIT_EDITOR=nvim
 export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
 export ARTISAN_OPEN_ON_MAKE_EDITOR=nvr
 export FZF_DEFAULT_COMMAND='ag -u -g ""'
@@ -91,6 +92,9 @@ alias a="artisan"
 alias tinker="artisan tinker"
 alias serve="artisan serve"
 alias mfs="artisan migrate:fresh --seed"
+alias sqlit="sed -e 's/\(DB_.*\)/# \\1/g' -e 's/# \(DB_CONNECTION=\).*/\\1sqlite/g' -i .env"
+alias lenv="cp -n .env.example .env && (grep '^APP_KEY=.\+' .env > /dev/null || artisan key:generate)"
+alias laravel-setup="composer install && lenv && sqlit && artisan migrate --force --seed"
 
 # Git
 alias g="git"
@@ -108,7 +112,15 @@ open () {
 }
 
 composer-link() {
-    composer config repositories.local '{"type": "path", "url": "'$1'"}' --file composer.json
+    composer config minimum-stability dev
+    local package=`echo $1 | sed -nr 's/.*\/([^\/]+)$/\1/p'`
+    composer config "repositories.$package" '{"type": "path", "url": "'$1'"}'
+}
+
+composer-github() {
+    composer config minimum-stability dev
+    local package=`echo $1 | sed -nr 's/.*\/(.*)\.git/\1/p'`
+    composer config "repositories.$package" vcs $1
 }
 
 #--------------------------------------------------------------------------
@@ -130,10 +142,11 @@ zstyle :bracketed-paste-magic paste-finish pastefinish
 
 if [ -e /home/jess/.nix-profile/etc/profile.d/nix.sh ]; then . /home/jess/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
-export NVM_DIR="$HOME/.nvm"
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 if [[ $- == *i* && $0 == '/usr/bin/zsh' ]]; then
     ~/.dotfiles/scripts/login.sh
 fi
+
+# vim: nospell

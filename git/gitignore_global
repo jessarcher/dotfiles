@@ -16,3 +16,4 @@ vendor-tags
 _ide_helper.php
 .lvimrc
 .projections.json
+.phpactor.json
