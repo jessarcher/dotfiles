@@ -1,12 +1,30 @@
-snippet testa "Test with annotation"
-/** @test */
-    public function $0()
-    {
-    	$1
-    }
+snippet pubf "public method"
+	public function ${1}(${2}): $3
+	{
+		${0}
+	}
 
-snippet testp "Test with prefix"
-    public function test_$0()
-    {
-    	$1
-    }
+snippet prof "protected method"
+	protected function ${1}(${2}): $3
+	{
+		${0}
+	}
+
+snippet prif "private method"
+	protected function ${1}(${2}): $3
+	{
+		${0}
+	}
+
+snippet testt "test method (prefix)"
+	public function test_${1}()
+	{
+		${0}
+	}
+
+snippet testa "test method (annotation)"
+	/** @test */
+	public function ${1}()
+	{
+		${0}
+	}

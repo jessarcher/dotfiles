@@ -12,6 +12,4 @@ require('indent_blankline').setup({
     'terminal',
     'NvimTree',
   },
-  show_trailing_blankline_indent = false,
-  show_first_indent_level = true,
 })

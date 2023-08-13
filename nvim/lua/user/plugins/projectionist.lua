@@ -1,21 +1,8 @@
 vim.g.projectionist_heuristics = {
   artisan = {
     ['*'] = {
-      start = 'sail up',
-      console = 'sail tinker',
-      make = 'npm run dev',
-    },
-    ['app/Models/*.php'] = {
-      type = 'model',
-    },
-    ['app/Http/Controllers/*.php'] = {
-      type = 'controller',
-    },
-    ['routes/*.php'] = {
-      type = 'route',
-    },
-    ['database/migrations/*.php'] = {
-      type = 'migration',
+      start = 'php artisan serve',
+      console = 'php artisan tinker',
     },
     ['app/*.php'] = {
       type = 'source',
@@ -29,6 +16,42 @@ vim.g.projectionist_heuristics = {
       alternate = 'app/{}.php',
     },
     ['tests/Unit/*Test.php'] = {
+      type = 'test',
+      alternate = 'app/{}.php',
+    },
+    ['app/Models/*.php'] = {
+      type = 'model',
+    },
+    ['app/Http/Controllers/*.php'] = {
+      type = 'controller',
+    },
+    ['routes/*.php'] = {
+      type = 'route',
+    },
+    ['database/migrations/*.php'] = {
+      type = 'migration',
+    },
+  },
+  ['src/&composer.json'] = {
+    ['src/*.php'] = {
+      type = 'source',
+      alternate = {
+        'tests/{}Test.php',
+      },
+    },
+    ['tests/*Test.php'] = {
+      type = 'test',
+      alternate = 'src/{}.php',
+    },
+  },
+  ['app/&composer.json'] = {
+    ['app/*.php'] = {
+      type = 'source',
+      alternate = {
+        'tests/{}Test.php',
+      },
+    },
+    ['tests/*Test.php'] = {
       type = 'test',
       alternate = 'app/{}.php',
     },
