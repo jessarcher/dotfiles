@@ -1,0 +1,4 @@
+root = true
+
+[*.lua]
+indent_size = 2
