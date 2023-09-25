@@ -52,6 +52,7 @@ path=(
     $HOME/.cargo/bin
     ./vendor/bin
     $HOME/.local/share/bob/nvim-bin
+    $HOME/Code/jessarcher/dotfiles/scripts
     ${ANDROID_HOME}tools/
     ${ANDROID_HOME}platform-tools/
     $path
@@ -73,6 +74,14 @@ export GIT_EDITOR=nvim
 export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
 export ARTISAN_OPEN_ON_MAKE_EDITOR=nvr
 export FZF_DEFAULT_COMMAND='ag -u -g ""'
+export FZF_DEFAULT_OPTS='
+--border=rounded
+--padding=0,1
+--margin=4,10
+--color=dark
+--color=fg:-1,bg:-1,hl:#c678dd,fg+:#ffffff,bg+:#4b5263,hl+:#d858fe
+--color=info:#98c379,prompt:#61afef,pointer:#be5046,marker:#e5c07b,spinner:#61afef,header:#61afef,gutter:-1,border:#1f2335
+'
 
 unsetopt sharehistory
 
@@ -99,9 +108,15 @@ alias laravel-setup="composer install && lenv && sqlit && artisan migrate --forc
 # Git
 alias g="git"
 alias gs="git s"
-alias nah="git reset --hard;git clean -df"
 alias co="git checkout"
 alias main='git checkout $([ `git rev-parse --quiet --verify master` ] && echo "master" || echo "main")'
+nah() {
+    git reset --hard
+
+    if [[ $1 == "-f" ]]; then
+        git clean -df
+    fi
+}
 
 # Docker
 alias d="docker"
@@ -146,7 +161,7 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 if [[ $- == *i* && $0 == '/usr/bin/zsh' ]]; then
-    ~/.dotfiles/scripts/login.sh
+    ~/Code/jessarcher/dotfiles/scripts/login.sh
 fi
 
 # vim: nospell
