@@ -10,9 +10,12 @@ return {
     { 'gb', ':Gitsigns blame_line<CR>'},
   },
   opts = {
+    preview_config = {
+      border = { '', '', '', ' ' },
+    },
     signs = {
-      add = { text = '⢕' },
-      change = { text = '⢕' },
+      add = { text = '┊' },
+      change = { text = '┊' },
     },
   },
 }
