@@ -9,6 +9,7 @@ return {
       'lspinfo',
       'TelescopePrompt',
       'TelescopeResults',
+      'mason',
     },
     buftype_exclude = {
       'terminal',
