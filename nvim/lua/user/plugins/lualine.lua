@@ -38,13 +38,22 @@ return {
         'filename'
       },
       lualine_x = {
+        {
+          require("lazy.status").updates,
+          cond = require("lazy.status").has_updates,
+          color = { fg = "#ff9e64" },
+        },
+        {
+          separator[1],
+          color = separator['color'],
+          cond = require("lazy.status").has_updates,
+        },
+      },
+      lualine_y = {
         'filetype',
         'encoding',
         'fileformat',
-      },
-      lualine_y = {
-        separator,
-        '(vim.bo.expandtab and "␠ " or "⇥ ") .. " " .. vim.bo.shiftwidth',
+        '(vim.bo.expandtab and "␠ " or "⇥ ") .. vim.bo.shiftwidth',
         separator,
       },
       lualine_z = {

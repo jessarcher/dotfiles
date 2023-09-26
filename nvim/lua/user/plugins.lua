@@ -117,4 +117,9 @@ require("lazy").setup({
 
   -- Colorize Hex Codes
   { import = 'user.plugins.colorizer' },
+}, {
+  checker = {
+    enabled = true,
+    notify = false,
+  },
 })
