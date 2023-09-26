@@ -10,7 +10,11 @@ return {
   },
   config = function()
     -- Setup Mason to automatically install LSP servers
-    require('mason').setup()
+    require('mason').setup({
+      ui = {
+        height = 0.8,
+      },
+    })
     require('mason-lspconfig').setup({ automatic_installation = true })
 
     local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
