@@ -7,6 +7,7 @@ return {
     { '<Leader>tl', ':TestLast<CR>' },
     { '<Leader>tv', ':TestVisit<CR>' },
   },
+  dependencies = { 'voldikss/vim-floaterm' },
   config = function()
     vim.cmd([[
       let test#php#phpunit#options = '--colors=always'
