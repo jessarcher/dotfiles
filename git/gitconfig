@@ -88,3 +88,6 @@
     rebase = false
 [init]
     defaultBranch = main
+[user]
+	name = Luis Guillermo Echenique
+	email = lechenique@venezuelantechnologyindustry.com

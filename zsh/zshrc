@@ -55,6 +55,7 @@ path=(
     ${ANDROID_HOME}tools/
     ${ANDROID_HOME}platform-tools/
     $path
+    $HOME/bin
 )
 
 setopt auto_cd
@@ -88,6 +89,7 @@ alias webcam="gphoto2 --stdout --capture-movie | ffmpeg -i - -vcodec rawvideo -p
 alias sail='[ -f sail ] && sail || vendor/bin/sail'
 
 # Laravel
+alias sail="[ -f sail ] && sh sail || sh vendor/bin/sail"
 alias a="artisan"
 alias tinker="artisan tinker"
 alias serve="artisan serve"
@@ -150,3 +152,4 @@ if [[ $- == *i* && $0 == '/usr/bin/zsh' ]]; then
 fi
 
 # vim: nospell
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
