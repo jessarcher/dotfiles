@@ -39,7 +39,8 @@ sudo dnf install -y \
     proselint \
     lm_sensors \
     discord \
-    slack
+    slack \
+    alacritty
 
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak install flathub org.telegram.desktop
@@ -57,7 +58,7 @@ cargo install stylua
 composer global require laravel/installer
 
 # Node
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
 nvm install node
 
 # Docker setup
@@ -68,3 +69,19 @@ sudo systemctl enable containerd.service
 sudo systemctl start docker
 
 echo "Don't forget to copy over your .ssh and .gnupg directories!"
+
+# Install scripts
+## Cargo
+./install-cargo-app.sh
+
+## github desktop
+./install-github-desktop.sh
+
+## Tmux y complementos
+./install-tmux.sh
+
+## Wallpapers
+./install-wallpaper.sh
+
+## Fonts
+./install-fonts.sh

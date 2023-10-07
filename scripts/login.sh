@@ -9,52 +9,8 @@ cpuTemp=`sensors | grep CPU | awk '{print $2}' | sed 's/+//' | tr -d '\n'`
 loadAvg=`cat /proc/loadavg | awk '{printf "%s %s %s", $1, $2, $3}'`
 
 printf "
-█▀ █▀▀ █▄░█ ▀█▀ █░█      $os
-▄█ ██▄ █░▀█ ░█░ █▄█     $rootUsed/$rootTotal   $memUsed/$memTotal   $cpuTemp  辰$loadAvg
+█▀ █▀▀ █▄░█ ▀█▀ █░█     $os
+▄█ ██▄ █░▀█ ░█░ █▄█    $rootUsed/$rootTotal   $memUsed/$memTotal   $cpuTemp  辰$loadAvg
+             STUDIO
 "
-# printf "
-#      ⣷⣝⢿⣷⣄      $os
-#   ⠲⣶⣶⡿⠟ ⠙⢿⣷⣄   $rootUsed/$rootTotal   $memUsed/$memTotal   $cpuTemp  辰$loadAvg
-# 
-# " # | lolcat --truecolor --seed=22 --spread=6
 exit
-
-printf "
-        ⢸⣦⡈⠻⣿⣿⣿⣶⣄          ⣸ ⣯ ⣫ ⣫  ⣵ ⣟ ⣏ ⣿ ⣯ ⣟
-        ⢸⣿⣿⣦⡈⠻⣿⣿⣿⣷⣄
-  ⣀⣀⣀⣀⣀⣀⣼⣿⣿⣿⣿ ⠈⠻⣿⣿⣿⣷⣄        $os
-  ⠈⠻⣿⣿⣿⣿⣿⡿⠿⠛⠁   ⠈⠻⢿⣿⣿⣷⣄     $rootUsed/$rootTotal   $memUsed/$memTotal   $cpuTemp  辰$loadAvg
-
-" # | lolcat --truecolor --seed=22 --spread=6
-
-
-#            ⢸⣦⡈⠻⣿⣿⣿⣿⣿⣿⣷⣦⡀
-#            ⢸⣿⣿⣦⡈⠻⣿⣿⣿⣿⣿⣿⣿⣦⡀
-#            ⢸⣿⣿⣿⣿⣦⡈⠻⣿⣿⣿⣿⣿⣿⣿⣦⡀
-#            ⢸⣿⣿⣿⣿⣿⣿⣦⠈⠻⣿⣿⣿⣿⣿⣿⣿⣦⡀
-#         ⢀⣀⣴⣿⣿⣿⣿⣿⣿⣿⡿  ⠈⠻⣿⣿⣿⣿⣿⣿⣿⣦⡀
-# ⠈⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠁    ⠈⠻⣿⣿⣿⣿⣿⣿⣿⣦⡀
-#   ⠈⠻⣿⣿⣿⣿⣿⣿⣿⣿⠿⠿⠛⠉         ⠈⠛⠿⣿⣿⣿⣿⣿⣿⣦⡀
-
-
-#          ⢸⣦⡈⠻⣿⣿⣿⣶⣄
-#          ⢸⣿⣿⣦⡈⠻⣿⣿⣿⣷⣄       ▀█ ▟█▀ ▟▀▀ ▟▀▀  ▟▀█ █▀▙ ▟▀▀ █▃█ ▟█▀ █▀▙
-#    ⣀⣀⣀⣀⣀⣀⣼⣿⣿⣿⣿ ⠈⠻⣿⣿⣿⣷⣄    ▄▄▛ ▜▄▄ ▄▄▛ ▄▄▛  █▀█ █▀▙ ▜▄▄ █▔█ ▜▄▄ █▀▙
-#    ⠈⠻⣿⣿⣿⣿⣿⡿⠿⠛⠁   ⠈⠻⢿⣿⣿⣷⣄
-
-
-#       ⣿⡇⣿⣟⣛⣛ ⠚⠛⠛⠓
-#    ⢤⣤⣴⡿⠃⣿⣯⣭⣭
-
-#            ⣷⣝⢿⣷⣄
-#         ⠲⣶⣶⡿⠟ ⠙⢿⣷⣄
-
-#            ⢸⣷ ⣿⣟⣛⡓ ⢾⣿⡛⠓ ⢾⣿⡛⠓  ⣿⣷⣄ ⣿⣟⣛⣿⠆  ⢿⣷⣄
-#          ⢤⣤⣾⠟ ⣿⣯⣭⣍ ⢤⣬⣿⡷ ⢤⣬⣿⡷  ⣿⡏⠻⣷⣝⠏⠻⣷⣄   ⠙⢿⣷⣄
-
-
-#           ⣸ ⣯ ⣫ ⣫  ⣵ ⣟ ⣏ ⣿ ⣯ ⣟
-
-#           ⣀⠇⢸⣍ ⣪⠅⢐⡭  ⡮⡆⢸⢕ ⣏⡁⢸⢼ ⣯⡁⢸⢕
-
-# ⢤⣼⠷⣄ Jess Archer

@@ -6,6 +6,7 @@ DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ln -sf $DOTFILES/zsh/zshrc $HOME/.zshrc
 
 # Alacritty
+rm -rf $HOME/.config/alacritty
 ln -sf $DOTFILES/alacritty $HOME/.config/alacritty
 
 # Neovim
@@ -41,3 +42,8 @@ ln -sf $DOTFILES/nvm/default-packages $HOME/.nvm/default-packages
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
     KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
+
+zsh
+
+# Fedora SetUp
+./fedora-setup.sh
