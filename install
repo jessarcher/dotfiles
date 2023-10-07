@@ -46,4 +46,8 @@ fi
 zsh
 
 # Fedora SetUp
+./post-install-fedora.sh
+
+zsh
+
 ./fedora-setup.sh
