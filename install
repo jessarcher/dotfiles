@@ -1,49 +1,43 @@
-#!/usr/bin/env sh
-
-DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Zsh
-ln -sf $DOTFILES/zsh/zshrc $HOME/.zshrc
+ln -sf ~/.dotfiles/zsh/zshrc $HOME/.zshrc
 
 # Alacritty
 rm -rf $HOME/.config/alacritty
-ln -sf $DOTFILES/alacritty $HOME/.config/alacritty
+ln -sf ~/.dotfiles/alacritty $HOME/.config/alacritty
 
 # Neovim
 rm -rf $HOME/.config/nvim
-ln -s $DOTFILES/nvim $HOME/.config/nvim
+ln -s ~/.dotfiles/nvim $HOME/.config/nvim
 
 # Kitty
 rm -rf $HOME/.config/kitty
-ln -s $DOTFILES/kitty $HOME/.config/kitty
+ln -s ~/.dotfiles/kitty $HOME/.config/kitty
 
 # Tmux
-ln -sf $DOTFILES/tmux/tmux.conf $HOME/.tmux.conf
+ln -sf ~/.dotfiles/tmux/tmux.conf $HOME/.tmux.conf
 
 # Git
-ln -sf $DOTFILES/git/gitconfig $HOME/.gitconfig
-ln -sf $DOTFILES/git/gitignore_global $HOME/.gitignore_global
+ln -sf ~/.dotfiles/git/gitconfig $HOME/.gitconfig
+ln -sf ~/.dotfiles/git/gitignore_global $HOME/.gitignore_global
 
 # Phpactor
 rm -rf $HOME/.config/phpactor
-ln -s $DOTFILES/phpactor $HOME/.config/phpactor
+ln -s ~/.dotfiles/phpactor $HOME/.config/phpactor
 
 # Scripts
 mkdir -p $HOME/.local/bin
 
-ln -sf $DOTFILES/scripts/t $HOME/.local/bin/t
-ln -sf $DOTFILES/scripts/deliver $HOME/.local/bin/deliver
+ln -sf ~/.dotfiles/scripts/t $HOME/.local/bin/t
+ln -sf ~/.dotfiles/scripts/deliver $HOME/.local/bin/deliver
 
 # NVM (Node Version Manager)
 mkdir -p $HOME/.nvm
-ln -sf $DOTFILES/nvm/default-packages $HOME/.nvm/default-packages
+ln -sf ~/.dotfiles/nvm/default-packages $HOME/.nvm/default-packages
 
-# Oh My Zsh
-if [ ! -d "$HOME/.oh-my-zsh" ]; then
-    KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-fi
-
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+zsh
 
 # Fedora SetUp
-alacritty -e sh ~/.dotfiles/scripts/post-install-fedora.sh
+echo "Ejecutando instalación base de Fedora"
+sh ~/.dotfiles/scripts/fedora-setup.sh
+

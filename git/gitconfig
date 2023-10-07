@@ -55,8 +55,6 @@
 
 [color]
     ui = auto
-[commit]
-    gpgsign = true
 [core]
     editor = nvim
     excludesfile = ~/.gitignore_global
@@ -90,4 +88,4 @@
     defaultBranch = main
 [user]
 	name = Luis Guillermo Echenique
-	email = lechenique@venezuelantechnologyindustry.com
+	email = elepistemedev@gmail.com

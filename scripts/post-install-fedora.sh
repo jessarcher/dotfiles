@@ -18,8 +18,15 @@ sudo dnf -y --allowerasing install transmageddon handbrake-gui avidemux kdenlive
 
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
 sudo dnf -y install ./google-chrome-stable_current_x86_64.rpm
+sudo rm ./google-chrome-stable_current_x86_64.rpm
 
-sudo dnf -y install brave
+sudo dnf install dnf-plugins-core
+
+sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
+
+sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+
+sudo dnf -y install brave-browser
 
 sudo dnf -y install libreoffice-writer libreoffice-calc libreoffice-impress libreoffice-draw libreoffice-langpack-es
 
@@ -28,4 +35,6 @@ sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.m
 sudo dnf -y check-update
 sudo dnf -y install code
 
-./fedora-setup.sh
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+alacritty

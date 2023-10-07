@@ -39,12 +39,11 @@ sudo dnf install -y \
     proselint \
     lm_sensors \
     discord \
-    slack \
     alacritty
 
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak install flathub org.telegram.desktop
-
+flatpak install flathub com.slack.Slack
 sudo gem install lolcat
 
 pip install gitlint
@@ -54,12 +53,12 @@ sudo luarocks install luacheck
 cargo install stylua
 
 # Composer
-./install-composer.sh
+sh ~/.dotfiles/scripts/install-composer.sh
 composer global require laravel/installer
 
 # Node
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
-nvm install node
+nvm install node 
 
 # Docker setup
 sudo groupadd docker
@@ -72,16 +71,18 @@ echo "Don't forget to copy over your .ssh and .gnupg directories!"
 
 # Install scripts
 ## Cargo
-./install-cargo-app.sh
+sh ~/.dotfiles/scripts/install-cargo-app.sh
 
 ## github desktop
-./install-github-desktop.sh
+sh ~/.dotfiles/scripts/install-github-desktop.sh
 
 ## Tmux y complementos
-./install-tmux.sh
+sh ~/.dotfiles/scripts/install-tmux.sh
 
 ## Wallpapers
-./install-wallpaper.sh
+sh ~/.dotfiles/scripts/install-wallpaper.sh
 
 ## Fonts
-./install-fonts.sh
+sh ~/.dotfiles/scripts/install-fonts.sh
+
+sh ~/.dotfiles/scripts/post-install-fedora.sh
