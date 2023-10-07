@@ -43,11 +43,7 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
     KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
-zsh
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
 # Fedora SetUp
-./post-install-fedora.sh
-
-zsh
-
-./fedora-setup.sh
+alacritty -e sh ~/.dotfiles/scripts/post-install-fedora.sh
