@@ -26,7 +26,7 @@ require("lazy").setup({
   { 'tpope/vim-eunuch' },
 
   -- Pairs of handy bracket mappings, like [b and ]b.
-  { 'tpope/vim-unimpaired' },
+  { 'tpope/vim-unimpaired', event = 'VeryLazy' },
 
   -- Indent autodetection with editorconfig support.
   { 'tpope/vim-sleuth' },
@@ -62,7 +62,7 @@ require("lazy").setup({
   { import = 'user.plugins.bufdelete' },
 
   -- Split arrays and methods onto multiple lines, or join them back up.
-  { import = 'user.plugins.splitjoin' },
+  { import = 'user.plugins.treesj' },
 
   -- Automatically fix indentation when pasting code.
   { import = 'user.plugins.vim-pasta' },
@@ -71,7 +71,7 @@ require("lazy").setup({
   { import = 'user.plugins.telescope' },
 
   -- File tree sidebar
-  { import = 'user.plugins.nvim-tree' },
+  { import = 'user.plugins.neo-tree' },
 
   -- A Status line.
   { import = 'user.plugins.lualine' },
@@ -117,6 +117,15 @@ require("lazy").setup({
 
   -- Colorize Hex Codes
   { import = 'user.plugins.colorizer' },
+
+  -- Show file and LSP context in a bar at the top of the screen.
+  { import = 'user.plugins.barbecue' },
+
+  -- Virtual scrollbar
+  { import = 'user.plugins.nvim-scrollbar' },
+
+  -- Highlight occurrences of the word under the cursor.
+  { import = 'user.plugins.illuminate' },
 }, {
   checker = {
     enabled = true,
@@ -124,5 +133,8 @@ require("lazy").setup({
   },
   change_detection = {
     notify = false,
+  },
+  install = {
+    colorscheme = { "tokyonight", "habamax" },
   },
 })

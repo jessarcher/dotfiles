@@ -1,19 +1,14 @@
 return {
   'lukas-reineke/indent-blankline.nvim',
+  main = 'ibl',
   opts = {
-    filetype_exclude = {
-      'help',
-      'terminal',
-      'dashboard',
-      'packer',
-      'lspinfo',
-      'TelescopePrompt',
-      'TelescopeResults',
-      'mason',
+    scope = {
+      show_start = false,
     },
-    buftype_exclude = {
-      'terminal',
-      'NvimTree',
+    exclude = {
+      filetypes = {
+        'dashboard',
+      },
     },
   }
 }
