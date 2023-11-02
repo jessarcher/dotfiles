@@ -96,7 +96,7 @@ alias sail='[ -f sail ] && sail || vendor/bin/sail'
 
 # Laravel
 alias sail="[ -f sail ] && sh sail || sh vendor/bin/sail"
-alias a="artisan"
+# alias a="artisan"
 alias tinker="artisan tinker"
 alias serve="artisan serve"
 alias mfs="artisan migrate:fresh --seed"

@@ -1,6 +1,6 @@
 
-# Zsh
-ln -sf ~/.dotfiles/zsh/zshrc $HOME/.zshrc
+# # Zsh
+# ln -sf ~/.dotfiles/zsh/zshrc $HOME/.zshrc
 
 # Alacritty
 rm -rf $HOME/.config/alacritty
