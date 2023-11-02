@@ -1,5 +1,8 @@
 #!/usr/bin/env sh
 
+# Configurando zsh por defecto
+chsh -s $(which zsh)
+
 sudo dnf -y update
 
 sudo dnf -y install fedora-workstation-repositories
