@@ -25,6 +25,10 @@ ln -sf ~/.dotfiles/git/gitignore_global $HOME/.gitignore_global
 rm -rf $HOME/.config/phpactor
 ln -s ~/.dotfiles/phpactor $HOME/.config/phpactor
 
+# tmuxinator
+rm -rf $HOME/.config/tmuxinator
+ln -s ~/.dotfiles/tmuxinator $HOME/.config/tmuxinator
+
 # Scripts
 mkdir -p $HOME/.local/bin
 

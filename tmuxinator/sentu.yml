@@ -1,0 +1,12 @@
+# /home/el/.config/tmuxinator/sentu.yml
+
+name: sentu
+root: ~/sentu/tutos
+# on_project_start: homestead up
+ 
+windows:
+  - server: 
+  - logs: 
+  - vim: vim
+  - database: 
+  - shell:

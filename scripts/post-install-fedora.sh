@@ -17,7 +17,7 @@ sudo dnf -y install unrar p7zip p7zip-plugins
 
 sudo dnf -y install java
 
-sudo dnf -y --allowerasing install transmageddon handbrake-gui avidemux kdenlive openshot lives vlc mpv gnome-mpv soundconverter audacity-freeworld muse lmms amarok flowblade
+sudo dnf -y --allowerasing install handbrake-gui avidemux kdenlive openshot lives vlc mpv gnome-mpv soundconverter audacity-freeworld muse lmms amarok flowblade
 
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
 sudo dnf -y install ./google-chrome-stable_current_x86_64.rpm
@@ -29,7 +29,7 @@ sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.co
 
 sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
 
-sudo dnf -y install brave-browser
+# sudo dnf -y install brave-browser
 
 sudo dnf -y install libreoffice-writer libreoffice-calc libreoffice-impress libreoffice-draw libreoffice-langpack-es
 
