@@ -78,6 +78,7 @@ unsetopt sharehistory
 #--------------------------------------------------------------------------
 # Aliases
 #--------------------------------------------------------------------------
+alias sentu="sh ~/.dotfiles/scripts/login.sh"
 
 alias vim="nvim"
 alias copy="xclip -selection clipboard"

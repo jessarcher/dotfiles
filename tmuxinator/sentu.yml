@@ -2,10 +2,10 @@
 
 name: sentu
 root: ~/sentu/tutos
-# on_project_start: homestead up
+# on_project_start: sentu
  
 windows:
-  - server: 
+  - server: clear && sentu 
   - logs: 
   - vim: vim
   - database: 
