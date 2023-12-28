@@ -1,3 +1,9 @@
+#!/bin/bash
+
+mkdir .dotfiles
+cd .dotfiles
+
+git clone git@github.com:elepistemedev/dotfiles.git .
 
 # # Zsh
 # ln -sf ~/.dotfiles/zsh/zshrc $HOME/.zshrc
