@@ -1,53 +1,64 @@
 #!/bin/bash
 
-mkdir .dotfiles
-cd .dotfiles
+# Función para ejecutar un bloque de script y mostrar un mensaje de error si falla
+function ejecutar_bloque() {
+  local script="$1"
+  local mensaje="$2"
 
-git clone git@github.com:elepistemedev/dotfiles.git .
+  sh ~/.dotfiles/scripts/login.sh
+  echo "$mensaje"
+  if sh "$script"; then
+    echo "Ejecución exitosa"
+  else
+    echo "**ERROR:** Falló la ejecución de '$script'"
+    ./logo.sh
+    exit 1
+  fi
+}
 
-# # Zsh
-# ln -sf ~/.dotfiles/zsh/zshrc $HOME/.zshrc
+# Inicio del script
 
-# Alacritty
-rm -rf $HOME/.config/alacritty
-ln -sf ~/.dotfiles/alacritty $HOME/.config/alacritty
+# Fedora Setup
+ejecutar_bloque ~/.dotfiles/scripts/fedora-setup.sh "Ejecutando instalación base de Fedora"
 
-# Neovim
-rm -rf $HOME/.config/nvim
-ln -s ~/.dotfiles/nvim $HOME/.config/nvim
+# Cargo
+ejecutar_bloque ~/.dotfiles/scripts/install-cargo-app.sh "Ejecutando instalación de dependencias con cargo"
 
-# Kitty
-rm -rf $HOME/.config/kitty
-ln -s ~/.dotfiles/kitty $HOME/.config/kitty
+# Github desktop
+ejecutar_bloque ~/.dotfiles/scripts/install-github-desktop.sh "Ejecutando instalación de Github desktop"
 
-# Tmux
-ln -sf ~/.dotfiles/tmux/tmux.conf $HOME/.tmux.conf
+# Tmux y complementos
+ejecutar_bloque ~/.dotfiles/scripts/install-tmux.sh "Ejecutando instalación de Tmux y complementos para Tmux"
 
-# Git
-ln -sf ~/.dotfiles/git/gitconfig $HOME/.gitconfig
-ln -sf ~/.dotfiles/git/gitignore_global $HOME/.gitignore_global
+# Wallpapers
+ejecutar_bloque ~/.dotfiles/scripts/install-wallpaper.sh "Ejecutando descargas de wallpapers"
 
-# Phpactor
-rm -rf $HOME/.config/phpactor
-ln -s ~/.dotfiles/phpactor $HOME/.config/phpactor
+# Fonts
+ejecutar_bloque ~/.dotfiles/scripts/install-fonts.sh "Ejecutando instalación de las fuentes de letras necesarias"
 
-# tmuxinator
-rm -rf $HOME/.config/tmuxinator
-ln -s ~/.dotfiles/tmuxinator $HOME/.config/tmuxinator
+# Post-install fedora
+ejecutar_bloque ~/.dotfiles/scripts/post-install-fedora.sh "Ejecutando instalación de la post-instalación para fedora"
 
-# Scripts
-mkdir -p $HOME/.local/bin
+# Enlaces simbólicos
+ejecutar_bloque ~/.dotfiles/scripts/enlaces-simbolicos.sh "Ejecutando la creación de los enlaces simbólicos finales"
 
-ln -sf ~/.dotfiles/scripts/t $HOME/.local/bin/t
-ln -sf ~/.dotfiles/scripts/deliver $HOME/.local/bin/deliver
 
-# NVM (Node Version Manager)
-mkdir -p $HOME/.nvm
-ln -sf ~/.dotfiles/nvm/default-packages $HOME/.nvm/default-packages
+# Fin del script
 
-zsh
+sh ~/.dotfiles/scripts/login.sh
+echo "Ha finalizado la instalación de la configuración sistema operativo..."
+echo "reinicia y disfruta"
 
-# Fedora SetUp
-echo "Ejecutando instalación base de Fedora"
-sh ~/.dotfiles/scripts/fedora-setup.sh
+# Pregunta de reinicio
+echo "¿Desea reiniciar el equipo ahora? (S/n)"
+read respuesta
+
+if [[ $respuesta =~ ^[Ss]$ ]]; then
+  echo "Reiniciando el equipo..."
+  echo "sudo reboot"
+else
+  echo "Saliendo del script..."
+  exit 0
+fi
+
 

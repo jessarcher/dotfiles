@@ -1,5 +1,8 @@
 #!/usr/bin/env sh
 
+# configurar node por defecto
+nvm install node
+
 # Configurando zsh por defecto
 chsh -s $(which zsh)
 
@@ -46,7 +49,3 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
-# Zsh
-ln -sf ~/.dotfiles/zsh/zshrc $HOME/.zshrc
-
-alacritty

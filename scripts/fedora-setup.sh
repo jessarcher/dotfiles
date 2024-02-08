@@ -59,7 +59,7 @@ composer global require laravel/installer
 
 # Node
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
-nvm install node 
+# nvm install node 
 
 # Docker setup
 sudo groupadd docker
@@ -70,20 +70,4 @@ sudo systemctl start docker
 
 echo "Don't forget to copy over your .ssh and .gnupg directories!"
 
-# Install scripts
-## Cargo
-sh ~/.dotfiles/scripts/install-cargo-app.sh
 
-## github desktop
-sh ~/.dotfiles/scripts/install-github-desktop.sh
-
-## Tmux y complementos
-sh ~/.dotfiles/scripts/install-tmux.sh
-
-## Wallpapers
-sh ~/.dotfiles/scripts/install-wallpaper.sh
-
-## Fonts
-sh ~/.dotfiles/scripts/install-fonts.sh
-
-sh ~/.dotfiles/scripts/post-install-fedora.sh
