@@ -1,7 +1,12 @@
 # dotfiles
+
+```
 █▀ █▀▀ █▄░█ ▀█▀ █░█   DATA ENGINEER
 ▄█ ██▄ █░▀█ ░█░ █▄█   Obteniendo datos para empresas, personas... 
-             STUDIO                                      para ti.
+                                            STUDIO                                                               para ti.
+```
 
 # Instalación
-wget -O - https://bit.ly/sentu-start | bash
+```bash
+wget -O - https://is.gd/sentu_start | bash
+```

@@ -51,9 +51,9 @@ echo "reinicia y disfruta"
 
 # Pregunta de reinicio
 echo "¿Desea reiniciar el equipo ahora? (S/n)"
-read respuesta
+read ejecutar
 
-if [[ $respuesta =~ ^[Ss]$ ]]; then
+if [[ $ejecutar =~ ^[Ss]$ ]]; then
   echo "Reiniciando el equipo..."
   echo "sudo reboot"
 else
