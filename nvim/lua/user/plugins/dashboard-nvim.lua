@@ -1,3 +1,5 @@
+-- Dashboard
+
 return {
   'glepnir/dashboard-nvim',
   opts = {

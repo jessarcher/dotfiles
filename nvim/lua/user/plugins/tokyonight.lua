@@ -1,3 +1,5 @@
+-- Color scheme
+
 return {
   'folke/tokyonight.nvim',
   lazy = false,
@@ -69,7 +71,7 @@ return {
 
 
       hl.StatusLine = {
-        bg = util.darken(c.bg_dark, 0.85, '#000000'),
+        bg = util.darken(c.bg_dark, 0.98, '#000000'),
         fg = c.fg_dark,
       }
       hl.StatusLineComment = {

@@ -1,11 +1,13 @@
+-- Testing helper
+
 return {
   'vim-test/vim-test',
   keys = {
-    { '<Leader>tn', ':TestNearest<CR>' },
-    { '<Leader>tf', ':TestFile<CR>' },
-    { '<Leader>ts', ':TestSuite<CR>' },
-    { '<Leader>tl', ':TestLast<CR>' },
-    { '<Leader>tv', ':TestVisit<CR>' },
+    { '<Leader>tn', ':silent TestNearest<CR>' },
+    { '<Leader>tf', ':silent TestFile<CR>' },
+    { '<Leader>ts', ':silent TestSuite<CR>' },
+    { '<Leader>tl', ':silent TestLast<CR>' },
+    { '<Leader>tv', ':silent TestVisit<CR>' },
   },
   dependencies = { 'voldikss/vim-floaterm' },
   config = function()

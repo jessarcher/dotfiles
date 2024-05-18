@@ -1,3 +1,5 @@
+-- Automatically set the working directory to the project root.
+
 return {
   'airblade/vim-rooter',
   init = function()

@@ -2,11 +2,15 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
--- Quickly clear search highlighting.
-vim.keymap.set('n', '<leader>k', ':nohlsearch<CR>')
+-- Clear search highlighting.
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Close all open buffers.
 vim.keymap.set('n', '<leader>Q', ':bufdo bdelete<CR>')
+
+-- Diagnostics.
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [d]iagnostic' })
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [d]iagnostic' })
 
 -- Allow gf to open non-existent files.
 vim.keymap.set('', 'gf', ':edit <cfile><CR>')
@@ -26,6 +30,9 @@ vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true })
 
 -- Paste replace visual selection without copying it.
 vim.keymap.set('v', 'p', '"_dP')
+
+-- Reselect pasted text
+vim.keymap.set('n', 'p', 'p`[v`]')
 
 -- Easy insertion of a trailing ; or , from insert mode.
 vim.keymap.set('i', ';;', '<Esc>A;<Esc>')

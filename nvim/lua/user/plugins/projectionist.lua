@@ -1,3 +1,5 @@
+-- Project Configuration
+
 return {
   'tpope/vim-projectionist',
   dependencies = 'tpope/vim-dispatch',

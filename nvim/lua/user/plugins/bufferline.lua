@@ -1,3 +1,5 @@
+-- Display buffers as tabs.
+
 local inactiveBg = {
   bg = { attribute = 'bg', highlight = 'BufferlineInactive' },
 }

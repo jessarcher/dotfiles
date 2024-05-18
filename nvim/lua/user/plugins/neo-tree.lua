@@ -1,3 +1,5 @@
+-- File tree sidebar
+
 return {
   'nvim-neo-tree/neo-tree.nvim',
   cmd = 'Neotree',

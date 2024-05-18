@@ -1,3 +1,5 @@
+-- Close buffers without closing the split window.
+
 return {
   'famiu/bufdelete.nvim',
   config = function()

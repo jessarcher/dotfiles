@@ -1,3 +1,5 @@
+-- Colorize Hex Codes
+
 return {
   'NvChad/nvim-colorizer.lua',
   opts = {

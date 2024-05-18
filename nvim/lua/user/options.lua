@@ -15,7 +15,7 @@ vim.opt.wrap = false
 vim.opt.breakindent = true -- maintain indent when wrapping indented lines
 vim.opt.linebreak = true -- wrap at word boundaries
 vim.opt.list = true -- enable the below listchars
-vim.opt.listchars = { tab = '▸ ', trail = '·' }
+vim.opt.listchars = { tab = '▸ ', trail = '·', nbsp = '␣' }
 vim.opt.fillchars:append({ eob = ' ' }) -- remove the ~ from end of buffer
 vim.opt.mouse = 'a' -- enable mouse for all modes
 vim.opt.mousemoveevent = true -- Allow hovering in bufferline
@@ -33,8 +33,9 @@ vim.opt.wildmode = 'longest:full,full' -- complete the longest common match, and
 vim.opt.completeopt = 'menuone,longest,preview'
 vim.opt.signcolumn = 'yes:2'
 vim.opt.showmode = false
-vim.opt.updatetime = 4001 -- Set updatime to 1ms longer than the default to prevent polyglot from changing it
+vim.opt.updatetime = 250 -- Decrease update time
 vim.opt.redrawtime = 10000 -- Allow more time for loading syntax on large files
 vim.opt.exrc = true
 vim.opt.secure = true
 vim.opt.titlestring = '%f // nvim'
+vim.opt.inccommand = 'split'
