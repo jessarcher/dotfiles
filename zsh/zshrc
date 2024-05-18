@@ -99,6 +99,7 @@ alias sail='[ -f sail ] && sail || vendor/bin/sail'
 # Laravel
 alias a="artisan"
 alias tinker="artisan tinker"
+alias seed="artisan db:seed"
 alias serve="artisan serve"
 alias mfs="artisan migrate:fresh --seed"
 alias sqlit="sed -e 's/\(DB_.*\)/# \\1/g' -e 's/# \(DB_CONNECTION=\).*/\\1sqlite/g' -i .env"
@@ -110,6 +111,7 @@ alias g="git"
 alias gs="git s"
 alias co="git checkout"
 alias main='git checkout $([ `git rev-parse --quiet --verify master` ] && echo "master" || echo "main")'
+alias wip='git commit -m "wip"'
 nah() {
     git reset --hard
 

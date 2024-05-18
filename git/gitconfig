@@ -1,4 +1,7 @@
 [alias]
+    pul = pull
+    pus = push
+
     a = add
     aa = add --all
     ap = add --patch
