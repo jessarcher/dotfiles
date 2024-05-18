@@ -40,32 +40,32 @@ return {
       capabilities = capabilities
     })
 
-    require('lspconfig').phpactor.setup({
-      capabilities = capabilities,
-      on_attach = function(client, bufnr)
-        client.server_capabilities.completionProvider = false
-        client.server_capabilities.hoverProvider = false
-        client.server_capabilities.implementationProvider = false
-        client.server_capabilities.referencesProvider = false
-        client.server_capabilities.renameProvider = false
-        client.server_capabilities.selectionRangeProvider = false
-        client.server_capabilities.signatureHelpProvider = false
-        client.server_capabilities.typeDefinitionProvider = false
-        client.server_capabilities.workspaceSymbolProvider = false
-        client.server_capabilities.definitionProvider = false
-        client.server_capabilities.documentHighlightProvider = false
-        client.server_capabilities.documentSymbolProvider = false
-        client.server_capabilities.documentFormattingProvider = false
-        client.server_capabilities.documentRangeFormattingProvider = false
-      end,
-      init_options = {
-        ["language_server_phpstan.enabled"] = false,
-        ["language_server_psalm.enabled"] = false,
-      },
-      handlers = {
-        ['textDocument/publishDiagnostics'] = function() end
-      }
-    })
+    -- require('lspconfig').phpactor.setup({
+    --   capabilities = capabilities,
+    --   on_attach = function(client, bufnr)
+    --     client.server_capabilities.completionProvider = false
+    --     client.server_capabilities.hoverProvider = false
+    --     client.server_capabilities.implementationProvider = false
+    --     client.server_capabilities.referencesProvider = false
+    --     client.server_capabilities.renameProvider = false
+    --     client.server_capabilities.selectionRangeProvider = false
+    --     client.server_capabilities.signatureHelpProvider = false
+    --     client.server_capabilities.typeDefinitionProvider = false
+    --     client.server_capabilities.workspaceSymbolProvider = false
+    --     client.server_capabilities.definitionProvider = false
+    --     client.server_capabilities.documentHighlightProvider = false
+    --     client.server_capabilities.documentSymbolProvider = false
+    --     client.server_capabilities.documentFormattingProvider = false
+    --     client.server_capabilities.documentRangeFormattingProvider = false
+    --   end,
+    --   init_options = {
+    --     ["language_server_phpstan.enabled"] = false,
+    --     ["language_server_psalm.enabled"] = false,
+    --   },
+    --   handlers = {
+    --     ['textDocument/publishDiagnostics'] = function() end
+    --   }
+    -- })
 
     -- Vue, JavaScript, TypeScript
     require('lspconfig').volar.setup({
@@ -77,9 +77,27 @@ return {
         -- end
       end,
       capabilities = capabilities,
-      -- Enable "Take Over Mode" where volar will provide all JS/TS LSP services
-      -- This drastically improves the responsiveness of diagnostic updates on change
-      filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+    })
+
+    require('lspconfig').tsserver.setup({
+      init_options = {
+        plugins = {
+          {
+            name = "@vue/typescript-plugin",
+            location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
+            languages = {"javascript", "typescript", "vue"},
+          },
+        },
+      },
+      filetypes = {
+        "javascript",
+        "javascriptreact",
+        "javascript.jsx",
+        "typescript",
+        "typescriptreact",
+        "typescript.tsx",
+        "vue",
+      },
     })
 
     -- Tailwind CSS
@@ -93,6 +111,22 @@ return {
           schemas = require('schemastore').json.schemas(),
         },
       },
+    })
+
+    -- Lua
+    require('lspconfig').lua_ls.setup({
+      settings = {
+        Lua = {
+          runtime = { version = 'LuaJIT' },
+          workspace = {
+            checkThirdParty = false,
+            library = {
+              '${3rd}/luv/library',
+              unpack(vim.api.nvim_get_runtime_file('', true)),
+            },
+          }
+        }
+      }
     })
 
     -- null-ls
