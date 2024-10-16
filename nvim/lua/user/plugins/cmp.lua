@@ -85,13 +85,13 @@ return {
       },
       mapping = {
         ["<Tab>"] = cmp.mapping(function(fallback)
-          -- print('tab...')
           if cmp.visible() then
             cmp.select_next_item()
-          elseif luasnip.expand_or_jumpable() then
-            luasnip.expand_or_jump()
+          elseif luasnip.locally_jumpable(1) then
+            luasnip.jump(1)
           elseif has_words_before() then
             cmp.complete()
+            print('complete...')
           else
             fallback()
           end
@@ -99,12 +99,25 @@ return {
         ["<S-Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_prev_item()
-          elseif luasnip.jumpable(-1) then
+          elseif luasnip.locally_jumpable(-1) then
             luasnip.jump(-1)
           else
             fallback()
           end
         end, { "i", "s" }),
+        -- ['<CR>'] = cmp.mapping(function (fallback)
+        --   if cmp.visible() then
+        --     if luasnip.expandable() then
+        --       luasnip.expand()
+        --     else
+        --       cmp.confirm({
+        --         select = true,
+        --       })
+        --     end
+        --   else
+        --     fallback()
+        --   end
+        -- end),
         ['<CR>'] = cmp.mapping.confirm({ select = false }),
       },
       sources = {
@@ -119,5 +132,13 @@ return {
         -- ghost_text = true,
       },
     })
+
+    -- cmp.setup.filetype("sql", {
+    --   sources = cmp.config.sources({
+    --     { name = 'vim-dadbod-completion' },
+    --   }, {
+    --     { name = 'buffer' },
+    --   })
+    -- })
   end,
 }

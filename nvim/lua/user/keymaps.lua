@@ -32,7 +32,7 @@ vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true })
 vim.keymap.set('v', 'p', '"_dP')
 
 -- Reselect pasted text
-vim.keymap.set('n', 'p', 'p`[v`]')
+-- vim.keymap.set('n', 'p', 'p`[v`]')
 
 -- Easy insertion of a trailing ; or , from insert mode.
 vim.keymap.set('i', ';;', '<Esc>A;<Esc>')

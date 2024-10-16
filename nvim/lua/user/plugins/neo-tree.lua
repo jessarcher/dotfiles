@@ -54,6 +54,14 @@ return {
       highlight_separator = "SidebarTabInactiveSeparator",
       highlight_separator_active = "SidebarTabActiveSeparator",
     },
+    event_handlers = {
+      {
+        event = "file_opened",
+        handler = function (file_path)
+          require("neo-tree.command").execute({ action = "close" })
+        end,
+      }
+    },
     default_component_configs = {
       indent = {
         padding = 0,

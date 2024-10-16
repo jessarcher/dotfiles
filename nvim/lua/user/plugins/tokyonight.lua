@@ -130,10 +130,10 @@ return {
 
       -- Indent
       hl.IblIndent = {
-        fg = c.bg_highlight,
+        fg = util.darken(c.bg_highlight, 0.30),
       }
       hl.IblScope = {
-        fg = util.lighten(c.bg_highlight, 0.95),
+        fg = util.darken(c.bg_highlight, 0.80),
       }
 
       -- Floaterm
