@@ -18,3 +18,4 @@ _ide_helper.php
 .projections.json
 .phpactor.json
 .rgignore
+.nvimrc
