@@ -43,9 +43,19 @@ return {
           type = 'source',
           alternate = {
             'tests/{}Test.php',
+            'tests/Unit/{}Test.php',
+            'tests/Feature/{}Test.php',
           },
         },
         ['tests/*Test.php'] = {
+          type = 'test',
+          alternate = 'src/{}.php',
+        },
+        ['tests/Unit/*Test.php'] = {
+          type = 'test',
+          alternate = 'src/{}.php',
+        },
+        ['tests/Feature/*Test.php'] = {
           type = 'test',
           alternate = 'src/{}.php',
         },
