@@ -99,7 +99,7 @@ return {
     })
 
     -- Tailwind CSS
-    require('lspconfig').tailwindcss.setup({ capabilities = capabilities })
+    vim.lsp.enable('tailwindcss')
 
     -- JSON
     require('lspconfig').jsonls.setup({
