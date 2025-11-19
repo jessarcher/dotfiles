@@ -3,11 +3,11 @@
 return {
   'vim-test/vim-test',
   keys = {
-    { '<Leader>tn', ':silent TestNearest<CR>' },
-    { '<Leader>tf', ':silent TestFile<CR>' },
-    { '<Leader>ts', ':silent TestSuite<CR>' },
-    { '<Leader>tl', ':silent TestLast<CR>' },
-    { '<Leader>tv', ':silent TestVisit<CR>' },
+    { '<Leader>tn', ':silent only | :silent TestNearest<CR>' },
+    { '<Leader>tf', ':silent only | :silent TestFile<CR>' },
+    { '<Leader>ts', ':silent only | :silent TestSuite<CR>' },
+    { '<Leader>tl', ':silent only | :silent TestLast<CR>' },
+    { '<Leader>tv', ':silent only | :silent TestVisit<CR>' },
   },
   dependencies = { 'voldikss/vim-floaterm' },
   config = function()
@@ -23,14 +23,22 @@ return {
       let test#php#pest#options = '-v'
       let test#javascript#jest#options = '--color'
 
-      function! FloatermStrategy(cmd)
-        execute 'silent FloatermSend q'
-        execute 'silent FloatermKill'
-        execute 'FloatermNew! '.a:cmd.' | less -X'
-      endfunction
+      " function! FloatermStrategy(cmd)
+      "   execute 'silent FloatermSend q'
+      "   sleep 100m
+      "   execute 'silent FloatermKill'
+      "   execute 'FloatermNew! DISABLE_UPDATE_PROMPT=true '.a:cmd.' | less -X'
+      " endfunction
+      " let g:test#custom_strategies = {'floaterm': function('FloatermStrategy')}
+      " let g:test#strategy = 'floaterm'
 
-      let g:test#custom_strategies = {'floaterm': function('FloatermStrategy')}
-      let g:test#strategy = 'floaterm'
+      let g:test#strategy = 'neovim_sticky'
+
+      let test#neovim#term_position = "vert"
+      let g:test#preserve_screen = 0
+      let g:test#neovim_sticky#kill_previous = 1
+      let g:test#neovim_sticky#reopen_window = 1
+      let g:test#neovim_sticky#use_existing = 1
     ]])
   end
 }
