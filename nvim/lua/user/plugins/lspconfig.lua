@@ -86,11 +86,12 @@ return {
     vim.lsp.enable('tailwindcss')
 
     -- JSON
-    require('lspconfig').jsonls.setup({
-      capabilities = capabilities,
+    vim.lsp.enable('jsonls')
+    vim.lsp.config('jsonls', {
       settings = {
         json = {
           schemas = require('schemastore').json.schemas(),
+          validate = { enable = true },
         },
       },
     })
