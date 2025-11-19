@@ -5,6 +5,8 @@ vim.g.maplocalleader = ' '
 -- Clear search highlighting.
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
+vim.keymap.set('', '<F1>', '<Nop>')
+
 -- Close all open buffers.
 vim.keymap.set('n', '<leader>Q', ':bufdo bdelete<CR>')
 
