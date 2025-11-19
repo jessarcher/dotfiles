@@ -9,7 +9,7 @@ return {
     { '<Leader>tl', ':silent only | :silent TestLast<CR>' },
     { '<Leader>tv', ':silent only | :silent TestVisit<CR>' },
   },
-  dependencies = { 'voldikss/vim-floaterm' },
+  -- dependencies = { 'voldikss/vim-floaterm' },
   config = function()
     vim.cmd([[
       function! PhpUnitTransform(cmd) abort
