@@ -2,10 +2,10 @@
 
 return {
   'Wansmer/treesj',
-  dependencies = { 'nvim-treesitter/nvim-treesitter' },
+  dependencies = { 'neovim-treesitter/nvim-treesitter' },
   keys = {
-    { 'gJ', function() require('treesj').join() end },
-    { 'gS', function() require('treesj').split() end },
+    { '<leader>jj', function() require('treesj').join() end, desc = 'Join node' },
+    { '<leader>js', function() require('treesj').split() end, desc = 'Split node' },
   },
   opts = {
     use_default_keymaps = false,

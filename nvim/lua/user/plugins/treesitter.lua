@@ -1,46 +1,16 @@
--- Syntax highlighting
-
 return {
-  'nvim-treesitter/nvim-treesitter',
-  event = 'VeryLazy',
-  build = function()
-    require('nvim-treesitter.install').update({ with_sync = true })
-  end,
+  'neovim-treesitter/nvim-treesitter',
+  url = 'https://github.com/neovim-treesitter/nvim-treesitter',
   dependencies = {
-    {
-      'JoosepAlviste/nvim-ts-context-commentstring',
-      opts = {
-        languages = {
-          php_only = '// %s',
-          php = '// %s',
-          -- blade = '{{-- %s --}}',
-          -- blade = {
-          --   __default = '{{-- %s --}}',
-          --   html = '{{-- %s --}}',
-          --   blade = '{{-- %s --}}',
-          --   php = '// %s',
-          --   php_only = '// %s',
-          -- }
-        },
-        custom_calculation = function (node, language_tree)
-          if vim.bo.filetype == 'blade' then
-            if language_tree._lang == 'html' then
-              return '{{-- %s --}}'
-            else
-              return '// %s'
-            end
-          end
-          -- if vim.bo.filetype == 'blade' and language_tree._lang ~= 'javascript' and language_tree._lang ~= 'php' then
-          --   return '{{-- %s --}}'
-          -- end
-        end,
-      },
-    },
-    'nvim-treesitter/nvim-treesitter-textobjects',
+    'neovim-treesitter/treesitter-parser-registry',
   },
-  main = 'nvim-treesitter.configs',
-  opts = {
-    ensure_installed = {
+  lazy = false,
+  build = ':TSUpdate',
+  config = function()
+    local ts = require('nvim-treesitter')
+
+    -- Languages we want installed/updated locally for highlighting + queries.
+    local languages = {
       'arduino',
       'bash',
       'blade',
@@ -55,14 +25,15 @@ return {
       'gitignore',
       'go',
       'html',
+      'html_tags',
       'http',
       'ini',
       'javascript',
       'json',
-      'jsonc',
       'lua',
       'make',
       'markdown',
+      'markdown_inline',
       'passwd',
       'php',
       'php_only',
@@ -78,131 +49,44 @@ return {
       'vue',
       'xml',
       'yaml',
-    },
-    auto_install = true,
-    highlight = {
-      enable = true,
-    },
-    indent = {
-      enable = true,
-      disable = { "yaml" }
-    },
-    rainbow = {
-      enable = true,
-    },
-    textobjects = {
-      select = {
-        enable = true,
-        lookahead = true,
-        keymaps = {
-          ['if'] = '@function.inner',
-          ['af'] = '@function.outer',
-          ['ia'] = '@parameter.inner',
-          ['aa'] = '@parameter.outer',
-        },
-      },
-    },
-  },
-  config = function (_, opts)
-    local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
-    local query = vim.treesitter.query
-    local html_script_type_languages = {
-      ['importmap'] = 'json',
-      ['module'] = 'javascript',
-      ['application/ecmascript'] = 'javascript',
-      ['text/ecmascript'] = 'javascript',
-    }
-    local non_filetype_match_injection_language_aliases = {
-      ex = 'elixir',
-      pl = 'perl',
-      sh = 'bash',
-      uxn = 'uxntal',
-      ts = 'typescript',
     }
 
-    local function get_capture_node(match, capture_id)
-      local value = match[capture_id]
-      if type(value) == 'table' then
-        return value[1]
-      end
-      return value
-    end
-
-    local function get_capture_metadata(metadata, capture_id)
-      local value = metadata[capture_id]
-      if type(value) == 'table' and value[1] ~= nil then
-        return value[1]
-      end
-      return value
-    end
-
-    local function get_parser_from_markdown_info_string(injection_alias)
-      local match = vim.filetype.match({ filename = 'a.' .. injection_alias })
-      return match or non_filetype_match_injection_language_aliases[injection_alias] or injection_alias
-    end
-
-    query.add_directive('set-lang-from-mimetype!', function(match, _, bufnr, pred, metadata)
-      local capture_id = pred[2]
-      local node = get_capture_node(match, capture_id)
-      if not node then
-        return
-      end
-
-      local type_attr_value = vim.treesitter.get_node_text(node, bufnr)
-      local configured = html_script_type_languages[type_attr_value]
-      if configured then
-        metadata['injection.language'] = configured
-      else
-        local parts = vim.split(type_attr_value, '/', {})
-        metadata['injection.language'] = parts[#parts]
-      end
-    end, { force = true, all = true })
-
-    query.add_directive('set-lang-from-info-string!', function(match, _, bufnr, pred, metadata)
-      local capture_id = pred[2]
-      local node = get_capture_node(match, capture_id)
-      if not node then
-        return
-      end
-
-      local injection_alias = vim.treesitter.get_node_text(node, bufnr):lower()
-      metadata['injection.language'] = get_parser_from_markdown_info_string(injection_alias)
-    end, { force = true, all = true })
-
-    query.add_directive('downcase!', function(match, _, bufnr, pred, metadata)
-      local capture_id = pred[2]
-      local node = get_capture_node(match, capture_id)
-      if not node then
-        return
-      end
-
-      local capture_metadata = get_capture_metadata(metadata, capture_id)
-      local text = vim.treesitter.get_node_text(node, bufnr, { metadata = capture_metadata }) or ''
-
-      if type(metadata[capture_id]) == 'table' and metadata[capture_id][1] ~= nil then
-        metadata[capture_id][1] = metadata[capture_id][1] or {}
-        metadata[capture_id][1].text = string.lower(text)
-      else
-        metadata[capture_id] = metadata[capture_id] or {}
-        metadata[capture_id].text = string.lower(text)
-      end
-    end, { force = true, all = true })
-
-    parser_config.blade = {
-      install_info = {
-        url = "https://github.com/EmranMR/tree-sitter-blade",
-        files = {"src/parser.c"},
-        branch = "main",
-      },
-      filetype = "blade"
-    }
-
+    -- Treat Laravel Blade templates as `blade` instead of plain php.
     vim.filetype.add({
       pattern = {
         ['.*%.blade%.php'] = 'blade',
       },
     })
 
-    require('nvim-treesitter.configs').setup(opts)
+    -- Build a quick lookup of already-installed parsers.
+    local installed = {}
+    for _, lang in ipairs(ts.get_installed()) do
+      installed[lang] = true
+    end
+
+    -- Install only missing languages to keep startup work minimal.
+    local missing = {}
+    for _, lang in ipairs(languages) do
+      if not installed[lang] then
+        table.insert(missing, lang)
+      end
+    end
+
+    -- Trigger async installs (with summary logs) when something is missing.
+    if #missing > 0 then
+      ts.install(missing, { summary = true })
+    end
+
+    -- Enable Treesitter highlighting per-filetype buffer as files open.
+    -- Also opt into Treesitter indentation everywhere except yaml.
+    vim.api.nvim_create_autocmd('FileType', {
+      callback = function(args)
+        pcall(vim.treesitter.start, args.buf)
+
+        if vim.bo[args.buf].filetype ~= 'yaml' then
+          vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+        end
+      end,
+    })
   end,
 }
