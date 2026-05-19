@@ -15,7 +15,16 @@ return {
         height = 0.8,
       },
     })
-    require('mason-lspconfig').setup({ automatic_installation = true })
+    require('mason-lspconfig').setup({
+      ensure_installed = {
+        'intelephense',
+        'vtsls',
+        'tailwindcss',
+        'jsonls',
+        'lua_ls',
+      },
+      automatic_enable = false,
+    })
 
     local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
