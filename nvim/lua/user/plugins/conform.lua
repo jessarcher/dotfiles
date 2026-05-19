@@ -3,10 +3,22 @@ return {
   opts = {
     formatters_by_ft = {
       php = { "pint" },
-      javascript = { "prettierd", stop_after_first = true },
-      typescript = { "prettierd", stop_after_first = true },
-      typescriptreact = { "prettierd", stop_after_first = true },
+      javascript = { "oxfmt", "prettierd", stop_after_first = true },
+      javascriptreact = { "oxfmt", "prettierd", stop_after_first = true },
+      typescript = { "oxfmt", "prettierd", stop_after_first = true },
+      typescriptreact = { "oxfmt", "prettierd", stop_after_first = true },
       vue = { "prettierd", stop_after_first = true },
+    },
+    formatters = {
+      oxfmt = {
+        require_cwd = true,
+      },
+      prettierd = {
+        require_cwd = true,
+      },
+      prettier = {
+        require_cwd = true,
+      },
     },
     format_on_save = function(bufnr)
       -- Disable with a global or buffer-local variable
