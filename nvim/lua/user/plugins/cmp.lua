@@ -35,11 +35,18 @@ return {
       copilot = "Copilot",
     }
 
+    local macro_active = function()
+      return vim.fn.reg_recording() ~= '' or vim.fn.reg_executing() ~= ''
+    end
+
     local function ltrim(s)
       return s:match'^%s*(.*)'
     end
 
     cmp.setup({
+      enabled = function()
+        return vim.fn.reg_recording() == '' and vim.fn.reg_executing() == ''
+      end,
       preselect = false,
       snippet = {
         expand = function(args)
@@ -86,6 +93,11 @@ return {
       },
       mapping = {
         ["<Tab>"] = cmp.mapping(function(fallback)
+          if macro_active() then
+            fallback()
+            return
+          end
+
           if cmp.visible() then
             cmp.select_next_item()
           elseif luasnip.locally_jumpable(1) then
@@ -97,6 +109,11 @@ return {
           end
         end, { "i", "s" }),
         ["<S-Tab>"] = cmp.mapping(function(fallback)
+          if macro_active() then
+            fallback()
+            return
+          end
+
           if cmp.visible() then
             cmp.select_prev_item()
           elseif luasnip.locally_jumpable(-1) then
