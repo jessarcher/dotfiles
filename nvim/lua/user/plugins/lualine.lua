@@ -22,6 +22,16 @@ return {
     sections = {
       lualine_a = {
         'mode',
+        {
+          function()
+            local reg = vim.fn.reg_recording()
+            if reg == '' then
+              return ''
+            end
+            return 'REC @' .. reg
+          end,
+          color = { fg = '#0f0f14', bg = '#ff9e64' },
+        },
       },
       lualine_b = {
         'branch',
