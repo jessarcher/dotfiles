@@ -2,5 +2,8 @@
 
 return {
   'delphinus/rtr.nvim',
-  opts = {},
+  opts = {
+    root_names = { ".git", "Makefile", "composer.json" },
+    log_level = false,
+  },
 }
