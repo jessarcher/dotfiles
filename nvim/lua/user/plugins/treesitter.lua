@@ -105,6 +105,88 @@ return {
   },
   config = function (_, opts)
     local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+    local query = vim.treesitter.query
+    local html_script_type_languages = {
+      ['importmap'] = 'json',
+      ['module'] = 'javascript',
+      ['application/ecmascript'] = 'javascript',
+      ['text/ecmascript'] = 'javascript',
+    }
+    local non_filetype_match_injection_language_aliases = {
+      ex = 'elixir',
+      pl = 'perl',
+      sh = 'bash',
+      uxn = 'uxntal',
+      ts = 'typescript',
+    }
+
+    local function get_capture_node(match, capture_id)
+      local value = match[capture_id]
+      if type(value) == 'table' then
+        return value[1]
+      end
+      return value
+    end
+
+    local function get_capture_metadata(metadata, capture_id)
+      local value = metadata[capture_id]
+      if type(value) == 'table' and value[1] ~= nil then
+        return value[1]
+      end
+      return value
+    end
+
+    local function get_parser_from_markdown_info_string(injection_alias)
+      local match = vim.filetype.match({ filename = 'a.' .. injection_alias })
+      return match or non_filetype_match_injection_language_aliases[injection_alias] or injection_alias
+    end
+
+    query.add_directive('set-lang-from-mimetype!', function(match, _, bufnr, pred, metadata)
+      local capture_id = pred[2]
+      local node = get_capture_node(match, capture_id)
+      if not node then
+        return
+      end
+
+      local type_attr_value = vim.treesitter.get_node_text(node, bufnr)
+      local configured = html_script_type_languages[type_attr_value]
+      if configured then
+        metadata['injection.language'] = configured
+      else
+        local parts = vim.split(type_attr_value, '/', {})
+        metadata['injection.language'] = parts[#parts]
+      end
+    end, { force = true, all = true })
+
+    query.add_directive('set-lang-from-info-string!', function(match, _, bufnr, pred, metadata)
+      local capture_id = pred[2]
+      local node = get_capture_node(match, capture_id)
+      if not node then
+        return
+      end
+
+      local injection_alias = vim.treesitter.get_node_text(node, bufnr):lower()
+      metadata['injection.language'] = get_parser_from_markdown_info_string(injection_alias)
+    end, { force = true, all = true })
+
+    query.add_directive('downcase!', function(match, _, bufnr, pred, metadata)
+      local capture_id = pred[2]
+      local node = get_capture_node(match, capture_id)
+      if not node then
+        return
+      end
+
+      local capture_metadata = get_capture_metadata(metadata, capture_id)
+      local text = vim.treesitter.get_node_text(node, bufnr, { metadata = capture_metadata }) or ''
+
+      if type(metadata[capture_id]) == 'table' and metadata[capture_id][1] ~= nil then
+        metadata[capture_id][1] = metadata[capture_id][1] or {}
+        metadata[capture_id][1].text = string.lower(text)
+      else
+        metadata[capture_id] = metadata[capture_id] or {}
+        metadata[capture_id].text = string.lower(text)
+      end
+    end, { force = true, all = true })
 
     parser_config.blade = {
       install_info = {
