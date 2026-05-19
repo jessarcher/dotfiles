@@ -14,11 +14,10 @@ return {
     vim.g.tmux_navigator_no_mappings = 1
   end,
   keys = {
-    { "<c-h>", "<cmd>TmuxNavigateLeft<cr>" },
-    { "<c-j>", "<cmd>TmuxNavigateDown<cr>" },
-    { "<c-k>", "<cmd>TmuxNavigateUp<cr>" },
-    { "<c-l>", "<cmd>TmuxNavigateRight<cr>" },
-    { "<c-\\>", "<cmd>TmuxNavigatePrevious<cr>" },
+    { "<c-h>", "<cmd>TmuxNavigateLeft<cr>", desc = 'Focus left pane' },
+    { "<c-j>", "<cmd>TmuxNavigateDown<cr>", desc = 'Focus lower pane' },
+    { "<c-k>", "<cmd>TmuxNavigateUp<cr>", desc = 'Focus upper pane' },
+    { "<c-l>", "<cmd>TmuxNavigateRight<cr>", desc = 'Focus right pane' },
+    { "<c-\\>", "<cmd>TmuxNavigatePrevious<cr>", desc = 'Focus previous pane' },
   }
 }
-

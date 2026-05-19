@@ -14,8 +14,6 @@ return {
       { '<leader>p', group = 'Phpactor' },
       { '<leader>l', group = 'LSP' },
       { '<leader>r', group = 'Rename' },
-      { '<leader>d', desc = 'Diagnostics float' },
-      { '<leader>s', desc = 'Document symbols' },
     })
   end,
 }

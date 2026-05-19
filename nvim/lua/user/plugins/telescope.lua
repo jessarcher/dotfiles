@@ -10,9 +10,9 @@ return {
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release' },
   },
   keys = {
-    { '<leader>f', function() require('telescope.builtin').find_files() end },
-    { '<leader>F', function() require('telescope.builtin').find_files({ no_ignore = true, prompt_title = 'All Files' }) end },
-    { '<leader>b', function() require('telescope.builtin').buffers() end },
+    { '<leader>f', function() require('telescope.builtin').find_files() end, desc = 'Find files' },
+    { '<leader>F', function() require('telescope.builtin').find_files({ no_ignore = true, prompt_title = 'All Files' }) end, desc = 'Find all files' },
+    { '<leader>b', function() require('telescope.builtin').buffers() end, desc = 'Find buffers' },
     { '<leader>g', function() require('telescope').extensions.live_grep_args.live_grep_args({
       prompt_title = 'Grep Project',
       vimgrep_arguments = {
@@ -27,7 +27,7 @@ return {
         "--column",
         "--smart-case",
       }
-    }) end },
+    }) end, desc = 'Grep project' },
     { '<leader>G', function() require('telescope').extensions.live_grep_args.live_grep_args({
       prompt_title = 'Grep All Files',
       vimgrep_arguments = {
@@ -43,9 +43,9 @@ return {
         "--column",
         "--smart-case",
       },
-    }) end },
-    { '<leader>h', function() require('telescope.builtin').help_tags() end },
-    { '<leader>s', function() require('telescope.builtin').lsp_document_symbols() end },
+    }) end, desc = 'Grep all files' },
+    { '<leader>h', function() require('telescope.builtin').help_tags() end, desc = 'Help tags' },
+    { '<leader>s', function() require('telescope.builtin').lsp_document_symbols() end, desc = 'Show document symbols' },
   },
   config = function ()
     local actions = require('telescope.actions')

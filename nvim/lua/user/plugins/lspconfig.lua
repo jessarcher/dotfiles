@@ -155,14 +155,14 @@ return {
     })
 
     -- Keymaps
-    vim.keymap.set('n', '<Leader>d', '<cmd>lua vim.diagnostic.open_float()<CR>')
-    vim.keymap.set('n', 'gd', ':Telescope lsp_definitions<CR>')
-    vim.keymap.set('n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<CR>')
-    vim.keymap.set('n', 'gi', ':Telescope lsp_implementations<CR>')
-    vim.keymap.set('n', 'gr', ':Telescope lsp_references<CR>')
+    vim.keymap.set('n', '<Leader>d', '<cmd>lua vim.diagnostic.open_float()<CR>', { desc = 'Open diagnostics float' })
+    vim.keymap.set('n', 'gd', ':Telescope lsp_definitions<CR>', { desc = 'Go to definition' })
+    vim.keymap.set('n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<CR>', { desc = 'Show code actions' })
+    vim.keymap.set('n', 'gi', ':Telescope lsp_implementations<CR>', { desc = 'Go to implementation' })
+    vim.keymap.set('n', 'gr', ':Telescope lsp_references<CR>', { desc = 'Go to references' })
     vim.keymap.set('n', '<Leader>lr', '<cmd>lsp restart<CR>', { silent = true, desc = 'Restart LSP' })
-    vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
-    vim.keymap.set('n', '<Leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
+    vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', { desc = 'Hover documentation' })
+    vim.keymap.set('n', '<Leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', { desc = 'Rename symbol' })
 
     -- Diagnostic configuration
     vim.diagnostic.config({

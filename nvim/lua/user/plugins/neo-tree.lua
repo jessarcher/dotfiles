@@ -4,7 +4,7 @@ return {
   'nvim-neo-tree/neo-tree.nvim',
   cmd = 'Neotree',
   keys = {
-    { '<leader>n', ':Neotree reveal toggle<CR>' },
+    { '<leader>n', ':Neotree reveal toggle<CR>', desc = 'Toggle file tree' },
   },
   dependencies = {
     "nvim-lua/plenary.nvim",
